@@ -17,11 +17,9 @@ namespace CyScada.DAL
         public DataTable GetUser(string userName,string password)
         {
 
-            // TODO: 对密码做进一步的处理！这里SQL只处理了名字的验证
-
             var sql = string.Format(@"SELECT TOP 50 * 
 FROM dbo.dt_Administrator WITH(NOLOCK)
-WHERE UserName='{0}' --AND UserPwd = '{1}'", userName, password);
+WHERE UserName='{0}' AND UserPwd = '{1}'", userName, password);
 
             var ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql);
 
