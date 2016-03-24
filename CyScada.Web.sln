@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.Web", "CyScada.Web.csproj", "{79649EAD-2018-4677-A28D-D708C1B1854E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.BLL", "CyScada.BLL\CyScada.BLL.csproj", "{6ED17B98-2D05-48CD-86F9-3EDC2A1C1997}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.Model", "CyScada.Model\CyScada.Model.csproj", "{E177E719-5215-451C-8C30-EBC3539D2404}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.DAL", "CyScada.DAL\CyScada.DAL.csproj", "{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79649EAD-2018-4677-A28D-D708C1B1854E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79649EAD-2018-4677-A28D-D708C1B1854E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79649EAD-2018-4677-A28D-D708C1B1854E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79649EAD-2018-4677-A28D-D708C1B1854E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED17B98-2D05-48CD-86F9-3EDC2A1C1997}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED17B98-2D05-48CD-86F9-3EDC2A1C1997}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED17B98-2D05-48CD-86F9-3EDC2A1C1997}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED17B98-2D05-48CD-86F9-3EDC2A1C1997}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E177E719-5215-451C-8C30-EBC3539D2404}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E177E719-5215-451C-8C30-EBC3539D2404}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E177E719-5215-451C-8C30-EBC3539D2404}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E177E719-5215-451C-8C30-EBC3539D2404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

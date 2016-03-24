@@ -1,0 +1,23 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/css/Login.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="login">
+        <h1>欢迎登录</h1>
+        <form method="post">
+            <input type="text" name="UserName" placeholder="请输入用户名" required="required" />
+            <input type="password" name="Password" placeholder="请输入密码" required="required" />
+            <button type="submit" class="btn btn-primary btn-block btn-large">登录</button>
+            <span style="color:red">@ViewBag.ErrorInfo</span>
+        </form>
+    </div>
+</body>
+</html>

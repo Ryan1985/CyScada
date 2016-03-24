@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutFrm.cshtml";
+}
+
+@section HeadSection{
+    <link href="~/css/Equipment.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/js/angularjs/angular.min.js"></script>
+}
+
+@section FootScript{
+    <script type="text/javascript" src="~/js/Equipment/Equipment.js?r=201603230003"></script>
+}
+
+
+<div ng-app="Equipment">
+    <div ng-controller="EquipmentController">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 h1">
+                    {{equipmentInfo.EquipmentName}}
+                </div>
+                <hr />
+                <div class="col-lg-10 col-lg-offset-1">
+                    <table class="table-striped table centerDisplay">
+                        <tbody ng-repeat="item in equipmentInfo.Items">
+                            <tr>
+                                <td>{{item.Name}}</td>
+                                <td>{{item.Value}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 centerDisplay">
+                    <button class="btn CyScadaBtn" onclick="Return();">返回</button>
+                </div>
+            </div> 
+        </div>
+        <div id="hiddenEquipmentId" style="display:none">@ViewBag.EquipmentId</div>
+    </div>
+</div>
+
