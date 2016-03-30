@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+@section HeadSection{
+    <link href="~/css/EquipmentSelection.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/js/angularjs/angular.min.js"></script>
+}
+
+@section FootScript{
+    <script type="text/javascript" src="~/js/EquipmentSelection/EquipmentSelection.js"></script>
+}
+
+<div ng-app="EquipmentSelection">
+    <div ng-controller="EquipmentSelectionController">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>您好：@ViewBag.ReadName<br /><small>请选择设备</small></h1>
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3 col-md-6" ng-repeat="equipment in equipmentSelections">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                <i class="fa fa-sitemap fa-5x"></i>
+                            </div>
+                            <div class="col-xs-9 text-right">
+                                <div class="huge" ng-bind-template="{{equipment.EquipmentName}}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#" id="{{equipment.EquipmentId}}" onclick="Redirect(this)">
+                        <div class="panel-footer">
+                            <span class="pull-left">查看</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="hiddenUserId" style="display:none;">@ViewBag.UserId</div>
+</div>
