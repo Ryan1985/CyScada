@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.Model", "CyScada.Mo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.DAL", "CyScada.DAL\CyScada.DAL.csproj", "{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CyScada.Common", "..\CyScada.Common\CyScada.Common.csproj", "{8C75D198-F24F-4E93-8817-82D185C2BACF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ADDEC814-A633-45A6-84A2-A563A9FEA7C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C75D198-F24F-4E93-8817-82D185C2BACF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C75D198-F24F-4E93-8817-82D185C2BACF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C75D198-F24F-4E93-8817-82D185C2BACF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C75D198-F24F-4E93-8817-82D185C2BACF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

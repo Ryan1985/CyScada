@@ -53,6 +53,7 @@ angular.module("SideMenu", [])
     }
     );
 
+angular.bootstrap(angular.element("#SideMenu"), ["SideMenu"]);
 /*
  <div side-menu menu-url="{{menu.Url}}" menu-id="{{menu.Id}}" menu-name="{{menu.Name}}" menu-Class="{{menu.Class}}">
                             <ul class="nav nav-second-level" >

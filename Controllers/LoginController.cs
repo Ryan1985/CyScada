@@ -71,7 +71,7 @@ namespace CyScada.Web.Controllers
                 Response.Cookies.Set(cookie);
 
                 Session["User"] = user;
-                return RedirectToAction("Index","EquipmentList");
+                return RedirectToAction("List", "Employee");
             }
             catch
             {

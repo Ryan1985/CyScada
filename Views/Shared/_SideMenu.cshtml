@@ -1,7 +1,7 @@
 ﻿<script src="~/js/_sideMenu/_sideMenu.js"></script>
 
 
-<div ng-app="SideMenu">
+<div ng-app="SideMenu" id="SideMenu">
     <div ng-controller="SideMenuController">
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
@@ -9,12 +9,12 @@
                     <li ng-repeat="menu in menuList">
                         <div side-menu menu-url="{{menu.Url}}" menu-id="{{menu.Id}}" menu-name="{{menu.Name}}" menu-class="{{menu.Class}}">
                         </div>
-                            <ul class="nav nav-second-level" >
-                                <li ng-repeat="submenu in menu.SubMenus">
-                                    <div side-Sub-Menu menu-url="{{submenu.Url}}" menu-id="{{submenu.Id}}" menu-name="{{submenu.Name}}" menu-class="{{submenu.Class}}">
-                                    </div>
-                                </li>
-                            </ul>
+                        <ul class="nav nav-second-level">
+                            <li ng-repeat="submenu in menu.SubMenus">
+                                <div side-sub-menu menu-url="{{submenu.Url}}" menu-id="{{submenu.Id}}" menu-name="{{submenu.Name}}" menu-class="{{submenu.Class}}">
+                                </div>
+                            </li>
+                        </ul>
                     </li>
                 </ul>
             </div>

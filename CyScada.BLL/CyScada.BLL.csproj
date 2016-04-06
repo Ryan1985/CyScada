@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEquipment.cs" />
     <Compile Include="BllEquipmentSelection.cs" />
     <Compile Include="BllLogin.cs" />
@@ -46,6 +47,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\CyScada.Common\CyScada.Common.csproj">
+      <Project>{8c75d198-f24f-4e93-8817-82d185c2bacf}</Project>
+      <Name>CyScada.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CyScada.DAL\CyScada.DAL.csproj">
       <Project>{addec814-a633-45a6-84a2-a563a9fea7c1}</Project>
       <Name>CyScada.DAL</Name>

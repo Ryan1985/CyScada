@@ -115,6 +115,7 @@
     <Compile Include="Common\DESEncrypt.cs" />
     <Compile Include="Common\LoginCheckAttribute.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\EquipmentListController.cs" />
     <Compile Include="Controllers\EquipmentSelectionController.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\ApiAuthAttribute.cs" />
+    <Compile Include="WebApi\Controllers\EmployeeListController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
@@ -134,6 +136,8 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="css\bootstrap-table\bootstrap-table.css" />
+    <Content Include="css\bootstrap-table\bootstrap-table.min.css" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -142,6 +146,7 @@
     <Content Include="css\bootstrap\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\Employee.css" />
     <Content Include="css\Equipment.css" />
     <Content Include="css\EquipmentSelection.css" />
     <Content Include="css\fontAwesome\font-awesome.css" />
@@ -159,9 +164,15 @@
     <Content Include="js\angularjs\angular.min.js" />
     <Content Include="js\angularjs\html5shiv.js" />
     <Content Include="js\angularjs\json3.min.js" />
+    <Content Include="js\bootstrap-table\bootstrap-table-locale-all.js" />
+    <Content Include="js\bootstrap-table\bootstrap-table-locale-all.min.js" />
+    <Content Include="js\bootstrap-table\bootstrap-table.js" />
+    <Content Include="js\bootstrap-table\bootstrap-table.min.js" />
     <Content Include="js\bootstrap3\bootstrap.js" />
     <Content Include="js\bootstrap3\bootstrap.min.js" />
     <Content Include="js\bootstrap3\npm.js" />
+    <Content Include="js\Employee\Employee.js" />
+    <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
     <Content Include="js\Equipment\Equipment.js" />
     <Content Include="js\jquery-1.12.2.min.js" />
@@ -237,6 +248,7 @@
     <Content Include="Views\Dashboard\Index.cshtml" />
     <Content Include="Views\Shared\_SideMenu.cshtml" />
     <Content Include="Views\EquipmentList\Index.cshtml" />
+    <Content Include="Views\Employee\List.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
