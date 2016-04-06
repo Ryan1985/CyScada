@@ -17,9 +17,9 @@ namespace CyScada.DAL
         public DataTable GetUser(string userName,string password)
         {
 
-            var sql = string.Format(@"SELECT TOP 50 * 
-FROM dbo.dt_Administrator WITH(NOLOCK)
-WHERE UserName='{0}' AND UserPwd = '{1}'", userName, password);
+            var sql = string.Format(@"SELECT * 
+FROM lonni_f.ZQ_Employees WITH(NOLOCK)
+WHERE LoginName='{0}' AND Password = '{1}'", userName, password);
 
             var ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql);
 
@@ -31,11 +31,11 @@ WHERE UserName='{0}' AND UserPwd = '{1}'", userName, password);
         /// </summary>
         /// <param name="UserId"></param>
         /// <returns></returns>
-        public DataTable GetUser(string UserId)
+        public DataTable GetUser(int UserId)
         {
-            var sql = string.Format(@"SELECT TOP 50 * 
-FROM dbo.dt_Administrator WITH(NOLOCK)
-WHERE UserId={0}", UserId);
+            var sql = string.Format(@"SELECT * 
+FROM lonni_f.ZQ_Employees WITH(NOLOCK)
+WHERE Id={0}", UserId);
 
             var ds = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql);
 

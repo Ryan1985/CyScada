@@ -128,6 +128,7 @@
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
+    <Compile Include="WebApi\Controllers\SideMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
@@ -175,6 +176,7 @@
     <Content Include="js\raphael\raphael-min.js" />
     <Content Include="js\raphael\raphael.js" />
     <Content Include="js\sbAdmin\sb-admin-2.js" />
+    <Content Include="js\_sideMenu\_sideMenu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

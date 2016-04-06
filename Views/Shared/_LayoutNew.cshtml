@@ -1,4 +1,5 @@
-﻿@{
+﻿@using CyScada.Model
+@{
     Layout = null;
 }
 
@@ -61,8 +62,8 @@
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="userId" data-userid="@ViewBag.Id">
+                        <i class="fa fa-user fa-fw"></i>@ViewBag.Name<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
                         <li>
@@ -74,15 +75,7 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-
-            <div class="navbar-default sidebar" role="navigation">
-                <div class="sidebar-nav navbar-collapse">
-                    <ul class="nav" id="side-menu">
-                        @{ Html.RenderPartial("_SideMenu");}
-                    </ul>
-                </div>
-                <!-- /.sidebar-collapse -->
-            </div>
+            @{ Html.RenderPartial("_SideMenu",new UserModel{Name=@ViewBag.Name,Id=@ViewBag.Id} );}
             <!-- /.navbar-static-side -->
         </nav>
 

@@ -14,7 +14,7 @@ namespace CyScada.Web.WebApi.Controllers
     {
 
         // GET api/equipmentselection/5
-        public IEnumerable<EquipmentModel> Get(string userId)
+        public IEnumerable<EquipmentModel> Get(int userId)
         {
             
             var equipmentList = new BllEquipmentSelection().GetEquipments(userId);

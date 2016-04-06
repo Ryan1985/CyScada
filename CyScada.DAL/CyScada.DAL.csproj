@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="DalEquipment.cs" />
     <Compile Include="DalLogin.cs" />
+    <Compile Include="DalSideMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>

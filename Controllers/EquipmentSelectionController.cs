@@ -22,8 +22,8 @@ namespace CyScada.Web.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            ViewBag.UserId = user.UserId;
-            ViewBag.ReadName = user.ReadName;
+            ViewBag.Id = user.Id;
+            ViewBag.Name = user.Name;
             return View();
         }
 

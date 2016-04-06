@@ -50,7 +50,7 @@ namespace CyScada.Web.Controllers
             {
                 var user = new UserModel
                 {
-                    UserName = account.UserName,
+                    LoginName = account.UserName,
                     Password = DESEncrypt.Encrypt(account.Password)
                 };
                 var result = BllLogin.Login(user);
@@ -71,7 +71,7 @@ namespace CyScada.Web.Controllers
                 Response.Cookies.Set(cookie);
 
                 Session["User"] = user;
-                return RedirectToAction("Index","EquipmentSelection");
+                return RedirectToAction("Index","EquipmentList");
             }
             catch
             {
