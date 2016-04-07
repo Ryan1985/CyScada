@@ -29,5 +29,73 @@ namespace CyScada.BLL
             var result = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sqlBuilder.ToString());
             return result == null || result.Tables.Count == 0 ? null : result.Tables[0];
         }
+
+
+        public string CreateEmployee(Hashtable model)
+        {
+            var sql = string.Format(@"INSERT INTO lonni_f.ZQ_Employees
+        ( Name ,
+          LoginName ,
+          Password ,
+          Description ,
+          Authority ,
+          Code
+        )
+VALUES  ( '{0}' , -- Name - varchar(100)
+          '{1}' , -- LoginName - varchar(50)
+          '{2}' , -- Password - varchar(50)
+          '{3}' , -- Description - varchar(500)
+          0 , -- Authority - bigint
+          '{4}'  -- Code - varchar(50)
+        )", model["Name"], model["LoginName"], model["Password"], model["Description"], model["Code"]);
+
+            try
+            {
+                var result = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnection(), CommandType.Text, sql);
+
+                if (result <= 0)
+                {
+                    return "添加失败!";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            return string.Empty;
+        }
+
+        public string ModifyEmployee(Hashtable model)
+        {
+            var sql = string.Format(@"UPDATE  lonni_f.ZQ_Employees
+SET     Name = '{1}' ,
+        LoginName = '{2}' ,
+        Password = '{3}' ,
+        Description = '{4}' ,
+        Code = '{5}'
+WHERE   ID = {0}",model["Id"], model["Name"] , model["LoginName"], model["Password"], model["Description"], model["Code"]);
+            try
+            {
+
+                var result = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnection(), CommandType.Text, sql);
+                if (result <= 0)
+                {
+                    return "修改失败!" + result;
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+            return string.Empty;
+        }
+
+        public void DeleteEmployee(int id)
+        {
+            var sql = string.Format(@"DELETE FROM lonni_f.ZQ_Employees WHERE ID={0}", id);
+            SqlHelper.ExecuteNonQuery(SqlHelper.GetConnection(), CommandType.Text, sql);
+        }
+
     }
 }

@@ -24,6 +24,17 @@ namespace CyScada.Web.Controllers
             return View();
         }
 
+        public ActionResult Index(int? userId)
+        {
+            if (userId.HasValue)
+            {
+                ViewBag.Id = userId;
+            }
+            return View();
+        }
+
+
+
         ////
         //// GET: /EmployeeList/Details/5
 

@@ -44,6 +44,26 @@ namespace CyScada.BLL
 
         }
 
+        public string SaveEmployee(EmployeeModel model)
+        {
+            return model.Id.HasValue ? ModifyEmployee(model) : CreateEmployee(model);
+        }
 
+        protected string CreateEmployee(EmployeeModel model)
+        {
+            return _dalEquipment.CreateEmployee(model.ToHashTable());
+        }
+
+        protected string ModifyEmployee(EmployeeModel model)
+        {
+            return _dalEquipment.ModifyEmployee(model.ToHashTable());
+        }
+
+
+
+        public void DeleteEmployee(int id)
+        {
+            _dalEquipment.DeleteEmployee(id);
+        }
     }
 }

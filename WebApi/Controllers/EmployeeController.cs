@@ -6,14 +6,12 @@ using System.Net.Http;
 using System.Web.Http;
 using CyScada.Model;
 using CyScada.BLL;
-using Newtonsoft.Json;
 
 namespace CyScada.Web.WebApi.Controllers
 {
     [ApiAuth]
-    public class EmployeeListController : ApiController
+    public class EmployeeController : ApiController
     {
-
         private BllEmployee _bllEmployee = new BllEmployee();
 
         public BllEmployee BLLEmployee
@@ -23,33 +21,34 @@ namespace CyScada.Web.WebApi.Controllers
         }
 
 
-        // GET api/employeelist
-        public IEnumerable<EmployeeModel> Get()
+        // GET api/employee
+        public IEnumerable<string> Get()
         {
-            return _bllEmployee.GetEmployeeList();
+            return new string[] { "value1", "value2" };
         }
 
-        // GET api/employeelist/5
-        public IEnumerable<EmployeeModel> Get(string paramstring)
+        // GET api/employee/5
+        public string Get(int id)
         {
-            var model = JsonConvert.DeserializeObject<EmployeeModel>(paramstring);
-            return model==null ? _bllEmployee.GetEmployeeList() : _bllEmployee.GetEmployeeList(model);
+            return "value";
         }
 
-        // POST api/employeelist
-        public void Post([FromBody]string value)
+        // POST api/employee
+        public string Post([FromBody]EmployeeModel model)
         {
+            var result = _bllEmployee.SaveEmployee(model);
+            return result;
         }
 
-        // PUT api/employeelist/5
+        // PUT api/employee/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE api/employeelist/5
+        // DELETE api/employee/5
         public void Delete(int id)
         {
-
+            _bllEmployee.DeleteEmployee(id);
         }
     }
 }

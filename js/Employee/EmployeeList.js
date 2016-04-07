@@ -29,7 +29,18 @@ angular.module("EmployeeList", [])
         };
 
         $scope.Add = function() {
+            $scope.info = {
+                title:"新增用户"
+            };
+        };
 
+        $scope.SaveInfo = function() {
+            $http.post('/api/Employee', $scope.info).success(function (status) {
+                $scope.Query();
+                $('#InfoModal').modal('toggle');
+            }).error(function(error) {
+                
+            });
         };
 
 
@@ -42,6 +53,9 @@ angular.module("EmployeeList", [])
 
 angular.bootstrap(angular.element("#EmployeeList"), ["EmployeeList"]);
 
+
+
+
 function rowNumberFormatter(value, row, index) {
     return '<span>' + (Number(index) + 1) + '</span>';
 }
@@ -49,10 +63,30 @@ function rowNumberFormatter(value, row, index) {
 
 
 function controlFormatter(value, row, index) {
-    var controlFormat = '<button class="btn btn-default  controlBtn detail">修改</button><button class="btn btn-default  controlBtn delete">删除</button>';
+    var controlFormat = '<button class="btn btn-default  controlBtn detail" data-target="#InfoModal" data-toggle="modal">修改</button><button class="btn btn-default  controlBtn delete">删除</button>';
     return controlFormat;
 }
 
-var operateEvents = {'click .like': function (e, value, row, index) {}};
+var operateEvents = {
+    'click .detail': function (e, value, row, index) {
+        var ctrlScope = angular.element('[ng-controller=EmployeeListController]').scope();
+        ctrlScope.info = row;
+        ctrlScope.info.title = "修改用户";
+        ctrlScope.info.Password2 = row.Password;
+        ctrlScope.$apply();
+    },
+    'click .delete': function (e, value, row, index) {
+        var id = row.Id;
+        $.ajax({
+            url: '../api/Employee?id='+id,
+            type: 'DELETE',
+            success: function (result) {
+                angular.element('#btnQuery').triggerHandler('click');
+            },
+            error: function(error) {
+                alert(error);
+            }
+        });
+    }
 
-
+};
