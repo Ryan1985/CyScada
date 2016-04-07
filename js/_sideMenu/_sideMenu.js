@@ -31,11 +31,11 @@ angular.module("SideMenu", [])
             template:
                 '<a href="{{menuUrl}}" id="{{menuId}}">' +
                     '<i class="{{menuClass}}"></i>{{menuName}}' +
-                    '<span class="fa arrow"></span>'+
+                    '<span class="fa arrow"></span>' +
                     '</a>'
         };
-    }        
-    ).directive('sideSubMenu', function () {
+    }
+    ).directive('sideSubMenu', function() {
         return {
             retrict: 'A',
             replace: true,
@@ -46,7 +46,7 @@ angular.module("SideMenu", [])
                 menuClass: '@'
             },
             template:
-                '<a href="{{menuUrl}}" id="{{menuId}}">' +
+                '<a href="{{menuUrl}}" id="{{menuId}}" onclick="ShowTab(this)">' +
                     '<i class="{{menuClass}}"></i>{{menuName}}' +
                     '</a>'
         };
@@ -54,6 +54,29 @@ angular.module("SideMenu", [])
     );
 
 angular.bootstrap(angular.element("#SideMenu"), ["SideMenu"]);
+
+//function ShowTab(obj) {
+//    ClearAllTabSelection();
+//    if (GetTab(obj.))
+//    $('#page-wrapper div ul').append('<li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>');
+//}
+
+
+//function ClearAllTabSelection() {
+//    $('#page-wrapper div ul li').removeClass('active');
+//}
+
+//function GetTab(id) {
+//    var tabs = $('#page-wrapper div ul li');
+//    for (var i = 0; i < tabs.length; i++) {
+//        var anchor = tabs[i].find('a');
+//        if (id == anchor.attr('aria-controls')) {
+//            return anchor;
+//        }
+//    }
+//    return null;
+//}
+
 /*
  <div side-menu menu-url="{{menu.Url}}" menu-id="{{menu.Id}}" menu-name="{{menu.Name}}" menu-Class="{{menu.Class}}">
                             <ul class="nav nav-second-level" >

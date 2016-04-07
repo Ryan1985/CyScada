@@ -112,7 +112,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Common\DESEncrypt.cs" />
     <Compile Include="Common\LoginCheckAttribute.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -120,6 +119,7 @@
     <Compile Include="Controllers\EquipmentListController.cs" />
     <Compile Include="Controllers\EquipmentSelectionController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -131,6 +131,8 @@
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
+    <Compile Include="WebApi\Controllers\RoleController.cs" />
+    <Compile Include="WebApi\Controllers\RoleListController.cs" />
     <Compile Include="WebApi\Controllers\SideMenuController.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +158,7 @@
     <Content Include="css\metisMenu\metisMenu.css" />
     <Content Include="css\metisMenu\metisMenu.min.css" />
     <Content Include="css\morrisjs\morris.css" />
+    <Content Include="css\Role.css" />
     <Content Include="css\sbAdmin\sb-admin-2.css" />
     <Content Include="css\sbAdmin\timeline.css" />
     <Content Include="css\Site.css" />
@@ -187,6 +190,7 @@
     <Content Include="js\morrisjs\morris.min.js" />
     <Content Include="js\raphael\raphael-min.js" />
     <Content Include="js\raphael\raphael.js" />
+    <Content Include="js\Role\Role.js" />
     <Content Include="js\sbAdmin\sb-admin-2.js" />
     <Content Include="js\_sideMenu\_sideMenu.js" />
     <Content Include="Web.config">
@@ -218,6 +222,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CyScada.Common\CyScada.Common.csproj">
+      <Project>{8c75d198-f24f-4e93-8817-82d185c2bacf}</Project>
+      <Name>CyScada.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="CyScada.BLL\CyScada.BLL.csproj">
       <Project>{6ed17b98-2d05-48cd-86f9-3edc2a1c1997}</Project>
       <Name>CyScada.BLL</Name>
@@ -250,7 +258,7 @@
     <Content Include="Views\Shared\_SideMenu.cshtml" />
     <Content Include="Views\EquipmentList\Index.cshtml" />
     <Content Include="Views\Employee\List.cshtml" />
-    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Role\List.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

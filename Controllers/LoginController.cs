@@ -6,6 +6,7 @@ using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Security;
 using CyScada.BLL;
+using CyScada.Common;
 using CyScada.Model;
 using CyScada.Web.Common;
 using CyScada.Web.Models;
@@ -51,7 +52,7 @@ namespace CyScada.Web.Controllers
                 var user = new UserModel
                 {
                     LoginName = account.UserName,
-                    Password = DESEncrypt.Encrypt(account.Password)
+                    Password = CommonUtil.Encrypt(account.Password)
                 };
                 var result = BllLogin.Login(user);
                 if (!string.IsNullOrEmpty(result))

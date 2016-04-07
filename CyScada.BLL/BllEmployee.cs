@@ -38,7 +38,7 @@ namespace CyScada.BLL
                 Id = Convert.ToInt32(dr["Id"]),
                 LoginName = dr["LoginName"].ToString(),
                 Name = dr["Name"].ToString(),
-                Password = dr["Password"].ToString()
+                Password = CommonUtil.Decrypt(dr["Password"].ToString())
             });
 
 
@@ -46,6 +46,7 @@ namespace CyScada.BLL
 
         public string SaveEmployee(EmployeeModel model)
         {
+            model.Password = CommonUtil.Encrypt(model.Password);
             return model.Id.HasValue ? ModifyEmployee(model) : CreateEmployee(model);
         }
 
