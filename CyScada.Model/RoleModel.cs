@@ -7,7 +7,7 @@ namespace CyScada.Model
 {
     public class RoleModel
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public int Authority { get; set; }

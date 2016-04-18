@@ -4,26 +4,40 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using CyScada.BLL;
+using CyScada.Model;
+using Newtonsoft.Json;
 
 namespace CyScada.Web.WebApi.Controllers
 {
     public class RoleListController : ApiController
     {
-        // GET api/rolelist
-        public IEnumerable<string> Get()
+        private BllRole _bllRole = new BllRole();
+
+        public BllRole BLLRole
         {
-            return new string[] { "value1", "value2" };
+            get { return _bllRole; }
+            set { _bllRole = value; }
+        }
+
+
+        // GET api/rolelist
+        public IEnumerable<RoleModel> Get()
+        {
+            return _bllRole.GetRoleList();
         }
 
         // GET api/rolelist/5
-        public string Get(int id)
+        public IEnumerable<RoleModel> Get(string paramstring)
         {
-            return "value";
+            var model = JsonConvert.DeserializeObject<RoleModel>(paramstring);
+            return model == null ? _bllRole.GetRoleList() : _bllRole.GetRoleList(model);
         }
 
         // POST api/rolelist
         public void Post([FromBody]string value)
         {
+
         }
 
         // PUT api/rolelist/5

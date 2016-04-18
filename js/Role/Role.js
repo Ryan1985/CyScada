@@ -6,7 +6,7 @@ angular.module("RoleList", [])
 
             $http.get("../api/RoleList")
                 .success(function (data) {
-                    $scope.employeeList = data;
+                    $scope.roleList = data;
                     $('#ListTable').bootstrapTable('load', data);
                 }).error(function (error) {
                     alert(error);
@@ -15,7 +15,7 @@ angular.module("RoleList", [])
 
 
         $scope.Query = function () {
-            var params = $scope.employee;
+            var params = $scope.role;
             $http.get("../api/RoleList/?paramstring=" + encodeURI(JSON.stringify(params)))
                 .success(function (data) {
                     $('#ListTable').bootstrapTable('load', data);
