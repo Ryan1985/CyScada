@@ -113,6 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\LoginCheckAttribute.cs" />
+    <Compile Include="Controllers\AuthorityController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
@@ -126,6 +127,8 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\ApiAuthAttribute.cs" />
+    <Compile Include="WebApi\Controllers\AuthorityController.cs" />
+    <Compile Include="WebApi\Controllers\AuthorityListController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeListController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
@@ -168,6 +171,7 @@
     <Content Include="js\angularjs\angular.min.js" />
     <Content Include="js\angularjs\html5shiv.js" />
     <Content Include="js\angularjs\json3.min.js" />
+    <Content Include="js\Authority\Authority.js" />
     <Content Include="js\bootstrap-table\bootstrap-table-locale-all.js" />
     <Content Include="js\bootstrap-table\bootstrap-table-locale-all.min.js" />
     <Content Include="js\bootstrap-table\bootstrap-table.js" />
@@ -259,6 +263,7 @@
     <Content Include="Views\EquipmentList\Index.cshtml" />
     <Content Include="Views\Employee\List.cshtml" />
     <Content Include="Views\Role\List.cshtml" />
+    <Content Include="Views\Authority\List.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

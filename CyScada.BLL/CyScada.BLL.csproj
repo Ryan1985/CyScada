@@ -43,6 +43,7 @@
     <Compile Include="BllEquipment.cs" />
     <Compile Include="BllEquipmentSelection.cs" />
     <Compile Include="BllLogin.cs" />
+    <Compile Include="BllAuthority.cs" />
     <Compile Include="BllRole.cs" />
     <Compile Include="BllSideMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
