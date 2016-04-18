@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Data;
 using CyScada.Model;
 using CyScada.DAL;
@@ -13,9 +11,9 @@ namespace CyScada.BLL
         protected DalEquipment DalEquipment = new DalEquipment();
         protected DalLogin DalLogin = new DalLogin();
 
-        public IEnumerable<EquipmentModel> GetEquipments(int UserId)
+        public IEnumerable<EquipmentModel> GetEquipments(int userId)
         {
-            var dtLogin = DalLogin.GetUser(UserId);
+            var dtLogin = DalLogin.GetUser(userId);
             if (dtLogin.Rows.Count==0)
             {
                 return new List<EquipmentModel>();

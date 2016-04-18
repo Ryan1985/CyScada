@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
 using CyScada.Model;
 using CyScada.DAL;
 
@@ -11,18 +10,18 @@ namespace CyScada.BLL
     
     public class BllSideMenu
     {
-        private DalSideMenu _DalSideMenu = new DalSideMenu();
+        private DalSideMenu _dalSideMenu = new DalSideMenu();
 
         public DalSideMenu DalSideMenu
         {
-            get { return _DalSideMenu; }
-            set { _DalSideMenu = value; }
+            get { return _dalSideMenu; }
+            set { _dalSideMenu = value; }
         }
 
 
         public IList<SideMenuListModel> GetMenuList(UserModel user)
         {
-            var sideMenuSet = _DalSideMenu.QuerySideMenuSet();
+            var sideMenuSet = _dalSideMenu.QuerySideMenuSet();
             var sideMenuList = sideMenuSet.Tables["SideMenu"].AsEnumerable()
                 .Where(dr => (Convert.ToInt32(dr["AuthorityId"]) & user.Authority) == Convert.ToInt32(dr["AuthorityId"]))
                 .Select(dr => new SideMenuListModel
