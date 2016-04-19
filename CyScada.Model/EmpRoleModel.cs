@@ -7,7 +7,7 @@ namespace CyScada.Model
 {
     public class EmpRoleModel
     {
-        public int emp_id { get; set; }
-        public int role_id { get; set; }
+        public int EmpId { get; set; }
+        public int RoleId { get; set; }
     }
 }

@@ -9,6 +9,12 @@ namespace CyScada.DAL
 {
     public class DalRole
     {
+        public DataTable GetRoleList()
+        {
+            return GetRoleList(new Hashtable());
+        }
+
+
         public DataTable GetRoleList(Hashtable filterModel)
         {
             var sqlBuilder = new StringBuilder(@"SELECT * FROM lonni_f.ZQ_Roles WITH(NOLOCK) where 1=1 ");

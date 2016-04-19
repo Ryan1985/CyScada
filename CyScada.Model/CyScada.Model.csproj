@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignToggleModel.cs" />
     <Compile Include="EmployeeModel.cs" />
     <Compile Include="EmpRoleModel.cs" />
     <Compile Include="EquipmentModel.cs" />

@@ -46,6 +46,7 @@
     <Compile Include="DalAuthority.cs" />
     <Compile Include="DalRole.cs" />
     <Compile Include="DalSideMenu.cs" />
+    <Compile Include="DalEmpRoles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlHelper.cs" />
   </ItemGroup>

@@ -69,8 +69,10 @@ SET     Name = '{1}' ,
         LoginName = '{2}' ,
         Password = '{3}' ,
         Description = '{4}' ,
-        Code = '{5}'
-WHERE   ID = {0}",model["Id"], model["Name"] , model["LoginName"], model["Password"], model["Description"], model["Code"]);
+        Code = '{5}',
+        Authority={6}
+WHERE   ID = {0}", model["Id"], model["Name"], model["LoginName"], model["Password"], model["Description"],
+                model["Code"], model.ContainsKey("Authority") ? model["Authority"] : 0);
             try
             {
 

@@ -128,8 +128,10 @@
     <Compile Include="Models\AccountViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\ApiAuthAttribute.cs" />
+    <Compile Include="WebApi\Controllers\AuthorityAssignController.cs" />
     <Compile Include="WebApi\Controllers\AuthorityController.cs" />
     <Compile Include="WebApi\Controllers\AuthorityListController.cs" />
+    <Compile Include="WebApi\Controllers\BindListController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeListController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
@@ -143,6 +145,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="css\AuthorityAssign.css" />
     <Content Include="css\bootstrap-table\bootstrap-table.css" />
     <Content Include="css\bootstrap-table\bootstrap-table.min.css" />
     <Content Include="css\bootstrap-theme.css" />
@@ -165,6 +168,9 @@
     <Content Include="css\Role.css" />
     <Content Include="css\sbAdmin\sb-admin-2.css" />
     <Content Include="css\sbAdmin\timeline.css" />
+    <Content Include="css\Select2\select2-bootstrap.css" />
+    <Content Include="css\Select2\select2.css" />
+    <Content Include="css\Select2\select2.min.css" />
     <Content Include="css\Site.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -198,6 +204,11 @@
     <Content Include="js\raphael\raphael.js" />
     <Content Include="js\Role\Role.js" />
     <Content Include="js\sbAdmin\sb-admin-2.js" />
+    <Content Include="js\Select2\select2.full.js" />
+    <Content Include="js\Select2\select2.full.min.js" />
+    <Content Include="js\Select2\select2.js" />
+    <Content Include="js\Select2\select2.min.js" />
+    <Content Include="js\Select2\zh-CN.js" />
     <Content Include="js\_sideMenu\_sideMenu.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

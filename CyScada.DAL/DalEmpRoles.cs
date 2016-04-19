@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Text;
 
 namespace CyScada.DAL
 {
-    public class DalAuthority
+    public class DalEmpRoles
     {
-        public DataTable GetAuthorityList()
+        public DataTable GetEmpRoleList()
         {
-            return GetAuthorityList(new Hashtable());
+            return GetEmpRoleList(new Hashtable());
         }
 
 
 
-        public DataTable GetAuthorityList(Hashtable filterModel)
+        public DataTable GetEmpRoleList(Hashtable filterModel)
         {
-            var sqlBuilder = new StringBuilder(@"SELECT * FROM lonni_f.ZQ_Authorities WITH(NOLOCK) where 1=1 ");
+            var sqlBuilder = new StringBuilder(@"SELECT * FROM lonni_f.ZQ_EmpRoles WITH(NOLOCK) where 1=1 ");
             foreach (DictionaryEntry pair in filterModel)
             {
                 var value = pair.Value is string
@@ -36,13 +38,17 @@ namespace CyScada.DAL
 
 
 
-        public string CreateAuthority(Hashtable model)
+
+
+
+
+        public string CreateEmpRoles(Hashtable model)
         {
-            var sql = string.Format(@"INSERT INTO lonni_f.ZQ_Authorities
-        ( Name, Description,AuthorityId )
-        SELECT   '{0}', -- Name - varchar(50)
-          '{1}', -- Description - varchar(500)
-                (SELECT ISNULL(MAX(AuthorityId)*2,1) FROM lonni_f.ZQ_Authorities WITH(NOLOCK))", model["Name"], model["Description"]);
+            var sql = string.Format(@"INSERT INTO lonni_f.ZQ_EmpRoles
+        ( emp_id, role_id )
+VALUES  ( {0}, -- emp_id - int
+          {1}  -- role_id - int
+          )", model["UserId"], model["RoleId"]);
 
             try
             {
@@ -60,33 +66,24 @@ namespace CyScada.DAL
             return string.Empty;
         }
 
-        public string ModifyAuthority(Hashtable model)
+
+        public string DeleteEmployee(Hashtable model)
         {
-            var sql = string.Format(@"UPDATE  lonni_f.ZQ_Authorities
-SET     Name = '{1}' ,
-        Description = '{2}' 
-WHERE   ID = {0}", model["Id"], model["Name"], model["Description"]);
+            var sql = string.Format(@"DELETE FROM lonni_f.ZQ_EmpRoles WHERE emp_id={0} AND role_id={1}", model["UserId"], model["RoleId"]);
             try
             {
-
                 var result = SqlHelper.ExecuteNonQuery(SqlHelper.GetConnection(), CommandType.Text, sql);
+
                 if (result <= 0)
                 {
-                    return "修改失败!" + result;
+                    return "删除失败!";
                 }
             }
             catch (Exception ex)
             {
                 return ex.Message;
             }
-
             return string.Empty;
-        }
-
-        public void DeleteAuthority(int id)
-        {
-            var sql = string.Format(@"DELETE FROM lonni_f.ZQ_Authorities WHERE ID={0}", id);
-            SqlHelper.ExecuteNonQuery(SqlHelper.GetConnection(), CommandType.Text, sql);
         }
     }
 }

@@ -39,6 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BllAuthorityAssign.cs" />
+    <Compile Include="BllBindList.cs" />
     <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEquipment.cs" />
     <Compile Include="BllEquipmentSelection.cs" />
