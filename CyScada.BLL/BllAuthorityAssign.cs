@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Linq;
 using CyScada.Model;
 
 namespace CyScada.BLL
@@ -7,6 +8,7 @@ namespace CyScada.BLL
     {
         private BllEmployee _bllEmployee = new BllEmployee();
         private BllRole _bllRole = new BllRole();
+        private BllAuthority _bllAuthority = new BllAuthority();
 
 
         public BllEmployee BLLEmployee
@@ -21,9 +23,30 @@ namespace CyScada.BLL
             set { _bllRole = value; }
         }
 
+        public BllAuthority BLLAuthority
+        {
+            get { return _bllAuthority; }
+            set { _bllAuthority = value; }
+        }
+
         public EmployeeModel GetEmployeeWithAuthority(string userId)
         {
             return _bllEmployee.GetEmployeeWithAuthority(userId);
+        }
+
+        public RoleModel GetRoleWithAuthority(string roleId)
+        {
+            var roleInfoList = _bllRole.GetRoleList(new RoleModel {Id = Convert.ToInt32(roleId)}).ToList();
+            if (!roleInfoList.Any())
+            {
+                return new RoleModel {Id = Convert.ToInt32(roleId)};
+            }
+
+            var roleInfo = roleInfoList.First();
+            //获取所有权限列表
+            var authList = _bllAuthority.GetAuthorityList().ToList();
+            roleInfo.AuthorityList = authList;
+            return roleInfo;
         }
 
         public string AddUserRole(string userId, string roleId)
@@ -45,6 +68,20 @@ namespace CyScada.BLL
         {
             return _bllEmployee.DeleteEmployeeAuthority(userId, authorityId);
         }
+
+
+        public string AddRoleAuthority(string roleId, string authorityId)
+        {
+            return _bllRole.AddRoleAuthority(roleId, authorityId);
+        }
+
+        public string DeleteRoleAuthority(string roleId, string authorityId)
+        {
+            return _bllRole.DeleteRoleAuthority(roleId, authorityId);
+        }
+
+
+
 
 
         public string Assign(AssignToggleModel model)

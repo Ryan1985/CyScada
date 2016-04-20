@@ -66,8 +66,9 @@ VALUES  ( '{0}', -- Name - varchar(50)
         {
             var sql = string.Format(@"UPDATE  lonni_f.ZQ_Roles
 SET     Name = '{1}' ,
-        Description = '{2}' 
-WHERE   ID = {0}", model["Id"], model["Name"], model["Description"]);
+        Description = '{2}' ,
+        Authority = '{3}'
+WHERE   ID = {0}", model["Id"], model["Name"], model["Description"], model.ContainsKey("Authority") ? model["Authority"] : 0);
             try
             {
 

@@ -9,7 +9,7 @@
     <link href="~/css/AuthorityAssign.css" rel="stylesheet" />
     <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
     @*<link href="~/css/Select2/select2.css" rel="stylesheet" />
-<link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />*@
+        <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />*@
     <script type="text/javascript" src="~/js/jquery-1.12.2.min.js"></script>
     <script type="text/javascript" src="~/js/angularjs/angular.min.js"></script>
 
@@ -20,8 +20,8 @@
     <script type="text/javascript" src="~/js/AuthorityAssign/AuthorityAssign.js?r=20160406008"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
-@*<script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
-<script type="text/javascript" src="~/js/Select2/zh-CN.js"></script>*@
+    @*<script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
+        <script type="text/javascript" src="~/js/Select2/zh-CN.js"></script>*@
 
 }
 
@@ -40,7 +40,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane active" id="userAuthority">
                                 <div class="row">
-                                    <div class="col-lg-8">
+                                    <div class="col-lg-12">
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <table id="userTable" data-toggle="table" data-striped="true"
@@ -62,20 +62,36 @@
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                            </div>
-                                            <div class="col-lg-6">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-4">
                                     </div>
                                 </div>
                             </div>
-                            <div role="tabpanel" class="tab-pane" id="roleAuthority">...</div>
+                            <div role="tabpanel" class="tab-pane" id="roleAuthority">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <table id="roleTable" data-toggle="table" data-striped="true"
+                                                       data-show-pagination-switch="false"
+                                                       data-pagination="true"
+                                                       data-page-list="[10, 25, 50, 100, ALL]"
+                                                       data-id-field="Id"
+                                                       data-locale="zh-CN">
+                                                    <thead class="tableHeader">
+                                                        <tr>
+                                                            <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                                            <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">roleId</th>
+                                                            <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">角色名称</th>
+                                                            <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
+                                                            <th data-align="center" data-halign="center" data-valign="middle" data-events="operateRoleEvents" data-formatter="controlRoleFormatter">操作</th>
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -87,41 +103,70 @@
                         <h4 class="modal-title" ng-bind-template="{{info.title}}"></h4>
                     </div>
                     <div class="modal-body">
-                        <div class="col-lg-12">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    当前权限
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        当前权限
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="currentAuthList">
+                                            <span class="{{cAuth.displayClass}}" ng-bind-template="{{cAuth.Name}}" ng-repeat="cAuth in info.CurrentAuthorityList" data-id="{{cAuth.Id}}"></span>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="panel-body">
-                                    <div id="currentAuthList">
-                                        <span class="{{cAuth.displayClass}}" ng-bind-template="{{cAuth.Name}}" ng-repeat="cAuth in info.CurrentAuthorityList" data-id="{{cAuth.Id}}"></span>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        角色
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="roleList">
+                                            <a role="button" class="{{role.displayClass}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        附加权限
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="authorityList">
+                                            <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    角色
-                                </div>
-                                <div class="panel-body">
-                                    <div id="roleList">
-                                        <a role="button" class="{{role.displayClass}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="RoleModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" ng-bind-template="{{roleInfo.title}}"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="panel panel-info">
+                                    <div class="panel-heading">
+                                        权限
+                                    </div>
+                                    <div class="panel-body">
+                                        <div id="authorityList">
+                                            <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in roleInfo.AuthorityList" ng-click="toggleRoleAuthority(this)"></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-6">
-                            <div class="panel panel-info">
-                                <div class="panel-heading">
-                                    附加权限
-                                </div>
-                                <div class="panel-body">
-                                    <div id="authorityList">
-                                        <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
-                                    </div>
-                                </div>
-                            </div></div>
                     </div>
                 </div>
             </div>

@@ -8,14 +8,15 @@ angular.module("AuthorityAssign", [])
             };
 
 
-            //获取用户列表
+            //获取列表
             $http.get("../api/AuthorityAssign")
                 .success(function(data) {
-                    $('#userTable').bootstrapTable('load', data);
+                    $('#userTable').bootstrapTable('load', data[0]);
+                    $('#roleTable').bootstrapTable('load', data[1]);
                 }).error(function(error) {
                     alert(error);
                 });
-
+            
         };
 
 
@@ -50,7 +51,7 @@ angular.module("AuthorityAssign", [])
                     if (result == '') {
                         $scope.refreshUserAuthority($scope.info.Id);
                     } else {
-                        alert(error);
+                        alert(result);
                     }
                 },
                 error: function(error) {
@@ -58,7 +59,6 @@ angular.module("AuthorityAssign", [])
                 }
             });
         };
-
 
         $scope.toggleAuthority = function(obj) {
             var toggleType;
@@ -76,7 +76,7 @@ angular.module("AuthorityAssign", [])
                     if (result == '') {
                         $scope.refreshUserAuthority($scope.info.Id);
                     } else {
-                        alert(error);
+                        alert(result);
                     }
                 },
                 error: function(error) {
@@ -84,6 +84,34 @@ angular.module("AuthorityAssign", [])
                 }
             });
         };
+
+        $scope.toggleRoleAuthority = function (obj) {
+            var toggleType;
+            if (obj.authority.displayClass.indexOf('RoleAuth') > -1) {
+                toggleType = "Delete";
+            } else {
+                toggleType = "Add";
+            }
+
+            $.ajax({
+                url: '../api/AuthorityAssign',
+                type: 'POST',
+                data: { 'UserId': $scope.roleInfo.Id, "ToggleType": toggleType, 'Id': obj.authority.AuthorityId, 'ToggleHost': 'RoleAuthority' },
+                success: function (result) {
+                    if (result == '') {
+                        $scope.refreshRoleAuthority($scope.roleInfo.Id);
+                    } else {
+                        alert(result);
+                    }
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        };
+
+
+
 
         $scope.initial();
 
@@ -94,6 +122,7 @@ angular.module("AuthorityAssign", [])
                 success: function(data) {
                     if (data != '') {
                         $scope.info = data;
+                        $scope.info.title = data.Name + "的权限";
                         $scope.info.CurrentAuthorityList = [];
                         var authList = [];
                         authList = jQuery.extend(true, [], data.AuthorityList);
@@ -170,9 +199,37 @@ angular.module("AuthorityAssign", [])
             });
         };
 
+        $scope.refreshRoleAuthority = function (roleId) {
+            $.ajax({
+                url: '../api/AuthorityAssign?userId=&roleId=' + roleId,
+                type: 'GET',
+                success: function (data) {
+                    if (data != '') {
+                        $scope.roleInfo = data;
+                        $scope.roleInfo.title = data.Name + "的权限";
+                        $scope.$apply();
+                        //修改各权限列表的样式(添加颜色)
+                        //权限列表
+                        for (var n = 0; n < $scope.roleInfo.AuthorityList.length; n++) {
+                            $scope.roleInfo.AuthorityList[n].displayClass = 'btn AuthBtn NoAuth';
+                            if ((Number($scope.roleInfo.AuthorityList[n].AuthorityId) & data.Authority) == Number($scope.roleInfo.AuthorityList[n].AuthorityId)) {
+                                $scope.roleInfo.AuthorityList[n].displayClass = $scope.roleInfo.AuthorityList[n].displayClass + ' RoleAuth';
+                                //if (!curAuth.css('UserAuth')) {
+                                //    curAuth.addClass('UserAuth');
+                                //}
+                            }
+                        }
 
-
-
+                        $scope.$apply();
+                    } else {
+                        alert('获取权限列表出错，请刷新页面再重试');
+                    }
+                },
+                error: function (error) {
+                    alert(error);
+                }
+            });
+        };
     }]);
     //.directive('select2', function (select2Query) {
     //    return {
@@ -271,12 +328,27 @@ function controlFormatter(value, row, index) {
     return controlFormat;
 }
 
+function controlRoleFormatter(value, row, index) {
+    var controlFormat = '<button class="btn btn-default  controlBtn detail" data-target="#RoleModal" data-toggle="modal">权限</button>';
+    return controlFormat;
+}
+
 var operateEvents = {
     'click .detail': function (e, value, row, index) {
         var ctrlScope = angular.element('[ng-controller=AuthorityAssignController]').scope();
-        ctrlScope.info = row;
-        ctrlScope.info.title = ctrlScope.info.Name + "的权限";
+        //ctrlScope.info = row;
+        //ctrlScope.info.title = ctrlScope.info.Name + "的权限";
         ctrlScope.refreshUserAuthority(row.Id);
+        //ctrlScope.$apply();
+    }
+};
+
+var operateRoleEvents = {
+    'click .detail': function (e, value, row, index) {
+        var ctrlScope = angular.element('[ng-controller=AuthorityAssignController]').scope();
+        //ctrlScope.roleInfo = row;
+        //ctrlScope.roleInfo.title = ctrlScope.roleInfo.Name + "的权限";
+        ctrlScope.refreshRoleAuthority(row.Id);
         //ctrlScope.$apply();
     }
 };
