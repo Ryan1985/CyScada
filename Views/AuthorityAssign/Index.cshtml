@@ -17,7 +17,7 @@
 
 @section FootScript{
 
-    <script type="text/javascript" src="~/js/AuthorityAssign/AuthorityAssign.js?r=20160406002"></script>
+    <script type="text/javascript" src="~/js/AuthorityAssign/AuthorityAssign.js?r=20160406008"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
 @*<script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div id="currentAuthList">
-                                        <span ng-class="{{currentAuth.Class}}" ng-bind-template="{{currentAuth.Name}}" ng-repeat="currentAuth in info.CurrentAuthorityList" data-id="{{currentAuth.Id}}"></span>
+                                        <span class="{{cAuth.displayClass}}" ng-bind-template="{{cAuth.Name}}" ng-repeat="cAuth in info.CurrentAuthorityList" data-id="{{cAuth.Id}}"></span>
                                     </div>
                                 </div>
                             </div>
@@ -106,7 +106,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div id="roleList">
-                                        <a role="button" ng-class="{{role.Class}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
+                                        <a role="button" class="{{role.displayClass}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
                                     </div>
                                 </div>
                             </div>
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="panel-body">
                                     <div id="authorityList">
-                                        <a role="button" ng-class="{{authority.Class}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
+                                        <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
                                     </div>
                                 </div>
                             </div></div>

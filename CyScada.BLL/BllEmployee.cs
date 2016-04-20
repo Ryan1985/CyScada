@@ -119,7 +119,7 @@ namespace CyScada.BLL
                 LoginName=dr["LoginName"].ToString(),
                 Name=dr["Name"].ToString(),
                 Password=dr["Password"].ToString()
-            });
+            }).ToList().First();
 
            return _dalEmployee.ModifyEmployee(employee.ToHashTable());
         }
@@ -156,7 +156,7 @@ namespace CyScada.BLL
                 LoginName = dr["LoginName"].ToString(),
                 Name = dr["Name"].ToString(),
                 Password = dr["Password"].ToString()
-            });
+            }).ToList().First();
 
             return _dalEmployee.ModifyEmployee(employee.ToHashTable());
         }
