@@ -278,6 +278,7 @@
     <Content Include="Views\Role\List.cshtml" />
     <Content Include="Views\Authority\List.cshtml" />
     <Content Include="Views\AuthorityAssign\Index.cshtml" />
+    <Content Include="Views\Dashboard\Svg.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

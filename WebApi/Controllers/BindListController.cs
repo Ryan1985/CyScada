@@ -21,9 +21,9 @@ namespace CyScada.Web.WebApi.Controllers
 
 
         // GET api/bindlist
-        public IEnumerable<string> Get()
+        public int Get()
         {
-            return null;
+            return new Random().Next();
         }
 
         // GET api/bindlist/5

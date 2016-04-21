@@ -12,6 +12,14 @@ namespace CyScada.Web.Controllers
             return View();
         }
 
+
+        public ActionResult Svg(string path)
+        {
+            return View();
+        }
+
+
+
         ////
         //// GET: /Dashboard/Details/5
 

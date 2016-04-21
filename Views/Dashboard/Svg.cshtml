@@ -1,0 +1,53 @@
+﻿<html>
+<body>
+
+    @*<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <circle cx="100" cy="50" r="40" stroke="black"
+                stroke-width="2" fill="red" />
+    </svg>*@
+    
+    
+
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" onload="init()">
+
+        <script>
+            <![CDATA[
+            var text, textnode;
+            function init() {
+                setInterval("changeText()", 1000);
+            }
+
+            function changeText() {
+                textnode = document.getElementById("text1");
+
+                var xmlhttp;
+                if (window.XMLHttpRequest) {// code for IE7+, Firefox, Chrome, Opera, Safari
+                    xmlhttp = new XMLHttpRequest();
+                }
+                else {// code for IE6, IE5
+                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+                }
+
+                xmlhttp.open("GET", "http://localhost:38461/api/bindlist", true);
+                xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+                xmlhttp.send();
+
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                        textnode.textContent = xmlhttp.responseText;
+                    }
+                };
+
+            }
+            ]]>
+        </script>
+        <text id="text1" x="300" y="200" font-size="60" stroke="red" stroke-width="2">OMG</text>
+    </svg> 
+    
+</body>
+</html> 
+
+
+
+
+
