@@ -4,6 +4,10 @@
 }
 
 
+.controlSelect {
+    width: 100%;
+}
+
 .controlBtn {
     background-color: white;
     color: #337AB7;

@@ -39,8 +39,10 @@ namespace CyScada.Web.WebApi.Controllers
         }
 
         // POST api/sidemenu
-        public void Post([FromBody]string value)
+        public string Post([FromBody]SideMenuModel model)
         {
+            var result = _bllSideMenu.SaveSideMenu(model);
+            return result;
         }
 
         // PUT api/sidemenu/5
@@ -51,6 +53,7 @@ namespace CyScada.Web.WebApi.Controllers
         // DELETE api/sidemenu/5
         public void Delete(int id)
         {
+            _bllSideMenu.DeleteSideMenu(id);
         }
     }
 }
