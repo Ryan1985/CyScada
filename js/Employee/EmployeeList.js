@@ -1,69 +1,75 @@
 ﻿"use strict";
 
-angular.module("EmployeeList", [])
-    .controller("EmployeeListController", ['$scope', '$http', function ($scope, $http) {
-        $scope.initial = function () {
-
-            $http.get("../api/EmployeeList")
-                .success(function (data) {
-                    $scope.employeeList = data;
-                    $('#ListTable').bootstrapTable('load', data);
-                }).error(function (error) {
-                    alert(error);
-                });
+var employeeAppController = angular.module("EmployeeList", ['viewService'])
+    .controller("EmployeeListController", function($scope, $http, employeeService) {
+        $scope.initial = function() {
+            employeeService.getList().success(function(data) {
+                $scope.employeeList = data;
+                $('#ListTable').bootstrapTable('load', data);
+            }).error(function(error) {
+                alert(error);
+            });
         };
-
-
+        
         $scope.Query = function() {
             var params = $scope.employee;
-            $http.get("../api/EmployeeList/?paramstring=" + encodeURI(JSON.stringify(params)))
-                .success(function(data) {
-                    $('#ListTable').bootstrapTable('load', data);
-                }).error(function(error) {
-                    if (error.status == 403) {
-                        window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
-                    } else {
-                        modal.alertMsg("加载失败！");
-                    }
-                });
+            employeeService.getList(params).success(function (data) {
+                $('#ListTable').bootstrapTable('load', data);
+            }).error(function (error) {
+                if (error.status == 403) {
+                    window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
+                } else {
+                    modal.alertMsg("加载失败！");
+                }
+            });
         };
 
         $scope.Add = function() {
             $scope.info = {
-                title:"新增用户"
+                title: "新增用户"
             };
         };
 
-        $scope.SaveInfo = function() {
-            $http.post('/api/Employee', $scope.info).success(function (status) {
+        $scope.SaveInfo = function (valid) {
+            if (!valid) {
+                return;
+            }
+            employeeService.save($scope.info).success(function(status) {
                 $scope.Query();
                 $('#InfoModal').modal('toggle');
             }).error(function(error) {
-                
+
+            });
+        };
+
+        $scope.DeleteEmp = function(id) {
+            employeeService.del(id).success(function () {
+                $scope.Query();
             });
         };
 
 
 
         $scope.initial();
+    });
 
-        //confirm-Same
-    }])
-   .directive('pwCheck', function () {
-       return {
-           require: 'ngModel',
-           link: function (scope, elem, attrs, ctrl) {
-               var firstPassword = '#' + attrs.pwCheck;
-               elem.add(firstPassword).on('keyup', function () {
-                   scope.$apply(function () {
-                       var v = elem.val() === $(firstPassword).val();
-                       ctrl.$setValidity('pwmatch', v);
-                   });
-               });
-           }
-       };
-   });;
+var pwCheckDirective = function () {
+    return {
+        require: 'ngModel',
+        link: function(scope, elem, attrs, ctrl) {
+            var firstPassword = '#' + attrs.pwCheck;
+            elem.add(firstPassword).on('keyup', function() {
+                scope.$apply(function() {
+                    var v = elem.val() === $(firstPassword).val();
+                    ctrl.$setValidity('pwmatch', v);
+                });
+            });
+        }
+    };
+};
 
+
+employeeAppController.directive('pwCheck', pwCheckDirective);
 
 angular.bootstrap(angular.element("#EmployeeList"), ["EmployeeList"]);
 
@@ -91,16 +97,8 @@ var operateEvents = {
     },
     'click .delete': function (e, value, row, index) {
         var id = row.Id;
-        $.ajax({
-            url: '../api/Employee?id='+id,
-            type: 'DELETE',
-            success: function (result) {
-                angular.element('#btnQuery').triggerHandler('click');
-            },
-            error: function(error) {
-                alert(error);
-            }
-        });
+        var ctrlScope = angular.element('[ng-controller=EmployeeListController]').scope();
+        ctrlScope.DeleteEmp(id);
     }
 
 };

@@ -1144,6 +1144,7 @@
     <Content Include="js\Select2\select2.full.min.js" />
     <Content Include="js\Select2\select2.js" />
     <Content Include="js\Select2\select2.min.js" />
+    <Content Include="js\Services\ViewServices.js" />
     <Content Include="js\SideMenu\SideMenu.js" />
     <Content Include="js\_sideMenu\_sideMenu.js" />
     <Content Include="Web.config">

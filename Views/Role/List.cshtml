@@ -7,13 +7,12 @@
 
     <link href="~/css/Role.css" rel="stylesheet" />
     <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
-    <script type="text/javascript" src="~/js/jquery-1.12.2.min.js"></script>
-    <script type="text/javascript" src="~/js/angularjs/angular.min.js"></script>
 
 }
 
 @section FootScript{
 
+<script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
     <script type="text/javascript" src="~/js/Role/Role.js?r=20160406002"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
@@ -87,13 +86,14 @@
                     <div class="modal-header">
                         <h4 class="modal-title" ng-bind-template="{{info.title}}"></h4>
                     </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" novalidate="novalidate">
+                    <div class="modal-body" >
+                        <form class="form-horizontal" name="form" novalidate="novalidate">
                             <div class="hidden" ng-bind-template="{{info.Id}}"></div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
                                 <label class="control-label col-md-2">名称:</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.Name" ng-bind-template="{{info.Name}}" placeholder="请输入名称">
+                                    <input type="text" class="form-control" name="name" ng-model="info.Name" ng-bind-template="{{info.Name}}" placeholder="请输入名称" required>
+                                    <p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">请输入名称</p>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -105,7 +105,7 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary CyScadaBtn" ng-click="SaveInfo()">保存</button>
+                        <button type="submit" class="btn btn-primary CyScadaBtn" ng-disabled="form.$invalid" ng-click="SaveInfo(form.$valid)">保存</button>
                         <button type="button" class="btn btn-default CyScadaBtn" data-dismiss="modal">取消</button>
                     </div>
                 </div>

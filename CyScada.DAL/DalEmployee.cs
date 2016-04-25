@@ -12,6 +12,9 @@ namespace CyScada.DAL
             var sqlBuilder = new StringBuilder(@"SELECT * FROM lonni_f.ZQ_Employees WITH(NOLOCK) where 1=1 ");
             foreach (DictionaryEntry pair in filterModel)
             {
+                //如果是字符串类型，但是是空值，则忽略
+                if (pair.Value is string && string.IsNullOrEmpty(pair.Value.ToString())) { continue; }
+
                 var value = pair.Value is string
                     ? "'" + pair.Value + "'"
                     : pair.Value is DateTime

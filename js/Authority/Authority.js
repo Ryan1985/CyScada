@@ -1,31 +1,45 @@
 ﻿"use strict";
 
-angular.module("AuthorityList", [])
-    .controller("AuthorityListController", ['$scope', '$http', function ($scope, $http) {
+angular.module("AuthorityList", ['viewService'])
+    .controller("AuthorityListController", function ($scope, $http,authorityService) {
         $scope.initial = function () {
-
-            $http.get("../api/AuthorityList")
-                .success(function (data) {
-                    $scope.authorityList = data;
-                    $('#ListTable').bootstrapTable('load', data);
-                }).error(function (error) {
-                    alert(error);
-                });
+            //$http.get("../api/AuthorityList")
+            //    .success(function (data) {
+            //        $scope.authorityList = data;
+            //        $('#ListTable').bootstrapTable('load', data);
+            //    }).error(function (error) {
+            //        alert(error);
+            //    });
+            authorityService.getList().success(function (data) {
+                $scope.authorityList = data;
+                $('#ListTable').bootstrapTable('load', data);
+            }).error(function (error) {
+                alert(error);
+            });
         };
 
 
         $scope.Query = function () {
             var params = $scope.authority;
-            $http.get("../api/AuthorityList/?paramstring=" + encodeURI(JSON.stringify(params)))
-                .success(function (data) {
-                    $('#ListTable').bootstrapTable('load', data);
-                }).error(function (error) {
-                    if (error.status == 403) {
-                        window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
-                    } else {
-                        modal.alertMsg("加载失败！");
-                    }
-                });
+            //$http.get("../api/AuthorityList/?paramstring=" + encodeURI(JSON.stringify(params)))
+            //    .success(function (data) {
+            //        $('#ListTable').bootstrapTable('load', data);
+            //    }).error(function (error) {
+            //        if (error.status == 403) {
+            //            window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
+            //        } else {
+            //            modal.alertMsg("加载失败！");
+            //        }
+            //    });
+            authorityService.getList(params).success(function (data) {
+                $('#ListTable').bootstrapTable('load', data);
+            }).error(function (error) {
+                if (error.status == 403) {
+                    window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
+                } else {
+                    modal.alertMsg("加载失败！");
+                }
+            });
         };
 
         $scope.Add = function () {
@@ -34,25 +48,38 @@ angular.module("AuthorityList", [])
             };
         };
 
-        $scope.SaveInfo = function () {
-            $http.post('/api/Authority', $scope.info).success(function (result) {
-                if (result == '""') {
-                    $scope.Query();
-                    $('#InfoModal').modal('toggle');
-                } else {
-                    alert(result);
-                }
+        $scope.SaveInfo = function (valid) {
+            //$http.post('/api/Authority', $scope.info).success(function (result) {
+            //    if (result == '""') {
+            //        $scope.Query();
+            //        $('#InfoModal').modal('toggle');
+            //    } else {
+            //        alert(result);
+            //    }
+            //}).error(function (error) {
+            //    alert(error);
+            //});
+            if (!valid) {
+                return;
+            }
+            authorityService.save($scope.info).success(function (status) {
+                $scope.Query();
+                $('#InfoModal').modal('toggle');
             }).error(function (error) {
-                alert(error);
+
             });
         };
 
-
+        $scope.DeleteAuth = function (id) {
+            authorityService.del(id).success(function () {
+                $scope.Query();
+            });
+        };
 
         $scope.initial();
 
 
-    }]);
+    });
 
 
 angular.bootstrap(angular.element("#AuthorityList"), ["AuthorityList"]);
@@ -80,16 +107,18 @@ var operateEvents = {
     },
     'click .delete': function (e, value, row, index) {
         var id = row.Id;
-        $.ajax({
-            url: '../api/Authority?id=' + id,
-            type: 'DELETE',
-            success: function (result) {
-                angular.element('#btnQuery').triggerHandler('click');
-            },
-            error: function (error) {
-                alert(error);
-            }
-        });
+        var ctrlScope = angular.element('[ng-controller=AuthorityListController]').scope();
+        ctrlScope.DeleteAuth(id);
+        //$.ajax({
+        //    url: '../api/Authority?id=' + id,
+        //    type: 'DELETE',
+        //    success: function (result) {
+        //        angular.element('#btnQuery').triggerHandler('click');
+        //    },
+        //    error: function (error) {
+        //        alert(error);
+        //    }
+        //});
     }
 
 };
