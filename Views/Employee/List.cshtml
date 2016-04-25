@@ -99,48 +99,52 @@
                         <h4 class="modal-title"  ng-bind-template="{{info.title}}"></h4>
                     </div>
                     <div class="modal-body">
-                        <form class="form-horizontal" novalidate="novalidate">
+                        <form class="form-horizontal" name="form" novalidate="novalidate" ng-submit="SaveInfo(form.$valid)">
                             <div class="hidden" ng-bind-template="{{info.Id}}"></div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
                                 <label class="control-label col-md-2">名称:</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.Name" ng-bind-template="{{info.Name}}" placeholder="请输入名称">
+                                    <input type="text" class="form-control" ng-model="info.Name" name="name" ng-bind-template="{{info.Name}}" placeholder="请输入名称" required>
+                                    <p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">请输入名称</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">编号:</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.Code" ng-bind-template="{{info.Code}}">
+                                    <input type="text" class="form-control" ng-model="info.Code" ng-bind-template="{{info.Code}}" placeholder="请输入编号">
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{ 'has-error' : form.loginName.$invalid && !form.loginName.$pristine }">
                                 <label class="control-label col-md-2">登录名称:</label>
                                 <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.LoginName" ng-bind-template="{{info.LoginName}}" placeholder="登录名称">
+                                    <input type="text" class="form-control" ng-model="info.LoginName" name="loginName" ng-bind-template="{{info.LoginName}}" placeholder="登录名称" required>
+                                    <p ng-show="form.loginName.$invalid && !form.loginName.$pristine" class="help-block">请输入登录名称</p>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine&& form.password.$minlength }">
                                 <label class="control-label col-md-2">密码:</label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" ng-model="info.Password" ng-bind-template="{{info.Password}}">
+                                    <input type="password" class="form-control" id="txtPwd" name="password" ng-model="info.Password" ng-bind-template="{{info.Password}}" ng-minlength="6" required>
+                                    <p ng-show="form.password.$invalid && !form.password.$pristine && form.password.$minlength" class="help-block">请输入至少6位的密码</p>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{ 'has-error' : form.confirmPassword.$invalid && !form.confirmPassword.$pristine &&  form.confirmPassword.$error.pwmatch }">
                                 <label class="control-label col-md-2">确认密码:</label>
                                 <div class="col-md-9">
-                                    <input type="password" class="form-control" ng-model="info.Password2" ng-bind-template="{{info.Password2}}">
+                                    <input type="password" class="form-control" name="confirmPassword" ng-model="info.Password2" ng-bind-template="{{info.Password2}}" required pw-check="txtPwd">
+                                    <p ng-show="form.confirmPassword.$invalid && !form.confirmPassword.$pristine && form.confirmPassword.$error.pwmatch " class="help-block">输入的密码不符</p>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">备注:</label>
                                 <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" ng-model="info.Description" ng-bind-template="{{info.Description}}"></textarea>
+                                    <textarea class="form-control" rows="3" ng-model="info.Description" ng-bind-template="{{info.Description}}" ></textarea>
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary CyScadaBtn" ng-click="SaveInfo()">保存</button>
+                        <button type="submit" class="btn btn-primary CyScadaBtn" ng-disabled="form.$invalid">保存</button>
                         <button type="button" class="btn btn-default CyScadaBtn" data-dismiss="modal">取消</button>
                     </div>
                 </div>
