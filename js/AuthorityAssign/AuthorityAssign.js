@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-angular.module("AuthorityAssign", [])
+angular.module("AuthorityAssign", ['viewService'])
     .controller("AuthorityAssignController",  function($scope, $http,authorityAssignService) {
         $scope.initial = function() {
             $scope.userNameConfig = {
