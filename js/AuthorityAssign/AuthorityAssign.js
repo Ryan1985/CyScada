@@ -189,7 +189,7 @@ angular.module("AuthorityAssign", ['viewService'])
                         }
                     }
 
-                    $scope.$apply();
+                    //$scope.$apply();
                     //修改各权限列表的样式(添加颜色)
                     //当前权限列表
                     //var currentAuthList = $('#currentAuthList span');
@@ -230,7 +230,7 @@ angular.module("AuthorityAssign", ['viewService'])
                         }
                     }
 
-                    $scope.$apply();
+                    //$scope.$apply();
                 } else {
                     alert('获取权限列表出错，请刷新页面再重试');
                 }
@@ -325,12 +325,12 @@ angular.module("AuthorityAssign", ['viewService'])
 
         $scope.refreshRoleAuthority = function (roleId) {
 
-            authorityAssignService.getUserAuthList(userId).success(
+            authorityAssignService.getRoleAuthList(roleId).success(
                 function(data) {
                     if (data != '') {
                         $scope.roleInfo = data;
                         $scope.roleInfo.title = data.Name + "的权限";
-                        $scope.$apply();
+                        //$scope.$apply();
                         //修改各权限列表的样式(添加颜色)
                         //权限列表
                         for (var n = 0; n < $scope.roleInfo.AuthorityList.length; n++) {
@@ -343,7 +343,7 @@ angular.module("AuthorityAssign", ['viewService'])
                             }
                         }
 
-                        $scope.$apply();
+                        //$scope.$apply();
                     } else {
                         alert('获取权限列表出错，请刷新页面再重试');
                     }
