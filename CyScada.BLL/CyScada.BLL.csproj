@@ -51,7 +51,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\CyScada.Common\CyScada.Common.csproj">
+    <ProjectReference Include="..\CyScada.Common\CyScada.Common.csproj">
       <Project>{8c75d198-f24f-4e93-8817-82d185c2bacf}</Project>
       <Name>CyScada.Common</Name>
     </ProjectReference>

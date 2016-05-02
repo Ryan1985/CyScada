@@ -1177,13 +1177,13 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CyScada.Common\CyScada.Common.csproj">
-      <Project>{8c75d198-f24f-4e93-8817-82d185c2bacf}</Project>
-      <Name>CyScada.Common</Name>
-    </ProjectReference>
     <ProjectReference Include="CyScada.BLL\CyScada.BLL.csproj">
       <Project>{6ed17b98-2d05-48cd-86f9-3edc2a1c1997}</Project>
       <Name>CyScada.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="CyScada.Common\CyScada.Common.csproj">
+      <Project>{8c75d198-f24f-4e93-8817-82d185c2bacf}</Project>
+      <Name>CyScada.Common</Name>
     </ProjectReference>
     <ProjectReference Include="CyScada.Model\CyScada.Model.csproj">
       <Project>{e177e719-5215-451c-8c30-ebc3539d2404}</Project>
