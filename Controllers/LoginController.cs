@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Security;
 using CyScada.BLL;
+using CyScada.Common;
 using CyScada.Model;
 using CyScada.Web.Models;
 using Newtonsoft.Json;
@@ -49,8 +47,8 @@ namespace CyScada.Web.Controllers
             {
                 var user = new UserModel
                 {
-                    UserName = account.UserName,
-                    Password = account.Password
+                    LoginName = account.UserName,
+                    Password = CommonUtil.Encrypt(account.Password)
                 };
                 var result = BllLogin.Login(user);
                 if (!string.IsNullOrEmpty(result))
@@ -64,13 +62,15 @@ namespace CyScada.Web.Controllers
 
                 var cookie = FormsAuthentication.GetAuthCookie("Username", false);
                 var ticket = FormsAuthentication.Decrypt(cookie.Value);
+                if (ticket == null)
+                    throw new Exception("无效票据");
                 var newTicket = new FormsAuthenticationTicket(ticket.Version, ticket.Name, ticket.IssueDate,
                     ticket.Expiration, ticket.IsPersistent, JsonConvert.SerializeObject(user));
                 cookie.Value = FormsAuthentication.Encrypt(newTicket);
                 Response.Cookies.Set(cookie);
 
                 Session["User"] = user;
-                return RedirectToAction("Index","EquipmentSelection");
+                return RedirectToAction("List", "Employee");
             }
             catch
             {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using CyScada.Model;
 using CyScada.Web.Common;
 
@@ -22,8 +17,8 @@ namespace CyScada.Web.Controllers
             {
                 return RedirectToAction("Index", "Login");
             }
-            ViewBag.UserId = user.UserId;
-            ViewBag.ReadName = user.ReadName;
+            ViewBag.Id = user.Id;
+            ViewBag.Name = user.Name;
             return View();
         }
 

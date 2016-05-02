@@ -7,12 +7,14 @@ namespace CyScada.Model
 {
     public class UserModel
     {
-        public string UserName { get; set; }
-        public string ReadName { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string LoginName { get; set; }
         public string Password { get; set; }
-        public string UserId { get; set; }
-        public string UserType { get; set; }
+        public string Description { get; set; }
         public string ErrorMessage { get; set; }
+        public int Authority { get; set; }
+        public string Code { get; set; }
         public string TokenKey { get; set; }
     }
 }

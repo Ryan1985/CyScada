@@ -39,10 +39,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AssignToggleModel.cs" />
+    <Compile Include="EmployeeModel.cs" />
+    <Compile Include="EmpRoleModel.cs" />
     <Compile Include="EquipmentModel.cs" />
     <Compile Include="ItemModel.cs" />
     <Compile Include="LoginModel.cs" />
+    <Compile Include="AuthorityModel.cs" />
+    <Compile Include="SideMenuListModel.cs" />
+    <Compile Include="SideMenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoleModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

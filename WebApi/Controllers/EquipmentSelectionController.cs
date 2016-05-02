@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
+﻿using System.Collections.Generic;
 using System.Web.Http;
 using CyScada.Model;
 using CyScada.BLL;
@@ -14,7 +10,7 @@ namespace CyScada.Web.WebApi.Controllers
     {
 
         // GET api/equipmentselection/5
-        public IEnumerable<EquipmentModel> Get(string userId)
+        public IEnumerable<EquipmentModel> Get(int userId)
         {
             
             var equipmentList = new BllEquipmentSelection().GetEquipments(userId);

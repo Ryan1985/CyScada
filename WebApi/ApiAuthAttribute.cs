@@ -1,15 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Filters;
-using System.Web.Security;
-using CyScada.Model;
-using Newtonsoft.Json;
 
 namespace CyScada.Web.WebApi
 {
@@ -33,16 +27,16 @@ namespace CyScada.Web.WebApi
                     return;
                 }
 
-                FormsAuthenticationTicket ticket = null;
+                //FormsAuthenticationTicket ticket = null;
 
-                foreach (var perCookie in cookie[0].Cookies)
-                {
-                    if (perCookie.Name == FormsAuthentication.FormsCookieName)
-                    {
-                        ticket = FormsAuthentication.Decrypt(perCookie.Value);
-                        break;
-                    }
-                }
+                //foreach (var perCookie in cookie[0].Cookies)
+                //{
+                //    if (perCookie.Name == FormsAuthentication.FormsCookieName)
+                //    {
+                //        ticket = FormsAuthentication.Decrypt(perCookie.Value);
+                //        break;
+                //    }
+                //}
 
                 //if (ticket == null)
                 //{
