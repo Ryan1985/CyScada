@@ -21,6 +21,14 @@ namespace CyScada.Web.Controllers
             return View();
         }
 
+
+        public ActionResult Test()
+        {
+            return View();
+        }
+
+
+
         ////
         //// GET: /Login/Details/5
 

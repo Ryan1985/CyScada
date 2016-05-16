@@ -1241,6 +1241,7 @@
     <Content Include="Views\AuthorityAssign\Index.cshtml" />
     <Content Include="Views\Dashboard\Svg.cshtml" />
     <Content Include="Views\SideMenu\List.cshtml" />
+    <Content Include="Views\Login\Test.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
