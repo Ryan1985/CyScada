@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>04/28/2016 09:44:00</publishTime>
+      <publishTime>05/06/2016 17:13:45</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>04/28/2016 09:44:00</publishTime>
@@ -21,7 +21,7 @@
       <publishTime>04/28/2016 09:44:00</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>04/28/2016 09:44:01</publishTime>
+      <publishTime>05/06/2016 17:13:46</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
