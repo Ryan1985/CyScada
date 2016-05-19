@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew.cshtml";
+}
+
+@section HeadSection{
+    
+    <link href="~/css/MapBoard.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=c4347QuZUP2khVUcF9jNSyO6kGL9Ccij"></script>
+}
+
+
+@section FootScript{
+    <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
+    <script type="text/javascript" src="~/js/MapBoard/MapBoard.js?r=20160519001"></script>
+}
+
+<div id="allmap"></div>
+
+

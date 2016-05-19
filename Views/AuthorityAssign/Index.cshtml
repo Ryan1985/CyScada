@@ -25,62 +25,69 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                    <div>
-                        <!-- Nav tabs -->
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li role="presentation" class="active"><a href="#userAuthority" aria-controls="home" role="tab" data-toggle="tab">用户权限配置</a></li>
-                            <li role="presentation"><a href="#roleAuthority" aria-controls="profile" role="tab" data-toggle="tab">角色权限配置</a></li>
-                        </ul>
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="userAuthority">
-                                <div class="row">
-                                    <div class="col-lg-12">
+                    <div class="panel panel-info querySection">
+                        <div class="panel-heading">
+                            权限分配
+                        </div>
+                        <div class="panel-body">
+                            <div>
+                                <!-- Nav tabs -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li role="presentation" class="active"><a href="#userAuthority" aria-controls="home" role="tab" data-toggle="tab">用户权限配置</a></li>
+                                    <li role="presentation"><a href="#roleAuthority" aria-controls="profile" role="tab" data-toggle="tab">角色权限配置</a></li>
+                                </ul>
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane active" id="userAuthority">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <table id="userTable" data-toggle="table" data-striped="true"
-                                                       data-show-pagination-switch="false"
-                                                       data-pagination="true"
-                                                       data-page-list="[10, 25, 50, 100, ALL]"
-                                                       data-id-field="Id"
-                                                       data-locale="zh-CN">
-                                                    <thead class="tableHeader">
-                                                        <tr>
-                                                            <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                                            <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">userId</th>
-                                                            <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">用户名称</th>
-                                                            <th data-field="Code" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">用户编号</th>
-                                                            <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
-                                                            <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <table id="userTable" data-toggle="table" data-striped="true"
+                                                               data-show-pagination-switch="false"
+                                                               data-pagination="true"
+                                                               data-page-list="[10, 25, 50, 100, ALL]"
+                                                               data-id-field="Id"
+                                                               data-locale="zh-CN">
+                                                            <thead class="tableHeader">
+                                                                <tr>
+                                                                    <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                                                    <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">userId</th>
+                                                                    <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">用户名称</th>
+                                                                    <th data-field="Code" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">用户编号</th>
+                                                                    <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
+                                                                    <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="roleAuthority">
-                                <div class="row">
-                                    <div class="col-lg-12">
+                                    <div role="tabpanel" class="tab-pane" id="roleAuthority">
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <table id="roleTable" data-toggle="table" data-striped="true"
-                                                       data-show-pagination-switch="false"
-                                                       data-pagination="true"
-                                                       data-page-list="[10, 25, 50, 100, ALL]"
-                                                       data-id-field="Id"
-                                                       data-locale="zh-CN">
-                                                    <thead class="tableHeader">
-                                                        <tr>
-                                                            <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                                            <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">roleId</th>
-                                                            <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">角色名称</th>
-                                                            <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
-                                                            <th data-align="center" data-halign="center" data-valign="middle" data-events="operateRoleEvents" data-formatter="controlRoleFormatter">操作</th>
-                                                        </tr>
-                                                    </thead>
-                                                </table>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <table id="roleTable" data-toggle="table" data-striped="true"
+                                                               data-show-pagination-switch="false"
+                                                               data-pagination="true"
+                                                               data-page-list="[10, 25, 50, 100, ALL]"
+                                                               data-id-field="Id"
+                                                               data-locale="zh-CN">
+                                                            <thead class="tableHeader">
+                                                                <tr>
+                                                                    <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                                                    <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">roleId</th>
+                                                                    <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">角色名称</th>
+                                                                    <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
+                                                                    <th data-align="center" data-halign="center" data-valign="middle" data-events="operateRoleEvents" data-formatter="controlRoleFormatter">操作</th>
+                                                                </tr>
+                                                            </thead>
+                                                        </table>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -179,6 +186,9 @@
                             </div>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default CyScadaBtn" data-dismiss="modal">关闭</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,6 +228,9 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default CyScadaBtn" data-dismiss="modal">关闭</button>
                     </div>
                 </div>
             </div>

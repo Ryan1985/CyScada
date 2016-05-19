@@ -78,7 +78,7 @@ namespace CyScada.Web.Controllers
                 Response.Cookies.Set(cookie);
 
                 Session["User"] = user;
-                return RedirectToAction("List", "Employee");
+                return RedirectToAction("Index", "MapBoard");
             }
             catch
             {

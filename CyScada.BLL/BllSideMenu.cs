@@ -13,6 +13,7 @@ namespace CyScada.BLL
     {
         private DalSideMenu _dalSideMenu = new DalSideMenu();
         private DalAuthority _dalAuthority = new DalAuthority();
+        private BllEmployee _bllEmployee = new BllEmployee();
 
 
         public DalSideMenu DalSideMenu
@@ -25,6 +26,12 @@ namespace CyScada.BLL
         {
             get { return _dalAuthority; }
             set { _dalAuthority = value; }
+        }
+
+        public BllEmployee BLLEmployee
+        {
+            get { return _bllEmployee; }
+            set { _bllEmployee = value; }
         }
 
 
@@ -160,9 +167,18 @@ namespace CyScada.BLL
 
         public IList<SideMenuListModel> GetMenuList(UserModel user)
         {
+            var empWithAuth = _bllEmployee.GetEmployeeWithAuthority(user.Id.ToString());
+            var userAuth =
+                empWithAuth.EmpRoleList.Select(
+                    empRoleModel =>
+                        empWithAuth.RoleList.Where(r => r.Id == empRoleModel.RoleId)
+                            .Select(r => r.Authority)
+                            .FirstOrDefault())
+                    .Aggregate(empWithAuth.Authority, (current, roleAuth) => current | roleAuth);
+
             var sideMenuSet = _dalSideMenu.QuerySideMenuSet();
             var sideMenuList = sideMenuSet.Tables["SideMenu"].AsEnumerable()
-                .Where(dr => (Convert.ToInt32(dr["AuthorityId"]) & user.Authority) == Convert.ToInt32(dr["AuthorityId"]))
+                .Where(dr => (Convert.ToInt32(dr["AuthorityId"]) & userAuth) == Convert.ToInt32(dr["AuthorityId"]))
                 .Select(dr => new SideMenuListModel
                 {
                     AuthorityId = Convert.ToInt32(dr["AuthorityId"]),

@@ -1,8 +1,8 @@
-$(function() {
+//$(function() {
 
-    $('#side-menu').metisMenu();
+//    $('#side-menu').metisMenu();
 
-});
+//});
 
 //Loads the correct sidebar on window load,
 //collapses the sidebar on window resize.
@@ -26,11 +26,25 @@ $(function() {
         }
     });
 
-    var url = window.location;
-    var element = $('ul.nav a').filter(function() {
-        return this.href == url || url.href.indexOf(this.href) == 0;
-    }).addClass('active').parent().parent().addClass('in').parent();
-    if (element.is('li')) {
-        element.addClass('active');
-    }
+    //var url = window.location;
+    //var t1 = $('ul.nav.CyScadaSideItem li a');
+    //var t2 = $('ul.nav.CyScadaSideItem li a').filter(function () {
+    //    return this.baseURI == url || url.href.indexOf(this.baseURI) == 0;
+    //});
+    //var t3 = t2.addClass('active');
+    //var t4 = t3.parent().parent();
+
+
+    //var element = $('ul.nav a').filter(function() {
+    //    return this.href == url || url.href.indexOf(this.href) == 0;
+    //}).addClass('active').parent().parent().addClass('in').parent();
+    //if (element.is('li')) {
+    //    element.addClass('active');
+    //}
+    
+
 });
+
+
+
+

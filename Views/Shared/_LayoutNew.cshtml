@@ -6,59 +6,57 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+    <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
 
-    <title>CyScada beta V0.1</title>
+        <title>CyScada beta V0.1</title>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
+        <!-- Bootstrap Core CSS -->
+        <link href="/css/bootstrap/bootstrap.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="/css/metisMenu/metisMenu.min.css" rel="stylesheet">
+        <!-- MetisMenu CSS -->
+        <link href="/css/metisMenu/metisMenu.min.css" rel="stylesheet">
 
-    <!-- Timeline CSS -->
-    <link href="/css/sbAdmin/timeline.css" rel="stylesheet">
+        <!-- Timeline CSS -->
+        <link href="/css/sbAdmin/timeline.css" rel="stylesheet">
 
-    <!-- Custom CSS -->
-    <link href="/css/sbAdmin/sb-admin-2.css" rel="stylesheet">
+        <!-- Custom CSS -->
+        <link href="/css/sbAdmin/sb-admin-2.css" rel="stylesheet">
 
-    <!-- Morris Charts CSS -->
-    <link href="/css/morrisjs/morris.css" rel="stylesheet">
+        <!-- Morris Charts CSS -->
+        <link href="/css/morrisjs/morris.css" rel="stylesheet">
 
-    <!-- Custom Fonts -->
-    <link href="/css/fontAwesome/font-awesome.css" rel="stylesheet" type="text/css">
+        <!-- Custom Fonts -->
+        <link href="/css/fontAwesome/font-awesome.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
 
-    <link href="/css/Site.css" rel="stylesheet">
 
-    <!-- jQuery -->
-    <script src="/js/jquery/jquery.min.js"></script>
+        <link href="/css/Site.css" rel="stylesheet">
 
-    <script type="text/javascript" src="/js/angularjs/angular.min.js"></script>
+        <!-- jQuery -->
+        <script src="/js/jquery/jquery.min.js"></script>
 
-    <script src="/js/_sideMenu/_sideMenu.js"></script>
-    @RenderSection("HeadSection", false)
-</head>
+        <script type="text/javascript" src="/js/angularjs/angular.min.js"></script>
+
+        <script src="/js/_sideMenu/_sideMenu.js"></script>
+        @RenderSection("HeadSection", false)
+    </head>
 
 <body>
-
     <div id="wrapper">
-
         <!-- Navigation -->
-        <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <nav id="navHeader" class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="sr-only">Toggle navigation</span>
@@ -66,13 +64,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">CyScada Beta V0.1</a>
+                <a class="navbar-brand" href="">CyScada Beta V0.1</a>
             </div>
             <!-- /.navbar-header -->
 
             <ul class="nav navbar-top-links navbar-right">
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="userId" data-userid="@ViewBag.Id">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="" id="userId" data-userid="@ViewBag.Id">
                         <i class="fa fa-user fa-fw"></i>@ViewBag.Name<i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
@@ -85,27 +83,27 @@
                 <!-- /.dropdown -->
             </ul>
             <!-- /.navbar-top-links -->
-            @{ Html.RenderPartial("_SideMenu",new UserModel{Name=@ViewBag.Name,Id=Convert.ToInt32(@ViewBag.Id)} );}
+            @{ Html.RenderPartial("_SideMenu", new UserModel { Name = @ViewBag.Name, Id = Convert.ToInt32(@ViewBag.Id) });}
             <!-- /.navbar-static-side -->
         </nav>
         <div id="page-wrapper">
             @*<div>
-                <ul class="nav nav-tabs" role="tablist">
-                    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
-                    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
-                    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
-                </ul>
-            </div>
-            <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">
-                    @RenderPage
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+                        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+                        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+                        <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+                    </ul>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="profile">...</div>
-                <div role="tabpanel" class="tab-pane" id="messages">...</div>
-                <div role="tabpanel" class="tab-pane" id="settings">...</div>
-            </div>*@
-            
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        @RenderPage
+                    </div>
+                    <div role="tabpanel" class="tab-pane" id="profile">...</div>
+                    <div role="tabpanel" class="tab-pane" id="messages">...</div>
+                    <div role="tabpanel" class="tab-pane" id="settings">...</div>
+                </div>*@
+
             <div>
                 @RenderBody()
             </div>
@@ -115,12 +113,11 @@
 
     </div>
     <!-- /#wrapper -->
-
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap3/bootstrap.min.js"></script>
 
     <!-- Metis Menu Plugin JavaScript -->
-    <script src="/js/metisMenu/metisMenu.min.js"></script>
+    <script src="/js/metisMenu/metisMenu.js"></script>
 
     <!-- Morris Charts JavaScript -->
     <script src="/js/raphael/raphael-min.js"></script>
@@ -130,6 +127,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="/js/sbAdmin/sb-admin-2.js"></script>
     @RenderSection("FootScript", false)
+
 </body>
 
 </html>
