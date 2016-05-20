@@ -171,6 +171,7 @@
     <Content Include="css\metisMenu\metisMenu.css" />
     <Content Include="css\metisMenu\metisMenu.min.css" />
     <Content Include="css\morrisjs\morris.css" />
+    <Content Include="css\responsiveNav\responsive-nav.css" />
     <Content Include="css\Role.css" />
     <Content Include="css\sbAdmin\sb-admin-2.css" />
     <Content Include="css\sbAdmin\timeline.css" />
@@ -1096,6 +1097,8 @@
     <Content Include="js\morrisjs\morris.min.js" />
     <Content Include="js\raphael\raphael-min.js" />
     <Content Include="js\raphael\raphael.js" />
+    <Content Include="js\responsiveNav\responsive-nav.js" />
+    <Content Include="js\responsiveNav\responsive-nav.min.js" />
     <Content Include="js\Role\Role.js" />
     <Content Include="js\sbAdmin\sb-admin-2.js" />
     <Content Include="js\Select2\i18n\ar.js" />
