@@ -13,7 +13,8 @@ namespace CyScada.Model
         public string Password { get; set; }
         public string Description { get; set; }
         public string ErrorMessage { get; set; }
-        public int Authority { get; set; }
+        //public int Authority { get; set; }
+        public string AuthorityCode { get; set; }
         public string Code { get; set; }
         public string TokenKey { get; set; }
     }

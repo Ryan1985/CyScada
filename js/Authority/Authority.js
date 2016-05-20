@@ -3,13 +3,6 @@
 angular.module("AuthorityList", ['viewService'])
     .controller("AuthorityListController", function ($scope, $http,authorityService) {
         $scope.initial = function () {
-            //$http.get("../api/AuthorityList")
-            //    .success(function (data) {
-            //        $scope.authorityList = data;
-            //        $('#ListTable').bootstrapTable('load', data);
-            //    }).error(function (error) {
-            //        alert(error);
-            //    });
             authorityService.getList().success(function (data) {
                 $scope.authorityList = data;
                 $('#ListTable').bootstrapTable('load', data);
@@ -21,16 +14,6 @@ angular.module("AuthorityList", ['viewService'])
 
         $scope.Query = function () {
             var params = $scope.authority;
-            //$http.get("../api/AuthorityList/?paramstring=" + encodeURI(JSON.stringify(params)))
-            //    .success(function (data) {
-            //        $('#ListTable').bootstrapTable('load', data);
-            //    }).error(function (error) {
-            //        if (error.status == 403) {
-            //            window.location.href = "/Account/Login?ReturnUrl=" + window.location.pathname;
-            //        } else {
-            //            modal.alertMsg("加载失败！");
-            //        }
-            //    });
             authorityService.getList(params).success(function (data) {
                 $('#ListTable').bootstrapTable('load', data);
             }).error(function (error) {
@@ -49,20 +32,14 @@ angular.module("AuthorityList", ['viewService'])
         };
 
         $scope.SaveInfo = function (valid) {
-            //$http.post('/api/Authority', $scope.info).success(function (result) {
-            //    if (result == '""') {
-            //        $scope.Query();
-            //        $('#InfoModal').modal('toggle');
-            //    } else {
-            //        alert(result);
-            //    }
-            //}).error(function (error) {
-            //    alert(error);
-            //});
             if (!valid) {
                 return;
             }
             authorityService.save($scope.info).success(function (status) {
+                if (status!='""') {
+                    alert(status);
+                    return;
+                }
                 $scope.Query();
                 $('#InfoModal').modal('toggle');
             }).error(function (error) {

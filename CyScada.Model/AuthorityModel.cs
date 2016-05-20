@@ -10,6 +10,7 @@ namespace CyScada.Model
         public int? Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public int? AuthorityId { get; set; }
+        //public int? AuthorityId { get; set; }
+        public string AuthorityCode { get; set; }
     }
 }

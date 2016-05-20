@@ -4,54 +4,122 @@
 angular.module("SideMenu", [])
     .controller("SideMenuController", ['$scope', '$http', function($scope, $http) {
         $scope.initial = function() {
-
             $http.get("../api/SideMenu?userId=" + $('#userId').attr('data-userId'))
                 .success(function(data) {
                     $scope.menuList = data;
+                    var treeHtml = [];
+                    for (var i = 0; i < data.length; i++) {
+                        AppendBranch(treeHtml, data[i]);
+                    }
+                    $('#side-menu').append(treeHtml.join(''));
+                    RefreshActive();
                 }).error(function(error) {
                     alert('获取列表发生错误:' + error);
                 });
-
         };
-
         $scope.initial();
+    }]);
+
+var leafTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Click(this)"><i class="@class"></i>@name</a></li>';
+var branchTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Toggle(this)"><i class="@class"></i>@name<span class="fa arrow"></span></a>';//'</li>';
+
+function AppendBranch(branchHtml, branch) {
+    if (branch.SubMenus==undefined || branch.SubMenus.length == 0) {
+        branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
+    } else {
+        branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
+        branchHtml.push('<ul class="nav nav-second-level collapse">');
+        for (var i = 0; i < branch.SubMenus.length; i++) {
+            AppendBranch(branchHtml, branch.SubMenus[i]);
+        }
+        branchHtml.push('</ul>');
+        branchHtml.push('</li>');
+    }
+}
 
 
-    }])
-    .directive('sideMenu', function() {
-        return {
-            retrict: 'A',
-            replace: true,
-            scope: {
-                menuUrl: '@',
-                menuId: '@',
-                menuName: '@',
-                menuClass: '@'
-            },
-            template:
-                '<a href="{{menuUrl}}" id="{{menuId}}">' +
-                    '<i class="{{menuClass}}"></i>{{menuName}}' +
-                    '<span class="fa arrow"></span>' +
-                    '</a>'
-        };
+function RefreshActive() {
+    $('#side-menu').find('.active').removeClass('active');
+    $('#side-menu').find('.in').removeClass('in');
+    var url = window.location;
+    var element = $('#side-menu').find('a');
+    for (var i = 0; i < element.length; i++) {
+        if (element[i] != undefined && $(element[i]).attr('data-href').indexOf(url.pathname)>=0) {
+            $(element[i]).addClass('active');
+            ExpandParents(element[i]);
+            return;
+        }
     }
-    ).directive('sideSubMenu', function() {
-        return {
-            retrict: 'A',
-            replace: true,
-            scope: {
-                menuUrl: '@',
-                menuId: '@',
-                menuName: '@',
-                menuClass: '@'
-            },
-            template:
-                '<a href="{{menuUrl}}" id="{{menuId}}" onclick="ShowTab(this)">' +
-                    '<i class="{{menuClass}}"></i>{{menuName}}' +
-                    '</a>'
-        };
+}
+
+
+function ExpandParents(ele) {
+    if (ele.id == 'side-menu') {
+        return;
     }
-    );
+    if ($(ele).is('li')) {
+        $(ele).addClass('active');
+    }
+    if ($(ele).is('ul')) {
+        $(ele).addClass('in');
+    }
+    ExpandParents(ele.parentElement);
+}
+
+
+function Toggle(ele) {
+    if ($(ele).attr('data-href') == '') {
+        var nextEle = $(ele).next();
+        if (nextEle.is('ul') && nextEle.hasClass('in')) {
+            nextEle.removeClass('in');
+            $(ele).parent().removeClass('active');
+        } else if (nextEle.is('ul') && nextEle.hasClass('in') == false) {
+            nextEle.addClass('in');
+            $(ele).parent().addClass('active');
+        }
+    }
+}
+
+function Click(ele) {
+    if ($(ele).attr('data-href') == '') {
+        return;
+    }
+    window.location.href = $(ele).attr('data-href');
+}
+    //.directive('sideMenu', function() {
+    //    return {
+    //        retrict: 'A',
+    //        replace: true,
+    //        scope: {
+    //            menuUrl: '@',
+    //            menuId: '@',
+    //            menuName: '@',
+    //            menuClass: '@'
+    //        },
+    //        template:
+    //            '<a href="{{menuUrl}}" id="{{menuId}}">' +
+    //                '<i class="{{menuClass}}"></i>{{menuName}}' +
+    //                '<span class="fa arrow"></span>' +
+    //                '</a>'
+    //    };
+    //}
+    //).directive('sideSubMenu', function() {
+    //    return {
+    //        retrict: 'A',
+    //        replace: true,
+    //        scope: {
+    //            menuUrl: '@',
+    //            menuId: '@',
+    //            menuName: '@',
+    //            menuClass: '@'
+    //        },
+    //        template:
+    //            '<a href="{{menuUrl}}" id="{{menuId}}" onclick="ShowTab(this)">' +
+    //                '<i class="{{menuClass}}"></i>{{menuName}}' +
+    //                '</a>'
+    //    };
+    //}
+    //);
 
 angular.bootstrap(angular.element("#SideMenu"), ["SideMenu"]);
 

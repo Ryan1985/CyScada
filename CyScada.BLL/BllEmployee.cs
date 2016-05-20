@@ -53,7 +53,8 @@ namespace CyScada.BLL
             var dtEmployees = _dalEmployee.GetEmployeeList(filterModel.ToHashTable());
             return dtEmployees.AsEnumerable().Select(dr => new EmployeeModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]),
+                //Authority = Convert.ToInt32(dr["Authority"]),
+                AuthorityCode=dr["AuthorityCode"].ToString(),
                 Code = dr["Code"].ToString(),
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -97,7 +98,7 @@ namespace CyScada.BLL
             });
         }
 
-        internal string AddEmployeeAuthority(string userId, string authorityId)
+        internal string AddEmployeeAuthority(string userId, string authorityCode)
         {
             //获取用户的信息
             var dtEmployee = _dalEmployee.GetEmployeeList(new Hashtable
@@ -112,7 +113,8 @@ namespace CyScada.BLL
 
             var employee = dtEmployee.AsEnumerable().Select(dr => new EmployeeModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]) | Convert.ToInt32(authorityId),//使用或运算添加权限
+                //Authority = Convert.ToInt32(dr["Authority"]) | Convert.ToInt32(authorityId),//使用或运算添加权限
+                AuthorityCode = CommonUtil.AppendAuthorityCode(dr["AuthorityCode"].ToString(),authorityCode),
                 Code=dr["Code"].ToString(),
                 Description=dr["Description"].ToString(),
                 Id=Convert.ToInt32(dr["Id"]),
@@ -133,7 +135,7 @@ namespace CyScada.BLL
             });
         }
 
-        internal string DeleteEmployeeAuthority(string userId, string authorityId)
+        internal string DeleteEmployeeAuthority(string userId, string authorityCode)
         {
 
             //获取用户的信息
@@ -149,7 +151,8 @@ namespace CyScada.BLL
 
             var employee = dtEmployee.AsEnumerable().Select(dr => new EmployeeModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]) & (~Convert.ToInt32(authorityId)),//使用与运算删除权限
+                //Authority = Convert.ToInt32(dr["Authority"]) & (~Convert.ToInt32(authorityId)),//使用与运算删除权限
+                AuthorityCode = CommonUtil.RemoveAuthorityCode(dr["AuthorityCode"].ToString(), authorityCode),
                 Code = dr["Code"].ToString(),
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -174,14 +177,16 @@ namespace CyScada.BLL
             //查询所有角色以及权限
             var roleList = _dalRole.GetRoleList().AsEnumerable().Select(dr => new RoleModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]),
+                //Authority = Convert.ToInt32(dr["Authority"]),
+                AuthorityCode =dr["AuthorityCode"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Description = dr["Description"].ToString(),
                 Name = dr["Name"].ToString()
             }).ToList();
             var authList = _dalAuthority.GetAuthorityList().AsEnumerable().Select(dr=>new AuthorityModel
             {
-                AuthorityId = Convert.ToInt32(dr["AuthorityId"]),
+                AuthorityCode = dr["AuthorityCode"].ToString(),
+                //AuthorityId = Convert.ToInt32(dr["AuthorityId"]),
                 Description = dr["Description"].ToString(),
                 Name = dr["Name"].ToString(),
                 Id=Convert.ToInt32(dr["Id"])

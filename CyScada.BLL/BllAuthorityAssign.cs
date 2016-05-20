@@ -54,9 +54,9 @@ namespace CyScada.BLL
             return _bllEmployee.AddEmployeeRole(userId, roleId);
         }
 
-        public string AddUserAuthority(string userId, string authorityId)
+        public string AddUserAuthority(string userId, string authorityCode)
         {
-            return _bllEmployee.AddEmployeeAuthority(userId, authorityId);
+            return _bllEmployee.AddEmployeeAuthority(userId, authorityCode);
         }
 
         public string DeleteUserRole(string userId, string roleId)
@@ -64,20 +64,20 @@ namespace CyScada.BLL
             return _bllEmployee.DeleteEmployeeRole(userId, roleId);
         }
 
-        public string DeleteUserAuthority(string userId, string authorityId)
+        public string DeleteUserAuthority(string userId, string authorityCode)
         {
-            return _bllEmployee.DeleteEmployeeAuthority(userId, authorityId);
+            return _bllEmployee.DeleteEmployeeAuthority(userId, authorityCode);
         }
 
 
-        public string AddRoleAuthority(string roleId, string authorityId)
+        public string AddRoleAuthority(string roleId, string authorityCode)
         {
-            return _bllRole.AddRoleAuthority(roleId, authorityId);
+            return _bllRole.AddRoleAuthority(roleId, authorityCode);
         }
 
-        public string DeleteRoleAuthority(string roleId, string authorityId)
+        public string DeleteRoleAuthority(string roleId, string authorityCode)
         {
-            return _bllRole.DeleteRoleAuthority(roleId, authorityId);
+            return _bllRole.DeleteRoleAuthority(roleId, authorityCode);
         }
 
 

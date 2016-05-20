@@ -17,7 +17,7 @@ namespace CyScada.BLL
 
             user.Id = Convert.ToInt32(dtUser.Rows[0]["Id"]);
             user.Name = dtUser.Rows[0]["Name"].ToString();
-            user.Authority = Convert.ToInt32(dtUser.Rows[0]["Authority"]);
+            user.AuthorityCode = dtUser.Rows[0]["AuthorityCode"].ToString();
             
             return string.Empty;
         }
@@ -31,7 +31,8 @@ namespace CyScada.BLL
             user.LoginName = dtUser.Rows[0]["LoginName"].ToString();
             user.Password = dtUser.Rows[0]["Password"].ToString();
             user.Name = dtUser.Rows[0]["Name"].ToString();
-            user.Authority = Convert.ToInt32(dtUser.Rows[0]["Authority"]);
+            user.AuthorityCode = dtUser.Rows[0]["AuthorityCode"].ToString();
+
 
             return user;
         }

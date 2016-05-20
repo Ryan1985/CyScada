@@ -39,6 +39,7 @@ namespace CyScada.DAL
           Password ,
           Description ,
           Authority ,
+          AuthorityCode ,
           Code
         )
 VALUES  ( '{0}' , -- Name - varchar(100)
@@ -46,6 +47,7 @@ VALUES  ( '{0}' , -- Name - varchar(100)
           '{2}' , -- Password - varchar(50)
           '{3}' , -- Description - varchar(500)
           0 , -- Authority - bigint
+          '' , -- AuthorityCode - varchar(MAX)
           '{4}'  -- Code - varchar(50)
         )", model["Name"], model["LoginName"], model["Password"], model["Description"], model["Code"]);
 
@@ -73,9 +75,14 @@ SET     Name = '{1}' ,
         Password = '{3}' ,
         Description = '{4}' ,
         Code = '{5}',
-        Authority={6}
+        Authority={6},
+        AuthorityCode='{7}'
+
 WHERE   ID = {0}", model["Id"], model["Name"], model["LoginName"], model["Password"], model["Description"],
-                model["Code"], model.ContainsKey("Authority") ? model["Authority"] : 0);
+                model["Code"], model.ContainsKey("Authority") ? model["Authority"] : 0,
+                string.IsNullOrEmpty(model["AuthorityCode"] == null ? string.Empty : model["AuthorityCode"].ToString())
+                    ? string.Empty
+                    : model["AuthorityCode"].ToString());
             try
             {
 

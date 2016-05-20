@@ -34,26 +34,9 @@ namespace CyScada.BLL
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Name = dr["Name"].ToString(),
-                AuthorityId = Convert.ToInt32(dr["AuthorityId"])
+                AuthorityCode = dr["AuthorityCode"].ToString()
             });
         }
-
-        //protected string CheckAuthorityId(AuthorityModel model)
-        //{
-        //    var authId = -1;
-        //    if (!model.AuthorityId.HasValue||!int.TryParse(model.AuthorityId.Value.ToString(CultureInfo.InvariantCulture),out authId))
-        //    {
-        //        return "错误的权限ID";
-        //    }
-
-        //    var authList = GetAuthorityList(new AuthorityModel { AuthorityId = authId }).ToArray();
-        //    if (authList.Any())
-        //    {
-        //        return "该ID与已配置的权限:" + authList.First().Name + "(id=" + authList.First().Id + ")重复";
-        //    }
-
-        //    return string.Empty;
-        //}
 
 
         public string SaveAuthority(AuthorityModel model)
@@ -63,6 +46,10 @@ namespace CyScada.BLL
 
         protected string CreateAuthority(AuthorityModel model)
         {
+            if (CheckExist(model))
+            {
+                return "新增的权限标识已经存在";
+            }
             return _dalAuthority.CreateAuthority(model.ToHashTable());
         }
 
@@ -77,6 +64,19 @@ namespace CyScada.BLL
         {
             _dalAuthority.DeleteAuthority(id);
         }
+
+        protected bool CheckExist(AuthorityModel model)
+        {
+            var authList = _dalAuthority.GetAuthorityList();
+            return
+                authList.Rows.Cast<DataRow>()
+                    .Any(
+                        dr =>
+                            dr["AuthorityCode"].ToString()
+                                .Equals(model.AuthorityCode, StringComparison.CurrentCultureIgnoreCase));
+        }
+
+
 
     }
 }

@@ -6,16 +6,6 @@
         <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav navbar-collapse">
                 <ul class="nav" id="side-menu">
-                    <li ng-repeat="menu in menuList">
-                        <div side-menu menu-url="{{menu.Url}}" menu-id="{{menu.Id}}" menu-name="{{menu.Name}}" menu-class="{{menu.Class}}">
-                        </div>
-                        <ul class="nav nav-second-level">
-                            <li ng-repeat="submenu in menu.SubMenus">
-                                <div side-sub-menu menu-url="{{submenu.Url}}" menu-id="{{submenu.Id}}" menu-name="{{submenu.Name}}" menu-class="{{submenu.Class}}">
-                                </div>
-                            </li>
-                        </ul>
-                    </li>
                 </ul>
             </div>
         </div>

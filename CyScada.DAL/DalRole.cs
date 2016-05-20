@@ -43,10 +43,11 @@ namespace CyScada.DAL
         public string CreateRole(Hashtable model)
         {
             var sql = string.Format(@"INSERT INTO lonni_f.ZQ_Roles
-        ( Name, Description, Authority )
+        ( Name, Description, Authority,AuthorityCode )
 VALUES  ( '{0}', -- Name - varchar(50)
           '{1}', -- Description - varchar(500)
           0  -- Authority - bigint
+          ''  -- AuthorityCode - bigint
           )", model["Name"], model["Description"]);
 
             try
@@ -70,8 +71,13 @@ VALUES  ( '{0}', -- Name - varchar(50)
             var sql = string.Format(@"UPDATE  lonni_f.ZQ_Roles
 SET     Name = '{1}' ,
         Description = '{2}' ,
-        Authority = '{3}'
-WHERE   ID = {0}", model["Id"], model["Name"], model["Description"], model.ContainsKey("Authority") ? model["Authority"] : 0);
+        Authority = '{3}',
+        AuthorityCode = '{4}'
+WHERE   ID = {0}", model["Id"], model["Name"], model["Description"],
+                model.ContainsKey("Authority") ? model["Authority"] : 0,
+                string.IsNullOrEmpty(model["AuthorityCode"] == null ? string.Empty : model["AuthorityCode"].ToString())
+                    ? string.Empty
+                    : model["AuthorityCode"].ToString());
             try
             {
 

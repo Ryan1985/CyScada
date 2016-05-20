@@ -12,8 +12,25 @@ namespace CyScada.Model
         public string LoginName { get; set; }
         public string Password { get; set; }
         public string Description { get; set; }
-        public int? Authority { get; set; }
+        //public int? Authority { get; set; }
+        public string AuthorityCode { get; set; }
         public string Code { get; set; }
+        //public string AuthoritySummary
+        //{
+        //    get
+        //    {
+        //        if (AuthorityCode == null)
+        //            return null;
+        //        var sbAuth = new StringBuilder(AuthorityCode);
+        //        foreach (
+        //            var authCode in EmpRoleList.Select(empRoleModel => RoleList.Where(r => r.Id == empRoleModel.RoleId)
+        //                .Select(r => r.AuthorityCode).FirstOrDefault()))
+        //        {
+        //            sbAuth.Append(authCode + ",");
+        //        }
+        //        return sbAuth.ToString();
+        //    }
+        //}
         /// <summary>
         /// 所有的可用角色列表
         /// </summary>

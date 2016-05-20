@@ -31,7 +31,8 @@ namespace CyScada.BLL
             var dtRoles = _dalRole.GetRoleList(filterModel.ToHashTable());
             return dtRoles.AsEnumerable().Select(dr => new RoleModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]),
+                //Authority = Convert.ToInt32(dr["Authority"]),
+                AuthorityCode = dr["AuthorityCode"].ToString(),
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Name = dr["Name"].ToString()
@@ -61,7 +62,7 @@ namespace CyScada.BLL
         }
 
 
-        internal string AddRoleAuthority(string roleId, string authorityId)
+        internal string AddRoleAuthority(string roleId, string authorityCode)
         {
             //获取权限的信息
             var dtRole = _dalRole.GetRoleList(new Hashtable
@@ -76,7 +77,8 @@ namespace CyScada.BLL
 
             var role = dtRole.AsEnumerable().Select(dr => new RoleModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]) | Convert.ToInt32(authorityId),//使用或运算添加权限
+                //Authority = Convert.ToInt32(dr["Authority"]) | Convert.ToInt32(authorityId),//使用或运算添加权限
+                AuthorityCode = CommonUtil.AppendAuthorityCode(dr["AuthorityCode"].ToString(), authorityCode),
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Name = dr["Name"].ToString()
@@ -85,7 +87,7 @@ namespace CyScada.BLL
             return _dalRole.ModifyRole(role.ToHashTable());
         }
 
-        internal string DeleteRoleAuthority(string roleId, string authorityId)
+        internal string DeleteRoleAuthority(string roleId, string authorityCode)
         {
 
             //获取权限的信息
@@ -101,7 +103,8 @@ namespace CyScada.BLL
 
             var role = dtRole.AsEnumerable().Select(dr => new RoleModel
             {
-                Authority = Convert.ToInt32(dr["Authority"]) & (~Convert.ToInt32(authorityId)),//使用与运算删除权限
+                //Authority = Convert.ToInt32(dr["Authority"]) & (~Convert.ToInt32(authorityId)),//使用与运算删除权限
+                AuthorityCode = CommonUtil.RemoveAuthorityCode(dr["AuthorityCode"].ToString(), authorityCode),
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Name = dr["Name"].ToString()

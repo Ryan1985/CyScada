@@ -33,6 +33,7 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
             var sql = string.Format(@"INSERT INTO lonni_f.ZQ_SideMenu
         ( Name ,
           AuthorityId ,
+          AuthorityCode ,
           Class ,
           Url ,
           ParentId ,
@@ -40,11 +41,12 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
         )
 VALUES  ( '{0}' , -- Name - varchar(50)
           {1} , -- AuthorityId - bigint
+          {6} , -- AuthorityId - bigint
           '{2}' , -- Class - varchar(500)
           '{3}' , -- Url - varchar(500)
           {4} , -- ParentId - int
           {5}  -- SortNumber - int
-        )", model["Name"], model["AuthorityId"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"]);
+        )", model["Name"], model["AuthorityId"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
 
             try
             {
@@ -67,12 +69,13 @@ VALUES  ( '{0}' , -- Name - varchar(50)
             var sql = string.Format(@"UPDATE  lonni_f.ZQ_SideMenu
 SET     Name = '{1}' ,
         AuthorityId = '{2}' ,
+        AuthorityCode = '{7}' ,
         Class = '{3}' ,
         Url = '{4}' ,
         ParentId = {5},
         SortNumber={6}
 WHERE   ID = {0}", model["Id"], model["Name"], model["AuthorityId"], model["Class"], model["Url"],
-                 model.ContainsKey("ParentId")?model["ParentId"]:"NULL", model["SortNumber"]);
+                 model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
             try
             {
 
