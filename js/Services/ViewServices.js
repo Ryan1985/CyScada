@@ -6,7 +6,7 @@ viewServicesModule.factory('bindListService', function ($http) {
     return {
         //查询
         getAuthorityList: function () {
-                return $http.get("../api/BindList?bindType=AuthorityList");
+                return $http.get("../api/BindList?bindType=SideMenuAuthorityList");
         },
         getParentMenuList: function () {
             return $http.get("../api/BindList?bindType=ParentMenuList");
@@ -133,5 +133,14 @@ viewServicesModule.factory('sideMenuService', function ($http) {
 
 
 
+//控制桌面视图服务
+viewServicesModule.factory('controlDeskService', function ($http) {
+    return {
+        //查询
+        getList: function (params) {
+            return $http.get("../api/ControlDesk?SideMenuId=" + params[0] + 'UserId=' + params[1]);
+        }
+    };
+});
 
 

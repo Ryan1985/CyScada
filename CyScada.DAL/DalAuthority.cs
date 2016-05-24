@@ -42,11 +42,10 @@ namespace CyScada.DAL
         public string CreateAuthority(Hashtable model)
         {
             var sql = string.Format(@"INSERT INTO lonni_f.ZQ_Authorities
-        ( Name, Description,AuthorityId,AuthorityCode )
+        ( Name, Description,AuthorityCode,AuthorityType )
         SELECT   '{0}', -- Name - varchar(50)
           '{1}', -- Description - varchar(500)
-                (SELECT ISNULL(MAX(AuthorityId)*2,1) FROM lonni_f.ZQ_Authorities WITH(NOLOCK)),
-'{2}'", model["Name"], model["Description"], model["AuthorityCode"]);
+'{2}','{3}'", model["Name"], model["Description"], model["AuthorityCode"], model["AuthorityType"]);
 
             try
             {

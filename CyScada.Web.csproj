@@ -135,6 +135,7 @@
     <Compile Include="WebApi\Controllers\AuthorityController.cs" />
     <Compile Include="WebApi\Controllers\AuthorityListController.cs" />
     <Compile Include="WebApi\Controllers\BindListController.cs" />
+    <Compile Include="WebApi\Controllers\ControlDeskController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeListController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
@@ -162,6 +163,7 @@
     <Content Include="css\bootstrap\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
+    <Content Include="css\ControlDesk.css" />
     <Content Include="css\Employee.css" />
     <Content Include="css\Equipment.css" />
     <Content Include="css\EquipmentSelection.css" />
@@ -1109,6 +1111,7 @@
     <Content Include="js\bootstrap3\bootstrap.js" />
     <Content Include="js\bootstrap3\bootstrap.min.js" />
     <Content Include="js\bootstrap3\npm.js" />
+    <Content Include="js\ControlDesk\ControlDesk.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />

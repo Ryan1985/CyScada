@@ -2,11 +2,11 @@
     // 百度地图API功能
     var map = new window.BMap.Map("allmap", { enableMapClick: false });
     // 创建Map实例
-    map.centerAndZoom(new window.BMap.Point(116.404, 39.915), 11);
+    map.centerAndZoom(new window.BMap.Point(105.404, 58.915), 5);
     // 初始化地图,设置中心点坐标和地图级别
     map.addControl(new window.BMap.MapTypeControl({ mapTypes: [window.BMAP_NORMAL_MAP, window.BMAP_SATELLITE_MAP] }));
     //添加地图类型控件
-    map.setCurrentCity("北京");
+    //map.setCurrentCity("北京");
     map.setMapStyle({ style: 'light' });
     
     // 添加带有定位的导航控件

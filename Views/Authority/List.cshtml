@@ -66,9 +66,10 @@
                             <thead class="tableHeader">
                                 <tr>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                    <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">ID</th>
+                                    <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
                                     <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">名称</th>
-                                    <th data-field="AuthorityCode" data-visible="true" data-align="center" data-halign="center" data-valign="middle">权限ID</th>
+                                    <th data-field="AuthorityCode" data-visible="true" data-align="center" data-halign="center" data-valign="middle">权限标识</th>
+                                    <th data-field="AuthorityType" data-visible="true" data-align="center" data-halign="center" data-valign="middle">权限类型</th>
                                     <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
                                 </tr>
@@ -100,6 +101,15 @@
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" ng-model="info.AuthorityCode" name="authorityCode" ng-bind-template="{{info.AuthorityCode}}" ng-maxlength="20" placeholder="请输入权限标识" required>
                                     <p ng-show="form.authorityCode.$invalid && !form.authorityCode.$pristine" class="help-block">请正确输入权限标识(最多20个字符)</p>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">权限类型:</label>
+                                <div class="col-md-9">
+                                    <select class="select2-selection" id="infoAuthorityType">
+                                        <option value="0" selected="selected">目录</option>
+                                        <option value="1">功能</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">

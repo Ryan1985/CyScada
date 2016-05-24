@@ -50,15 +50,17 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
           Class ,
           Url ,
           ParentId ,
-          SortNumber
+          SortNumber,
+          SideMenuDesc
         )
 VALUES  ( '{0}' , -- Name - varchar(50)
           '{5}' , -- AuthorityCode - varchar(50)
           '{1}' , -- Class - varchar(500)
           '{2}' , -- Url - varchar(500)
           {3} , -- ParentId - int
-          {4}  -- SortNumber - int
-        )", model["Name"],  model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
+          {4},  -- SortNumber - int
+          '{6}'   --SideMenuDesc - varchar(500)
+        )", model["Name"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"], model["SideMenuDesc"]);
 
             try
             {
@@ -85,9 +87,10 @@ SET     Name = '{1}' ,
         Class = '{3}' ,
         Url = '{4}' ,
         ParentId = {5},
-        SortNumber={6}
+        SortNumber={6},
+        SideMenuDesc='{8}'
 WHERE   ID = {0}", model["Id"], model["Name"], model["AuthorityId"], model["Class"], model["Url"],
-                 model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
+                 model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"], model["SideMenuDesc"]);
             try
             {
 

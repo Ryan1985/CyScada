@@ -80,6 +80,7 @@ var operateEvents = {
         var ctrlScope = angular.element('[ng-controller=AuthorityListController]').scope();
         ctrlScope.info = row;
         ctrlScope.info.title = "修改权限";
+        $('#infoAuthorityType').value = row.AuthorityType;
         ctrlScope.$apply();
     },
     'click .delete': function (e, value, row, index) {

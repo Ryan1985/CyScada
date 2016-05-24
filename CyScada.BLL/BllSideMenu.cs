@@ -45,6 +45,7 @@ namespace CyScada.BLL
             {
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
+                SideMenuDesc = dr["SideMenuDesc"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -58,6 +59,7 @@ namespace CyScada.BLL
             {
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
+                SideMenuDesc = dr["SideMenuDesc"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -137,6 +139,7 @@ namespace CyScada.BLL
                     .Select(dr => new SideMenuModel
                     {
                         AuthorityCode = dr["AuthorityCode"].ToString(),
+                        SideMenuDesc = dr["SideMenuDesc"].ToString(),
                         Class = dr["Class"].ToString(),
                         ClassName = dtClassList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                         Id = Convert.ToInt32(dr["Id"]),
@@ -175,6 +178,7 @@ namespace CyScada.BLL
             {
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
+                SideMenuDesc = dr["SideMenuDesc"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -188,6 +192,7 @@ namespace CyScada.BLL
             {
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
+                SideMenuDesc = dr["SideMenuDesc"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -300,6 +305,7 @@ namespace CyScada.BLL
                     .Select(dr => new SideMenuModel
                     {
                         AuthorityCode = dr["AuthorityCode"].ToString(),
+                        SideMenuDesc = dr["SideMenuDesc"].ToString(),
                         Class = dr["Class"].ToString(),
                         ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                         Id = Convert.ToInt32(dr["Id"]),

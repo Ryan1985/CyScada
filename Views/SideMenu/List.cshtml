@@ -85,14 +85,15 @@
                             <thead class="tableHeader">
                                 <tr>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                    <th data-field="Id" data-visible="true" data-align="center" data-halign="center" data-valign="middle">ID</th>
+                                    <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
                                     <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">名称</th>
-                                    <th data-field="AuthorityCode" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限标识</th>
+                                    <th data-field="AuthorityCode" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限标识</th>
                                     <th data-field="AuthorityName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限名称</th>
                                     <th data-field="Class" data-sortable="true" data-align="center" data-halign="center" data-valign="middle" data-formatter="iconFormatter">图标</th>
                                     <th data-field="Url" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">页面路径</th>
-                                    <th data-field="ParentId" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">父目录Id</th>
+                                    <th data-field="ParentId" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">父目录Id</th>
                                     <th data-field="ParentName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">父目录</th>
+                                    <th data-field="SideMenuDesc" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">说明</th>
                                     <th data-field="SortNumber" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">显示顺序</th>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
                                 </tr>
@@ -151,6 +152,12 @@
                                 <label class="control-label col-md-2">显示顺序:</label>
                                 <div class="col-md-9">
                                     <input type="number" class="form-control" ng-model="info.SortNumber" ng-bind-template="{{info.SortNumber}}" placeholder="显示顺序">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">备注:</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" rows="3" ng-model="info.SideMenuDesc" ng-bind-template="{{info.SideMenuDesc}}"></textarea>
                                 </div>
                             </div>
                         </form>

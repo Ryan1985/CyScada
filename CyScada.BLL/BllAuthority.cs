@@ -34,7 +34,8 @@ namespace CyScada.BLL
                 Description = dr["Description"].ToString(),
                 Id = Convert.ToInt32(dr["Id"]),
                 Name = dr["Name"].ToString(),
-                AuthorityCode = dr["AuthorityCode"].ToString()
+                AuthorityCode = dr["AuthorityCode"].ToString(),
+                AuthorityType = dr["AuthorityType"].ToString()
             });
         }
 

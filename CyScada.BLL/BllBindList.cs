@@ -86,6 +86,21 @@ namespace CyScada.BLL
 
 
 
+        public DataTable GetSideMenuAuthorityList()
+        {
+            var dtAuth = new DataTable();
+            dtAuth.Columns.Add("id");
+            dtAuth.Columns.Add("text");
+
+            var authList = _bllAuthority.GetAuthorityList().ToList();
+            foreach (var user in authList)
+            {
+                if (user.AuthorityType == "0")//只取目录型权限
+                    dtAuth.Rows.Add(user.AuthorityCode, user.Name);
+            }
+
+            return dtAuth;
+        }
 
 
 

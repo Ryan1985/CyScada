@@ -20,15 +20,15 @@ angular.module("SideMenu", [])
         $scope.initial();
     }]);
 
-var leafTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Click(this)"><i class="@class"></i>@name</a></li>';
-var branchTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Toggle(this)"><i class="@class"></i>@name<span class="fa arrow"></span></a>';//'</li>';
+var leafTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@url" onclick="Click(this)"><i class="@class"></i>@name</a></li>';
+var branchTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@url" onclick="Toggle(this)"><i class="@class"></i>@name<span class="fa arrow"></span></a>';//'</li>';
 
 
 function AppendBranch(branchHtml, branch) {
     if (branch.SubMenus==undefined || branch.SubMenus.length == 0) {
-        branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
+        branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id','SideMenu_'+branch.Id));
     } else {
-        branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
+        branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id', 'SideMenu_' + branch.Id));
         branchHtml.push('<ul class="nav nav-second-level collapse" style="padding-left:30px;">');
         for (var i = 0; i < branch.SubMenus.length; i++) {
             AppendBranch(branchHtml, branch.SubMenus[i]);
@@ -42,15 +42,32 @@ function AppendBranch(branchHtml, branch) {
 function RefreshActive() {
     $('#side-menu').find('.active').removeClass('active');
     $('#side-menu').find('.in').removeClass('in');
-    var url = window.location;
+
     var element = $('#side-menu').find('a');
-    for (var i = 0; i < element.length; i++) {
-        if (element[i] != undefined && $(element[i]).attr('data-href').indexOf(url.pathname)>=0) {
-            $(element[i]).addClass('active');
-            ExpandParents(element[i]);
-            return;
+    var params = window.location.href.split('?');
+    var i = 0;
+    var url;
+    if (params.length > 1) {
+        url = params[1];
+        for (; i < element.length; i++) {
+            if (element[i] != undefined && $(element[i]).attr('data-id') == 'SideMenu_' + url) {
+                $(element[i]).addClass('active');
+                ExpandParents(element[i]);
+                return;
+            }
+        }
+    } else {
+        url = window.location.pathname;
+        for (; i < element.length; i++) {
+            if (element[i] != undefined && $(element[i]).attr('data-href').indexOf(url.pathname) >= 0) {
+                $(element[i]).addClass('active');
+                ExpandParents(element[i]);
+                return;
+            }
         }
     }
+
+
 }
 
 
@@ -85,7 +102,9 @@ function Click(ele) {
     if ($(ele).attr('data-href') == '') {
         return;
     }
-    window.location.href = $(ele).attr('data-href');
+
+    var href = $(ele).attr('data-href') + '?' + $(ele).attr('data-id').replace('SideMenu_', '');
+    window.location.href = href;
 }
     //.directive('sideMenu', function() {
     //    return {

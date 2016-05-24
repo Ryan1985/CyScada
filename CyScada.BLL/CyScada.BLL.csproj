@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="BllAuthorityAssign.cs" />
     <Compile Include="BllBindList.cs" />
+    <Compile Include="BllControlDesk.cs" />
     <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEquipment.cs" />
     <Compile Include="BllEquipmentSelection.cs" />
