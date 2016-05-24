@@ -25,13 +25,13 @@ namespace CyScada.Web.WebApi.Controllers
 
 
         // GET api/sidemenu
-        public IEnumerable<SideMenuListModel> Get()
+        public IEnumerable<SideMenuModel> Get()
         {
-            return new List<SideMenuListModel>();
+            return new List<SideMenuModel>();
         }
 
         // GET api/sidemenu/5
-        public IList<SideMenuListModel> Get(int userId)
+        public IList<SideMenuModel> Get(int userId)
         {
             var user = _bllLogin.GetUserInfo(new UserModel {Id = userId});
             var sideMenuList = _bllSideMenu.GetMenuList(user);

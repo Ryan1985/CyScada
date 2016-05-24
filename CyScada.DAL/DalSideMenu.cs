@@ -28,11 +28,24 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
             return result;
         }
 
+
+
+        public DataTable QuerySideMenu()
+        {
+            var sql = string.Format(@"SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK)");
+            var result = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql);
+            if (result.Tables.Count == 0)
+                return null;
+            return result.Tables[0];
+        }
+
+
+
+
         public string CreateSideMenu(Hashtable model)
         {
             var sql = string.Format(@"INSERT INTO lonni_f.ZQ_SideMenu
         ( Name ,
-          AuthorityId ,
           AuthorityCode ,
           Class ,
           Url ,
@@ -40,13 +53,12 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
           SortNumber
         )
 VALUES  ( '{0}' , -- Name - varchar(50)
-          {1} , -- AuthorityId - bigint
-          {6} , -- AuthorityId - bigint
-          '{2}' , -- Class - varchar(500)
-          '{3}' , -- Url - varchar(500)
-          {4} , -- ParentId - int
-          {5}  -- SortNumber - int
-        )", model["Name"], model["AuthorityId"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
+          '{5}' , -- AuthorityCode - varchar(50)
+          '{1}' , -- Class - varchar(500)
+          '{2}' , -- Url - varchar(500)
+          {3} , -- ParentId - int
+          {4}  -- SortNumber - int
+        )", model["Name"],  model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"]);
 
             try
             {

@@ -36,7 +36,7 @@ angular.module("AuthorityList", ['viewService'])
                 return;
             }
             authorityService.save($scope.info).success(function (status) {
-                if (status!='""') {
+                if (status!='') {
                     alert(status);
                     return;
                 }

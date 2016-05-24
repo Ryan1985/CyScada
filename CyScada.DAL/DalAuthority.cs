@@ -45,8 +45,8 @@ namespace CyScada.DAL
         ( Name, Description,AuthorityId,AuthorityCode )
         SELECT   '{0}', -- Name - varchar(50)
           '{1}', -- Description - varchar(500)
-                (SELECT ISNULL(MAX(AuthorityId)*2,1) FROM lonni_f.ZQ_Authorities WITH(NOLOCK)
-'{2}')", model["Name"], model["Description"], model["AuthorityCode"]);
+                (SELECT ISNULL(MAX(AuthorityId)*2,1) FROM lonni_f.ZQ_Authorities WITH(NOLOCK)),
+'{2}'", model["Name"], model["Description"], model["AuthorityCode"]);
 
             try
             {

@@ -23,12 +23,13 @@ angular.module("SideMenu", [])
 var leafTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Click(this)"><i class="@class"></i>@name</a></li>';
 var branchTemplate = '<li><a class="CyScadaSideItem" data-href="@url" onclick="Toggle(this)"><i class="@class"></i>@name<span class="fa arrow"></span></a>';//'</li>';
 
+
 function AppendBranch(branchHtml, branch) {
     if (branch.SubMenus==undefined || branch.SubMenus.length == 0) {
         branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
     } else {
         branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class));
-        branchHtml.push('<ul class="nav nav-second-level collapse">');
+        branchHtml.push('<ul class="nav nav-second-level collapse" style="padding-left:30px;">');
         for (var i = 0; i < branch.SubMenus.length; i++) {
             AppendBranch(branchHtml, branch.SubMenus[i]);
         }

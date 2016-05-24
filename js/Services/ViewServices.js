@@ -126,7 +126,7 @@ viewServicesModule.factory('sideMenuService', function ($http) {
         },
         //删除
         del: function (id) {
-            return $http.delete("../api/Role?id=" + id);
+            return $http.delete("../api/SideMenu?id=" + id);
         }
     };
 });

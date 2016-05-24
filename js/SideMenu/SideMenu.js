@@ -58,7 +58,7 @@ angular.module("SideMenuList", ['viewService'])
 
         $scope.Query = function () {
             if ($scope.sideMenu) {
-                $scope.sideMenu.AuthorityId = $('#txtAuthorityName').val();
+                $scope.sideMenu.AuthorityCode = $('#txtAuthorityName').val();
             }
             var params = $scope.sideMenu;
             sideMenuService.getList(params)
@@ -81,7 +81,7 @@ angular.module("SideMenuList", ['viewService'])
 
         $scope.SaveInfo = function () {
             $scope.info.ParentId = $('#infoParentName').val();
-            $scope.info.AuthorityId = $('#infoAuthorityName').val();
+            $scope.info.AuthorityCode = $('#infoAuthorityName').val();
             $scope.info.Class = $('#infoClass').val();
             sideMenuService.save($scope.info).success(function(status) {
                 $scope.Query();
@@ -136,7 +136,7 @@ var operateEvents = {
         ctrlScope.info = row;
         ctrlScope.info.title = "修改目录";
         ctrlScope.$apply();
-        $('#infoAuthorityName').val(row.AuthorityId).trigger("change");
+        $('#infoAuthorityName').val(row.AuthorityCode).trigger("change");
         $('#infoParentName').val(row.ParentId).trigger("change");
         $('#infoClass').val(row.Class).trigger("change");
         //$('#infoAuthorityName').selectpicker('val', row.AuthorityId);

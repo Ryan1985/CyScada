@@ -48,16 +48,7 @@ namespace CyScada.BLL
 
         public DataTable GetParentMenuList()
         {
-            var dtParentMenu = new DataTable();
-            dtParentMenu.Columns.Add("id");
-            dtParentMenu.Columns.Add("text");
-
-            var sideMenuList = BLLSideMenu.GetMenuList();
-            foreach (var sideMenu in sideMenuList)
-            {
-                dtParentMenu.Rows.Add(sideMenu.Id, sideMenu.Name);
-            }
-            return dtParentMenu;
+            return _bllSideMenu.GetParentMenuList();
         }
 
 

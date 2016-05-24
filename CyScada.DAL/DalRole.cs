@@ -46,7 +46,7 @@ namespace CyScada.DAL
         ( Name, Description, Authority,AuthorityCode )
 VALUES  ( '{0}', -- Name - varchar(50)
           '{1}', -- Description - varchar(500)
-          0  -- Authority - bigint
+          0,  -- Authority - bigint
           ''  -- AuthorityCode - bigint
           )", model["Name"], model["Description"]);
 

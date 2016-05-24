@@ -140,11 +140,13 @@ angular.module("AuthorityAssign", ['viewService'])
                     //根据角色合并角色的所有权限
                     var auth = []; //用户的当前权限汇总
                     var roleAuth = []; //角色的权限汇总
+                    var roleId = [];//用户角色ID汇总
                     for (var i = 0; i < data.EmpRoleList.length; i++) {
                         for (var j = 0; j < data.RoleList.length; j++) {
                             if (data.EmpRoleList[i].RoleId == data.RoleList[j].Id) {
                                 var currentRoleAuth = data.RoleList[j].AuthorityCode.split(',');
                                 roleAuth = roleAuth.concat(currentRoleAuth);
+                                roleId.push(data.RoleList[j].Id);
                                 //roleAuth.push(data.RoleList[j].AuthorityCode);
                             }
                         }
@@ -174,7 +176,7 @@ angular.module("AuthorityAssign", ['viewService'])
                     //角色列表
                     for (var p = 0; p < $scope.info.RoleList.length; p++) {
                         $scope.info.RoleList[p].displayClass = 'btn AuthBtn NoAuth';
-                        if (roleAuth.contains($scope.info.RoleList[p].AuthorityCode)) {
+                        if (roleId.contains($scope.info.RoleList[p].Id.toString())) {
                             $scope.info.RoleList[p].displayClass = $scope.info.RoleList[p].displayClass + ' UserRole';
                         }
                     }
@@ -301,7 +303,18 @@ var operateRoleEvents = {
 
 
 Array.prototype.contains = function (item) {
-    return RegExp(item).test(this);
+    var itArray = item.split(',');
+    for (var i = 0; i < this.length; i++) {
+        for (var j = 0; j < itArray.length; j++) {
+            if (RegExp(itArray[j] + ' ').test(this[i] + ' ')) {
+                return true;
+            }
+        }
+    }
+    return false;
+
+
+    //return RegExp(item+' ').test(this[0]+' ');
 };
 
 
