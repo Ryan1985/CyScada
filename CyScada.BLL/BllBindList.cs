@@ -78,7 +78,7 @@ namespace CyScada.BLL
             var authList = _bllAuthority.GetAuthorityList().ToList();
             foreach (var user in authList)
             {
-                dtAuth.Rows.Add(user.AuthorityCode, user.Name);
+                dtAuth.Rows.Add(user.AuthorityCode, user.Name + "[" + user.Description + "]");
             }
 
             return dtAuth;

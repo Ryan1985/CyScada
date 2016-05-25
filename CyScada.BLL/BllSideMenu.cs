@@ -254,7 +254,7 @@ namespace CyScada.BLL
             var sideMenuTable = _dalSideMenu.QuerySideMenu("'0'");
             foreach (DataRow sideMenu in sideMenuTable.Rows)
             {
-                dtParentMenu.Rows.Add(sideMenu["Id"], sideMenu["Name"]);
+                dtParentMenu.Rows.Add(sideMenu["Id"], sideMenu["Name"] + "[" + sideMenu["SideMenuDesc"] + "]");
             }
             return dtParentMenu;
         }

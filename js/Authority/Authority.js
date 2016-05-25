@@ -9,6 +9,11 @@ angular.module("AuthorityList", ['viewService'])
             }).error(function (error) {
                 alert(error);
             });
+
+            $('#infoAuthorityType').select2({
+                placeholder: "全部",
+                theme: "bootstrap"
+            });
         };
 
 
