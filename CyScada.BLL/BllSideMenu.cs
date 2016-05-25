@@ -46,6 +46,7 @@ namespace CyScada.BLL
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
                 SideMenuDesc = dr["SideMenuDesc"].ToString(),
+                MenuType = dr["MenuType"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -60,6 +61,7 @@ namespace CyScada.BLL
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
                 SideMenuDesc = dr["SideMenuDesc"].ToString(),
+                MenuType = dr["MenuType"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -140,6 +142,7 @@ namespace CyScada.BLL
                     {
                         AuthorityCode = dr["AuthorityCode"].ToString(),
                         SideMenuDesc = dr["SideMenuDesc"].ToString(),
+                        MenuType = dr["MenuType"].ToString(),
                         Class = dr["Class"].ToString(),
                         ClassName = dtClassList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                         Id = Convert.ToInt32(dr["Id"]),
@@ -179,6 +182,7 @@ namespace CyScada.BLL
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
                 SideMenuDesc = dr["SideMenuDesc"].ToString(),
+                MenuType = dr["MenuType"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -193,6 +197,7 @@ namespace CyScada.BLL
                 //AuthorityId = dr["AuthorityId"].ConvertToNullable<Int32>(),
                 AuthorityCode = dr["AuthorityCode"].ToString(),
                 SideMenuDesc = dr["SideMenuDesc"].ToString(),
+                MenuType = dr["MenuType"].ToString(),
                 Class = dr["Class"].ToString(),
                 ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),
                 Id = Convert.ToInt32(dr["Id"]),
@@ -214,6 +219,11 @@ namespace CyScada.BLL
             if (!string.IsNullOrEmpty(model.AuthorityCode))
             {
                 menuList = menuList.Where(s => s.AuthorityCode.Equals(model.AuthorityCode, StringComparison.CurrentCultureIgnoreCase)).Select(s => s).ToList();
+            } 
+            
+            if (!string.IsNullOrEmpty(model.MenuType))
+            {
+                menuList = menuList.Where(s => s.MenuType.Equals(model.MenuType, StringComparison.CurrentCultureIgnoreCase)).Select(s => s).ToList();
             }
             //if (model.AuthorityId != null)
             //{
@@ -241,7 +251,7 @@ namespace CyScada.BLL
             dtParentMenu.Columns.Add("id");
             dtParentMenu.Columns.Add("text");
 
-            var sideMenuTable = _dalSideMenu.QuerySideMenu();
+            var sideMenuTable = _dalSideMenu.QuerySideMenu("'0'");
             foreach (DataRow sideMenu in sideMenuTable.Rows)
             {
                 dtParentMenu.Rows.Add(sideMenu["Id"], sideMenu["Name"]);
@@ -269,6 +279,7 @@ namespace CyScada.BLL
                         {
                             //AuthorityId = Convert.ToInt32(d["AuthorityId"]),
                             AuthorityCode = d["AuthorityCode"].ToString(),
+                            MenuType = dr["MenuType"].ToString(),
                             Class = d["Class"].ToString(),
                             Id = Convert.ToInt32(d["Id"]),
                             Name = d["Name"].ToString(),
@@ -297,7 +308,7 @@ namespace CyScada.BLL
                     .Aggregate(empWithAuth.AuthorityCode,
                         CommonUtil.AppendAuthorityCode);
 
-            var sideMenu = _dalSideMenu.QuerySideMenu();
+            var sideMenu = _dalSideMenu.QuerySideMenu("'0'");
 
             var menuList =
                 sideMenu.AsEnumerable()
@@ -305,6 +316,7 @@ namespace CyScada.BLL
                     .Select(dr => new SideMenuModel
                     {
                         AuthorityCode = dr["AuthorityCode"].ToString(),
+                        MenuType = dr["MenuType"].ToString(),
                         SideMenuDesc = dr["SideMenuDesc"].ToString(),
                         Class = dr["Class"].ToString(),
                         ClassName = classList.AsEnumerable().Where(a => a["Class"].ToString().ToLower() == dr["Class"].ToString().ToLower()).Select(a => a["ClassName"].ToString()).ToList().FirstOrDefault(),

@@ -2,8 +2,9 @@
 
 var controlDeskAppController = angular.module("ControlDeskList", ['viewService'])
     .controller("ControlDeskListController", function ($scope, $http, controlDeskService) {
+
         $scope.initial = function () {
-            controlDeskService.getList([$('#SideMenuId').val(), $('#UserId').val()]).success(function (data) {
+            controlDeskService.getList([window.sideMenuId, userId]).success(function (data) {
                 GenerateItems(data);
             }).error(function (error) {
                 alert(error);
@@ -25,7 +26,7 @@ function GenerateItems(data) {
     var articleTemplate = [
         '<article class="style1">',
         '<span class="image">',
-        '<img src="~/Images/Phantom/pic0@i.jpg" alt="" />',
+        '<img src="../Images/Phantom/pic0@i.jpg" alt="" />',
         '</span>',
         '<a href="@url">',
         '<h2>@name</h2>',
@@ -41,7 +42,7 @@ function GenerateItems(data) {
             .replace('@i', i + 1)
             .replace('@url', data[i].Url)
             .replace('@name', data[i].Name)
-            .replace('@desc', data[i].SideMenuDesc));
+            .replace('@desc', data[i].Description));
     }
 
     $('section.tiles').append(sectionContents.join(''));

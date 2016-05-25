@@ -26,9 +26,9 @@ var branchTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@u
 
 function AppendBranch(branchHtml, branch) {
     if (branch.SubMenus==undefined || branch.SubMenus.length == 0) {
-        branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id','SideMenu_'+branch.Id));
+        branchHtml.push(leafTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id', 'menuId=' + branch.Id));
     } else {
-        branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id', 'SideMenu_' + branch.Id));
+        branchHtml.push(branchTemplate.replace('@url', branch.Url).replace('@name', branch.Name).replace('@class', branch.Class).replace('@id', 'menuId=' + branch.Id));
         branchHtml.push('<ul class="nav nav-second-level collapse" style="padding-left:30px;">');
         for (var i = 0; i < branch.SubMenus.length; i++) {
             AppendBranch(branchHtml, branch.SubMenus[i]);
@@ -50,7 +50,7 @@ function RefreshActive() {
     if (params.length > 1) {
         url = params[1];
         for (; i < element.length; i++) {
-            if (element[i] != undefined && $(element[i]).attr('data-id') == 'SideMenu_' + url) {
+            if (element[i] != undefined && $(element[i]).attr('data-id') == url) {
                 $(element[i]).addClass('active');
                 ExpandParents(element[i]);
                 return;
@@ -103,7 +103,7 @@ function Click(ele) {
         return;
     }
 
-    var href = $(ele).attr('data-href') + '?' + $(ele).attr('data-id').replace('SideMenu_', '');
+    var href = $(ele).attr('data-href') + '?menuId=' + $(ele).attr('data-id').replace('menuId=', '');
     window.location.href = href;
 }
     //.directive('sideMenu', function() {

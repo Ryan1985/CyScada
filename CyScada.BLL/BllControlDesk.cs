@@ -20,27 +20,29 @@ namespace CyScada.BLL
             var authString = employee.AuthorityCode;
             foreach (var empRoleModel in employee.EmpRoleList)
             {
-                var roleAuthList = employee.RoleList.Where(r => r.Id == empRoleModel.RoleId).Select(r => r.AuthorityCode);
-                foreach (var roleAuth in roleAuthList)
-                {
-                    CommonUtil.AppendAuthorityCode(authString, roleAuth);
-                }
+                var roleAuthCode =
+                    employee.RoleList.Where(r => r.Id == empRoleModel.RoleId)
+                        .Select(r => r.AuthorityCode)
+                        .FirstOrDefault();
+                if (string.IsNullOrEmpty(roleAuthCode)) continue;
+
+                var roleAuthList = roleAuthCode.Split(new [] {','}, StringSplitOptions.RemoveEmptyEntries);
+                authString = roleAuthList.Aggregate(authString, CommonUtil.AppendAuthorityCode);
             }
 
-            var dtItems = _dalControlDesk.GetItemList();
-
-
-            return
-                dtItems.AsEnumerable()
+            var dtItems = _dalControlDesk.GetItemList(sideMenuId);
+            var result =  dtItems.AsEnumerable()
                     .Where(dr => CommonUtil.ExistAuthorityCode(authString, dr["AuthorityCode"].ToString()))
                     .Select(dr => new ControlDeskItemModel
                     {
-                        Description = dr["Description"].ToString(),
+                        Description = dr["SideMenuDesc"].ToString(),
                         Id = dr["Id"].ToString(),
                         Name = dr["Name"].ToString(),
+                        Url=dr["Url"].ToString()
+                    }).ToList();
 
+            return result;
 
-                    });
         }
     }
 }

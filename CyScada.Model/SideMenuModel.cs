@@ -19,6 +19,7 @@ namespace CyScada.Model
         public string ParentName { get; set; }
         public int? SortNumber { get; set; }
         public string SideMenuDesc { get; set; }
+        public string MenuType { get; set; }
         public List<SideMenuModel> SubMenus { get; set; }
 
 }

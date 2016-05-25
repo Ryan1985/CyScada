@@ -138,7 +138,7 @@ viewServicesModule.factory('controlDeskService', function ($http) {
     return {
         //查询
         getList: function (params) {
-            return $http.get("../api/ControlDesk?SideMenuId=" + params[0] + 'UserId=' + params[1]);
+            return $http.get("../api/ControlDesk?SideMenuId=" + params[0] + '&UserId=' + params[1]);
         }
     };
 });

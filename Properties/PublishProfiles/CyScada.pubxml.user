@@ -9,19 +9,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>05/24/2016 10:26:59</publishTime>
+      <publishTime>05/24/2016 18:19:21</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>05/24/2016 10:26:59</publishTime>
     </File>
     <File Include="bin/CyScada.DAL.dll">
-      <publishTime>05/24/2016 10:26:59</publishTime>
+      <publishTime>05/24/2016 18:19:21</publishTime>
     </File>
     <File Include="bin/CyScada.Model.dll">
-      <publishTime>05/24/2016 10:26:59</publishTime>
+      <publishTime>05/24/2016 18:19:21</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>05/24/2016 13:50:00</publishTime>
+      <publishTime>05/24/2016 18:19:21</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
@@ -2877,7 +2877,7 @@
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
     <File Include="js/Authority/Authority.js">
-      <publishTime>05/23/2016 11:10:17</publishTime>
+      <publishTime>05/24/2016 17:16:27</publishTime>
     </File>
     <File Include="js/AuthorityAssign/AuthorityAssign.js">
       <publishTime>05/23/2016 12:35:51</publishTime>
@@ -3094,6 +3094,9 @@
     </File>
     <File Include="js/bootstrap3/npm.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
+    </File>
+    <File Include="js/ControlDesk/ControlDesk.js">
+      <publishTime>05/24/2016 16:15:17</publishTime>
     </File>
     <File Include="js/Employee/Employee.js">
       <publishTime>04/07/2016 11:22:16</publishTime>
@@ -3327,13 +3330,13 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="js/Services/ViewServices.js">
-      <publishTime>05/23/2016 15:02:28</publishTime>
+      <publishTime>05/24/2016 17:10:54</publishTime>
     </File>
     <File Include="js/SideMenu/SideMenu.js">
       <publishTime>05/24/2016 10:21:35</publishTime>
     </File>
     <File Include="js/_sideMenu/_sideMenu.js">
-      <publishTime>05/23/2016 14:48:08</publishTime>
+      <publishTime>05/24/2016 15:18:21</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -3408,13 +3411,13 @@
       <publishTime>05/23/2016 16:41:18</publishTime>
     </File>
     <File Include="Views/Authority/List.cshtml">
-      <publishTime>05/23/2016 11:19:00</publishTime>
+      <publishTime>05/24/2016 17:16:49</publishTime>
     </File>
     <File Include="Views/AuthorityAssign/Index.cshtml">
-      <publishTime>05/20/2016 15:16:45</publishTime>
+      <publishTime>05/24/2016 14:55:12</publishTime>
     </File>
     <File Include="Views/ControlDesk/Index.cshtml">
-      <publishTime>05/24/2016 14:41:33</publishTime>
+      <publishTime>05/24/2016 18:17:53</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
       <publishTime>03/30/2016 13:49:03</publishTime>
@@ -3423,7 +3426,7 @@
       <publishTime>05/24/2016 09:58:02</publishTime>
     </File>
     <File Include="Views/Employee/List.cshtml">
-      <publishTime>05/20/2016 14:46:25</publishTime>
+      <publishTime>05/24/2016 14:55:37</publishTime>
     </File>
     <File Include="Views/Equipment/Index.cshtml">
       <publishTime>03/30/2016 13:36:23</publishTime>
@@ -3444,7 +3447,7 @@
       <publishTime>05/19/2016 11:45:36</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
-      <publishTime>05/20/2016 14:46:53</publishTime>
+      <publishTime>05/24/2016 14:56:03</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutFrm.cshtml">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -3456,7 +3459,7 @@
       <publishTime>05/23/2016 14:39:50</publishTime>
     </File>
     <File Include="Views/SideMenu/List.cshtml">
-      <publishTime>05/23/2016 13:05:39</publishTime>
+      <publishTime>05/24/2016 15:30:32</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/24/2016 10:03:42</publishTime>

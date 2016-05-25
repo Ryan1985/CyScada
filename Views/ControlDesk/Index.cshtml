@@ -18,21 +18,19 @@
     <script src="/js/Phantom/util.js"></script>
     <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
     <script src="/js/Phantom/main.js"></script>
-    <script src="/js/ControlDesk/ControlDesk.js"></script>
+    <script src="/js/Services/ViewServices.js"></script>
+    <script src="/js/ControlDesk/ControlDesk.js?r=20160525002"></script>
 }
-
-
 
 <div ng-app="ControlDeskList" id="ControlDeskList">
     <div ng-controller="ControlDeskListController">
-
         <div class="container-fluid">
             <div id="DeskWrapper">
                 <!-- Main -->
                 <div id="main">
                     <div class="inner">
                         <section class="tiles">
-                            <article class="style1">
+                            @*<article class="style1">
                                 <span class="image">
                                     <img src="~/Images/Phantom/pic01.jpg" alt="" />
                                 </span>
@@ -119,7 +117,7 @@
                                         <p>设定设备运行参数</p>
                                     </div>
                                 </a>
-                            </article>
+                            </article>*@
                         </section>
                     </div>
                 </div>
@@ -128,6 +126,10 @@
     </div>
 </div>
 
+<script>
+    var sideMenuId =@ViewBag.SideMenuId;
+    var userId = @ViewBag.Id;
+</script>
 
 
 

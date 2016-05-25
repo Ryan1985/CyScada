@@ -30,9 +30,14 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
 
 
 
-        public DataTable QuerySideMenu()
+        public DataTable QuerySideMenu(string menuType)
         {
             var sql = string.Format(@"SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK)");
+            if (!string.IsNullOrEmpty(menuType))
+            {
+                sql += " WHERE MenuType in (" + menuType + ")";
+            }
+
             var result = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sql);
             if (result.Tables.Count == 0)
                 return null;
@@ -51,7 +56,8 @@ SELECT * FROM lonni_f.ZQ_SideMenu WITH(NOLOCK) WHERE ParentId IS NOT NULL");
           Url ,
           ParentId ,
           SortNumber,
-          SideMenuDesc
+          SideMenuDesc,
+          MenuType
         )
 VALUES  ( '{0}' , -- Name - varchar(50)
           '{5}' , -- AuthorityCode - varchar(50)
@@ -59,8 +65,9 @@ VALUES  ( '{0}' , -- Name - varchar(50)
           '{2}' , -- Url - varchar(500)
           {3} , -- ParentId - int
           {4},  -- SortNumber - int
-          '{6}'   --SideMenuDesc - varchar(500)
-        )", model["Name"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"], model["SideMenuDesc"]);
+          '{6}',   --SideMenuDesc - varchar(500)
+          {7}  -- MenuType - int
+        )", model["Name"], model["Class"], model["Url"], model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"], model["SideMenuDesc"], model["MenuType"]);
 
             try
             {
@@ -88,9 +95,12 @@ SET     Name = '{1}' ,
         Url = '{4}' ,
         ParentId = {5},
         SortNumber={6},
-        SideMenuDesc='{8}'
+        SideMenuDesc='{8}',
+        MenuType='{9}'
 WHERE   ID = {0}", model["Id"], model["Name"], model["AuthorityId"], model["Class"], model["Url"],
-                 model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"], model["SideMenuDesc"]);
+                model.ContainsKey("ParentId") ? model["ParentId"] : "NULL", model["SortNumber"], model["AuthorityCode"],
+                model["SideMenuDesc"], model["MenuType"] == null ? "0" : model["MenuType"].ToString());
+
             try
             {
 

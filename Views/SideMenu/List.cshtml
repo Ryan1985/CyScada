@@ -11,18 +11,18 @@
     <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
     @*<link href="~/css/bootstrap-select/bootstrap-select.min.css" rel="stylesheet" />*@
     @*<script type="text/javascript" src="~/js/jquery-1.12.2.min.js"></script>*@
-    
+
 }
 
 @section FootScript{
 
-<script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
-<script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
-@*<script type="text/javascript" src="~/js/bootstrap-select/bootstrap-select.js"></script>*@
-<script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
-<script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
-<script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
-<script type="text/javascript" src="~/js/SideMenu/SideMenu.js?r=0007"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
+    @*<script type="text/javascript" src="~/js/bootstrap-select/bootstrap-select.js"></script>*@
+    <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
+    <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
+    <script type="text/javascript" src="~/js/SideMenu/SideMenu.js?r=0007"></script>
 
 
 }
@@ -51,12 +51,20 @@
                             <div class=" col-lg-3">
                                 <div class="form-group">
                                     <label for="txtAuthorityName">权限</label>
-                                     <select class=" form-control" id="txtAuthorityName">
+                                    <select class=" form-control" id="txtAuthorityName">
                                         <option></option>
-                                  </select>
+                                    </select>
                                 </div>
                             </div>
                             <div class=" col-lg-3">
+                                <div class="form-group">
+                                    <label for="txtMenuType">菜单类型</label>
+                                    <select class="CyScadaSelect form-control" id="txtMenuType">
+                                        <option value="" selected="selected">全部</option>
+                                        <option value="0">树形菜单</option>
+                                        <option value="1">模块菜单</option>
+                                    </select>
+                                </div>
                             </div>
                             <div class=" col-lg-2">
                             </div>
@@ -94,6 +102,7 @@
                                     <th data-field="ParentId" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">父目录Id</th>
                                     <th data-field="ParentName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">父目录</th>
                                     <th data-field="SideMenuDesc" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">说明</th>
+                                    <th data-field="MenuType" data-sortable="true" data-align="center" data-halign="center" data-valign="middle" data-formatter="menuTypeFormatter">菜单类型</th>
                                     <th data-field="SortNumber" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">显示顺序</th>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
                                 </tr>
@@ -123,8 +132,8 @@
                             <div class="form-group">
                                 <label class="control-label col-md-2">权限:</label>
                                 <div class="col-md-9">
-                                    <select class="select2-selection" id="infoAuthorityName" >
-                                     </select>
+                                    <select class="select2-selection" id="infoAuthorityName">
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -138,20 +147,28 @@
                                 <label class="control-label col-md-2">关联页面路径:</label>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control" ng-model="info.Url" ng-bind-template="{{info.Url}}" placeholder="无路径">
-                             </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">父目录:</label>
                                 <div class="col-md-9">
                                     <select class="select2-selection" id="infoParentName">
-                                        <option></option>
-                                    </select>  
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label class="control-label col-md-2">显示顺序:</label>
                                 <div class="col-md-9">
                                     <input type="number" class="form-control" ng-model="info.SortNumber" ng-bind-template="{{info.SortNumber}}" placeholder="显示顺序">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-2">菜单类型:</label>
+                                <div class="col-md-9">
+                                    <select class="select2-selection" id="infoMenuType">
+                                        <option value="0" selected="selected">树形菜单</option>
+                                        <option value="1">模块菜单</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
