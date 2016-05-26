@@ -232,7 +232,40 @@ namespace CyScada.BLL
             return menuList;
         }
 
+        public DataTable GetClassList(string themeType)
+        {
+            switch (themeType)
+            {
+                case "0":
+                    return GetClassList();
+            }
+
+
+            var classTable = new DataTable();
+            classTable.Columns.Add("Class");
+            classTable.Columns.Add("ClassName");
+
+            classTable.Rows.Add("fa fa-user fa-fw", "用户");
+            classTable.Rows.Add("fa fa-sign-out fa-fw", "登出");
+
+            return classTable;
+        }
+
         public DataTable GetClassList()
+        {
+            var classTable = new DataTable();
+            classTable.Columns.Add("Class");
+            classTable.Columns.Add("ClassName");
+
+            classTable.Rows.Add("fa fa-user fa-fw", "用户");
+            classTable.Rows.Add("fa fa-sign-out fa-fw", "登出");
+
+            return classTable;
+        }
+
+
+
+        public DataTable GetSuperAdminClassList()
         {
             var classTable = new DataTable();
             classTable.Columns.Add("Class");
@@ -294,7 +327,7 @@ namespace CyScada.BLL
 
 
 
-        public IList<SideMenuModel> GetMenuList(UserModel user)
+        public IList<SideMenuModel> GetMenuList(UserModel user,string themeType="0")
         {
             var authList = _dalAuthority.GetAuthorityList();
             var classList = GetClassList();
@@ -365,6 +398,11 @@ namespace CyScada.BLL
             //    }).OrderBy(sm => sm.SortNumber).ToList();
             //return sideMenuList;
         }
+
+
+
+
+
 
         public string SaveSideMenu(SideMenuModel model)
         {

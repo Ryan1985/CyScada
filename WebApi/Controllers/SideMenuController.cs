@@ -38,6 +38,13 @@ namespace CyScada.Web.WebApi.Controllers
             return sideMenuList;
         }
 
+        public IList<SideMenuModel> Get(int userId,string themeType)
+        {
+            var user = _bllLogin.GetUserInfo(new UserModel { Id = userId });
+            var sideMenuList = _bllSideMenu.GetMenuList(user);
+            return sideMenuList;
+        }
+
         // POST api/sidemenu
         public string Post([FromBody]SideMenuModel model)
         {
