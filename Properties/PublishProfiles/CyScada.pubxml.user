@@ -9,7 +9,7 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>05/25/2016 15:58:14</publishTime>
+      <publishTime>05/26/2016 18:19:23</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>05/24/2016 10:26:59</publishTime>
@@ -21,7 +21,7 @@
       <publishTime>05/25/2016 13:30:08</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>05/25/2016 15:58:14</publishTime>
+      <publishTime>05/26/2016 18:19:23</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
@@ -144,7 +144,7 @@
       <publishTime>05/24/2016 13:27:18</publishTime>
     </File>
     <File Include="css/Employee.css">
-      <publishTime>04/22/2016 10:13:41</publishTime>
+      <publishTime>05/26/2016 18:09:45</publishTime>
     </File>
     <File Include="css/Equipment.css">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -153,7 +153,7 @@
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
     <File Include="css/fontAwesome/font-awesome.css">
-      <publishTime>05/16/2016 09:31:34</publishTime>
+      <publishTime>05/26/2016 09:58:12</publishTime>
     </File>
     <File Include="css/fontAwesome/font-awesome.min.css">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -192,13 +192,13 @@
       <publishTime>05/23/2016 16:39:59</publishTime>
     </File>
     <File Include="css/Phantom/main.css">
-      <publishTime>05/24/2016 14:43:02</publishTime>
+      <publishTime>05/26/2016 17:35:28</publishTime>
     </File>
     <File Include="css/responsiveNav/responsive-nav.css">
       <publishTime>05/20/2016 16:29:25</publishTime>
     </File>
     <File Include="css/Role.css">
-      <publishTime>04/07/2016 17:51:40</publishTime>
+      <publishTime>05/26/2016 18:09:08</publishTime>
     </File>
     <File Include="css/sbAdmin/sb-admin-2.css">
       <publishTime>05/20/2016 16:00:46</publishTime>
@@ -219,7 +219,43 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="css/Site.css">
-      <publishTime>05/23/2016 14:35:27</publishTime>
+      <publishTime>05/26/2016 18:15:07</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/animate.css">
+      <publishTime>05/26/2016 09:30:10</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/animate.min.css">
+      <publishTime>05/26/2016 09:30:10</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/bootstrap.min.css">
+      <publishTime>05/26/2016 09:30:10</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/calendar.css">
+      <publishTime>05/26/2016 09:30:10</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/file-manager.css">
+      <publishTime>05/26/2016 09:30:10</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/font-awesome.min.css">
+      <publishTime>05/26/2016 10:10:31</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/form.css">
+      <publishTime>05/26/2016 10:11:08</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/generics.css">
+      <publishTime>05/26/2016 09:30:11</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/icons.css">
+      <publishTime>05/26/2016 10:11:38</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/lightbox.css">
+      <publishTime>05/26/2016 09:30:11</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/media-player.css">
+      <publishTime>05/26/2016 09:30:11</publishTime>
+    </File>
+    <File Include="css/SuperAdmin/style.css">
+      <publishTime>05/26/2016 18:08:22</publishTime>
     </File>
     <File Include="fonts/codropsicons/codropsicons.eot">
       <publishTime>05/23/2016 16:24:08</publishTime>
@@ -281,6 +317,75 @@
     <File Include="fonts/menuicons/license.txt">
       <publishTime>05/23/2016 16:24:08</publishTime>
     </File>
+    <File Include="fonts/SuperAdmin/fontawesome/fontawesome-webfont.eot">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/fontawesome/fontawesome-webfont.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/fontawesome/fontawesome-webfont.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/fontawesome/fontawesome-webfont.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/glyphicons-halflings-regular.eot">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/glyphicons-halflings-regular.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/glyphicons-halflings-regular.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/glyphicons-halflings-regular.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/icons/icon.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/icons/icon.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/icons/icon.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Light-webfont.eot">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Light-webfont.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Light-webfont.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Light-webfont.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Regular-webfont.eot">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Regular-webfont.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Regular-webfont.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Regular-webfont.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Semibold-webfont.eot">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Semibold-webfont.svg">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Semibold-webfont.ttf">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
+    <File Include="fonts/SuperAdmin/opan-sans/OpenSans-Semibold-webfont.woff">
+      <publishTime>05/26/2016 09:30:46</publishTime>
+    </File>
     <File Include="Global.asax">
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
@@ -331,6 +436,639 @@
     </File>
     <File Include="Images/Phantom/pic15.jpg">
       <publishTime>05/23/2016 16:45:25</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/blue.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/chrome.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/city.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/cloth.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/greenish.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/kiwi.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/lights.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/night.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/ocean.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/sunny.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/sunset.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/tectile.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/violate.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/body/yellow.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/browsers/chrome.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/browsers/firefox.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/browsers/ie.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/browsers/opera.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/browsers/safari.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/carousel/c-1.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/carousel/c-2.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/carousel/c-3.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/color-picker/alpha.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/color-picker/hue.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/color-picker/saturation.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/cover-bg.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/align%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/align.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/bold%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/bold.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/code%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/code.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/font%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/font.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/full-screen%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/full-screen.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/heading%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/heading.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/help%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/help.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/italic%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/italic.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/line-height%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/line-height.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/link%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/link.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/orderlist%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/orderlist.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/picture%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/picture.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/table%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/table.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/text%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/text.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/underline%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/underline.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/unlist%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/unlist.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/unstyle%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/unstyle.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/video%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/editor/video.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/arrows.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/css.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/doc.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/exe.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/file.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/flash.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/folder.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/html.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/js.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/mp3.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/pdf.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/perl.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/php.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/ppt.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/psd.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/py.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/rar.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/txt.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/video.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/xls.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/xml.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/icon/zip.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/progress.gif">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/quicklook-icons.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/resize-preview.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/filemanager/spinner-mini.gif">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/1.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/2.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/3.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/4.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/5.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/thumbs/1.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/thumbs/2.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/thumbs/3.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/thumbs/4.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/gallery/thumbs/5.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/add%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/add.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/archive%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/archive.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/back%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/back.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/calendar%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/calendar.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/chart%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/chart.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/day%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/day.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/delete%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/delete.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/file%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/file.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/folder%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/folder-sm%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/folder-sm.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/folder.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/form%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/form.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/forwad%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/forwad.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/home%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/home.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/icon-view%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/icon-view.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/list-view%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/list-view.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/menu%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/menu.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/message%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/message.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/month%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/month.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/move%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/move.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/pages%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/pages.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/photos%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/photos.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/plus-sm%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/plus-sm.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/refresh%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/refresh.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/search%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/search-sm.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/search.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/sorting%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/sorting.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/spam%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/spam.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/table%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/table.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/tile-actions%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/tile-actions.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/typography%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/typography.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/ui%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/ui.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/updates%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/updates.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/upload%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/upload.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/week%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/week.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/widgets%402x.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/icon/widgets.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/images-doc/circle.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/images-doc/rounded.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/images-doc/shadowed.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/images-doc/thumbnail.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/loadinfo.gif">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/background.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/bigplay.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/bigplay.svg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/controls.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/controls.svg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/loading.gif">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/media-player/media-player-poster.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pic.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/1.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/2.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/3.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/4.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/5.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/profile-pics/6.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/projects/1.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/projects/2.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/projects/3.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/select-bg.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/calendar.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/connections.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/money.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/reports.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/stats.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/shortcuts/twitter.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-blue.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-chrome.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-city.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-cloth.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-greenish.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-kiwi.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-lights.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-night.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-ocean.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-sunny.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-sunset.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-tectile.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-violate.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/skin-yellow.jpg">
+      <publishTime>05/26/2016 09:31:54</publishTime>
+    </File>
+    <File Include="img/SuperAdmin/sort.png">
+      <publishTime>05/26/2016 09:31:54</publishTime>
     </File>
     <File Include="js/angular-strap/angular-strap.compat.js">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -3335,8 +4073,140 @@
     <File Include="js/SideMenu/SideMenu.js">
       <publishTime>05/25/2016 10:40:12</publishTime>
     </File>
+    <File Include="js/SuperAdmin/autosize.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/bootstrap.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/calendar.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.animator.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.orderBar.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.pie.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.resize.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/charts/jquery.flot.time.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/chosen.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/colorpicker.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/datetimepicker.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/easypiechart.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/editor.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/editor2.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/feeds.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/file-manager/elfinder.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/fileupload.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/functions.js">
+      <publishTime>05/26/2016 12:45:45</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/icheck.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/input-mask.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/jquery-ui.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/jquery.cookie.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/jquery.easing.1.3.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/jquery.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/maps/jvectormap.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/maps/usa.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/maps/world.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/markdown.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/media-player.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/media/flashmediaelement.swf">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/pirobox.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/scroll.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/select.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/slider.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/sparkline.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/spinner.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/toggler.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/validation/validate.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/validation/validationEngine.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
+    <File Include="js/SuperAdmin/weather.min.js">
+      <publishTime>05/26/2016 09:32:19</publishTime>
+    </File>
     <File Include="js/_sideMenu/_sideMenu.js">
-      <publishTime>05/25/2016 13:13:47</publishTime>
+      <publishTime>05/26/2016 14:07:38</publishTime>
+    </File>
+    <File Include="js/_sideMenu/_sideMenu2.js">
+      <publishTime>05/26/2016 17:44:40</publishTime>
+    </File>
+    <File Include="media/SuperAdmin/flashmediaelement.swf">
+      <publishTime>05/26/2016 09:32:51</publishTime>
     </File>
     <File Include="packages.config">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -3411,43 +4281,43 @@
       <publishTime>05/23/2016 16:41:18</publishTime>
     </File>
     <File Include="Views/Authority/List.cshtml">
-      <publishTime>05/25/2016 14:08:16</publishTime>
+      <publishTime>05/26/2016 18:13:14</publishTime>
     </File>
     <File Include="Views/AuthorityAssign/Index.cshtml">
-      <publishTime>05/24/2016 14:55:12</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/ControlDesk/Index.cshtml">
-      <publishTime>05/25/2016 13:25:08</publishTime>
+      <publishTime>05/26/2016 17:40:23</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
-      <publishTime>03/30/2016 13:49:03</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Dashboard/Svg.cshtml">
-      <publishTime>05/24/2016 09:58:02</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Employee/List.cshtml">
-      <publishTime>05/24/2016 14:55:37</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Equipment/Index.cshtml">
       <publishTime>03/30/2016 13:36:23</publishTime>
     </File>
     <File Include="Views/EquipmentList/Index.cshtml">
-      <publishTime>03/30/2016 16:27:37</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/EquipmentSelection/Index.cshtml">
       <publishTime>03/30/2016 16:26:53</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
-      <publishTime>03/24/2016 10:03:42</publishTime>
+      <publishTime>05/26/2016 09:36:19</publishTime>
     </File>
     <File Include="Views/Login/Test.cshtml">
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="Views/MapBoard/Index.cshtml">
-      <publishTime>05/19/2016 11:45:36</publishTime>
+      <publishTime>05/26/2016 11:24:31</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
-      <publishTime>05/24/2016 14:56:03</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutFrm.cshtml">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -3455,11 +4325,17 @@
     <File Include="Views/Shared/_LayoutNew.cshtml">
       <publishTime>05/20/2016 16:55:12</publishTime>
     </File>
+    <File Include="Views/Shared/_LayoutNew2.cshtml">
+      <publishTime>05/26/2016 17:55:06</publishTime>
+    </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
-      <publishTime>05/23/2016 14:39:50</publishTime>
+      <publishTime>05/26/2016 14:06:07</publishTime>
+    </File>
+    <File Include="Views/Shared/_SideMenu2.cshtml">
+      <publishTime>05/26/2016 14:13:02</publishTime>
     </File>
     <File Include="Views/SideMenu/List.cshtml">
-      <publishTime>05/25/2016 10:39:43</publishTime>
+      <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>03/24/2016 10:03:42</publishTime>

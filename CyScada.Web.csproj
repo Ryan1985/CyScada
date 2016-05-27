@@ -141,6 +141,7 @@
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
+    <Compile Include="WebApi\Controllers\MappingController.cs" />
     <Compile Include="WebApi\Controllers\RoleController.cs" />
     <Compile Include="WebApi\Controllers\RoleListController.cs" />
     <Compile Include="WebApi\Controllers\SideMenuController.cs" />
@@ -1346,6 +1347,7 @@
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
     <Content Include="js\Equipment\Equipment.js" />
     <Content Include="js\jquery-1.12.2.min.js" />
+    <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery\jquery.js" />
     <Content Include="js\jquery\jquery.min.js" />
     <Content Include="js\Login\Login.js" />

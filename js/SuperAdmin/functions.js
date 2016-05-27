@@ -1,11 +1,33 @@
-$(document).ready(function(){
+$(document).ready(function () {
+
+    /* --------------------------------------------------------
+	Theme Loading
+    -----------------------------------------------------------*/
+    var theme = $.cookie('theme');
+    if (!theme) {
+        $('body').attr('id', 'skin-blur-violate');
+    } else {
+        $('body').attr('id', theme);
+    }
+    
+    $.get("../../api/Mapping?mappingType=UserTheme&paramString=" + $('#userId').attr('data-userId'),
+         function (data) {
+             if (data == null || data.length == 0) {
+                 $.cookie('theme', 'skin-blur-violate');
+             } else {
+                 $.cookie('theme', data[0]["Text"]);
+             }
+             $('body').attr('id', $.cookie('theme'));
+         });
+
+
     /* --------------------------------------------------------
 	Template Settings
     -----------------------------------------------------------*/
-    
-    var settings =  '<a id="settings" href="#changeSkin" data-toggle="modal">' +
+
+    var settings = '<a id="settings" href="#changeSkin" data-toggle="modal">' +
 			'<i class="fa fa-gear"></i> Change Skin' +
-		    '</a>' +   
+		    '</a>' +
 		    '<div class="modal fade" id="changeSkin" tabindex="-1" role="dialog" aria-hidden="true">' +
 			'<div class="modal-dialog modal-lg">' +
 			    '<div class="modal-content">' +
@@ -63,51 +85,62 @@ $(document).ready(function(){
 			'</div>' +
 		    '</div>';
     $('#main').prepend(settings);
-            
-    $('body').on('click', '.template-skins > a', function(e){
-	e.preventDefault();
-	var skin = $(this).data('skin');
-	$('body').attr('id', skin);
-	$('#changeSkin').modal('hide');
+
+    $('body').on('click', '.template-skins > a', function (e) {
+        e.preventDefault();
+        var skin = $(this).data('skin');
+        $('body').attr('id', skin);
+
+        $.post("../../api/Mapping",
+            {
+                Text: skin,
+                Value: $('#userId').attr('data-userid'),
+                MappingType: 'UserTheme'
+            },
+            function (data, status) {
+                $.cookie('theme', skin);
+            });
+
+        $('#changeSkin').modal('hide');
     });
-    
+
     /* --------------------------------------------------------
 	Components
     -----------------------------------------------------------*/
-    (function(){
+    (function () {
         /* Textarea */
-	if($('.auto-size')[0]) {
-	    $('.auto-size').autosize();
-	}
+        if ($('.auto-size')[0]) {
+            $('.auto-size').autosize();
+        }
 
         //Select
-	if($('.select')[0]) {
-	    $('.select').selectpicker();
-	}
-        
+        if ($('.select')[0]) {
+            $('.select').selectpicker();
+        }
+
         //Sortable
-        if($('.sortable')[0]) {
-	    $('.sortable').sortable();
-	}
-	
+        if ($('.sortable')[0]) {
+            $('.sortable').sortable();
+        }
+
         //Tag Select
-	if($('.tag-select')[0]) {
-	    $('.tag-select').chosen();
-	}
-        
+        if ($('.tag-select')[0]) {
+            $('.tag-select').chosen();
+        }
+
         /* Tab */
-	if($('.tab')[0]) {
-	    $('.tab a').click(function(e) {
-		e.preventDefault();
-		$(this).tab('show');
-	    });
-	}
-        
+        if ($('.tab')[0]) {
+            $('.tab a').click(function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        }
+
         /* Collapse */
-	if($('.collapse')[0]) {
-	    $('.collapse').collapse();
-	}
-        
+        if ($('.collapse')[0]) {
+            $('.collapse').collapse();
+        }
+
         /* Accordion */
         $('.panel-collapse').on('shown.bs.collapse', function () {
             $(this).prev().find('.panel-title a').removeClass('active');
@@ -118,43 +151,43 @@ $(document).ready(function(){
         });
 
         //Popover
-    	if($('.pover')[0]) {
-    	    $('.pover').popover();
-    	} 
+        if ($('.pover')[0]) {
+            $('.pover').popover();
+        }
     })();
 
     /* --------------------------------------------------------
 	Sidebar + Menu
     -----------------------------------------------------------*/
-    (function(){
+    (function () {
         /* Menu Toggle */
-        $('body').on('click touchstart', '#menu-toggle', function(e){
+        $('body').on('click touchstart', '#menu-toggle', function (e) {
             e.preventDefault();
             $('html').toggleClass('menu-active');
             $('#sidebar').toggleClass('toggled');
             //$('#content').toggleClass('m-0');
         });
-         
+
         /* Active Menu */
-        $('#sidebar .menu-item').hover(function(){
+        $('#sidebar .menu-item').hover(function () {
             $(this).closest('.dropdown').addClass('hovered');
-        }, function(){
+        }, function () {
             $(this).closest('.dropdown').removeClass('hovered');
         });
 
         /* Prevent */
-        $('.side-menu .dropdown > a').click(function(e){
+        $('.side-menu .dropdown > a').click(function (e) {
             e.preventDefault();
         });
-	
+
 
     })();
 
     /* --------------------------------------------------------
 	Chart Info
     -----------------------------------------------------------*/
-    (function(){
-        $('body').on('click touchstart', '.tile .tile-info-toggle', function(e){
+    (function () {
+        $('body').on('click touchstart', '.tile .tile-info-toggle', function (e) {
             e.preventDefault();
             $(this).closest('.tile').find('.chart-info').toggle();
         });
@@ -163,49 +196,49 @@ $(document).ready(function(){
     /* --------------------------------------------------------
 	Todo List
     -----------------------------------------------------------*/
-    (function(){
-        setTimeout(function(){
+    (function () {
+        setTimeout(function () {
             //Add line-through for alreadt checked items
-            $('.todo-list .media .checked').each(function(){
+            $('.todo-list .media .checked').each(function () {
                 $(this).closest('.media').find('.checkbox label').css('text-decoration', 'line-through')
             });
 
             //Add line-through when checking
-            $('.todo-list .media input').on('ifChecked', function(){
+            $('.todo-list .media input').on('ifChecked', function () {
                 $(this).closest('.media').find('.checkbox label').css('text-decoration', 'line-through');
             });
 
-            $('.todo-list .media input').on('ifUnchecked', function(){
+            $('.todo-list .media input').on('ifUnchecked', function () {
                 $(this).closest('.media').find('.checkbox label').removeAttr('style');
-            });    
+            });
         })
     })();
 
     /* --------------------------------------------------------
 	Custom Scrollbar
     -----------------------------------------------------------*/
-    (function() {
-	if($('.overflow')[0]) {
-	    var overflowRegular, overflowInvisible = false;
-	    overflowRegular = $('.overflow').niceScroll();
-	}
+    (function () {
+        if ($('.overflow')[0]) {
+            var overflowRegular, overflowInvisible = false;
+            overflowRegular = $('.overflow').niceScroll();
+        }
     })();
 
     /* --------------------------------------------------------
 	Messages + Notifications
     -----------------------------------------------------------*/
-    (function(){
-        $('body').on('click touchstart', '.drawer-toggle', function(e){
+    (function () {
+        $('body').on('click touchstart', '.drawer-toggle', function (e) {
             e.preventDefault();
             var drawer = $(this).attr('data-drawer');
 
-            $('.drawer:not("#'+drawer+'")').removeClass('toggled');
+            $('.drawer:not("#' + drawer + '")').removeClass('toggled');
 
-            if ($('#'+drawer).hasClass('toggled')) {
-                $('#'+drawer).removeClass('toggled');
+            if ($('#' + drawer).hasClass('toggled')) {
+                $('#' + drawer).removeClass('toggled');
             }
-            else{
-                $('#'+drawer).addClass('toggled');
+            else {
+                $('#' + drawer).addClass('toggled');
             }
         });
 
@@ -219,7 +252,7 @@ $(document).ready(function(){
         });
 
         //Close
-        $('body').on('click touchstart', '.drawer-close', function(){
+        $('body').on('click touchstart', '.drawer-close', function () {
             $(this).closest('.drawer').removeClass('toggled');
             $('.drawer-toggle').removeClass('open');
         });
@@ -229,8 +262,8 @@ $(document).ready(function(){
     /* --------------------------------------------------------
 	Calendar
     -----------------------------------------------------------*/
-    (function(){
-	
+    (function () {
+
         //Sidebar
         if ($('#sidebar-calendar')[0]) {
             var date = new Date();
@@ -262,8 +295,8 @@ $(document).ready(function(){
                     },
                     {
                         title: 'Long Event',
-                        start: new Date(y, m, d-5),
-                        end: new Date(y, m, d-2)
+                        start: new Date(y, m, d - 5),
+                        end: new Date(y, m, d - 2)
                     },
                     {
                         title: 'Repeat Event',
@@ -282,29 +315,29 @@ $(document).ready(function(){
     })();
 
     ///* --------------------------------------------------------
-	//RSS Feed widget
+    //RSS Feed widget
     //-----------------------------------------------------------*/
     //(function(){
-	//if($('#news-feed')[0]){
-	//    $('#news-feed').FeedEk({
-	//	FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
-	//	MaxCount: 5,
-	//	ShowDesc: false,
-	//	ShowPubDate: true,
-	//	DescCharacterLimit: 0
-	//    });
-	//}
+    //if($('#news-feed')[0]){
+    //    $('#news-feed').FeedEk({
+    //	FeedUrl: 'http://rss.cnn.com/rss/edition.rss',
+    //	MaxCount: 5,
+    //	ShowDesc: false,
+    //	ShowPubDate: true,
+    //	DescCharacterLimit: 0
+    //    });
+    //}
     //})();
 
     /* --------------------------------------------------------
 	Chat
     -----------------------------------------------------------*/
-    $(function() {
-        $('body').on('click touchstart', '.chat-list-toggle', function(){
+    $(function () {
+        $('body').on('click touchstart', '.chat-list-toggle', function () {
             $(this).closest('.chat').find('.chat-list').toggleClass('toggled');
         });
 
-        $('body').on('click touchstart', '.chat .chat-header .btn', function(e){
+        $('body').on('click touchstart', '.chat .chat-header .btn', function (e) {
             e.preventDefault();
             $('.chat .chat-list').removeClass('toggled');
             $(this).closest('.chat').toggleClass('toggled');
@@ -321,77 +354,77 @@ $(document).ready(function(){
     /* --------------------------------------------------------
 	Form Validation
     -----------------------------------------------------------*/
-    (function(){
-	if($("[class*='form-validation']")[0]) {
-	    $("[class*='form-validation']").validationEngine();
+    (function () {
+        if ($("[class*='form-validation']")[0]) {
+            $("[class*='form-validation']").validationEngine();
 
-	    //Clear Prompt
-	    $('body').on('click', '.validation-clear', function(e){
-		e.preventDefault();
-		$(this).closest('form').validationEngine('hide');
-	    });
-	}
+            //Clear Prompt
+            $('body').on('click', '.validation-clear', function (e) {
+                e.preventDefault();
+                $(this).closest('form').validationEngine('hide');
+            });
+        }
     })();
 
     /* --------------------------------------------------------
      `Color Picker
     -----------------------------------------------------------*/
-    (function(){
+    (function () {
         //Default - hex
-	if($('.color-picker')[0]) {
-	    $('.color-picker').colorpicker();
-	}
-        
+        if ($('.color-picker')[0]) {
+            $('.color-picker').colorpicker();
+        }
+
         //RGB
-	if($('.color-picker-rgb')[0]) {
-	    $('.color-picker-rgb').colorpicker({
-		format: 'rgb'
-	    });
-	}
-        
+        if ($('.color-picker-rgb')[0]) {
+            $('.color-picker-rgb').colorpicker({
+                format: 'rgb'
+            });
+        }
+
         //RGBA
-	if($('.color-picker-rgba')[0]) {
-	    $('.color-picker-rgba').colorpicker({
-		format: 'rgba'
-	    });
-	}
-	
-	//Output Color
-	if($('[class*="color-picker"]')[0]) {
-	    $('[class*="color-picker"]').colorpicker().on('changeColor', function(e){
-		var colorThis = $(this).val();
-		$(this).closest('.color-pick').find('.color-preview').css('background',e.color.toHex());
-	    });
-	}
+        if ($('.color-picker-rgba')[0]) {
+            $('.color-picker-rgba').colorpicker({
+                format: 'rgba'
+            });
+        }
+
+        //Output Color
+        if ($('[class*="color-picker"]')[0]) {
+            $('[class*="color-picker"]').colorpicker().on('changeColor', function (e) {
+                var colorThis = $(this).val();
+                $(this).closest('.color-pick').find('.color-preview').css('background', e.color.toHex());
+            });
+        }
     })();
 
     /* --------------------------------------------------------
      Date Time Picker
      -----------------------------------------------------------*/
-    (function(){
+    (function () {
         //Date Only
-	if($('.date-only')[0]) {
-	    $('.date-only').datetimepicker({
-		pickTime: false
-	    });
-	}
+        if ($('.date-only')[0]) {
+            $('.date-only').datetimepicker({
+                pickTime: false
+            });
+        }
 
         //Time only
-	if($('.time-only')[0]) {
-	    $('.time-only').datetimepicker({
-		pickDate: false
-	    });
-	}
+        if ($('.time-only')[0]) {
+            $('.time-only').datetimepicker({
+                pickDate: false
+            });
+        }
 
         //12 Hour Time
-	if($('.time-only-12')[0]) {
-	    $('.time-only-12').datetimepicker({
-		pickDate: false,
-		pick12HourFormat: true
-	    });
-	}
-        
-        $('.datetime-pick input:text').on('click', function(){
+        if ($('.time-only-12')[0]) {
+            $('.time-only-12').datetimepicker({
+                pickDate: false,
+                pick12HourFormat: true
+            });
+        }
+
+        $('.datetime-pick input:text').on('click', function () {
             $(this).closest('.datetime-pick').find('.add-on i').click();
         });
     })();
@@ -399,78 +432,78 @@ $(document).ready(function(){
     /* --------------------------------------------------------
      Input Slider
      -----------------------------------------------------------*/
-    (function(){
-	if($('.input-slider')[0]) {
-	    $('.input-slider').slider().on('slide', function(ev){
-		$(this).closest('.slider-container').find('.slider-value').val(ev.value);
-	    });
-	}
+    (function () {
+        if ($('.input-slider')[0]) {
+            $('.input-slider').slider().on('slide', function (ev) {
+                $(this).closest('.slider-container').find('.slider-value').val(ev.value);
+            });
+        }
     })();
 
     /* --------------------------------------------------------
      WYSIWYE Editor + Markedown
      -----------------------------------------------------------*/
-    (function(){
+    (function () {
         //Markedown
-	if($('.markdown-editor')[0]) {
-	    $('.markdown-editor').markdown({
-		autofocus:false,
-		savable:false
-	    });
-	}
-        
+        if ($('.markdown-editor')[0]) {
+            $('.markdown-editor').markdown({
+                autofocus: false,
+                savable: false
+            });
+        }
+
         //WYSIWYE Editor
-	if($('.wysiwye-editor')[0]) {
-	    $('.wysiwye-editor').summernote({
-		height: 200
-	    });
-	}
-        
+        if ($('.wysiwye-editor')[0]) {
+            $('.wysiwye-editor').summernote({
+                height: 200
+            });
+        }
+
     })();
 
     /* --------------------------------------------------------
      Media Player
      -----------------------------------------------------------*/
-    (function(){
-	if($('audio, video')[0]) {
-	    $('audio,video').mediaelementplayer({
-		success: function(player, node) {
-		    $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
-		}
-	    });
-	}
+    (function () {
+        if ($('audio, video')[0]) {
+            $('audio,video').mediaelementplayer({
+                success: function (player, node) {
+                    $('#' + node.id + '-mode').html('mode: ' + player.pluginType);
+                }
+            });
+        }
     })();
 
     /* ---------------------------
 	Image Popup [Pirobox]
     --------------------------- */
-    (function() {
-	if($('.pirobox_gall')[0]) {
-	    //Fix IE
-	    jQuery.browser = {};
-	    (function () {
-		jQuery.browser.msie = false;
-		jQuery.browser.version = 0;
-		if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
-		    jQuery.browser.msie = true;
-		    jQuery.browser.version = RegExp.$1;
-		}
-	    })();
-	    
-	    //Lightbox
-	    $().piroBox_ext({
-		piro_speed : 700,
-		bg_alpha : 0.5,
-		piro_scroll : true // pirobox always positioned at the center of the page
-	    });
-	}
+    (function () {
+        if ($('.pirobox_gall')[0]) {
+            //Fix IE
+            jQuery.browser = {};
+            (function () {
+                jQuery.browser.msie = false;
+                jQuery.browser.version = 0;
+                if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
+                    jQuery.browser.msie = true;
+                    jQuery.browser.version = RegExp.$1;
+                }
+            })();
+
+            //Lightbox
+            $().piroBox_ext({
+                piro_speed: 700,
+                bg_alpha: 0.5,
+                piro_scroll: true // pirobox always positioned at the center of the page
+            });
+        }
     })();
 
     /* ---------------------------
      Vertical tab
      --------------------------- */
-    (function(){
-        $('.tab-vertical').each(function(){
+    (function () {
+        $('.tab-vertical').each(function () {
             var tabHeight = $(this).outerHeight();
             var tabContentHeight = $(this).closest('.tab-container').find('.tab-content').outerHeight();
 
@@ -479,7 +512,7 @@ $(document).ready(function(){
             }
         })
 
-        $('body').on('click touchstart', '.tab-vertical li', function(){
+        $('body').on('click touchstart', '.tab-vertical li', function () {
             var tabVertical = $(this).closest('.tab-vertical');
             tabVertical.height('auto');
 
@@ -493,91 +526,91 @@ $(document).ready(function(){
 
 
     })();
-    
+
     /* --------------------------------------------------------
      Login + Sign up
     -----------------------------------------------------------*/
-    (function(){
-	$('body').on('click touchstart', '.box-switcher', function(e){
-	    e.preventDefault();
-	    var box = $(this).attr('data-switch');
-	    $(this).closest('.box').toggleClass('active');
-	    $('#'+box).closest('.box').addClass('active'); 
-	});
+    (function () {
+        $('body').on('click touchstart', '.box-switcher', function (e) {
+            e.preventDefault();
+            var box = $(this).attr('data-switch');
+            $(this).closest('.box').toggleClass('active');
+            $('#' + box).closest('.box').addClass('active');
+        });
     })();
-    
-   
-    
+
+
+
     /* --------------------------------------------------------
      Checkbox + Radio
      -----------------------------------------------------------*/
-    if($('input:checkbox, input:radio')[0]) {
-    	
-	//Checkbox + Radio skin
-	$('input:checkbox:not([data-toggle="buttons"] input, .make-switch input), input:radio:not([data-toggle="buttons"] input)').iCheck({
-		    checkboxClass: 'icheckbox_minimal',
-		    radioClass: 'iradio_minimal',
-		    increaseArea: '20%' // optional
-	});
-    
-	//Checkbox listing
-	var parentCheck = $('.list-parent-check');
-	var listCheck = $('.list-check');
-    
-	parentCheck.on('ifChecked', function(){
-		$(this).closest('.list-container').find('.list-check').iCheck('check');
-	});
-    
-	parentCheck.on('ifClicked', function(){
-		$(this).closest('.list-container').find('.list-check').iCheck('uncheck');
-	});
-    
-	listCheck.on('ifChecked', function(){
-		    var parent = $(this).closest('.list-container').find('.list-parent-check');
-		    var thisCheck = $(this).closest('.list-container').find('.list-check');
-		    var thisChecked = $(this).closest('.list-container').find('.list-check:checked');
-	    
-		    if(thisCheck.length == thisChecked.length) {
-			parent.iCheck('check');
-		    }
-	});
-    
-	listCheck.on('ifUnchecked', function(){
-		    var parent = $(this).closest('.list-container').find('.list-parent-check');
-		    parent.iCheck('uncheck');
-	});
-    
-	listCheck.on('ifChanged', function(){
-		    var thisChecked = $(this).closest('.list-container').find('.list-check:checked');
-		    var showon = $(this).closest('.list-container').find('.show-on');
-		    if(thisChecked.length > 0 ) {
-			showon.show();
-		    }
-		    else {
-			showon.hide();
-		    }
-	});
-	   
+    if ($('input:checkbox, input:radio')[0]) {
+
+        //Checkbox + Radio skin
+        $('input:checkbox:not([data-toggle="buttons"] input, .make-switch input), input:radio:not([data-toggle="buttons"] input)').iCheck({
+            checkboxClass: 'icheckbox_minimal',
+            radioClass: 'iradio_minimal',
+            increaseArea: '20%' // optional
+        });
+
+        //Checkbox listing
+        var parentCheck = $('.list-parent-check');
+        var listCheck = $('.list-check');
+
+        parentCheck.on('ifChecked', function () {
+            $(this).closest('.list-container').find('.list-check').iCheck('check');
+        });
+
+        parentCheck.on('ifClicked', function () {
+            $(this).closest('.list-container').find('.list-check').iCheck('uncheck');
+        });
+
+        listCheck.on('ifChecked', function () {
+            var parent = $(this).closest('.list-container').find('.list-parent-check');
+            var thisCheck = $(this).closest('.list-container').find('.list-check');
+            var thisChecked = $(this).closest('.list-container').find('.list-check:checked');
+
+            if (thisCheck.length == thisChecked.length) {
+                parent.iCheck('check');
+            }
+        });
+
+        listCheck.on('ifUnchecked', function () {
+            var parent = $(this).closest('.list-container').find('.list-parent-check');
+            parent.iCheck('uncheck');
+        });
+
+        listCheck.on('ifChanged', function () {
+            var thisChecked = $(this).closest('.list-container').find('.list-check:checked');
+            var showon = $(this).closest('.list-container').find('.show-on');
+            if (thisChecked.length > 0) {
+                showon.show();
+            }
+            else {
+                showon.hide();
+            }
+        });
+
     }
-    
+
     /* --------------------------------------------------------
         MAC Hack 
     -----------------------------------------------------------*/
-    (function(){
-	//Mac only
-        if(navigator.userAgent.indexOf('Mac') > 0) {
+    (function () {
+        //Mac only
+        if (navigator.userAgent.indexOf('Mac') > 0) {
             $('body').addClass('mac-os');
         }
     })();
-    
+
 });
 
-$(window).load(function(){
+$(window).load(function () {
     /* --------------------------------------------------------
      Tooltips
      -----------------------------------------------------------*/
-    (function(){
-        if($('.tooltips')[0]) {
+    (function () {
+        if ($('.tooltips')[0]) {
             $('.tooltips').tooltip();
         }
     })();
@@ -585,35 +618,35 @@ $(window).load(function(){
     /* --------------------------------------------------------
      Animate numbers
      -----------------------------------------------------------*/
-    $('.quick-stats').each(function(){
+    $('.quick-stats').each(function () {
         var target = $(this).find('h2');
         var toAnimate = $(this).find('h2').attr('data-value');
         // Animate the element's value from x to y:
-        $({someValue: 0}).animate({someValue: toAnimate}, {
+        $({ someValue: 0 }).animate({ someValue: toAnimate }, {
             duration: 1000,
-            easing:'swing', // can be anything
-            step: function() { // called on every step
+            easing: 'swing', // can be anything
+            step: function () { // called on every step
                 // Update the element's text with rounded-up value:
                 target.text(commaSeparateNumber(Math.round(this.someValue)));
             }
         });
 
-        function commaSeparateNumber(val){
-            while (/(\d+)(\d{3})/.test(val.toString())){
+        function commaSeparateNumber(val) {
+            while (/(\d+)(\d{3})/.test(val.toString())) {
                 val = val.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
             }
             return val;
         }
     });
-    
+
 });
 
 /* --------------------------------------------------------
 Date Time Widget
 -----------------------------------------------------------*/
-(function(){
-    var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-    var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+(function () {
+    var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    var dayNames = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
     // Create a newDate() object
     var newDate = new Date();
@@ -624,31 +657,31 @@ Date Time Widget
     // Output the day, date, month and year
     $('#date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
 
-    setInterval( function() {
+    setInterval(function () {
 
         // Create a newDate() object and extract the seconds of the current time on the visitor's
         var seconds = new Date().getSeconds();
 
         // Add a leading zero to seconds value
-        $("#sec").html(( seconds < 10 ? "0":"" ) + seconds);
-    },1000);
+        $("#sec").html((seconds < 10 ? "0" : "") + seconds);
+    }, 1000);
 
-    setInterval( function() {
+    setInterval(function () {
 
         // Create a newDate() object and extract the minutes of the current time on the visitor's
         var minutes = new Date().getMinutes();
 
         // Add a leading zero to the minutes value
-        $("#min").html(( minutes < 10 ? "0":"" ) + minutes);
-    },1000);
+        $("#min").html((minutes < 10 ? "0" : "") + minutes);
+    }, 1000);
 
-    setInterval( function() {
+    setInterval(function () {
 
         // Create a newDate() object and extract the hours of the current time on the visitor's
         var hours = new Date().getHours();
 
         // Add a leading zero to the hours value
-        $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+        $("#hours").html((hours < 10 ? "0" : "") + hours);
     }, 1000);
 })();
 

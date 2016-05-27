@@ -45,6 +45,7 @@ namespace CyScada.Web.WebApi.Controllers
             return sideMenuList;
         }
 
+
         // POST api/sidemenu
         public string Post([FromBody]SideMenuModel model)
         {

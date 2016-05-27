@@ -10,6 +10,11 @@ namespace CyScada.Common
         public const string DefaultUserPassword="118DD9CC92B899DF";//123456加密
         public const string AuthSeperator = ",";
 
+        public enum MappingType
+        {
+            UserTheme
+        }
+
         public static string Encrypt(string password)
         {
             return DESEncrypt.Encrypt(password);

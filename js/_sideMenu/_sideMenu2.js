@@ -4,6 +4,7 @@
 angular.module("SideMenu", [])
     .controller("SideMenuController", ['$scope', '$http', function ($scope, $http) {
         $scope.initial = function () {
+
             $http.get("../api/SideMenu?userId=" + $('#userId').attr('data-userId')+"&themeType=1")
                 .success(function (data) {
                     $scope.menuList = data;
