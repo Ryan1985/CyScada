@@ -10,7 +10,7 @@ namespace CyScada.Web.Controllers
 
         public ActionResult Index()
         {
-            return View();
+            return PartialView();
         }
 
 
@@ -23,7 +23,7 @@ namespace CyScada.Web.Controllers
             }
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
-            return View();
+            return PartialView();
         }
 
 

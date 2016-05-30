@@ -22,7 +22,7 @@ namespace CyScada.Web.Controllers
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
             ViewBag.SideMenuId = menuId.Replace("SideMenu_", "");
-            return View();
+            return PartialView();
         }
 
         ////

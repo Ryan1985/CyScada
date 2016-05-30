@@ -115,6 +115,7 @@
     <Compile Include="Common\LoginCheckAttribute.cs" />
     <Compile Include="Controllers\AuthorityAssignController.cs" />
     <Compile Include="Controllers\AuthorityController.cs" />
+    <Compile Include="Controllers\BaseInfoController.cs" />
     <Compile Include="Controllers\ControlDeskController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
@@ -125,6 +126,7 @@
     <Compile Include="Controllers\MapBoardController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SideMenuController.cs" />
+    <Compile Include="Controllers\testController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -232,6 +234,7 @@
     <Content Include="Images\Phantom\pic13.jpg" />
     <Content Include="Images\Phantom\pic14.jpg" />
     <Content Include="Images\Phantom\pic15.jpg" />
+    <Content Include="img\Machine1.jpg" />
     <Content Include="img\SuperAdmin\body\blue.jpg" />
     <Content Include="img\SuperAdmin\body\chrome.jpg" />
     <Content Include="img\SuperAdmin\body\city.jpg" />
@@ -1612,6 +1615,9 @@
     <Content Include="Views\ControlDesk\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNew2.cshtml" />
     <Content Include="Views\Shared\_SideMenu2.cshtml" />
+    <Content Include="Views\test\Index.cshtml" />
+    <Content Include="Views\test\Detail.cshtml" />
+    <Content Include="Views\BaseInfo\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
