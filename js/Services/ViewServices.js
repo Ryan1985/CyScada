@@ -139,4 +139,12 @@ viewServicesModule.factory('controlDeskService', function ($http) {
     };
 });
 
-
+//基础信息视图服务
+viewServicesModule.factory('baseInfoService', function($http) {
+    return {
+        //查询
+        getList: function (params) {
+            return $http.get("../api/BaseInfo?SideMenuId=" + params);
+        }
+    };
+});

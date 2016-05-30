@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BllAuthorityAssign.cs" />
+    <Compile Include="BllBaseInfo.cs" />
     <Compile Include="BllBindList.cs" />
     <Compile Include="BllControlDesk.cs" />
     <Compile Include="BllEmployee.cs" />

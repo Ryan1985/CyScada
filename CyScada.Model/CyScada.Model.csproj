@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssignToggleModel.cs" />
+    <Compile Include="BaseInfoModel.cs" />
     <Compile Include="ControlDeskItemModel.cs" />
     <Compile Include="EmployeeModel.cs" />
     <Compile Include="EmpRoleModel.cs" />

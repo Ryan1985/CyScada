@@ -40,7 +40,7 @@ function GenerateItems(data) {
     for (var i = 0; i < data.length; i++) {
         sectionContents.push(articleTemplate
             .replace('@i', i + 1)
-            .replace('@url', data[i].Url)
+            .replace('@url', data[i].Url + '?sideMenuId=' + window.sideMenuId)
             .replace('@name', data[i].Name)
             .replace('@desc', data[i].Description));
     }
