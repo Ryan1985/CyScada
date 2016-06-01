@@ -144,7 +144,7 @@ viewServicesModule.factory('baseInfoService', function($http) {
     return {
         //查询
         getList: function (params) {
-            return $http.get("../api/BaseInfo?SideMenuId=" + params);
+            return $http.get("../api/BaseInfo?SideMenuId=" + params[0]+'&userId='+params[1]);
         }
     };
 });

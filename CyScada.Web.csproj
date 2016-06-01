@@ -122,6 +122,7 @@
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\EquipmentListController.cs" />
     <Compile Include="Controllers\EquipmentSelectionController.cs" />
+    <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MapBoardController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
@@ -169,11 +170,30 @@
     <Content Include="css\bootstrap\bootstrap.css" />
     <Content Include="css\bootstrap\bootstrap.min.css" />
     <Content Include="css\ControlDesk.css" />
+    <Content Include="css\bootstrapAddition\bootstrap-additions.css" />
+    <Content Include="css\bootstrapAddition\bootstrap-additions.min.css" />
+    <Content Include="css\bootstrapAddition\modules\alert.css" />
+    <Content Include="css\bootstrapAddition\modules\alert.min.css" />
+    <Content Include="css\bootstrapAddition\modules\aside.css" />
+    <Content Include="css\bootstrapAddition\modules\aside.min.css" />
+    <Content Include="css\bootstrapAddition\modules\callout.css" />
+    <Content Include="css\bootstrapAddition\modules\callout.min.css" />
+    <Content Include="css\bootstrapAddition\modules\datepicker.css" />
+    <Content Include="css\bootstrapAddition\modules\datepicker.min.css" />
+    <Content Include="css\bootstrapAddition\modules\modal.css" />
+    <Content Include="css\bootstrapAddition\modules\modal.min.css" />
+    <Content Include="css\bootstrapAddition\modules\popover.css" />
+    <Content Include="css\bootstrapAddition\modules\popover.min.css" />
+    <Content Include="css\bootstrapAddition\modules\timepicker.css" />
+    <Content Include="css\bootstrapAddition\modules\timepicker.min.css" />
+    <Content Include="css\bootstrapAddition\modules\tooltip.css" />
+    <Content Include="css\bootstrapAddition\modules\tooltip.min.css" />
     <Content Include="css\Employee.css" />
     <Content Include="css\Equipment.css" />
     <Content Include="css\EquipmentSelection.css" />
     <Content Include="css\fontAwesome\font-awesome.css" />
     <Content Include="css\fontAwesome\font-awesome.min.css" />
+    <Content Include="css\History.css" />
     <Content Include="css\Login.css" />
     <Content Include="css\MapBoard.css" />
     <Content Include="css\metisMenu\metisMenu.css" />
@@ -1352,6 +1372,7 @@
     <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
     <Content Include="js\Equipment\Equipment.js" />
+    <Content Include="js\History\History.js" />
     <Content Include="js\jquery-1.12.2.min.js" />
     <Content Include="js\jquery.cookie.js" />
     <Content Include="js\jquery\jquery.js" />
@@ -1579,6 +1600,15 @@
     <Content Include="fonts\SuperAdmin\opan-sans\OpenSans-Semibold-webfont.eot" />
     <Content Include="fonts\SuperAdmin\opan-sans\OpenSans-Semibold-webfont.ttf" />
     <Content Include="fonts\SuperAdmin\opan-sans\OpenSans-Semibold-webfont.woff" />
+    <Content Include="css\bootstrapAddition\bootstrap-additions.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\alert.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\aside.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\callout.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\datepicker.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\modal.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\popover.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\timepicker.min.css.map" />
+    <Content Include="css\bootstrapAddition\modules\tooltip.min.css.map" />
     <None Include="Properties\PublishProfiles\CyScada.pubxml" />
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
@@ -1621,6 +1651,7 @@
     <Content Include="Views\test\Index.cshtml" />
     <Content Include="Views\test\Detail.cshtml" />
     <Content Include="Views\BaseInfo\Index.cshtml" />
+    <Content Include="Views\History\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

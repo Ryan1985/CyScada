@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using CyScada.Common;
 using CyScada.DAL;
 using CyScada.Model;
 
@@ -12,6 +13,7 @@ namespace CyScada.BLL
     {
         private DalBaseInfo _dalBaseInfo = new DalBaseInfo();
         private BllSideMenu _bllSideMenu = new BllSideMenu();
+        private BllEmployee _bllEmployee = new BllEmployee();
 
         public DalBaseInfo DalBaseInfo
         {
@@ -26,8 +28,9 @@ namespace CyScada.BLL
         }
 
 
-        public BaseInfoModel GetBaseInfo(string sideMenuId)
+        public BaseInfoModel GetBaseInfo(string sideMenuId,string userId)
         {
+            var authorityCode = _bllEmployee.GetUserAuthorityCode(userId);
             var sideMenuList = _bllSideMenu.GetMenuListFlat();
             var workSiteAuthorityCode =
                 sideMenuList.Where(s => s.Id == int.Parse(sideMenuId)).Select(s => s.AuthorityCode).FirstOrDefault();
@@ -38,7 +41,10 @@ namespace CyScada.BLL
 
             var baseInfo =
                 dtBaseInfo.AsEnumerable()
-                    .Where(dr => dr["AuthorityCode"].ToString() == workSiteAuthorityCode)
+                    .Where(
+                        dr =>
+                            dr["AuthorityCode"].ToString() == workSiteAuthorityCode &&
+                            CommonUtil.ExistAuthorityCode(authorityCode, dr["AuthorityCode"].ToString()))
                     .Select(dr => new BaseInfoModel
                     {
                         AuthorityCode = dr["AuthorityCode"].ToString(),

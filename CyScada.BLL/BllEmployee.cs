@@ -207,5 +207,22 @@ namespace CyScada.BLL
 
             return employee;
         }
+
+
+        public string GetUserAuthorityCode(string userId)
+        {
+            var employee = GetEmployeeWithAuthority(userId);
+            var authorityCode =
+                employee.EmpRoleList.Select(
+                    er => employee.RoleList.Where(r => r.Id == er.RoleId).Select(r => r.AuthorityCode).FirstOrDefault())
+                    .Aggregate(employee.AuthorityCode,
+                        CommonUtil.AppendAuthorityCode);
+            return authorityCode;
+
+        }
+
+
+
+
     }
 }
