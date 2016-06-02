@@ -48,6 +48,7 @@
     <Compile Include="ItemModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="AuthorityModel.cs" />
+    <Compile Include="MapBoardModel.cs" />
     <Compile Include="MappingTableModel.cs" />
     <Compile Include="SideMenuListModel.cs" />
     <Compile Include="SideMenuModel.cs" />

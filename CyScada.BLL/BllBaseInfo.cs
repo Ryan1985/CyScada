@@ -79,5 +79,37 @@ namespace CyScada.BLL
                     return string.Empty;
             }
         }
+
+        public IEnumerable<BaseInfoModel> GetBaseInfoList(string userId)
+        {
+            var authorityCode = _bllEmployee.GetUserAuthorityCode(userId);
+            var dtBaseInfo = _dalBaseInfo.GetMachines();
+
+            if (dtBaseInfo == null)
+                return new List<BaseInfoModel>();
+
+            var baseInfo =
+                dtBaseInfo.AsEnumerable()
+                    .Where(dr => CommonUtil.ExistAuthorityCode(authorityCode, dr["AuthorityCode"].ToString()))
+                    .Select(dr => new BaseInfoModel
+                    {
+                        AuthorityCode = dr["AuthorityCode"].ToString(),
+                        CCID = dr["CCID"].ToString(),
+                        Company = dr["Company"].ToString(),
+                        Description = dr["Description"].ToString(),
+                        Id = dr["Id"].ToString(),
+                        IMEI = dr["IMEI"].ToString(),
+                        Latitude = dr["Latitude"].ToString(),
+                        Longitude = dr["Longitude"].ToString(),
+                        MachineType = dr["MachineType"].ToString(),
+                        Name = dr["Name"].ToString(),
+                        Pic = dr["Pic"].ToString(),
+                        Status = GetStatusName(dr["Status"].ToString()),
+                        WorkSite = dr["WorkSite"].ToString()
+                    }).ToList();
+
+            return baseInfo;
+
+        }
     }
 }

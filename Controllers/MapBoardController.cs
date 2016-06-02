@@ -21,7 +21,7 @@ namespace CyScada.Web.Controllers
             }
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
-            return PartialView();
+            return View();
         }
 
         ////

@@ -14,7 +14,7 @@
 }
 
 @section FootScript{
-<script type="text/javascript" src="~/js/SuperAdmin/datetimepicker.min.js"></script>
+    <script type="text/javascript" src="~/js/SuperAdmin/datetimepicker.min.js"></script>
     <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.min.js"></script>
     <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.tpl.min.js"></script>
     <script type="text/javascript" src="~/js/angular-strap/angular-strap.js"></script>
@@ -39,10 +39,9 @@
                         <div class="form-inline">
                             <div class=" col-lg-3 col-lg-offset-1">
                                 <div class="form-group">
-                                    <div class=" input-icon datetime-pick date-only">
-                                        <input id="dtFromDate" class="form-control" ng-model="fromDate" data-max-date="{{untilDate}}" placeholder="From" bs-datepicker type="text">
-                                    </div>
-                                         @*<label for="txtName">时间</label>*@
+                                    <label for="dtStartDate">时间</label>
+                                    <input id="dtStartDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" bs-datepicker type="text">至
+                                    <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
                                 </div>
                             </div>
 

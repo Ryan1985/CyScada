@@ -21,6 +21,30 @@
     map.addControl(navigationControl);
     // 设置地图显示的城市 此项是必须设置的
     map.enableScrollWheelZoom(true);
-    //开启鼠标滚轮缩放
-    $('#allmap').css('height', $(window).height() - $('#navHeader').height());
+    //设置地图高度
+    //$('#allmap').css('height', $(window).height() - $('#navHeader').height());
+
+    var myIcon = new BMap.Icon("../../img/markers.png", new BMap.Size(50, 25), {
+        offset: new BMap.Size(0, 0), // 指定定位位置
+        imageOffset: new BMap.Size(0, 0) // 设置图片偏移
+    });
+
+    $.get('../api/MapBoard?userId=' + $('#userId').attr('data-userid')).success(function (data) {
+        var markers = [];
+        for (var i = 0; i < data.length; i++) {
+            var marker = new BMap.Marker(new BMap.Point(data[i].Longitude, data[i].Latitude), {icon:myIcon});  // 创建标注
+            map.addOverlay(marker);              // 将标注添加到地图中
+            markers.push(marker);
+        }
+
+        //最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
+        var markerClusterer = new BMapLib.MarkerClusterer(map, { markers: markers });
+
+    }).error(function(error) {
+        alert(error);
+    });
+
+
+
+
 });

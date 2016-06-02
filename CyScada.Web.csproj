@@ -145,6 +145,7 @@
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
+    <Compile Include="WebApi\Controllers\MapBoardController.cs" />
     <Compile Include="WebApi\Controllers\MappingController.cs" />
     <Compile Include="WebApi\Controllers\RoleController.cs" />
     <Compile Include="WebApi\Controllers\RoleListController.cs" />
@@ -257,6 +258,7 @@
     <Content Include="Images\Phantom\pic14.jpg" />
     <Content Include="Images\Phantom\pic15.jpg" />
     <Content Include="img\Machine1.jpg" />
+    <Content Include="img\markers.png" />
     <Content Include="img\SuperAdmin\body\blue.jpg" />
     <Content Include="img\SuperAdmin\body\chrome.jpg" />
     <Content Include="img\SuperAdmin\body\city.jpg" />

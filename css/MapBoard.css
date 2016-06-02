@@ -2,3 +2,10 @@
     padding: 0;
 }
 .anchorBL{display:none} 
+
+
+.clearUl:after {
+content:"";
+display: block;
+clear: both;
+} 
