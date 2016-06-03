@@ -30,16 +30,21 @@ namespace CyScada.BLL
                 authString = roleAuthList.Aggregate(authString, CommonUtil.AppendAuthorityCode);
             }
 
-            var dtItems = _dalControlDesk.GetItemList(sideMenuId);
-            var result =  dtItems.AsEnumerable()
-                    .Where(dr => CommonUtil.ExistAuthorityCode(authString, dr["AuthorityCode"].ToString()))
-                    .Select(dr => new ControlDeskItemModel
-                    {
-                        Description = dr["SideMenuDesc"].ToString(),
-                        Id = dr["Id"].ToString(),
-                        Name = dr["Name"].ToString(),
-                        Url=dr["Url"].ToString()
-                    }).ToList();
+            var dsItems = _dalControlDesk.GetItemList(sideMenuId);
+            if (dsItems == null)
+                return null;
+
+
+            var result = dsItems.Tables[0].AsEnumerable()
+                .Where(dr => CommonUtil.ExistAuthorityCode(authString, dr["AuthorityCode"].ToString()))
+                .Select(dr => new ControlDeskItemModel
+                {
+                    Description = dr["SideMenuDesc"].ToString(),
+                    Id = dr["Id"].ToString(),
+                    Name = dr["Name"].ToString(),
+                    Url = dr["Url"].ToString(),
+                    Title = dsItems.Tables[1].AsEnumerable().Select(d => d["SideMenuDesc"].ToString()).FirstOrDefault()
+                }).ToList();
 
             return result;
 

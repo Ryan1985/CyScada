@@ -22,19 +22,48 @@
     // 设置地图显示的城市 此项是必须设置的
     map.enableScrollWheelZoom(true);
     //设置地图高度
-    //$('#allmap').css('height', $(window).height() - $('#navHeader').height());
+    $('#allmap').css('height', $(window).height() - $('#navHeader').height());
 
-    var myIcon = new BMap.Icon("../../img/markers.png", new BMap.Size(50, 25), {
+
+    var myIcon = new BMap.Icon("../../img/markers.png", new BMap.Size(25, 25), {
         offset: new BMap.Size(0, 0), // 指定定位位置
-        imageOffset: new BMap.Size(0, 0) // 设置图片偏移
+        imageOffset: new BMap.Size(0, -275) // 设置图片偏移
     });
 
+    var opts = {
+        width: 300,     // 信息窗口宽度
+        height: 200,     // 信息窗口高度
+        title: "设备信息", // 信息窗口标题
+        panel : "panel", //检索结果面板
+        enableAutoPan: true, //自动平移
+        searchTypes: [
+        ]
+    };
+
+
+    var markers = [];
     $.get('../api/MapBoard?userId=' + $('#userId').attr('data-userid')).success(function (data) {
-        var markers = [];
         for (var i = 0; i < data.length; i++) {
-            var marker = new BMap.Marker(new BMap.Point(data[i].Longitude, data[i].Latitude), {icon:myIcon});  // 创建标注
-            map.addOverlay(marker);              // 将标注添加到地图中
+            var marker = new BMap.Marker(new BMap.Point(data[i].Longitude, data[i].Latitude), {icon:myIcon});
+            map.addOverlay(marker);// 将标注添加到地图中
+            var content = getBaseInfoTemplates()
+                .replace('@Pic', data[i].Pic)
+                .replace('@Name', data[i].Name)
+                .replace('@Status', data[i].Status)
+                .replace('@AuthorityCode', data[i].AuthorityCode)
+                .replace('@Longitude', data[i].Longitude)
+                .replace('@Latitude', data[i].Latitude)
+                .replace('@WorkSite', data[i].WorkSite)
+                .replace('@Company', data[i].Company)
+                .replace('@Description', data[i].Description);
+            var searchWindow = new BMapLib.SearchInfoWindow(map, content, opts);
             markers.push(marker);
+            marker.addEventListener("mouseover", function() {
+                searchWindow.open(marker);
+            });
+            marker.addEventListener("click", function () {
+                searchWindow.open(marker);
+            });
         }
 
         //最简单的用法，生成一个marker数组，然后调用markerClusterer类即可。
@@ -47,4 +76,62 @@
 
 
 
+
 });
+
+
+function hrefTo(authCode) {
+    $.get('../api/MapBoard?userId=' + $('#userId').attr('data-userid') + '&authorityCode=' + authCode).success(function(data) {
+        if (data == '') {
+            return;
+        }
+
+        window.location.href = '../ControlDesk/Index?menuId=' + data;
+    }).error(function(error) {
+        alert(error);
+    });
+}
+
+function getBaseInfoTemplates() {
+    return ['<table>',
+        '<tr>',
+        '<td>名称:<span onclick="hrefTo(\'@AuthorityCode\')" class="BaseInfoName">@Name</span></td>',
+        '<td rowspan="6"><img src="@Pic" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/></td>',
+        '</tr>',
+        '<tr>',
+        '<td>状态:<span>@Status</span></td>',
+        '<td></td>',
+        '</tr>',
+        '<tr>',
+        '<td>经度:<span>@Longitude</span></td>',
+        '<td></td>',
+        '</tr>',
+        '<tr>',
+        '<td>纬度:<span>@Latitude</span></td>',
+        '<td></td>',
+        '</tr>',
+        '<tr>',
+        '<td>工地:<span>@WorkSite</span></td>',
+        '<td></td>',
+        '</tr>',
+        '<tr>',
+        '<td>公司:<span>@Company</span></td>',
+        '<td></td>',
+        '</tr>',
+        '<tr>',
+        '<td colspan="2">备注:<span>@Description</span></td>',
+        '</tr>',
+        '</table>'
+    ].join('');
+    //return ['<img src="@Pic" alt="" style="float:right;zoom:1;overflow:hidden;width:100px;height:100px;margin-left:3px;"/>',
+    //    '名称:<span>@Name</span><br/>',
+    //    '状态:<span>@Status</span><br/>',
+    //    '经度:<span>@Longitude</span><br/>',
+    //    '纬度:<span>@Latitude</span><br/>',
+    //    '工地:<span>@WorkSite</span><br/>',
+    //    '公司:<span>@Company</span><br/>',
+    //    '备注:<span>@Description</span>'].join('');
+}
+
+
+

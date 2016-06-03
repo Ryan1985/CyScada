@@ -45,6 +45,9 @@ function GenerateItems(data) {
             .replace('@desc', data[i].Description));
     }
 
+    if (data.length > 0) {
+        $('#MenuTitle').text(data[0].Title);
+    }
     $('section.tiles').append(sectionContents.join(''));
 }
 

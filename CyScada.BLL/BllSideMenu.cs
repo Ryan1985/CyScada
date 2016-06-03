@@ -400,7 +400,21 @@ namespace CyScada.BLL
         }
 
 
+        public string GetSideMenuIdByAuthorityCode(string userId,string authorityCode)
+        {
+            var userAuth = _bllEmployee.GetUserAuthorityCode(userId);
+            if (!CommonUtil.ExistAuthorityCode(userAuth, authorityCode))
+            {
+                return string.Empty;
+            }
 
+            var dtSideMenu = _dalSideMenu.QuerySideMenu(string.Empty);
+            return
+                dtSideMenu.AsEnumerable()
+                    .Where(dr => dr["AuthorityCode"].ToString() == authorityCode)
+                    .Select(dr => dr["Id"].ToString())
+                    .FirstOrDefault();
+        }
 
 
 

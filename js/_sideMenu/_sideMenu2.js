@@ -35,8 +35,8 @@ angular.module("SideMenu", [])
 
 var leafTemplate = '<li><a data-id="@id" data-href="@url" onclick="Click(this)">@name</a></li>';
 var branchTemplate = '<li class="CyScadaSideItem"><a data-id="@id" data-href="@url"  onclick="Click(this)">@name</a>';
-var mainLeafTemplate = '<li><a data-id="@id" class="sa-side-widget CyScadaSideItem" data-href="@url" onclick="Click(this)"><span class="menu-item">@name</span></a></li>';
-var mainBranchTemplate = '<li class="dropdown"><a  data-id="@id" class="sa-side-widget" data-href="" onclick="Click(this)"><span class="menu-item">@name</span></a>';
+var mainLeafTemplate = '<li><a data-id="@id" class="@class CyScadaSideItem" data-href="@url" onclick="Click(this)"><span class="menu-item">@name</span></a></li>';
+var mainBranchTemplate = '<li class="dropdown"><a  data-id="@id" class="@class" data-href="" onclick="Click(this)"><span class="menu-item">@name</span></a>';
 
 
 function AppendBranch(branchHtml, branch,level) {

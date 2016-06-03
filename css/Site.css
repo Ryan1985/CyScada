@@ -50,6 +50,13 @@
     width: 100%;
 }
 
+
+.MenuTitle {
+    font-size: 25px;
+    text-align: center;
+    width: 100%;
+}
+
 .panel-info>.panel-heading {
     color: inherit;
     background-color: inherit;

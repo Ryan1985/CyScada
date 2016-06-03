@@ -38,6 +38,9 @@
 .sa-side-page { background-image: url(../../img/SuperAdmin/icon/pages.png); }
 .sa-side-chart { background-image: url(../../img/SuperAdmin/icon/chart.png); }
 .sa-side-photos { background-image: url(../../img/SuperAdmin/icon/photos.png); }
+.sa-side-sysMgm { background-image: url(../../img/SystemMgm.png); }
+.sa-side-deviceMap { background-image: url(../../img/DeviceMap.png); }
+.sa-side-cyDisplay { background-image: url(../../img/CyDisplay.png); }
 
 /* Top Menu */
 [class*="sa-top-"] {
@@ -131,6 +134,9 @@ only screen and (                min-resolution: 1.25dppx) {
     .sa-side-page { background-image: url(../../img/SuperAdmin/icon/pages@2x.png); background-size: 25px 21px; }
     .sa-side-chart { background-image: url(../../img/SuperAdmin/icon/chart@2x.png); background-size: 24px 19px; }
     .sa-side-photos { background-image: url(../../img/SuperAdmin/icon/photos@2x.png); background-size: 23px 19px; }
+    .sa-side-sysMgm { background-image: url(../../img/SystemMgm.png); background-size: 25px 25px; }
+    .sa-side-deviceMap { background-image: url(../../img/DeviceMap.png); background-size: 25px 25px; }
+    .sa-side-cyDisplay { background-image: url(../../img/CyDisplay.png); background-size: 25px 25px; }
     
     /* Top Menu */
     .sa-top-message { background-image: url(../../img/SuperAdmin/icon/message@2x.png); background-size: 25px 17px; }

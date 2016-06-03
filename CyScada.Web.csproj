@@ -470,6 +470,9 @@
     <Content Include="img\SuperAdmin\skin-violate.jpg" />
     <Content Include="img\SuperAdmin\skin-yellow.jpg" />
     <Content Include="img\SuperAdmin\sort.png" />
+    <Content Include="img\SystemMgm.png" />
+    <Content Include="img\DeviceMap.png" />
+    <Content Include="img\CyDisplay.png" />
     <Content Include="js\angular-strap\angular-strap.compat.js" />
     <Content Include="js\angular-strap\angular-strap.compat.min.js" />
     <Content Include="js\angular-strap\angular-strap.js" />
