@@ -42,6 +42,7 @@
 
 
     var markers = [];
+    var contents = [];
     $.get('../api/MapBoard?userId=' + $('#userId').attr('data-userid')).success(function (data) {
         for (var i = 0; i < data.length; i++) {
             var marker = new BMap.Marker(new BMap.Point(data[i].Longitude, data[i].Latitude), {icon:myIcon});
@@ -56,13 +57,15 @@
                 .replace('@WorkSite', data[i].WorkSite)
                 .replace('@Company', data[i].Company)
                 .replace('@Description', data[i].Description);
-            var searchWindow = new BMapLib.SearchInfoWindow(map, content, opts);
+            contents.push(content);
             markers.push(marker);
-            marker.addEventListener("mouseover", function() {
-                searchWindow.open(marker);
+            marker.addEventListener("mouseover", function (e) {
+                var searchWindow = new BMapLib.SearchInfoWindow(map, getCurrentContent(contents, markers, e.currentTarget), opts);
+                searchWindow.open(e.currentTarget);
             });
-            marker.addEventListener("click", function () {
-                searchWindow.open(marker);
+            marker.addEventListener("click", function (e) {
+                var searchWindow = new BMapLib.SearchInfoWindow(map, getCurrentContent(contents, markers, e.currentTarget), opts);
+                searchWindow.open(e.currentTarget);
             });
         }
 
@@ -78,6 +81,20 @@
 
 
 });
+
+
+function getCurrentContent(contentArray, markerArray, currentMarker) {
+    for (var i = 0; i < markerArray.length; i++) {
+        if (markerArray[i].ba == currentMarker.ba) {
+            return contentArray[i];
+        }
+    }
+    return '';
+}
+
+
+
+
 
 
 function hrefTo(authCode) {

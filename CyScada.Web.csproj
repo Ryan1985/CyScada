@@ -125,6 +125,7 @@
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MapBoardController.cs" />
+    <Compile Include="Controllers\RealTimeDisplayController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SideMenuController.cs" />
     <Compile Include="Controllers\testController.cs" />
@@ -207,6 +208,7 @@
     <Content Include="css\Phantom\ie8.css" />
     <Content Include="css\Phantom\ie9.css" />
     <Content Include="css\Phantom\main.css" />
+    <Content Include="css\RealTimeDisplay.css" />
     <Content Include="css\responsiveNav\responsive-nav.css" />
     <Content Include="css\Role.css" />
     <Content Include="css\sbAdmin\sb-admin-2.css" />
@@ -473,6 +475,14 @@
     <Content Include="img\SystemMgm.png" />
     <Content Include="img\DeviceMap.png" />
     <Content Include="img\CyDisplay.png" />
+    <Content Include="img\BaseInfo.png" />
+    <Content Include="img\RealTime.png" />
+    <Content Include="img\AlarmRecord.png" />
+    <Content Include="img\CCTV.png" />
+    <Content Include="img\History.png" />
+    <Content Include="img\Configuration.png" />
+    <Content Include="img\CurrentGPS.png" />
+    <Content Include="img\GPSPath.png" />
     <Content Include="js\angular-strap\angular-strap.compat.js" />
     <Content Include="js\angular-strap\angular-strap.compat.min.js" />
     <Content Include="js\angular-strap\angular-strap.js" />
@@ -1372,6 +1382,10 @@
     <Content Include="js\bootstrap3\bootstrap.js" />
     <Content Include="js\bootstrap3\bootstrap.min.js" />
     <Content Include="js\bootstrap3\npm.js" />
+    <Content Include="js\Chart\Chart.bundle.js" />
+    <Content Include="js\Chart\Chart.bundle.min.js" />
+    <Content Include="js\Chart\Chart.js" />
+    <Content Include="js\Chart\Chart.min.js" />
     <Content Include="js\ControlDesk\ControlDesk.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />
@@ -1399,6 +1413,7 @@
     <Content Include="js\Phantom\util.js" />
     <Content Include="js\raphael\raphael-min.js" />
     <Content Include="js\raphael\raphael.js" />
+    <Content Include="js\RealTimeDisplay\RealTimeDisplay.js" />
     <Content Include="js\responsiveNav\responsive-nav.js" />
     <Content Include="js\responsiveNav\responsive-nav.min.js" />
     <Content Include="js\Role\Role.js" />
@@ -1657,6 +1672,7 @@
     <Content Include="Views\test\Detail.cshtml" />
     <Content Include="Views\BaseInfo\Index.cshtml" />
     <Content Include="Views\History\Index.cshtml" />
+    <Content Include="Views\RealTimeDisplay\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

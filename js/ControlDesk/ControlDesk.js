@@ -24,12 +24,12 @@ angular.bootstrap(angular.element("#ControlDeskList"), ["ControlDeskList"]);
 
 function GenerateItems(data) {
     var articleTemplate = [
-        '<article class="style1">',
+        '<article class="">',
         '<span class="image">',
-        '<img src="../Images/Phantom/pic0@i.jpg" alt="" />',
+        '<img src="@class" alt="" />',
         '</span>',
         '<a href="@url">',
-        '<h2>@name</h2>',
+                '<h2>@name</h2>',
         '<div class="content">',
         '<p>@desc</p>',
         '</div>',
@@ -39,7 +39,7 @@ function GenerateItems(data) {
     var sectionContents = [];
     for (var i = 0; i < data.length; i++) {
         sectionContents.push(articleTemplate
-            .replace('@i', i + 1)
+            .replace('@class', data[i].Class)
             .replace('@url', data[i].Url + '?sideMenuId=' + window.sideMenuId)
             .replace('@name', data[i].Name)
             .replace('@desc', data[i].Description));

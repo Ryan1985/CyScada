@@ -43,6 +43,7 @@ namespace CyScada.BLL
                     Id = dr["Id"].ToString(),
                     Name = dr["Name"].ToString(),
                     Url = dr["Url"].ToString(),
+                    Class = dr["Class"].ToString(),
                     Title = dsItems.Tables[1].AsEnumerable().Select(d => d["SideMenuDesc"].ToString()).FirstOrDefault()
                 }).ToList();
 

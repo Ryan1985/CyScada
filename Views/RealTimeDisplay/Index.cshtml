@@ -1,0 +1,191 @@
+﻿@{
+    ViewBag.Title = "实时工况";
+    Layout = "~/Views/Shared/_LayoutNew2.cshtml";
+}
+
+@section HeadSection{
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/Phantom/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/RealTimeDisplay.css" />
+    <style>
+        canvas {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+    </style>
+
+}
+
+
+@section FootScript{
+
+    <script src="/js/Phantom/skel.min.js"></script>
+    <script src="/js/Phantom/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/Phantom/main.js"></script>
+    <script src="/js/Services/ViewServices.js"></script>
+    <script src="/js/Chart/Chart.bundle.js"></script>
+    @*<script src="/js/SuperAdmin/charts.js"></script> <!-- All the above chart related functions -->*@
+    <script src="/js/RealTimeDisplay/RealTimeDisplay.js?r=0001"></script>
+
+}
+
+
+
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-md-12">
+            @*<div class="tile">*@
+            @*<h2 class="tile-title">实时温度</h2>
+                <div class="p-10">*@
+            <canvas id="temperatureChart"></canvas>
+            @*</div>*@
+            @*</div>*@
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+@*<div class="block-area">
+        <h3 class="block-title">FLOT CHART</h3>
+
+        <div class="tile">
+            <h2 class="tile-title">Line Chart</h2>
+            <div class="tile-config dropdown">
+                <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="Options"></a>
+                <ul class="dropdown-menu pull-right text-right">
+                    <li><a href="">Refresh</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+            <div class="p-10">
+                <div id="line-chart" class="main-chart" style="height: 250px"></div>
+            </div>
+        </div>
+
+        <div class="tile">
+            <h2 class="tile-title">Dynamic Chart</h2>
+            <div class="tile-config dropdown">
+                <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="Options"></a>
+                <ul class="dropdown-menu pull-right text-right">
+                    <li><a href="">Refresh</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+            <div class="p-10">
+                <div id="dynamic-chart" class="main-chart" style="height: 250px"></div>
+            </div>
+        </div>
+
+        <div class="tile">
+            <h2 class="tile-title">Bar Chart</h2>
+            <div class="tile-config dropdown">
+                <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="Options"></a>
+                <ul class="dropdown-menu pull-right text-right">
+                    <li><a href="">Refresh</a></li>
+                    <li><a href="">Settings</a></li>
+                </ul>
+            </div>
+            <div class="p-10">
+                <div id="bar-chart" class="main-chart" style="height: 250px"></div>
+            </div>
+        </div>
+
+
+        <!-- Pies -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="tile">
+                    <h2 class="tile-title">Pie Chart</h2>
+                    <div class="tile-config dropdown">
+                        <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="Options"></a>
+                        <ul class="dropdown-menu pull-right text-right">
+                            <li><a href="">Refresh</a></li>
+                            <li><a href="">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="p-10">
+                        <div id="pie-chart" class="main-chart" style="height: 300px"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="tile">
+                    <h2 class="tile-title">Donut Chart</h2>
+                    <div class="tile-config dropdown">
+                        <a data-toggle="dropdown" href="" class="tooltips tile-menu" title="Options"></a>
+                        <ul class="dropdown-menu pull-right text-right">
+                            <li><a href="">Refresh</a></li>
+                            <li><a href="">Settings</a></li>
+                        </ul>
+                    </div>
+                    <div class="p-10">
+                        <div id="donut-chart" class="main-chart" style="height: 300px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="whiter m-t-20 m-b-20" />
+
+    <div class="block-area">
+        <h3 class="block-title">SPARKLINE CHARTS</h3>
+
+        <!-- Sparkline -->
+        <div class="row">
+            <div class="col-md-3 col-xs-6">
+                <div class="tile quick-stats">
+                    <div id="stats-line-2" class="pull-left"></div>
+                    <div class="data">
+                        <h2 data-value="98">0</h2>
+                        <small>Tickets Today</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <div class="tile quick-stats media">
+                    <div id="stats-line-3" class="pull-left"></div>
+                    <div class="media-body">
+                        <h2 data-value="1452">0</h2>
+                        <small>Shipments today</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <div class="tile quick-stats media">
+
+                    <div id="stats-line-4" class="pull-left"></div>
+
+                    <div class="media-body">
+                        <h2 data-value="4896">0</h2>
+                        <small>Orders today</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-xs-6">
+                <div class="tile quick-stats media">
+                    <div id="stats-line" class="pull-left"></div>
+                    <div class="media-body">
+                        <h2 data-value="29356">0</h2>
+                        <small>Site visits today</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>*@

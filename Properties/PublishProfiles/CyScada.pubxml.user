@@ -9,19 +9,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>05/30/2016 17:49:57</publishTime>
+      <publishTime>06/03/2016 17:58:35</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>05/27/2016 13:51:35</publishTime>
     </File>
     <File Include="bin/CyScada.DAL.dll">
-      <publishTime>05/30/2016 17:49:57</publishTime>
+      <publishTime>06/03/2016 17:58:34</publishTime>
     </File>
     <File Include="bin/CyScada.Model.dll">
-      <publishTime>05/30/2016 17:49:57</publishTime>
+      <publishTime>06/03/2016 17:58:34</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>05/30/2016 17:49:57</publishTime>
+      <publishTime>06/03/2016 17:58:35</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
@@ -143,11 +143,92 @@
     <File Include="css/bootstrap/bootstrap.min.css">
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
+    <File Include="css/bootstrapAddition/bootstrap-additions.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/bootstrap-additions.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/bootstrap-additions.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/alert.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/alert.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/alert.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/aside.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/aside.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/aside.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/callout.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/callout.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/callout.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/datepicker.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/datepicker.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/datepicker.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/modal.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/modal.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/modal.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/popover.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/popover.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/popover.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/timepicker.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/timepicker.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/timepicker.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/tooltip.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/tooltip.min.css">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
+    <File Include="css/bootstrapAddition/modules/tooltip.min.css.map">
+      <publishTime>05/31/2016 13:41:20</publishTime>
+    </File>
     <File Include="css/ControlDesk.css">
       <publishTime>05/24/2016 13:27:18</publishTime>
     </File>
     <File Include="css/Employee.css">
-      <publishTime>05/26/2016 18:09:45</publishTime>
+      <publishTime>05/31/2016 14:14:32</publishTime>
     </File>
     <File Include="css/Equipment.css">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -161,11 +242,14 @@
     <File Include="css/fontAwesome/font-awesome.min.css">
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
+    <File Include="css/History.css">
+      <publishTime>05/31/2016 14:26:46</publishTime>
+    </File>
     <File Include="css/Login.css">
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
     <File Include="css/MapBoard.css">
-      <publishTime>05/19/2016 11:57:41</publishTime>
+      <publishTime>06/03/2016 14:20:19</publishTime>
     </File>
     <File Include="css/metisMenu/metisMenu.css">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -222,7 +306,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="css/Site.css">
-      <publishTime>05/27/2016 13:15:42</publishTime>
+      <publishTime>06/03/2016 16:49:45</publishTime>
     </File>
     <File Include="css/SuperAdmin/animate.css">
       <publishTime>05/26/2016 09:30:10</publishTime>
@@ -249,7 +333,7 @@
       <publishTime>05/26/2016 09:30:11</publishTime>
     </File>
     <File Include="css/SuperAdmin/icons.css">
-      <publishTime>05/26/2016 10:11:38</publishTime>
+      <publishTime>06/03/2016 17:56:18</publishTime>
     </File>
     <File Include="css/SuperAdmin/lightbox.css">
       <publishTime>05/26/2016 09:30:11</publishTime>
@@ -440,8 +524,17 @@
     <File Include="Images/Phantom/pic15.jpg">
       <publishTime>05/23/2016 16:45:25</publishTime>
     </File>
+    <File Include="img/CyDisplay.png">
+      <publishTime>06/03/2016 17:54:51</publishTime>
+    </File>
+    <File Include="img/DeviceMap.png">
+      <publishTime>06/03/2016 17:54:23</publishTime>
+    </File>
     <File Include="img/Machine1.jpg">
       <publishTime>05/30/2016 13:40:58</publishTime>
+    </File>
+    <File Include="img/markers.png">
+      <publishTime>06/03/2016 10:45:33</publishTime>
     </File>
     <File Include="img/SuperAdmin/body/blue.jpg">
       <publishTime>05/26/2016 09:31:54</publishTime>
@@ -1076,6 +1169,9 @@
     <File Include="img/SuperAdmin/sort.png">
       <publishTime>05/26/2016 09:31:54</publishTime>
     </File>
+    <File Include="img/SystemMgm.png">
+      <publishTime>06/03/2016 17:47:51</publishTime>
+    </File>
     <File Include="js/angular-strap/angular-strap.compat.js">
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
@@ -1083,7 +1179,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="js/angular-strap/angular-strap.js">
-      <publishTime>05/16/2016 09:31:34</publishTime>
+      <publishTime>05/31/2016 14:05:50</publishTime>
     </File>
     <File Include="js/angular-strap/angular-strap.min.js">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -1182,7 +1278,7 @@
       <publishTime>04/21/2016 17:46:18</publishTime>
     </File>
     <File Include="js/angular-strap/modules/datepicker.js">
-      <publishTime>05/16/2016 09:31:34</publishTime>
+      <publishTime>05/31/2016 14:01:26</publishTime>
     </File>
     <File Include="js/angular-strap/modules/datepicker.min.js">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -3627,7 +3723,7 @@
       <publishTime>05/23/2016 12:35:51</publishTime>
     </File>
     <File Include="js/BaseInfo/BaseInfo.js">
-      <publishTime>05/30/2016 17:42:58</publishTime>
+      <publishTime>05/31/2016 09:42:47</publishTime>
     </File>
     <File Include="js/bootstrap-select/bootstrap-select.js">
       <publishTime>04/21/2016 15:08:25</publishTime>
@@ -3843,7 +3939,7 @@
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
     <File Include="js/ControlDesk/ControlDesk.js">
-      <publishTime>05/30/2016 17:40:16</publishTime>
+      <publishTime>06/03/2016 16:51:37</publishTime>
     </File>
     <File Include="js/Employee/Employee.js">
       <publishTime>04/07/2016 11:22:16</publishTime>
@@ -3856,6 +3952,9 @@
     </File>
     <File Include="js/EquipmentSelection/EquipmentSelection.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
+    </File>
+    <File Include="js/History/History.js">
+      <publishTime>05/31/2016 14:29:37</publishTime>
     </File>
     <File Include="js/jquery-1.12.2.min.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -3873,7 +3972,7 @@
       <publishTime>03/24/2016 10:03:42</publishTime>
     </File>
     <File Include="js/MapBoard/MapBoard.js">
-      <publishTime>05/24/2016 13:01:50</publishTime>
+      <publishTime>06/03/2016 14:23:54</publishTime>
     </File>
     <File Include="js/metisMenu/metisMenu.js">
       <publishTime>05/16/2016 09:31:35</publishTime>
@@ -4080,7 +4179,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="js/Services/ViewServices.js">
-      <publishTime>05/30/2016 17:45:42</publishTime>
+      <publishTime>05/31/2016 09:40:05</publishTime>
     </File>
     <File Include="js/SideMenu/SideMenu.js">
       <publishTime>05/25/2016 10:40:12</publishTime>
@@ -4143,7 +4242,7 @@
       <publishTime>05/26/2016 09:32:19</publishTime>
     </File>
     <File Include="js/SuperAdmin/functions.js">
-      <publishTime>05/27/2016 13:12:19</publishTime>
+      <publishTime>05/31/2016 13:03:13</publishTime>
     </File>
     <File Include="js/SuperAdmin/icheck.js">
       <publishTime>05/26/2016 09:32:19</publishTime>
@@ -4215,7 +4314,7 @@
       <publishTime>05/26/2016 14:07:38</publishTime>
     </File>
     <File Include="js/_sideMenu/_sideMenu2.js">
-      <publishTime>05/27/2016 12:44:46</publishTime>
+      <publishTime>06/03/2016 17:54:55</publishTime>
     </File>
     <File Include="media/SuperAdmin/flashmediaelement.swf">
       <publishTime>05/26/2016 09:32:51</publishTime>
@@ -4302,7 +4401,7 @@
       <publishTime>05/30/2016 17:46:19</publishTime>
     </File>
     <File Include="Views/ControlDesk/Index.cshtml">
-      <publishTime>05/30/2016 17:44:38</publishTime>
+      <publishTime>06/03/2016 16:56:22</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>
@@ -4322,6 +4421,9 @@
     <File Include="Views/EquipmentSelection/Index.cshtml">
       <publishTime>03/30/2016 16:26:53</publishTime>
     </File>
+    <File Include="Views/History/Index.cshtml">
+      <publishTime>06/02/2016 15:28:49</publishTime>
+    </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>05/26/2016 09:36:19</publishTime>
     </File>
@@ -4329,7 +4431,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="Views/MapBoard/Index.cshtml">
-      <publishTime>05/26/2016 11:24:31</publishTime>
+      <publishTime>06/03/2016 13:54:05</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>
@@ -4341,7 +4443,7 @@
       <publishTime>05/20/2016 16:55:12</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNew2.cshtml">
-      <publishTime>05/27/2016 14:54:03</publishTime>
+      <publishTime>06/03/2016 16:56:59</publishTime>
     </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
       <publishTime>05/26/2016 14:06:07</publishTime>
