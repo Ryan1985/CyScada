@@ -1,2 +1,14 @@
-﻿body {
+﻿.machineImg {
+width: 966px;
+height:538px;
+text-align:center;
+top: 0px;
+margin-top: 0px;
+padding-top:0px;
+margin-right: auto;
+margin-bottom: 10px;
+margin-left: 0;
+background-image: url('/img/RealTimeMachine.jpg');
+background-repeat: no-repeat;
+background-position: center top;
 }

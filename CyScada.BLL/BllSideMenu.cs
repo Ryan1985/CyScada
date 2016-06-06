@@ -256,9 +256,11 @@ namespace CyScada.BLL
             var classTable = new DataTable();
             classTable.Columns.Add("Class");
             classTable.Columns.Add("ClassName");
+            classTable.Columns.Add("ClassImgUrl");
 
-            classTable.Rows.Add("fa fa-user fa-fw", "用户");
-            classTable.Rows.Add("fa fa-sign-out fa-fw", "登出");
+            classTable.Rows.Add("sa-side-sysMgm", "系统管理", "/img/SystemMgm.png");
+            classTable.Rows.Add("sa-side-deviceMap", "分布图", "/img/DeviceMap.png");
+            classTable.Rows.Add("sa-side-cyDisplay", "功能展示", "/img/CyDisplay.png");
 
             return classTable;
         }
@@ -414,6 +416,22 @@ namespace CyScada.BLL
                     .Where(dr => dr["AuthorityCode"].ToString() == authorityCode)
                     .Select(dr => dr["Id"].ToString())
                     .FirstOrDefault();
+        }
+
+
+        public string GetAuthorityCodeBySideMenuId(string userId, string sideMenuId)
+        {
+            var dtSideMenu = _dalSideMenu.QuerySideMenu(string.Empty);
+            var sideMenuAuth = dtSideMenu.AsEnumerable().Where(dr => dr["Id"].ToString() == sideMenuId)
+                .Select(dr => dr["AuthorityCode"].ToString()).FirstOrDefault();
+
+            if (string.IsNullOrEmpty(sideMenuAuth))
+            {
+                return string.Empty;
+            }
+
+            var userAuth = _bllEmployee.GetUserAuthorityCode(userId);
+            return CommonUtil.ExistAuthorityCode(userAuth, sideMenuAuth) ? sideMenuAuth : string.Empty;
         }
 
 

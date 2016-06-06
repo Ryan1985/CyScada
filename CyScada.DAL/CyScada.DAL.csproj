@@ -48,6 +48,7 @@
     <Compile Include="DalAuthority.cs" />
     <Compile Include="DalMapBoard.cs" />
     <Compile Include="DalMapping.cs" />
+    <Compile Include="DalRealTimeDisplay.cs" />
     <Compile Include="DalRole.cs" />
     <Compile Include="DalSideMenu.cs" />
     <Compile Include="DalEmpRoles.cs" />

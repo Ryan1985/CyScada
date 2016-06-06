@@ -1,0 +1,37 @@
+﻿@{
+    ViewBag.Title = "分布页";
+    Layout = "~/Views/Shared/_LayoutNew2.cshtml";
+}
+
+@section HeadSection{
+
+    <link href="~/css/MapBoard.css" rel="stylesheet" />
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=c4347QuZUP2khVUcF9jNSyO6kGL9Ccij"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/TextIconOverlay/1.2/src/TextIconOverlay_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/MarkerClusterer/1.2/src/MarkerClusterer_min.js"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+
+}
+
+
+@section FootScript{
+    
+<script type="text/javascript">
+
+    //设置地图高度
+    $('#allmap').css('height', $(window).height() - $('#navHeader').height());
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");
+    map.centerAndZoom(new BMap.Point(105.944000, 34.669000), 11);
+
+    var p1 = new BMap.Point(106.301934, 32.669000);
+    var p2 = new BMap.Point(105.944000, 34.669000);
+
+    var driving = new BMap.DrivingRoute(map, { renderOptions: { map: map, autoViewport: true } });
+    driving.search(p1, p2);
+</script>
+
+}
+
+<div id="allmap"></div>

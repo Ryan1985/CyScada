@@ -19,6 +19,9 @@ namespace CyScada.Web
             WebApiConfig.Register(GlobalConfiguration.Configuration);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            OpcClient.OpcClient.StartClient();
         }
+
+
     }
 }

@@ -50,6 +50,7 @@
     <Compile Include="BllAuthority.cs" />
     <Compile Include="BllMapBoard.cs" />
     <Compile Include="BllMapping.cs" />
+    <Compile Include="BllRealTimeDisplay.cs" />
     <Compile Include="BllRole.cs" />
     <Compile Include="BllSideMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -9,13 +9,9 @@
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
     <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
     <link rel="stylesheet" href="/css/RealTimeDisplay.css" />
-    <style>
-        canvas {
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
-        }
-    </style>
+    <link rel="stylesheet" href="/css/bootstrap-switch/bootstrap-switch.css" />
+
+
 
 }
 
@@ -27,8 +23,12 @@
     <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
     <script src="/js/Phantom/main.js"></script>
     <script src="/js/Services/ViewServices.js"></script>
-    <script src="/js/Chart/Chart.bundle.js"></script>
-    @*<script src="/js/SuperAdmin/charts.js"></script> <!-- All the above chart related functions -->*@
+    <script src="/js/highCharts/highcharts.js"></script>
+    <script src="/js/highCharts/highcharts-more.js"></script>
+    <script src="/js/highCharts/modules/exporting.js"></script>
+    <script src="/js/bootstrap-switch/bootstrap-switch.js"></script>
+    <script src="/js/classyLed/raphael.js"></script>
+    <script src="/js/classyLed/jquery.classyled.js"></script>
     <script src="/js/RealTimeDisplay/RealTimeDisplay.js?r=0001"></script>
 
 }
@@ -36,17 +36,66 @@
 
 
 
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
 <div class="container-fluid">
-    <div class="row-fluid">
-        <div class="col-md-12">
-            @*<div class="tile">*@
-            @*<h2 class="tile-title">实时温度</h2>
-                <div class="p-10">*@
-            <canvas id="temperatureChart"></canvas>
-            @*</div>*@
-            @*</div>*@
+    <div class="col-lg-12">
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                @*<div class="tile">*@
+                @*<h2 class="tile-title">实时温度</h2>
+                    <div class="p-10">*@
+                <div id="Chart1"></div>
+                @*</div>*@
+                @*</div>*@
+            </div>
+            <div class="col-lg-3">
+                <div id="Chart2"></div>
+            </div>
+            <div class="col-lg-3">
+                <div class="col-lg-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            当前数据
+                        </div>
+                        <div class="panel-body">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>当前温度:</td>
+                                        <td id="temp"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>当前压力:</td>
+                                        <td id="pressure"></td>
+                                    </tr>
+                                    <tr>
+                                        <td>当前扭力:</td>
+                                        <td id="stress"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12"><div id="Chart3"></div></div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            
+            <div class="col-lg-1" style="font-size:20px;">当前承重:</div>
+            <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+            <div class="col-lg-1" style="font-size:20px;">
+                设置承重:
+            </div>
+            <div class="col-lg-2"><input type="text" class="form-control" id="txtValue"/></div>
+            <div class="col-lg-2" style="font-size:20px;">
+                <button class="btn  btn-primary CyScadaBtn" onclick="setValue()">设置</button>
+            </div>
+            
         </div>
     </div>
+
 </div>
 
 

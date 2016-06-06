@@ -54,6 +54,7 @@
     <Compile Include="SideMenuModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoleModel.cs" />
+    <Compile Include="TagItemModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

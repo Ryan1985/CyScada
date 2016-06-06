@@ -39,6 +39,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IOClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\IOClient.dll</HintPath>
+    </Reference>
+    <Reference Include="IODriver, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>DLL\IODriver.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -122,6 +130,7 @@
     <Compile Include="Controllers\EquipmentController.cs" />
     <Compile Include="Controllers\EquipmentListController.cs" />
     <Compile Include="Controllers\EquipmentSelectionController.cs" />
+    <Compile Include="Controllers\GPSPathController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MapBoardController.cs" />
@@ -133,6 +142,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModel.cs" />
+    <Compile Include="OpcClient\OpcClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebApi\ApiAuthAttribute.cs" />
     <Compile Include="WebApi\Controllers\AuthorityAssignController.cs" />
@@ -148,6 +158,8 @@
     <Compile Include="WebApi\Controllers\LoginController.cs" />
     <Compile Include="WebApi\Controllers\MapBoardController.cs" />
     <Compile Include="WebApi\Controllers\MappingController.cs" />
+    <Compile Include="WebApi\Controllers\OPCTestController.cs" />
+    <Compile Include="WebApi\Controllers\RealTimeDisplayController.cs" />
     <Compile Include="WebApi\Controllers\RoleController.cs" />
     <Compile Include="WebApi\Controllers\RoleListController.cs" />
     <Compile Include="WebApi\Controllers\SideMenuController.cs" />
@@ -161,6 +173,8 @@
     <Content Include="css\BaseInfo.css" />
     <Content Include="css\bootstrap-select\bootstrap-select.css" />
     <Content Include="css\bootstrap-select\bootstrap-select.min.css" />
+    <Content Include="css\bootstrap-switch\bootstrap-switch.css" />
+    <Content Include="css\bootstrap-switch\bootstrap-switch.min.css" />
     <Content Include="css\bootstrap-table\bootstrap-table.css" />
     <Content Include="css\bootstrap-table\bootstrap-table.min.css" />
     <Content Include="css\bootstrap-theme.css" />
@@ -230,6 +244,8 @@
     <Content Include="css\SuperAdmin\lightbox.css" />
     <Content Include="css\SuperAdmin\media-player.css" />
     <Content Include="css\SuperAdmin\style.css" />
+    <Content Include="DLL\IOClient.dll" />
+    <Content Include="DLL\IODriver.dll" />
     <Content Include="fonts\codropsicons\codropsicons.svg" />
     <Content Include="fonts\codropsicons\license.txt" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -259,6 +275,7 @@
     <Content Include="Images\Phantom\pic13.jpg" />
     <Content Include="Images\Phantom\pic14.jpg" />
     <Content Include="Images\Phantom\pic15.jpg" />
+    <Content Include="img\RealTimeMachine.jpg" />
     <Content Include="img\Machine1.jpg" />
     <Content Include="img\markers.png" />
     <Content Include="img\SuperAdmin\body\blue.jpg" />
@@ -1375,6 +1392,8 @@
     <Content Include="js\bootstrap-select\i18n\defaults-zh_CN.min.js" />
     <Content Include="js\bootstrap-select\i18n\defaults-zh_TW.js" />
     <Content Include="js\bootstrap-select\i18n\defaults-zh_TW.min.js" />
+    <Content Include="js\bootstrap-switch\bootstrap-switch.js" />
+    <Content Include="js\bootstrap-switch\bootstrap-switch.min.js" />
     <Content Include="js\bootstrap-table\bootstrap-table-locale-all.js" />
     <Content Include="js\bootstrap-table\bootstrap-table-locale-all.min.js" />
     <Content Include="js\bootstrap-table\bootstrap-table.js" />
@@ -1386,11 +1405,55 @@
     <Content Include="js\Chart\Chart.bundle.min.js" />
     <Content Include="js\Chart\Chart.js" />
     <Content Include="js\Chart\Chart.min.js" />
+    <Content Include="js\classyLed\jquery.classyled.js" />
+    <Content Include="js\classyLed\jquery.classyled.min.js" />
+    <Content Include="js\classyLed\jquery.min.js" />
+    <Content Include="js\classyLed\raphael.js" />
     <Content Include="js\ControlDesk\ControlDesk.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
     <Content Include="js\Equipment\Equipment.js" />
+    <Content Include="js\highCharts\adapters\standalone-framework.js" />
+    <Content Include="js\highCharts\adapters\standalone-framework.src.js" />
+    <Content Include="js\highCharts\highcharts-3d.js" />
+    <Content Include="js\highCharts\highcharts-3d.src.js" />
+    <Content Include="js\highCharts\highcharts-more.js" />
+    <Content Include="js\highCharts\highcharts-more.src.js" />
+    <Content Include="js\highCharts\highcharts.js" />
+    <Content Include="js\highCharts\highcharts.src.js" />
+    <Content Include="js\highCharts\modules\boost.js" />
+    <Content Include="js\highCharts\modules\boost.src.js" />
+    <Content Include="js\highCharts\modules\broken-axis.js" />
+    <Content Include="js\highCharts\modules\broken-axis.src.js" />
+    <Content Include="js\highCharts\modules\canvas-tools.js" />
+    <Content Include="js\highCharts\modules\canvas-tools.src.js" />
+    <Content Include="js\highCharts\modules\data.js" />
+    <Content Include="js\highCharts\modules\data.src.js" />
+    <Content Include="js\highCharts\modules\drilldown.js" />
+    <Content Include="js\highCharts\modules\drilldown.src.js" />
+    <Content Include="js\highCharts\modules\exporting.js" />
+    <Content Include="js\highCharts\modules\exporting.src.js" />
+    <Content Include="js\highCharts\modules\funnel.js" />
+    <Content Include="js\highCharts\modules\funnel.src.js" />
+    <Content Include="js\highCharts\modules\heatmap.js" />
+    <Content Include="js\highCharts\modules\heatmap.src.js" />
+    <Content Include="js\highCharts\modules\no-data-to-display.js" />
+    <Content Include="js\highCharts\modules\no-data-to-display.src.js" />
+    <Content Include="js\highCharts\modules\offline-exporting.js" />
+    <Content Include="js\highCharts\modules\offline-exporting.src.js" />
+    <Content Include="js\highCharts\modules\solid-gauge.js" />
+    <Content Include="js\highCharts\modules\solid-gauge.src.js" />
+    <Content Include="js\highCharts\modules\treemap.js" />
+    <Content Include="js\highCharts\modules\treemap.src.js" />
+    <Content Include="js\highCharts\themes\dark-blue.js" />
+    <Content Include="js\highCharts\themes\dark-green.js" />
+    <Content Include="js\highCharts\themes\dark-unica.js" />
+    <Content Include="js\highCharts\themes\gray.js" />
+    <Content Include="js\highCharts\themes\grid-light.js" />
+    <Content Include="js\highCharts\themes\grid.js" />
+    <Content Include="js\highCharts\themes\sand-signika.js" />
+    <Content Include="js\highCharts\themes\skies.js" />
     <Content Include="js\History\History.js" />
     <Content Include="js\jquery-1.12.2.min.js" />
     <Content Include="js\jquery.cookie.js" />
@@ -1673,6 +1736,7 @@
     <Content Include="Views\BaseInfo\Index.cshtml" />
     <Content Include="Views\History\Index.cshtml" />
     <Content Include="Views\RealTimeDisplay\Index.cshtml" />
+    <Content Include="Views\GPSPath\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

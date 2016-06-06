@@ -38,9 +38,9 @@
 .sa-side-page { background-image: url(../../img/SuperAdmin/icon/pages.png); }
 .sa-side-chart { background-image: url(../../img/SuperAdmin/icon/chart.png); }
 .sa-side-photos { background-image: url(../../img/SuperAdmin/icon/photos.png); }
-.sa-side-sysMgm { background-image: url(../../img/SystemMgm.png); }
-.sa-side-deviceMap { background-image: url(../../img/DeviceMap.png); }
-.sa-side-cyDisplay { background-image: url(../../img/CyDisplay.png); }
+.sa-side-sysMgm { background-image: url(/img/SystemMgm.png); }
+.sa-side-deviceMap { background-image: url(/img/DeviceMap.png); }
+.sa-side-cyDisplay { background-image: url(/img/CyDisplay.png); }
 
 /* Top Menu */
 [class*="sa-top-"] {

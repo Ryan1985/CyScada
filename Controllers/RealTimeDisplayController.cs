@@ -12,7 +12,7 @@ namespace CyScada.Web.Controllers
         //
         // GET: /RealTimeDisplay/
 
-        public ActionResult Index()
+        public ActionResult Index(string sideMenuId)
         {
             var user = Session["User"] as UserModel;
             if (user == null)
@@ -21,6 +21,7 @@ namespace CyScada.Web.Controllers
             }
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
+            ViewBag.SideMenuId = sideMenuId;
             return View();
         }
 

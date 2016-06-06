@@ -59,11 +59,12 @@ namespace CyScada.BLL
             var dtClass = new DataTable();
             dtClass.Columns.Add("id");
             dtClass.Columns.Add("text");
+            dtClass.Columns.Add("img");
 
             var classTable = _bllSideMenu.GetClassList();//&lt;i class='{0}'&gt;&lt;/i&gt;
             foreach (DataRow dr in classTable.Rows)
             {
-                dtClass.Rows.Add(dr["Class"],dr["ClassName"]);
+                dtClass.Rows.Add(dr["Class"], dr["ClassName"], dr["ClassImgUrl"]);
             }
 
 

@@ -20,6 +20,7 @@ namespace CyScada.Model
         public string AuthorityCode { get; set; }
         public string Pic { get; set; }
         public string MachineType { get; set; }
+        public IList<TagItemModel> Tags { get; set; }
 
 
     }

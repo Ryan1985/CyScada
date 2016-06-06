@@ -122,9 +122,13 @@ angular.bootstrap(angular.element("#SideMenuList"), ["SideMenuList"]);
 
 function formatState(state) {
     if (!state.id) { return state.text; }
+    //var bg = $('.' + state.element.value).backgroundImage;
     var $state = $(
-      '<span><i class ="' + state.element.value.toLowerCase() + '" ></i></span>'
+      '<span><img src="' + state.img + '"/></span>'
     );
+    //var $state = $(
+    //  '<span><i class ="' + state.element.value.toLowerCase() + '" ></i></span>'
+    //);
     return $state;
 };
 
@@ -161,7 +165,7 @@ function controlFormatter(value, row, index) {
 }
 
 function iconFormatter(value, row, index) {
-    var iconFormat = '<span><i class="' + value + '"></i></span>';
+    var iconFormat = '<span><img class="' + value + '"/></span>';
     return iconFormat;
 }
 
