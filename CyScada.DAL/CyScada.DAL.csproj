@@ -44,6 +44,7 @@
     <Compile Include="DalControlDesk.cs" />
     <Compile Include="DalEmployee.cs" />
     <Compile Include="DalEquipment.cs" />
+    <Compile Include="DalMachineTag.cs" />
     <Compile Include="DalLogin.cs" />
     <Compile Include="DalAuthority.cs" />
     <Compile Include="DalMapBoard.cs" />

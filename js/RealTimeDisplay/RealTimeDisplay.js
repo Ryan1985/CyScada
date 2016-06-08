@@ -4,14 +4,6 @@ var chart3Data = [];
 var setValueTagKey = '';
 
 $(function () {
-    $('.led').ClassyLED({
-        type: 'number',
-        //format: 'ddd:hh:mm:ss',
-        color: '#eee',
-        backgroundColor: '#000',
-        value:"4567",
-        size: 3
-    });
 
     $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function(machineInfo) {
         if (machineInfo.Tags[0]) {
@@ -32,7 +24,9 @@ $(function () {
             $('#Chart1').highcharts({
                 chart: {
                     type: 'spline',
+                    
                     animation: Highcharts.svg, // don't animate in old IE
+                    backgroundColor:'',
                     marginRight: 10,
                     events: {
                         load: function() {
@@ -51,7 +45,7 @@ $(function () {
                     enabled: false
                 },
                 title: {
-                    text: '起重机' + machineInfo.Tags[0].Name
+                    text: '起重机' + machineInfo.Tags[0].Name,
                 },
                 xAxis: {
                     type: 'datetime',
@@ -59,7 +53,7 @@ $(function () {
                 },
                 yAxis: {
                     title: {
-                        text: '摄氏度℃'
+                        text: machineInfo.Tags[0].Scale
                     },
                     plotLines: [{
                         value: 0,
@@ -107,7 +101,8 @@ $(function () {
                         plotBackgroundColor: null,
                         plotBackgroundImage: null,
                         plotBorderWidth: 0,
-                        plotShadow: false
+                        plotShadow: false,
+                        backgroundColor: '',
                     },
 
                     title: {
@@ -156,8 +151,8 @@ $(function () {
 
                     // the value axis
                     yAxis: {
-                        min: 0,
-                        max: 10000,
+                        min: machineInfo.Tags[1].MinScale,
+                        max: machineInfo.Tags[1].MaxScale,
 
                         minorTickInterval: 'auto',
                         minorTickWidth: 1,
@@ -175,19 +170,19 @@ $(function () {
                             rotation: 'auto'
                         },
                         title: {
-                            text: 'Kg'
+                            text: machineInfo.Tags[1].Scale
                         },
                         plotBands: [{
-                                from: 0,
-                                to: 6200,
+                                from: Number(machineInfo.Tags[1].MinScale),
+                                to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
                                 color: '#55BF3B' // green
                             }, {
-                                from: 6200,
-                                to: 8600,
+                                from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
+                                to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.2,
                                 color: '#DDDF0D' // yellow
                             }, {
-                                from: 8600,
-                                to: 10000,
+                                from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.1,
+                                to: Number(machineInfo.Tags[1].MaxScale),
                                 color: '#DF5353' // red
                             }]
                     },
@@ -251,8 +246,8 @@ $(function () {
                     }],
 
                     yAxis: [{
-                        min: 0,
-                        max: 10000,
+                        min: machineInfo.Tags[2].MinScale,
+                        max: machineInfo.Tags[2].MaxScale,
                         minorTickPosition: 'outside',
                         tickPosition: 'outside',
                         labels: {
@@ -260,8 +255,8 @@ $(function () {
                             distance: 20
                         },
                         plotBands: [{
-                            from: 8000,
-                            to: 10000,
+                            from: Number(machineInfo.Tags[2].MaxScale) - (Number(machineInfo.Tags[2].MaxScale) - Number(machineInfo.Tags[2].MinScale)) * 0.4,
+                            to: Number(machineInfo.Tags[2].MaxScale),
                             color: '#C02316',
                             innerRadius: '100%',
                             outerRadius: '105%'
@@ -291,6 +286,96 @@ $(function () {
                 // Let the music play
                 function(chart) {
                     setInterval(function() {
+                        if (chart3Data.length > 0) {
+                            var point = chart.series[0].points[0];
+                            var newVal = Number(chart3Data[0]);
+                            chart3Data.splice(0, 1);
+                            point.update(newVal);
+                        }
+                    }, 1000);
+
+
+                });
+
+
+        }
+        
+        if (machineInfo.Tags[2]) {
+            $('#Chart4').highcharts({
+                chart: {
+                    type: 'gauge',
+                    plotBorderWidth: 1,
+                    plotBackgroundColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                        stops: [
+                            [0, '#FFF4C6'],
+                            [0.3, '#FFFFFF'],
+                            [1, '#FFF4C6']
+                        ]
+                    },
+                    plotBackgroundImage: null,
+                    height: 200
+                },
+
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                title: {
+                    text: '起重机' + machineInfo.Tags[2].Name
+                },
+
+                pane: [{
+                    startAngle: -45,
+                    endAngle: 45,
+                    background: null,
+                    center: ['50%', '145%'],
+                    size: 300
+                }],
+
+                yAxis: [{
+                    min: machineInfo.Tags[2].MinScale,
+                    max: machineInfo.Tags[2].MaxScale,
+                    minorTickPosition: 'outside',
+                    tickPosition: 'outside',
+                    labels: {
+                        rotation: 'auto',
+                        distance: 20
+                    },
+                    plotBands: [{
+                        from: Number(machineInfo.Tags[2].MaxScale) - (Number(machineInfo.Tags[2].MaxScale) - Number(machineInfo.Tags[2].MinScale)) * 0.4,
+                        to: Number(machineInfo.Tags[2].MaxScale),
+                        color: '#C02316',
+                        innerRadius: '100%',
+                        outerRadius: '105%'
+                    }],
+                    pane: 0,
+                    title: {
+                        text: machineInfo.Tags[2].Name,
+                        y: 0
+                    }
+                }],
+
+                plotOptions: {
+                    gauge: {
+                        dataLabels: {
+                            enabled: false
+                        },
+                        dial: {
+                            radius: '100%'
+                        }
+                    }
+                },
+                series: [{
+                    data: [-20],
+                    yAxis: 0
+                }]
+            },
+                // Let the music play
+                function (chart) {
+                    setInterval(function () {
                         if (chart3Data.length > 0) {
                             var point = chart.series[0].points[0];
                             var newVal = Number(chart3Data[0]);

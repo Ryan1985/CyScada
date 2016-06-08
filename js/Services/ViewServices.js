@@ -13,6 +13,9 @@ viewServicesModule.factory('bindListService', function ($http) {
         },
         getClassList: function () {
             return $http.get("../api/BindList?bindType=ClassList");
+        },
+        getMachineList: function (param) {
+            return $http.get("../api/BindList?bindType=MachineList&param=" + param);
         }
     };
 });
@@ -146,5 +149,18 @@ viewServicesModule.factory('baseInfoService', function($http) {
         getList: function (params) {
             return $http.get("../api/BaseInfo?SideMenuId=" + params[0]+'&userId='+params[1]);
         }
+    };
+});
+
+//历史查询视图服务
+viewServicesModule.factory('historyService', function ($http) {
+    return {
+        //查询
+        getList: function (params) {
+            return $http.get("../api/History/?paramstring=" + encodeURI(JSON.stringify(params)));
+        },
+        getMachineTagList: function (params) {
+            return $http.get("../api/History?SideMenuId=" + params[0] + '&userId=' + params[1] + '&machineId='+params[2]);
+        },
     };
 });

@@ -40,7 +40,30 @@
 <div class="container-fluid">
     <div class="col-lg-12">
         <div class="row-fluid">
-            <div class="col-lg-6">
+            <div class="col-lg-12">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        当前数据
+                    </div>
+                    <div class="panel-body">
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>当前温度:</td>
+                                    <td id="temp"></td>
+                                    <td>当前压力:</td>
+                                    <td id="pressure"></td>
+                                    <td>当前扭力:</td>
+                                    <td id="stress"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-lg-12">
                 @*<div class="tile">*@
                 @*<h2 class="tile-title">实时温度</h2>
                     <div class="p-10">*@
@@ -48,41 +71,17 @@
                 @*</div>*@
                 @*</div>*@
             </div>
-            <div class="col-lg-3">
+        </div>
+        <div class="row-fluid">
+            <div class="col-lg-8">
                 <div id="Chart2"></div>
             </div>
-            <div class="col-lg-3">
-                <div class="col-lg-12">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            当前数据
-                        </div>
-                        <div class="panel-body">
-                            <table class="table">
-                                <tbody>
-                                    <tr>
-                                        <td>当前温度:</td>
-                                        <td id="temp"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>当前压力:</td>
-                                        <td id="pressure"></td>
-                                    </tr>
-                                    <tr>
-                                        <td>当前扭力:</td>
-                                        <td id="stress"></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="col-lg-4">
                 <div class="col-lg-12"><div id="Chart3"></div></div>
+                <div class="col-lg-12"><div id="Chart4"></div></div>
             </div>
         </div>
         <div class="row-fluid">
-            
             <div class="col-lg-1" style="font-size:20px;">当前承重:</div>
             <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
             <div class="col-lg-1" style="font-size:20px;">
@@ -92,7 +91,6 @@
             <div class="col-lg-2" style="font-size:20px;">
                 <button class="btn  btn-primary CyScadaBtn" onclick="setValue()">设置</button>
             </div>
-            
         </div>
     </div>
 

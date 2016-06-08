@@ -9,6 +9,8 @@
     <link href="~/css/bootstrapAddition/modules/datepicker.css" rel="stylesheet" />
     <link href="~/css/bootstrapAddition/bootstrap-additions.css" rel="stylesheet" />
     <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2.min.css" rel="stylesheet" />
+    <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
 
 
 }
@@ -21,6 +23,8 @@
     <script type="text/javascript" src="~/js/angular-strap/angular-strap.tpl.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
+    <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
     <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
     <script type="text/javascript" src="~/js/History/History.js?r=20160531001"></script>
 
@@ -44,17 +48,20 @@
                                     <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
                                 </div>
                             </div>
-
                             <div class=" col-lg-3">
                                 <div class="form-group">
-                                    <label for="txtCode">编号</label>
-                                    <input type="text" class="form-control" id="txtCode" placeholder="编号" ng-model="employee.Code">
+                                    <label for="selMachine">设备名称</label>
+                                    <select class="CyScadaSelect form-control" id="selMachine">
+                                        <option value="" selected="selected">全部</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class=" col-lg-3">
                                 <div class="form-group">
-                                    <label for="txtLoginName">登录名称</label>
-                                    <input type="text" class="form-control" id="txtLoginName" placeholder="登录名称" ng-model="employee.LoginName">
+                                    <label for="selMachineTags">点名称</label>
+                                    <select class="CyScadaSelect form-control" id="selMachineTags">
+                                        <option value="" selected="selected">全部</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class=" col-lg-2">
@@ -62,7 +69,6 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Query()" id="btnQuery">查询</button>
-                                    <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Add()" data-target="#InfoModal" data-toggle="modal">新增</button>
                                 </div>
                             </div>
                         </div>
@@ -85,79 +91,30 @@
                                 <tr>
                                     <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
                                     <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
-                                    <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">名称</th>
-                                    <th data-field="Code" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">编号</th>
-                                    <th data-field="LoginName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">登录名称</th>
-                                    <th data-field="Password" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">密码</th>
-                                    <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
-                                    <th data-field="AuthorityCode" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限</th>
-                                    <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
+                                    <th data-field="Company" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">公司名称</th>
+                                    <th data-field="WorkSite" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">工地</th>
+                                    <th data-field="MachineName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">设备名称</th>
+                                    <th data-field="TagName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">点名称</th>
+                                    <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
+                                    <th data-field="TimeStamp" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
                                 </tr>
                             </thead>
                         </table>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="modal fade" id="InfoModal" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" ng-bind-template="{{info.title}}"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form class="form-horizontal" name="form" novalidate="novalidate">
-                            <div class="hidden" ng-bind-template="{{info.Id}}"></div>
-                            <div class="form-group" ng-class="{ 'has-error' : form.name.$invalid && !form.name.$pristine }">
-                                <label class="control-label col-md-2">名称:</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.Name" name="name" ng-bind-template="{{info.Name}}" placeholder="请输入名称" required>
-                                    <p ng-show="form.name.$invalid && !form.name.$pristine" class="help-block">请输入名称</p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2">编号:</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.Code" ng-bind-template="{{info.Code}}" placeholder="请输入编号">
-                                </div>
-                            </div>
-                            <div class="form-group" ng-class="{ 'has-error' : form.loginName.$invalid && !form.loginName.$pristine }">
-                                <label class="control-label col-md-2">登录名称:</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" ng-model="info.LoginName" name="loginName" ng-bind-template="{{info.LoginName}}" placeholder="登录名称" required>
-                                    <p ng-show="form.loginName.$invalid && !form.loginName.$pristine" class="help-block">请输入登录名称</p>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-class="{ 'has-error' : form.password.$invalid && !form.password.$pristine&& form.password.$minlength }">
-                                <label class="control-label col-md-2">密码:</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" id="txtPwd" name="password" ng-model="info.Password" ng-bind-template="{{info.Password}}" ng-minlength="6" required>
-                                    <p ng-show="form.password.$invalid && !form.password.$pristine && form.password.$minlength" class="help-block">请输入至少6位的密码</p>
-                                </div>
-                            </div>
-                            <div class="form-group" ng-class="{ 'has-error' : form.confirmPassword.$invalid && !form.confirmPassword.$pristine &&  form.confirmPassword.$error.pwmatch }">
-                                <label class="control-label col-md-2">确认密码:</label>
-                                <div class="col-md-9">
-                                    <input type="password" class="form-control" name="confirmPassword" ng-model="info.Password2" ng-bind-template="{{info.Password2}}" required pw-check="txtPwd">
-                                    <p ng-show="form.confirmPassword.$invalid && !form.confirmPassword.$pristine && form.confirmPassword.$error.pwmatch " class="help-block">输入的密码不符</p>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label col-md-2">备注:</label>
-                                <div class="col-md-9">
-                                    <textarea class="form-control" rows="3" ng-model="info.Description" ng-bind-template="{{info.Description}}"></textarea>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary CyScadaBtn" ng-disabled="form.$invalid" ng-click="SaveInfo(form.$valid)">保存</button>
-                        <button type="button" class="btn btn-default CyScadaBtn" data-dismiss="modal">取消</button>
-                    </div>
-                </div>
+            <div class="col-lg-12">
+                <div id="Chart"></div>
             </div>
         </div>
     </div>
 </div>
+
+
+<script>
+    var sideMenuId = @ViewBag.SideMenuId;
+    var userId = @ViewBag.UserId;
+</script>
+
+
 

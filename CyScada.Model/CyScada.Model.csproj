@@ -45,6 +45,8 @@
     <Compile Include="EmployeeModel.cs" />
     <Compile Include="EmpRoleModel.cs" />
     <Compile Include="EquipmentModel.cs" />
+    <Compile Include="HistoryModel.cs" />
+    <Compile Include="HistoryQueryModel.cs" />
     <Compile Include="ItemModel.cs" />
     <Compile Include="LoginModel.cs" />
     <Compile Include="AuthorityModel.cs" />

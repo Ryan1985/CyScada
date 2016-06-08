@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "分布页";
+    ViewBag.Title = "当前GPS";
     Layout = "~/Views/Shared/_LayoutNew2.cshtml";
 }
 
@@ -14,11 +14,14 @@
 
 }
 
+
 @section FootScript{
     <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
-    <script type="text/javascript" src="~/js/GPSPath/GPSPath.js"></script>
+    <script type="text/javascript" src="~/js/CurrentGPS/CurrentGPS.js"></script>
 }
-
 
 <div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
 <div id="allmap"></div>
+
+
+

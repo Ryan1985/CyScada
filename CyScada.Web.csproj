@@ -125,6 +125,7 @@
     <Compile Include="Controllers\AuthorityController.cs" />
     <Compile Include="Controllers\BaseInfoController.cs" />
     <Compile Include="Controllers\ControlDeskController.cs" />
+    <Compile Include="Controllers\CurrentGPSController.cs" />
     <Compile Include="Controllers\DashboardController.cs" />
     <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\EquipmentController.cs" />
@@ -151,10 +152,12 @@
     <Compile Include="WebApi\Controllers\BaseInfoController.cs" />
     <Compile Include="WebApi\Controllers\BindListController.cs" />
     <Compile Include="WebApi\Controllers\ControlDeskController.cs" />
+    <Compile Include="WebApi\Controllers\CurrentGPSController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeController.cs" />
     <Compile Include="WebApi\Controllers\EmployeeListController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentController.cs" />
     <Compile Include="WebApi\Controllers\EquipmentSelectionController.cs" />
+    <Compile Include="WebApi\Controllers\HistoryController.cs" />
     <Compile Include="WebApi\Controllers\LoginController.cs" />
     <Compile Include="WebApi\Controllers\MapBoardController.cs" />
     <Compile Include="WebApi\Controllers\MappingController.cs" />
@@ -1410,10 +1413,12 @@
     <Content Include="js\classyLed\jquery.min.js" />
     <Content Include="js\classyLed\raphael.js" />
     <Content Include="js\ControlDesk\ControlDesk.js" />
+    <Content Include="js\CurrentGPS\CurrentGPS.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
     <Content Include="js\Equipment\Equipment.js" />
+    <Content Include="js\GPSPath\GPSPath.js" />
     <Content Include="js\highCharts\adapters\standalone-framework.js" />
     <Content Include="js\highCharts\adapters\standalone-framework.src.js" />
     <Content Include="js\highCharts\highcharts-3d.js" />
@@ -1737,6 +1742,7 @@
     <Content Include="Views\History\Index.cshtml" />
     <Content Include="Views\RealTimeDisplay\Index.cshtml" />
     <Content Include="Views\GPSPath\Index.cshtml" />
+    <Content Include="Views\CurrentGPS\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

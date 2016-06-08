@@ -21,13 +21,13 @@
       <publishTime>06/06/2016 01:17:12</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>06/06/2016 01:17:13</publishTime>
+      <publishTime>06/07/2016 02:42:16</publishTime>
     </File>
     <File Include="bin/IOClient.dll">
-      <publishTime>06/05/2016 12:03:28</publishTime>
+      <publishTime>06/07/2016 02:22:51</publishTime>
     </File>
     <File Include="bin/IODriver.dll">
-      <publishTime>06/05/2016 12:03:28</publishTime>
+      <publishTime>06/07/2016 02:22:50</publishTime>
     </File>
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/08/2013 15:15:08</publishTime>
@@ -112,6 +112,12 @@
     </File>
     <File Include="css/bootstrap-select/bootstrap-select.min.css">
       <publishTime>04/21/2016 15:08:59</publishTime>
+    </File>
+    <File Include="css/bootstrap-switch/bootstrap-switch.css">
+      <publishTime>06/06/2016 23:53:46</publishTime>
+    </File>
+    <File Include="css/bootstrap-switch/bootstrap-switch.min.css">
+      <publishTime>06/06/2016 23:53:46</publishTime>
     </File>
     <File Include="css/bootstrap-table/bootstrap-table.css">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -288,7 +294,7 @@
       <publishTime>06/04/2016 16:47:22</publishTime>
     </File>
     <File Include="css/RealTimeDisplay.css">
-      <publishTime>06/04/2016 19:03:32</publishTime>
+      <publishTime>06/07/2016 00:44:52</publishTime>
     </File>
     <File Include="css/responsiveNav/responsive-nav.css">
       <publishTime>05/20/2016 16:29:25</publishTime>
@@ -354,10 +360,10 @@
       <publishTime>05/26/2016 18:08:22</publishTime>
     </File>
     <File Include="DLL/IOClient.dll">
-      <publishTime>06/05/2016 12:03:28</publishTime>
+      <publishTime>06/07/2016 02:22:51</publishTime>
     </File>
     <File Include="DLL/IODriver.dll">
-      <publishTime>06/05/2016 12:03:28</publishTime>
+      <publishTime>06/07/2016 02:22:50</publishTime>
     </File>
     <File Include="fonts/codropsicons/codropsicons.eot">
       <publishTime>05/23/2016 16:24:08</publishTime>
@@ -574,6 +580,9 @@
     </File>
     <File Include="img/RealTime.png">
       <publishTime>06/04/2016 16:18:14</publishTime>
+    </File>
+    <File Include="img/RealTimeMachine.jpg">
+      <publishTime>06/07/2016 00:20:36</publishTime>
     </File>
     <File Include="img/SuperAdmin/body/blue.jpg">
       <publishTime>05/26/2016 09:31:54</publishTime>
@@ -3956,6 +3965,12 @@
     <File Include="js/bootstrap-select/i18n/defaults-zh_TW.min.js">
       <publishTime>04/21/2016 15:08:25</publishTime>
     </File>
+    <File Include="js/bootstrap-switch/bootstrap-switch.js">
+      <publishTime>06/06/2016 23:54:32</publishTime>
+    </File>
+    <File Include="js/bootstrap-switch/bootstrap-switch.min.js">
+      <publishTime>06/06/2016 23:54:32</publishTime>
+    </File>
     <File Include="js/bootstrap-table/bootstrap-table-locale-all.js">
       <publishTime>05/16/2016 09:31:35</publishTime>
     </File>
@@ -3989,6 +4004,18 @@
     <File Include="js/Chart/Chart.min.js">
       <publishTime>06/04/2016 23:26:10</publishTime>
     </File>
+    <File Include="js/classyLed/jquery.classyled.js">
+      <publishTime>06/07/2016 00:05:26</publishTime>
+    </File>
+    <File Include="js/classyLed/jquery.classyled.min.js">
+      <publishTime>06/07/2016 00:05:26</publishTime>
+    </File>
+    <File Include="js/classyLed/jquery.min.js">
+      <publishTime>06/07/2016 00:05:26</publishTime>
+    </File>
+    <File Include="js/classyLed/raphael.js">
+      <publishTime>06/07/2016 00:05:26</publishTime>
+    </File>
     <File Include="js/ControlDesk/ControlDesk.js">
       <publishTime>06/04/2016 14:27:12</publishTime>
     </File>
@@ -4003,6 +4030,126 @@
     </File>
     <File Include="js/EquipmentSelection/EquipmentSelection.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
+    </File>
+    <File Include="js/highCharts/adapters/standalone-framework.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/adapters/standalone-framework.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts-3d.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts-3d.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts-more.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts-more.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/highcharts.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/boost.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/boost.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/broken-axis.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/broken-axis.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/canvas-tools.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/canvas-tools.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/data.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/data.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/drilldown.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/drilldown.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/exporting.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/exporting.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/funnel.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/funnel.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/heatmap.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/heatmap.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/no-data-to-display.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/no-data-to-display.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/offline-exporting.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/offline-exporting.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/solid-gauge.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/solid-gauge.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/treemap.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/modules/treemap.src.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/dark-blue.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/dark-green.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/dark-unica.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/gray.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/grid-light.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/grid.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/sand-signika.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
+    </File>
+    <File Include="js/highCharts/themes/skies.js">
+      <publishTime>06/06/2016 21:33:42</publishTime>
     </File>
     <File Include="js/History/History.js">
       <publishTime>05/31/2016 14:29:37</publishTime>
@@ -4071,7 +4218,7 @@
       <publishTime>05/16/2016 09:31:35</publishTime>
     </File>
     <File Include="js/RealTimeDisplay/RealTimeDisplay.js">
-      <publishTime>06/06/2016 01:15:53</publishTime>
+      <publishTime>06/07/2016 01:35:51</publishTime>
     </File>
     <File Include="js/responsiveNav/responsive-nav.js">
       <publishTime>05/20/2016 16:29:02</publishTime>
@@ -4475,6 +4622,9 @@
     <File Include="Views/EquipmentSelection/Index.cshtml">
       <publishTime>03/30/2016 16:26:53</publishTime>
     </File>
+    <File Include="Views/GPSPath/Index.cshtml">
+      <publishTime>06/07/2016 02:40:08</publishTime>
+    </File>
     <File Include="Views/History/Index.cshtml">
       <publishTime>06/02/2016 15:28:49</publishTime>
     </File>
@@ -4488,7 +4638,7 @@
       <publishTime>06/03/2016 13:54:05</publishTime>
     </File>
     <File Include="Views/RealTimeDisplay/Index.cshtml">
-      <publishTime>06/06/2016 00:07:26</publishTime>
+      <publishTime>06/07/2016 01:31:39</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>
@@ -4500,7 +4650,7 @@
       <publishTime>05/20/2016 16:55:12</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNew2.cshtml">
-      <publishTime>06/05/2016 00:25:18</publishTime>
+      <publishTime>06/07/2016 01:01:53</publishTime>
     </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
       <publishTime>05/26/2016 14:06:07</publishTime>

@@ -46,6 +46,7 @@
     <Compile Include="BllEmployee.cs" />
     <Compile Include="BllEquipment.cs" />
     <Compile Include="BllEquipmentSelection.cs" />
+    <Compile Include="BllHistory.cs" />
     <Compile Include="BllLogin.cs" />
     <Compile Include="BllAuthority.cs" />
     <Compile Include="BllMapBoard.cs" />
