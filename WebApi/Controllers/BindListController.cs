@@ -27,7 +27,7 @@ namespace CyScada.Web.WebApi.Controllers
         }
 
         // GET api/bindlist/5
-        public DataTable Get(string bindType,object param)
+        public DataTable Get(string bindType,string param)
         {
             return _bllBindList.GetBindList(bindType, param);
         }

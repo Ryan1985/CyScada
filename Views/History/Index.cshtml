@@ -21,12 +21,15 @@
     <script type="text/javascript" src="~/js/angular-strap/modules/tooltip.tpl.min.js"></script>
     <script type="text/javascript" src="~/js/angular-strap/angular-strap.js"></script>
     <script type="text/javascript" src="~/js/angular-strap/angular-strap.tpl.js"></script>
+    <script src="/js/highCharts/highcharts.js"></script>
+    <script src="/js/highCharts/highcharts-more.js"></script>
+    <script src="/js/highCharts/modules/exporting.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table.min.js"></script>
     <script type="text/javascript" src="~/js/bootstrap-table/bootstrap-table-locale-all.min.js"></script>
     <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
     <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
     <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
-    <script type="text/javascript" src="~/js/History/History.js?r=20160531001"></script>
+    <script type="text/javascript" src="~/js/History/History.js?r=20160531009"></script>
 
 }
 
@@ -41,17 +44,17 @@
                     </div>
                     <div class="panel-body">
                         <div class="form-inline">
-                            <div class=" col-lg-3 col-lg-offset-1">
+                            <div class=" col-lg-4 col-lg-offset-1">
                                 <div class="form-group">
                                     <label for="dtStartDate">时间</label>
-                                    <input id="dtStartDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" bs-datepicker type="text">至
-                                    <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
+                                    <input id="dtStartDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" bs-datepicker type="text">至
+                                    <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
                                 </div>
                             </div>
                             <div class=" col-lg-3">
                                 <div class="form-group">
                                     <label for="selMachine">设备名称</label>
-                                    <select class="CyScadaSelect form-control" id="selMachine">
+                                    <select class="CyScadaSelect2 form-control" id="selMachine">
                                         <option value="" selected="selected">全部</option>
                                     </select>
                                 </div>
@@ -59,7 +62,7 @@
                             <div class=" col-lg-3">
                                 <div class="form-group">
                                     <label for="selMachineTags">点名称</label>
-                                    <select class="CyScadaSelect form-control" id="selMachineTags">
+                                    <select class="CyScadaSelect2 form-control" id="selMachineTags">
                                         <option value="" selected="selected">全部</option>
                                     </select>
                                 </div>
@@ -95,8 +98,8 @@
                                     <th data-field="WorkSite" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">工地</th>
                                     <th data-field="MachineName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">设备名称</th>
                                     <th data-field="TagName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">点名称</th>
-                                    <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
-                                    <th data-field="TimeStamp" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
+                                    <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">值</th>
+                                    <th data-field="TimeStamp" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
                                 </tr>
                             </thead>
                         </table>
@@ -113,7 +116,6 @@
 
 <script>
     var sideMenuId = @ViewBag.SideMenuId;
-    var userId = @ViewBag.UserId;
 </script>
 
 

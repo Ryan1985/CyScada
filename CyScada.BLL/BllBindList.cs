@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using CyScada.Common;
+using Newtonsoft.Json;
 
 namespace CyScada.BLL
 {
@@ -12,6 +13,7 @@ namespace CyScada.BLL
         private BllEmployee _bllEmployee = new BllEmployee();
         private BllAuthority _bllAuthority = new BllAuthority();
         private BllSideMenu _bllSideMenu = new BllSideMenu();
+        private BllBaseInfo _bllBaseInfo = new BllBaseInfo();
 
         public BllEmployee BLLEmployee
         {
@@ -29,6 +31,12 @@ namespace CyScada.BLL
         {
             get { return _bllSideMenu; }
             set { _bllSideMenu = value; }
+        }
+
+        public BllBaseInfo BLLBaseInfo
+        {
+            get { return _bllBaseInfo; }
+            set { _bllBaseInfo = value; }
         }
 
 
@@ -88,6 +96,28 @@ namespace CyScada.BLL
 
 
 
+        public DataTable GetMachineList(object param)
+        {
+            var paramEntity = JsonConvert.DeserializeObject<string[]>(param.ToString());
+
+
+            var dtMachines = new DataTable();
+            dtMachines.Columns.Add("id");
+            dtMachines.Columns.Add("text");
+
+            var machineList = _bllBaseInfo.GetBaseInfoList(paramEntity[1]);
+
+            foreach (var mac in machineList)
+            {
+                dtMachines.Rows.Add(mac.Id, mac.Name + "[" + mac.Company + "/" + mac.WorkSite + "]");
+            }
+
+            return dtMachines;
+        }
+
+
+
+
         public DataTable GetSideMenuAuthorityList()
         {
             var dtAuth = new DataTable();
@@ -118,7 +148,15 @@ namespace CyScada.BLL
             var parameters = method.GetParameters();
             if (parameters.Any())
             {
-                return method.Invoke(this, new[] { param }) as DataTable;
+                try
+                {
+                    var dt = method.Invoke(this, new[] {param}) as DataTable;
+                    return dt;
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
             return method.Invoke(this, null) as DataTable;
         }

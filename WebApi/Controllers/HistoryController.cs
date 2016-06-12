@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using CyScada.BLL;
 using CyScada.Model;
+using Newtonsoft.Json;
 
 namespace CyScada.Web.WebApi.Controllers
 {
@@ -21,16 +22,18 @@ namespace CyScada.Web.WebApi.Controllers
         }
 
 
-        public DataTable Get(string sideMenuId, string userId)
+        public DataTable Get(string sideMenuId, string userId,string machineId)
         {
-            return _bllHistory.GetMachineTagList(sideMenuId, userId);
+            var dtTags = _bllHistory.GetMachineTagList(sideMenuId, userId, machineId);
+            return dtTags;
         }
 
 
 
         public IEnumerable<HistoryModel> Get(string paramstring)
         {
-            throw new NotImplementedException();
+            var model = JsonConvert.DeserializeObject<HistoryQueryModel>(paramstring);
+            return _bllHistory.GetHistory(model);
         }
 
 

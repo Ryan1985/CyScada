@@ -24,7 +24,9 @@
 }
 
 
-
+.CyScadaSelect2 {
+    width: 180px !important;
+}
 
 
 .CyScadaSideItem:hover > ul {

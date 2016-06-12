@@ -9,19 +9,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>06/06/2016 01:17:13</publishTime>
+      <publishTime>06/08/2016 09:13:20</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>05/27/2016 13:51:35</publishTime>
     </File>
     <File Include="bin/CyScada.DAL.dll">
-      <publishTime>06/06/2016 01:17:12</publishTime>
+      <publishTime>06/08/2016 09:13:20</publishTime>
     </File>
     <File Include="bin/CyScada.Model.dll">
-      <publishTime>06/06/2016 01:17:12</publishTime>
+      <publishTime>06/08/2016 09:13:20</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>06/07/2016 02:42:16</publishTime>
+      <publishTime>06/08/2016 09:13:21</publishTime>
     </File>
     <File Include="bin/IOClient.dll">
       <publishTime>06/07/2016 02:22:51</publishTime>
@@ -4019,6 +4019,9 @@
     <File Include="js/ControlDesk/ControlDesk.js">
       <publishTime>06/04/2016 14:27:12</publishTime>
     </File>
+    <File Include="js/CurrentGPS/CurrentGPS.js">
+      <publishTime>06/07/2016 10:37:17</publishTime>
+    </File>
     <File Include="js/Employee/Employee.js">
       <publishTime>04/07/2016 11:22:16</publishTime>
     </File>
@@ -4030,6 +4033,9 @@
     </File>
     <File Include="js/EquipmentSelection/EquipmentSelection.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
+    </File>
+    <File Include="js/GPSPath/GPSPath.js">
+      <publishTime>06/07/2016 10:48:49</publishTime>
     </File>
     <File Include="js/highCharts/adapters/standalone-framework.js">
       <publishTime>06/06/2016 21:33:42</publishTime>
@@ -4152,7 +4158,7 @@
       <publishTime>06/06/2016 21:33:42</publishTime>
     </File>
     <File Include="js/History/History.js">
-      <publishTime>05/31/2016 14:29:37</publishTime>
+      <publishTime>06/07/2016 20:19:39</publishTime>
     </File>
     <File Include="js/jquery-1.12.2.min.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -4218,7 +4224,7 @@
       <publishTime>05/16/2016 09:31:35</publishTime>
     </File>
     <File Include="js/RealTimeDisplay/RealTimeDisplay.js">
-      <publishTime>06/07/2016 01:35:51</publishTime>
+      <publishTime>06/08/2016 09:59:55</publishTime>
     </File>
     <File Include="js/responsiveNav/responsive-nav.js">
       <publishTime>05/20/2016 16:29:02</publishTime>
@@ -4380,7 +4386,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="js/Services/ViewServices.js">
-      <publishTime>05/31/2016 09:40:05</publishTime>
+      <publishTime>06/07/2016 15:40:38</publishTime>
     </File>
     <File Include="js/SideMenu/SideMenu.js">
       <publishTime>06/05/2016 14:49:33</publishTime>
@@ -4604,6 +4610,9 @@
     <File Include="Views/ControlDesk/Index.cshtml">
       <publishTime>06/03/2016 16:56:22</publishTime>
     </File>
+    <File Include="Views/CurrentGPS/Index.cshtml">
+      <publishTime>06/07/2016 10:28:01</publishTime>
+    </File>
     <File Include="Views/Dashboard/Index.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
@@ -4623,10 +4632,10 @@
       <publishTime>03/30/2016 16:26:53</publishTime>
     </File>
     <File Include="Views/GPSPath/Index.cshtml">
-      <publishTime>06/07/2016 02:40:08</publishTime>
+      <publishTime>06/07/2016 11:45:28</publishTime>
     </File>
     <File Include="Views/History/Index.cshtml">
-      <publishTime>06/02/2016 15:28:49</publishTime>
+      <publishTime>06/07/2016 15:48:13</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>05/26/2016 09:36:19</publishTime>
@@ -4638,7 +4647,7 @@
       <publishTime>06/03/2016 13:54:05</publishTime>
     </File>
     <File Include="Views/RealTimeDisplay/Index.cshtml">
-      <publishTime>06/07/2016 01:31:39</publishTime>
+      <publishTime>06/08/2016 10:07:59</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>

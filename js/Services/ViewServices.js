@@ -15,7 +15,7 @@ viewServicesModule.factory('bindListService', function ($http) {
             return $http.get("../api/BindList?bindType=ClassList");
         },
         getMachineList: function (param) {
-            return $http.get("../api/BindList?bindType=MachineList&param=" + param);
+            return $http.get("../api/BindList?bindType=MachineList&param=" + encodeURI(JSON.stringify(param)));
         }
     };
 });

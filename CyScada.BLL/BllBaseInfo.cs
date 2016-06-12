@@ -66,6 +66,49 @@ namespace CyScada.BLL
 
         }
 
+        public IEnumerable<BaseInfoModel> GetBaseInfo(string sideMenuId, string userId,string machineId)
+        {
+            var authorityCode = _bllEmployee.GetUserAuthorityCode(userId);
+            var sideMenuList = _bllSideMenu.GetMenuListFlat();
+            var workSiteAuthorityCode =
+                sideMenuList.Where(s => s.Id == int.Parse(sideMenuId)).Select(s => s.AuthorityCode).ToList();
+
+            var dtBaseInfo = _dalBaseInfo.GetMachines();
+            if (dtBaseInfo == null)
+                return null;
+
+            var baseInfo =
+                dtBaseInfo.AsEnumerable()
+                    .Where(
+                        dr =>
+                            workSiteAuthorityCode.Contains(dr["AuthorityCode"].ToString()) &&
+                            CommonUtil.ExistAuthorityCode(authorityCode, dr["AuthorityCode"].ToString()))
+                    .Select(dr => new BaseInfoModel
+                    {
+                        AuthorityCode = dr["AuthorityCode"].ToString(),
+                        CCID = dr["CCID"].ToString(),
+                        Company = dr["Company"].ToString(),
+                        Description = dr["Description"].ToString(),
+                        Id = dr["Id"].ToString(),
+                        IMEI = dr["IMEI"].ToString(),
+                        Latitude = dr["Latitude"].ToString(),
+                        Longitude = dr["Longitude"].ToString(),
+                        MachineType = dr["MachineType"].ToString(),
+                        Name = dr["Name"].ToString(),
+                        Pic = dr["Pic"].ToString(),
+                        Status = GetStatusName(dr["Status"].ToString()),
+                        WorkSite = dr["WorkSite"].ToString()
+                    }).ToList();
+
+
+
+
+            return string.IsNullOrEmpty(machineId)
+                ? baseInfo
+                : baseInfo.Where(b => b.Id == machineId).Select(b => b).ToList();
+
+        }
+
 
         private string GetStatusName(string statusCode)
         {

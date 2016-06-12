@@ -56,6 +56,22 @@
                                     <td>当前扭力:</td>
                                     <td id="stress"></td>
                                 </tr>
+                                <tr>
+                                    <td>当前温度:</td>
+                                    <td>357</td>
+                                    <td>当前压力:</td>
+                                    <td>794</td>
+                                    <td>当前扭力:</td>
+                                    <td>935</td>
+                                </tr>
+                                <tr>
+                                    <td>当前温度:</td>
+                                    <td>385</td>
+                                    <td>当前压力:</td>
+                                    <td>298</td>
+                                    <td>当前扭力:</td>
+                                    <td>668</td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -67,14 +83,21 @@
                 @*<div class="tile">*@
                 @*<h2 class="tile-title">实时温度</h2>
                     <div class="p-10">*@
-                <div id="Chart1"></div>
+                <div id="Chart1" style="margin-bottom:20px;"></div>
                 @*</div>*@
                 @*</div>*@
             </div>
         </div>
         <div class="row-fluid">
             <div class="col-lg-8">
-                <div id="Chart2"></div>
+                <div class="row-fluid">
+                    <div class="col-lg-6">
+                        <div id="Chart2"></div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div id="Chart5"></div>
+                </div>
             </div>
             <div class="col-lg-4">
                 <div class="col-lg-12"><div id="Chart3"></div></div>
@@ -82,14 +105,59 @@
             </div>
         </div>
         <div class="row-fluid">
-            <div class="col-lg-1" style="font-size:20px;">当前承重:</div>
-            <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
-            <div class="col-lg-1" style="font-size:20px;">
-                设置承重:
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="row-fluid">
+                    <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                    <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        设置承重:
+                    </div>
+                    <div class="col-lg-2"><input type="text" class="form-control" id="txtValue" /></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        <button class="btn  btn-primary CyScadaBtn" onclick="setValue()">设置</button>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-2"><input type="text" class="form-control" id="txtValue"/></div>
-            <div class="col-lg-2" style="font-size:20px;">
-                <button class="btn  btn-primary CyScadaBtn" onclick="setValue()">设置</button>
+            <div class="col-lg-6">
+                <div class="row-fluid" style="margin-top:20px;">
+                    <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                    <div class="col-lg-2"><div style="font-size:20px;">离线</div></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        设置承重:
+                    </div>
+                    <div class="col-lg-2"><input type="text" readonly="readonly" class="form-control" /></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        <button class="btn  btn-primary CyScadaBtn" disabled>设置</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="col-lg-6">
+                <div class="row-fluid">
+                    <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                    <div class="col-lg-2"><div style="font-size:20px;">离线</div></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        设置承重:
+                    </div>
+                    <div class="col-lg-2"><input type="text" readonly="readonly" class="form-control"/></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        <button class="btn  btn-primary CyScadaBtn" disabled>设置</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="row-fluid">
+                    <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                    <div class="col-lg-2"><div style="font-size:20px;">离线</div></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        设置承重:
+                    </div>
+                    <div class="col-lg-2"><input type="text" class="form-control" readonly="readonly"/></div>
+                    <div class="col-lg-2" style="font-size:20px;">
+                        <button class="btn  btn-primary CyScadaBtn" disabled>设置</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

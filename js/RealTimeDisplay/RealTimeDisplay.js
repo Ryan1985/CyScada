@@ -106,7 +106,7 @@ $(function () {
                     },
 
                     title: {
-                        text: '起重机' + machineInfo.Tags[1].Name
+                        text:''// '起重机' + machineInfo.Tags[1].Name
                     },
                     credits: {
                         enabled: false
@@ -170,7 +170,7 @@ $(function () {
                             rotation: 'auto'
                         },
                         title: {
-                            text: machineInfo.Tags[1].Scale
+                            text: machineInfo.Tags[1].Name//machineInfo.Tags[1].Scale
                         },
                         plotBands: [{
                                 from: Number(machineInfo.Tags[1].MinScale),
@@ -210,6 +210,121 @@ $(function () {
             );
         }
 
+        if (machineInfo.Tags[1]) {
+            $('#Chart5').highcharts({
+                chart: {
+                    type: 'gauge',
+                    plotBackgroundColor: null,
+                    plotBackgroundImage: null,
+                    plotBorderWidth: 0,
+                    plotShadow: false,
+                    backgroundColor: '',
+                },
+
+                title: {
+                    text:'' //'起重机' + machineInfo.Tags[1].Name
+                },
+                credits: {
+                    enabled: false
+                },
+                exporting: {
+                    enabled: false
+                },
+                pane: {
+                    startAngle: -150,
+                    endAngle: 150,
+                    background: [{
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#FFF'],
+                                [1, '#333']
+                            ]
+                        },
+                        borderWidth: 0,
+                        outerRadius: '109%'
+                    }, {
+                        backgroundColor: {
+                            linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
+                            stops: [
+                                [0, '#333'],
+                                [1, '#FFF']
+                            ]
+                        },
+                        borderWidth: 1,
+                        outerRadius: '107%'
+                    }, {
+                        // default background
+
+
+                    }, {
+                        backgroundColor: '#DDD',
+                        borderWidth: 0,
+                        outerRadius: '105%',
+                        innerRadius: '103%'
+                    }]
+                },
+
+                // the value axis
+                yAxis: {
+                    min: machineInfo.Tags[1].MinScale,
+                    max: machineInfo.Tags[1].MaxScale,
+
+                    minorTickInterval: 'auto',
+                    minorTickWidth: 1,
+                    minorTickLength: 10,
+                    minorTickPosition: 'inside',
+                    minorTickColor: '#666',
+
+                    tickPixelInterval: 30,
+                    tickWidth: 2,
+                    tickPosition: 'inside',
+                    tickLength: 10,
+                    tickColor: '#666',
+                    labels: {
+                        step: 2,
+                        rotation: 'auto'
+                    },
+                    title: {
+                        text: machineInfo.Tags[1].Name// machineInfo.Tags[1].Scale
+                    },
+                    plotBands: [{
+                        from: Number(machineInfo.Tags[1].MinScale),
+                        to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
+                        color: '#55BF3B' // green
+                    }, {
+                        from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
+                        to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.2,
+                        color: '#DDDF0D' // yellow
+                    }, {
+                        from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.1,
+                        to: Number(machineInfo.Tags[1].MaxScale),
+                        color: '#DF5353' // red
+                    }]
+                },
+
+                series: [{
+                    name: '压力',
+                    data: [80],
+                    tooltip: {
+                        valueSuffix: '(kg)'
+                    }
+                }]
+            }, // Add some life
+                function (chart) {
+                    if (!chart.renderer.forExport) {
+                        setInterval(function () {
+                            if (chart2Data.length > 0) {
+                                var point = chart.series[0].points[0];
+                                var newVal = Number(chart2Data[0]);
+                                chart2Data.splice(0, 1);
+                                point.update(newVal);
+                            }
+                        }, 1000);
+                    }
+                }
+            );
+        }
         if (machineInfo.Tags[2]) {
             $('#Chart3').highcharts({
                     chart: {
@@ -233,9 +348,9 @@ $(function () {
                     exporting: {
                         enabled: false
                     },
-                    title: {
-                        text: '起重机' + machineInfo.Tags[2].Name
-                    },
+                    //title: {
+                    //    text: '起重机' + machineInfo.Tags[2].Name
+                    //},
 
                     pane: [{
                         startAngle: -45,
@@ -299,7 +414,7 @@ $(function () {
 
 
         }
-        
+       
         if (machineInfo.Tags[2]) {
             $('#Chart4').highcharts({
                 chart: {
