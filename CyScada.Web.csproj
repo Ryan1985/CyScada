@@ -1414,6 +1414,7 @@
     <Content Include="js\classyLed\raphael.js" />
     <Content Include="js\ControlDesk\ControlDesk.js" />
     <Content Include="js\CurrentGPS\CurrentGPS.js" />
+    <Content Include="js\eChart\echarts.min.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />
     <Content Include="js\EquipmentSelection\EquipmentSelection.js" />
