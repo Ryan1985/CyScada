@@ -9,19 +9,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>06/08/2016 09:13:20</publishTime>
+      <publishTime>06/22/2016 10:50:11</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
-      <publishTime>05/27/2016 13:51:35</publishTime>
+      <publishTime>06/22/2016 10:50:11</publishTime>
     </File>
     <File Include="bin/CyScada.DAL.dll">
-      <publishTime>06/08/2016 09:13:20</publishTime>
+      <publishTime>06/22/2016 10:50:11</publishTime>
     </File>
     <File Include="bin/CyScada.Model.dll">
-      <publishTime>06/08/2016 09:13:20</publishTime>
+      <publishTime>06/22/2016 10:50:11</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>06/08/2016 09:13:21</publishTime>
+      <publishTime>06/22/2016 10:50:12</publishTime>
     </File>
     <File Include="bin/IOClient.dll">
       <publishTime>06/07/2016 02:22:51</publishTime>
@@ -100,6 +100,75 @@
     </File>
     <File Include="bin/zh-Hans/System.Web.WebPages.resources.dll">
       <publishTime>07/09/2013 11:35:56</publishTime>
+    </File>
+    <File Include="css/ace/ace-ie.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/ace-rtl.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/ace-skins.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/ace.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/bootstrap-editable.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/bootstrap-timepicker.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/bootstrap.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/chosen.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/colorbox.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/colorpicker.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/datepicker.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/daterangepicker.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/dropzone.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/font-awesome-ie7.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/font-awesome.min.css">
+      <publishTime>06/21/2016 23:42:38</publishTime>
+    </File>
+    <File Include="css/ace/fullcalendar.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/images/loading.gif">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/images/Thumbs.db">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/jquery-ui-1.10.3.custom.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/jquery-ui-1.10.3.full.min.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/jquery.gritter.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/select2.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
+    </File>
+    <File Include="css/ace/ui.jqgrid.css">
+      <publishTime>06/21/2016 23:06:16</publishTime>
     </File>
     <File Include="css/AuthorityAssign.css">
       <publishTime>04/20/2016 13:07:11</publishTime>
@@ -321,7 +390,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="css/Site.css">
-      <publishTime>06/03/2016 16:49:45</publishTime>
+      <publishTime>06/22/2016 09:20:20</publishTime>
     </File>
     <File Include="css/SuperAdmin/animate.css">
       <publishTime>05/26/2016 09:30:10</publishTime>
@@ -1219,6 +1288,168 @@
     </File>
     <File Include="img/SystemMgm.png">
       <publishTime>06/03/2016 17:47:51</publishTime>
+    </File>
+    <File Include="js/ace/ace-elements.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/ace-extra.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/ace.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/additional-methods.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/bootbox.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/bootstrap-colorpicker.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/bootstrap-tag.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/bootstrap-wysiwyg.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/bootstrap.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/chosen.jquery.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/date-time/bootstrap-datepicker.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/date-time/bootstrap-timepicker.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/date-time/daterangepicker.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/date-time/moment.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/dropzone.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/excanvas.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/flot/jquery.flot.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/flot/jquery.flot.pie.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/flot/jquery.flot.resize.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/fuelux/data/fuelux.tree-sampledata.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/fuelux/fuelux.spinner.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/fuelux/fuelux.tree.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/fuelux/fuelux.wizard.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/fullcalendar.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/html5shiv.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jqGrid/i18n/grid.locale-en.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jqGrid/jquery.jqGrid.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery-1.10.2.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery-2.0.3.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery-ui-1.10.3.custom.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery-ui-1.10.3.full.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.autosize.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.colorbox-min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.dataTables.bootstrap.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.dataTables.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.easy-pie-chart.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.gritter.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.hotkeys.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.inputlimiter.1.3.1.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.knob.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.maskedinput.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.mobile.custom.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.nestable.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.slimscroll.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.sparkline.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.ui.touch-punch.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/jquery.validate.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/markdown/bootstrap-markdown.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/markdown/markdown.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/respond.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/select2.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/typeahead-bs2.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/x-editable/ace-editable.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
+    </File>
+    <File Include="js/ace/x-editable/bootstrap-editable.min.js">
+      <publishTime>06/21/2016 23:07:15</publishTime>
     </File>
     <File Include="js/angular-strap/angular-strap.compat.js">
       <publishTime>05/16/2016 09:31:34</publishTime>
@@ -4022,6 +4253,9 @@
     <File Include="js/CurrentGPS/CurrentGPS.js">
       <publishTime>06/07/2016 10:37:17</publishTime>
     </File>
+    <File Include="js/eChart/echarts.min.js">
+      <publishTime>06/12/2016 14:24:55</publishTime>
+    </File>
     <File Include="js/Employee/Employee.js">
       <publishTime>04/07/2016 11:22:16</publishTime>
     </File>
@@ -4158,7 +4392,7 @@
       <publishTime>06/06/2016 21:33:42</publishTime>
     </File>
     <File Include="js/History/History.js">
-      <publishTime>06/07/2016 20:19:39</publishTime>
+      <publishTime>06/12/2016 13:46:31</publishTime>
     </File>
     <File Include="js/jquery-1.12.2.min.js">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -4386,7 +4620,7 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="js/Services/ViewServices.js">
-      <publishTime>06/07/2016 15:40:38</publishTime>
+      <publishTime>06/12/2016 12:00:42</publishTime>
     </File>
     <File Include="js/SideMenu/SideMenu.js">
       <publishTime>06/05/2016 14:49:33</publishTime>
@@ -4523,6 +4757,9 @@
     <File Include="js/_sideMenu/_sideMenu2.js">
       <publishTime>06/03/2016 17:54:55</publishTime>
     </File>
+    <File Include="js/_sideMenu/_sideMenu3.js">
+      <publishTime>06/22/2016 09:20:41</publishTime>
+    </File>
     <File Include="media/SuperAdmin/flashmediaelement.swf">
       <publishTime>05/26/2016 09:32:51</publishTime>
     </File>
@@ -4599,28 +4836,28 @@
       <publishTime>05/23/2016 16:41:18</publishTime>
     </File>
     <File Include="Views/Authority/List.cshtml">
-      <publishTime>05/27/2016 15:08:49</publishTime>
+      <publishTime>06/22/2016 09:21:05</publishTime>
     </File>
     <File Include="Views/AuthorityAssign/Index.cshtml">
-      <publishTime>05/26/2016 17:51:32</publishTime>
+      <publishTime>06/22/2016 09:21:39</publishTime>
     </File>
     <File Include="Views/BaseInfo/Index.cshtml">
-      <publishTime>05/30/2016 17:46:19</publishTime>
+      <publishTime>06/22/2016 09:21:36</publishTime>
     </File>
     <File Include="Views/ControlDesk/Index.cshtml">
-      <publishTime>06/03/2016 16:56:22</publishTime>
+      <publishTime>06/22/2016 09:21:32</publishTime>
     </File>
     <File Include="Views/CurrentGPS/Index.cshtml">
-      <publishTime>06/07/2016 10:28:01</publishTime>
+      <publishTime>06/22/2016 09:21:32</publishTime>
     </File>
     <File Include="Views/Dashboard/Index.cshtml">
-      <publishTime>05/26/2016 17:51:32</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/Dashboard/Svg.cshtml">
       <publishTime>05/26/2016 17:51:32</publishTime>
     </File>
     <File Include="Views/Employee/List.cshtml">
-      <publishTime>05/26/2016 17:51:32</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/Equipment/Index.cshtml">
       <publishTime>03/30/2016 13:36:23</publishTime>
@@ -4632,10 +4869,10 @@
       <publishTime>03/30/2016 16:26:53</publishTime>
     </File>
     <File Include="Views/GPSPath/Index.cshtml">
-      <publishTime>06/07/2016 11:45:28</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/History/Index.cshtml">
-      <publishTime>06/07/2016 15:48:13</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>05/26/2016 09:36:19</publishTime>
@@ -4644,13 +4881,13 @@
       <publishTime>05/16/2016 09:31:34</publishTime>
     </File>
     <File Include="Views/MapBoard/Index.cshtml">
-      <publishTime>06/03/2016 13:54:05</publishTime>
+      <publishTime>06/21/2016 23:12:59</publishTime>
     </File>
     <File Include="Views/RealTimeDisplay/Index.cshtml">
-      <publishTime>06/08/2016 10:07:59</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
-      <publishTime>05/26/2016 17:51:32</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutFrm.cshtml">
       <publishTime>03/24/2016 10:03:42</publishTime>
@@ -4661,14 +4898,20 @@
     <File Include="Views/Shared/_LayoutNew2.cshtml">
       <publishTime>06/07/2016 01:01:53</publishTime>
     </File>
+    <File Include="Views/Shared/_LayoutNew3.cshtml">
+      <publishTime>06/21/2016 23:45:43</publishTime>
+    </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
       <publishTime>05/26/2016 14:06:07</publishTime>
     </File>
     <File Include="Views/Shared/_SideMenu2.cshtml">
       <publishTime>05/26/2016 14:13:02</publishTime>
     </File>
+    <File Include="Views/Shared/_SideMenu3.cshtml">
+      <publishTime>06/22/2016 09:18:03</publishTime>
+    </File>
     <File Include="Views/SideMenu/List.cshtml">
-      <publishTime>06/05/2016 14:42:41</publishTime>
+      <publishTime>06/22/2016 09:21:33</publishTime>
     </File>
     <File Include="Views/test/Detail.cshtml">
       <publishTime>05/27/2016 15:12:24</publishTime>

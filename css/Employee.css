@@ -1,6 +1,8 @@
 ﻿.tableHeader {
-    /*background-color: #337AB7;*/
-    /*color: white;*/
+    font-weight: bold;
+    color: #707070;
+    background-color: #f2f2f2;
+    background-image: linear-gradient(to bottom, #f8f8f8 0, #ececec 100%);
 }
 
 
@@ -9,16 +11,21 @@
 }
 
 .controlBtn {
-    background-color: white;
-    color: #337AB7;
-    width: 100px !important;
-    margin-left: 5px;
-    margin-right: 5px;
+    /*background-color: white;
+    color: #337AB7;*/
+    /*width: 100px !important;*/
+    /*margin-left: 5px;
+    margin-right: 5px;*/
 }
 
 .form-group {
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+
+.widget-body .table thead:first-child tr {
+    background: none !important;
 }
 
 

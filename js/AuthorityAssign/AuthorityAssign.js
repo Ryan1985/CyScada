@@ -271,12 +271,12 @@ function rowNumberFormatter(value, row, index) {
 
 
 function controlFormatter(value, row, index) {
-    var controlFormat = '<button class="btn btn-default  controlBtn detail" data-target="#AuthModal" data-toggle="modal">权限</button>';
+    var controlFormat = '<button class="btn btn-success  controlBtn detail" data-target="#AuthModal" data-toggle="modal"><i class="icon-tasks"></i>权限</button>';
     return controlFormat;
 }
 
 function controlRoleFormatter(value, row, index) {
-    var controlFormat = '<button class="btn btn-default  controlBtn detail" data-target="#RoleModal" data-toggle="modal">权限</button>';
+    var controlFormat = '<button class="btn btn-info  controlBtn detail" data-target="#RoleModal" data-toggle="modal"><i class="icon-tasks"></i>权限</button>';
     return controlFormat;
 }
 

@@ -5,8 +5,12 @@
 
 @section HeadSection{
 
-    <link href="~/css/Role.css" rel="stylesheet" />
+    <link href="~/css/Employee.css" rel="stylesheet" />
     <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
+    <link href="/css/ace/ace.min.css" rel="stylesheet">
+    <link href="/css/ace/ace-rtl.min.css" rel="stylesheet">
+    <link href="/css/ace/ace-skins.min.css" rel="stylesheet">
+    <script src="/js/ace/ace-extra.min.js"></script>
 
 }
 
@@ -24,28 +28,32 @@
     <div ng-controller="RoleListController">
         <div class="container-fluid ">
             <div class="col-lg-12">
-                <div class="panel panel-info querySection">
-                    <div class="panel-heading">
-                        查询条件
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="smaller"><i class="icon-search"></i>查询条件</h4>
                     </div>
-                    <div class="panel-body">
-                        <div class="form-inline">
-                            <div class=" col-lg-3 col-lg-offset-1">
-                                <div class="form-group">
-                                    <label for="txtName">名称</label>
-                                    <input type="text" class="form-control" id="txtName" placeholder="名称" ng-model="role.Name">
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="form-inline">
+                                <div class=" col-lg-3 col-lg-offset-1">
+                                    <div class="form-group">
+                                        <label for="txtName">名称</label>
+                                        <input type="text" class="form-control" id="txtName" placeholder="名称" ng-model="role.Name">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class=" col-lg-3">
-                            </div>
-                            <div class=" col-lg-3">
-                            </div>
-                            <div class=" col-lg-2">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Query()" id="btnQuery">查询</button>
-                                    <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Add()" data-target="#InfoModal" data-toggle="modal">新增</button>
+                                <div class=" col-lg-3">
+                                </div>
+                                <div class=" col-lg-3">
+                                </div>
+                                <div class=" col-lg-2">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="btn-group pull-right">
+                                            <button class="btn  btn-primary CyScadaBtn  " ng-click="Query()" id="btnQuery">查询</button>
+                                            <button class="btn  btn-primary CyScadaBtn  " ng-click="Add()" data-target="#InfoModal" data-toggle="modal">新增</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -53,28 +61,32 @@
                 </div>
             </div>
             <div class="col-lg-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        查询结果
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="smaller"><i class="icon-list"></i>查询结果</h4>
                     </div>
-                    <div class="panel-body">
-                        <table id="ListTable" data-toggle="table" data-striped="true"
-                               data-show-pagination-switch="false"
-                               data-pagination="true"
-                               data-page-list="[10, 25, 50, 100, ALL]"
-                               data-id-field="Id"
-                               data-locale="zh-CN">
-                            <thead class="tableHeader">
-                                <tr>
-                                    <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                    <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
-                                    <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">名称</th>
-                                    <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
-                                    <th data-field="AuthorityCode" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限</th>
-                                    <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
-                                </tr>
-                            </thead>
-                        </table>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="table-responsive">
+                                <table id="ListTable" data-toggle="table" data-striped="true"
+                                       data-show-pagination-switch="false"
+                                       data-pagination="true"
+                                       data-page-list="[10, 25, 50, 100, ALL]"
+                                       data-id-field="Id"
+                                       data-locale="zh-CN">
+                                    <thead class="tableHeader">
+                                        <tr>
+                                            <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                            <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
+                                            <th data-field="Name" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">名称</th>
+                                            <th data-field="Description" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">备注</th>
+                                            <th data-field="AuthorityCode" data-visible="false" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">权限</th>
+                                            <th data-align="center" data-halign="center" data-valign="middle" data-events="operateEvents" data-formatter="controlFormatter">操作</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

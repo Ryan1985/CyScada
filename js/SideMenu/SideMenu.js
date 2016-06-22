@@ -160,12 +160,12 @@ function menuTypeFormatter(value, row, index) {
 
 
 function controlFormatter(value, row, index) {
-    var controlFormat = '<button class="btn btn-default  controlBtn detail" data-target="#InfoModal" data-toggle="modal">修改</button><button class="btn btn-default  controlBtn delete">删除</button>';
+    var controlFormat = '<div class="btn-group"><button class="btn btn-info  controlBtn detail" data-target="#InfoModal" data-toggle="modal"><i class="icon-edit"></i>修改</button><button class="btn btn-danger  controlBtn delete"><i class="icon-trash"></i>删除</button></div>';
     return controlFormat;
 }
 
 function iconFormatter(value, row, index) {
-    var iconFormat = '<span><img class="' + value + '"/></span>';
+    var iconFormat = '<span><i class="' + value + '"></i></span>';
     return iconFormat;
 }
 
