@@ -5,24 +5,25 @@
 }
 
 .NoAuth.RoleAuth {
-    background-color:#5CB85C
+    background-color:#5CB85C !important;
 }
 
 .NoAuth.UserAuth {
-     background-color:#337AB7
+     background-color:#337AB7 !important;
 }
 
 .NoAuth.UserAuth.RoleAuth {
-     background-color:#F0AD4E
+     background-color:#F0AD4E !important;
 }
 
 
 .NoAuth.UserRole {
-    background-color:#5CB85C/*#5BC0DE*/
+    background-color:#5CB85C !important;/*#5BC0DE*/
 }
 
 .AuthBtn {
     margin: 4px 4px 4px 4px;
+    border-color:inherit !important;
 }
 
 .AuthLabel {

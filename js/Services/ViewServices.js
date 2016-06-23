@@ -6,13 +6,13 @@ viewServicesModule.factory('bindListService', function ($http) {
     return {
         //查询
         getAuthorityList: function () {
-            return $http.get("../api/BindList?bindType=AuthorityList");
+            return $http.get("../api/BindList?bindType=AuthorityList&param=");
         },
         getParentMenuList: function () {
-            return $http.get("../api/BindList?bindType=ParentMenuList");
+            return $http.get("../api/BindList?bindType=ParentMenuList&param=");
         },
         getClassList: function () {
-            return $http.get("../api/BindList?bindType=ClassList");
+            return $http.get("../api/BindList?bindType=ClassList&param=");
         },
         getMachineList: function (param) {
             return $http.get("../api/BindList?bindType=MachineList&param=" + encodeURI(JSON.stringify(param)));
@@ -147,7 +147,7 @@ viewServicesModule.factory('baseInfoService', function($http) {
     return {
         //查询
         getList: function (params) {
-            return $http.get("../api/BaseInfo?SideMenuId=" + params[0]+'&userId='+params[1]);
+            return $http.get("../api/BaseInfo?MenuId=" + params[0]+'&userId='+params[1]);
         }
     };
 });

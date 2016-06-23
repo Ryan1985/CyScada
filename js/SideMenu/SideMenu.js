@@ -124,7 +124,7 @@ function formatState(state) {
     if (!state.id) { return state.text; }
     //var bg = $('.' + state.element.value).backgroundImage;
     var $state = $(
-      '<span><img src="' + state.img + '"/></span>'
+      '<span><i class="' + state.id + '"/></span>'
     );
     //var $state = $(
     //  '<span><i class ="' + state.element.value.toLowerCase() + '" ></i></span>'
