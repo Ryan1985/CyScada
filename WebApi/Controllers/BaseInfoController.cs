@@ -22,11 +22,10 @@ namespace CyScada.Web.WebApi.Controllers
 
 
 
-        public BaseInfoModel Get(string sideMenuId,string userId)
+        public BaseInfoModel Get(string MenuId,string userId)
         {
-            return _bllBaseInfo.GetBaseInfo(sideMenuId,userId);
+            return _bllBaseInfo.GetBaseInfo(MenuId,userId);
         }
-
 
 
     }

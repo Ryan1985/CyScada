@@ -113,80 +113,77 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        当前权限
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="currentAuthList">
-                                            <span class="{{cAuth.displayClass}}" ng-bind-template="{{cAuth.Name}}" ng-repeat="cAuth in info.CurrentAuthorityList" data-id="{{cAuth.Id}}"></span>
+                                <div class="widget-box">
+                                    <div class="widget-header"><h4 class="smaller">当前权限</h4></div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div id="currentAuthList">
+                                                <span class="{{cAuth.displayClass}}" ng-bind-template="{{cAuth.Name}}" ng-repeat="cAuth in info.CurrentAuthorityList" data-id="{{cAuth.Id}}"></span>
+                                            </div>
+                                            <hr />
+                                            <div>
+                                                <small>
+                                                    说明:
+                                                </small>
+                                                <small>
+                                                    <span class="label label-success">绿色</span>：属于角色
+                                                </small>
+                                                <small>
+                                                    <span class="label label-info">蓝色</span>：属于附加权限
+                                                </small>
+                                                <small>
+                                                    <span class="label label-warning">橙色</span>：属于角色以及附加权限
+                                                </small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <small>
-                                            说明:
-                                        </small>
-                                        <small>
-                                            <span class="label label-success">绿色</span>：属于角色
-                                        </small>
-                                        <small>
-                                            <span class="label label-info">蓝色</span>：属于附加权限
-                                        </small>
-                                        <small>
-                                            <span class="label label-warning">橙色</span>：属于角色以及附加权限
-                                        </small>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        角色
-                                        <small>
-                                            (点击标签进行添加以及删除权限的操作)
-                                        </small>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="roleList">
-                                            <a role="button" class="{{role.displayClass}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
+                                <div class="widget-box">
+                                    <div class="widget-header"><h4 class="smaller">角色<small>(点击标签进行添加以及删除权限的操作)</small></h4></div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div id="roleList">
+                                                <a role="button" class="{{role.displayClass}}" ng-bind-template="{{role.Name}}" ng-repeat="role in info.RoleList" ng-click="toggleRole(this)" data-id="{{role.Id}}"></a>
+                                            </div>
+                                            <hr />
+                                            <div>
+                                                <small>
+                                                    说明:
+                                                </small>
+                                                <small>
+                                                    <span class="label NoAuth">灰色</span>：未分配
+                                                </small>
+                                                <small>
+                                                    <span class="label label-success">绿色</span>：已分配
+                                                </small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <small>
-                                            说明:
-                                        </small>
-                                        <small>
-                                            <span class="label NoAuth">灰色</span>：未分配
-                                        </small>
-                                        <small>
-                                            <span class="label label-success">绿色</span>：已分配
-                                        </small>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        附加权限
-                                        <small>
-                                            (点击标签进行添加以及删除权限的操作)
-                                        </small>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="authorityList">
-                                            <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
+                                <div class="widget-box">
+                                    <div class="widget-header"><h4 class="smaller">附加权限<small>(点击标签进行添加以及删除权限的操作)</small></h4></div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div id="authorityList">
+                                                <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in info.AuthorityList" ng-click="toggleAuthority(this)"></a>
+                                            </div>
+                                            <hr />
+                                            <div>
+                                                <small>
+                                                    说明:
+                                                </small>
+                                                <small>
+                                                    <span class="label NoAuth">灰色</span>：未分配
+                                                </small>
+                                                <small>
+                                                    <span class="label label-info">蓝色</span>：已分配
+                                                </small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <small>
-                                            说明:
-                                        </small>
-                                        <small>
-                                            <span class="label NoAuth">灰色</span>：未分配
-                                        </small>
-                                        <small>
-                                            <span class="label label-info">蓝色</span>：已分配
-                                        </small>
                                     </div>
                                 </div>
                             </div>
@@ -208,28 +205,26 @@
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-lg-12">
-                                <div class="panel panel-info">
-                                    <div class="panel-heading">
-                                        权限
-                                        <small>
-                                            (点击标签进行添加以及删除权限的操作)
-                                        </small>
-                                    </div>
-                                    <div class="panel-body">
-                                        <div id="authorityList">
-                                            <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in roleInfo.AuthorityList" ng-click="toggleRoleAuthority(this)"></a>
+                                <div class="widget-box">
+                                    <div class="widget-header">权限<small>(点击标签进行添加以及删除权限的操作)</small></div>
+                                    <div class="widget-body">
+                                        <div class="widget-main">
+                                            <div id="authorityList">
+                                                <a role="button" class="{{authority.displayClass}}" ng-bind-template="{{authority.Name}}" data-id="{{authority.AuthorityId}}" ng-repeat="authority in roleInfo.AuthorityList" ng-click="toggleRoleAuthority(this)"></a>
+                                            </div>
+                                            <hr />
+                                            <div>
+                                                <small>
+                                                    说明:
+                                                </small>
+                                                <small>
+                                                    <span class="label NoAuth">灰色</span>：未分配
+                                                </small>
+                                                <small>
+                                                    <span class="label label-success">绿色</span>：已分配
+                                                </small>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="panel-footer">
-                                        <small>
-                                            说明:
-                                        </small>
-                                        <small>
-                                            <span class="label NoAuth">灰色</span>：未分配
-                                        </small>
-                                        <small>
-                                            <span class="label label-success">绿色</span>：已分配
-                                        </small>
                                     </div>
                                 </div>
                             </div>

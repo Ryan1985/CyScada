@@ -12,7 +12,7 @@ namespace CyScada.Web.Controllers
         //
         // GET: /History/
 
-        public ActionResult Index(string sideMenuId)
+        public ActionResult Index(string MenuId)
         {
             var user = Session["User"] as UserModel;
             if (user == null)
@@ -21,7 +21,7 @@ namespace CyScada.Web.Controllers
             }
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
-            ViewBag.SideMenuId = sideMenuId;
+            ViewBag.SideMenuId = MenuId;
             return PartialView();
         }
 

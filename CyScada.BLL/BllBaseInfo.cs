@@ -32,8 +32,13 @@ namespace CyScada.BLL
         {
             var authorityCode = _bllEmployee.GetUserAuthorityCode(userId);
             var sideMenuList = _bllSideMenu.GetMenuListFlat();
+            var parentId = sideMenuList.Where(s => s.Id == int.Parse(sideMenuId)).Select(s => s.ParentId).FirstOrDefault();
+            if (!parentId.HasValue)
+            {
+                return null;
+            }
             var workSiteAuthorityCode =
-                sideMenuList.Where(s => s.Id == int.Parse(sideMenuId)).Select(s => s.AuthorityCode).FirstOrDefault();
+                sideMenuList.Where(s => s.Id == parentId.Value).Select(s => s.AuthorityCode).FirstOrDefault();
 
             var dtBaseInfo = _dalBaseInfo.GetMachines();
             if (dtBaseInfo == null)
