@@ -12,3 +12,39 @@ background-image: url('/img/RealTimeMachine.jpg');
 background-repeat: no-repeat;
 background-position: center top;
 }
+
+
+.svgIcon{
+    width:40px;
+    height:40px;
+    background-size:40px 40px;
+}
+
+.svg-Temperature{
+    background-image:url(/Images/Pic/TemperatureIn.svg);
+}
+
+
+.svg-PressureUp{
+    background-image:url(/Images/Pic/PressureUp.svg);
+}
+
+.svg-PressureDown{
+    background-image:url(/Images/Pic/PressureDown.svg);
+}
+
+.svg-PressureLeft{
+    background-image:url(/Images/Pic/PressureLeft.svg);
+}
+
+.svg-PressureRight{
+    background-image:url(/Images/Pic/PressureRight.svg);
+}
+
+.svg-TorqueForward{
+    background-image:url(/Images/Pic/TorqueForward.svg);
+}
+
+.svg-TorqueBackward{
+    background-image:url(/Images/Pic/TorqueBackward.svg);
+}

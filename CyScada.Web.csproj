@@ -300,6 +300,14 @@
     <Content Include="Images\Phantom\pic13.jpg" />
     <Content Include="Images\Phantom\pic14.jpg" />
     <Content Include="Images\Phantom\pic15.jpg" />
+    <Content Include="Images\Pic\PressureRight.svg" />
+    <Content Include="Images\Pic\PressureLeft.svg" />
+    <Content Include="Images\Pic\PressureUp.svg" />
+    <Content Include="Images\Pic\PressureDown.svg" />
+    <Content Include="Images\Pic\TemperatureOut.svg" />
+    <Content Include="Images\Pic\TemperatureIn.svg" />
+    <Content Include="Images\Pic\TorqueBackward.svg" />
+    <Content Include="Images\Pic\TorqueForward.svg" />
     <Content Include="img\RealTimeMachine.jpg" />
     <Content Include="img\Machine1.jpg" />
     <Content Include="img\markers.png" />
