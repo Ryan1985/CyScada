@@ -72,6 +72,7 @@ namespace CyScada.Web.OpcClient
                     {
 
                     }
+                    Thread.Sleep(1000);
                 }
             });
             _IsRun = true;
