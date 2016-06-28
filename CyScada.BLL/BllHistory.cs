@@ -14,6 +14,13 @@ namespace CyScada.BLL
         private DalAliyun _dalAliyun = new DalAliyun();
         private DalMachineTag _dalMachineTag = new DalMachineTag();
         private BllBaseInfo _bllBaseInfo = new BllBaseInfo();
+        private BllSideMenu _bllSideMenu = new BllSideMenu();
+
+        public BllSideMenu BllSideMenu
+        {
+            get { return _bllSideMenu; }
+            set { _bllSideMenu = value; }
+        }
 
         public DalMachineTag DalMachineTag
         {
@@ -40,8 +47,11 @@ namespace CyScada.BLL
             result.Columns.Add("text");
             result.Columns.Add("id");
 
+            var parentId = _bllSideMenu.GetMenuListFlat().Where(s => s.Id.Value.ToString() == sideMenuId.ToString()).Select(s => s.ParentId.Value).FirstOrDefault();
 
-            var baseInfo = _bllBaseInfo.GetBaseInfo(sideMenuId, userId,machineId);
+
+
+            var baseInfo = _bllBaseInfo.GetBaseInfo(parentId.ToString(), userId, machineId);
             if (baseInfo == null)
                 return result;
 

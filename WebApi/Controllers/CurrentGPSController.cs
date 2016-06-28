@@ -29,7 +29,7 @@ namespace CyScada.Web.WebApi.Controllers
 
         public BaseInfoModel Get(string sideMenuId, string userId)
         {
-            return _bllBaseInfo.GetBaseInfo(sideMenuId, userId);
+            return _bllBaseInfo.GetBaseInfo(sideMenuId);
         }
     }
 }

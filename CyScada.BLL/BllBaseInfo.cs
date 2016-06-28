@@ -27,6 +27,49 @@ namespace CyScada.BLL
             set { _bllSideMenu = value; }
         }
 
+        public BaseInfoModel GetBaseInfo(string MenuId)
+        {
+            var sideMenuList = _bllSideMenu.GetMenuListFlat();
+            var parentId = sideMenuList.Where(s => s.Id == int.Parse(MenuId)).Select(s => s.ParentId).FirstOrDefault();
+            if (!parentId.HasValue)
+            {
+                return null;
+            }
+            var workSiteAuthorityCode =
+                sideMenuList.Where(s => s.Id == parentId.Value).Select(s => s.AuthorityCode).FirstOrDefault();
+
+            var dtBaseInfo = _dalBaseInfo.GetMachines();
+            if (dtBaseInfo == null)
+                return null;
+
+            var baseInfo =
+                dtBaseInfo.AsEnumerable()
+                    .Where(
+                        dr =>
+                            dr["AuthorityCode"].ToString() == workSiteAuthorityCode)
+                    .Select(dr => new BaseInfoModel
+                    {
+                        AuthorityCode = dr["AuthorityCode"].ToString(),
+                        CCID = dr["CCID"].ToString(),
+                        Company = dr["Company"].ToString(),
+                        Description = dr["Description"].ToString(),
+                        Id = dr["Id"].ToString(),
+                        IMEI = dr["IMEI"].ToString(),
+                        Latitude = dr["Latitude"].ToString(),
+                        Longitude = dr["Longitude"].ToString(),
+                        MachineType = dr["MachineType"].ToString(),
+                        Name = dr["Name"].ToString(),
+                        Pic = dr["Pic"].ToString(),
+                        Status = GetStatusName(dr["Status"].ToString()),
+                        WorkSite = dr["WorkSite"].ToString()
+                    }).FirstOrDefault();
+
+            return baseInfo;
+
+        }
+
+
+
 
         public BaseInfoModel GetBaseInfo(string sideMenuId,string userId)
         {

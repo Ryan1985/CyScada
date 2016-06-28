@@ -38,40 +38,42 @@
     <div ng-controller="HistoryController">
         <div class="container-fluid ">
             <div class="col-lg-12">
-                <div class="panel panel-info querySection">
-                    <div class="panel-heading">
-                        查询条件
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="smaller"><i class="icon-search"></i>查询条件</h4>
                     </div>
-                    <div class="panel-body">
-                        <div class="form-inline">
-                            <div class=" col-lg-4 col-lg-offset-1">
-                                <div class="form-group">
-                                    <label for="dtStartDate">时间</label>
-                                    <input id="dtStartDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" bs-datepicker type="text">至
-                                    <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="form-inline">
+                                <div class=" col-lg-4 col-lg-offset-1">
+                                    <div class="form-group">
+                                        <label for="dtStartDate">时间</label>
+                                        <input id="dtStartDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.StartDate" data-max-date="{{EndDate}}" placeholder="开始时间" bs-datepicker type="text">至
+                                        <input id="dtEndDate" class="form-control" data-date-format="yyyy-MM-dd" data-autoclose="true" ng-model="condition.EndDate" data-min-date="{{StartDate}}" placeholder="结束时间" bs-datepicker type="text">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class=" col-lg-3">
-                                <div class="form-group">
-                                    <label for="selMachine">设备名称</label>
-                                    <select class="CyScadaSelect2 form-control" id="selMachine">
-                                        <option value="" selected="selected">全部</option>
-                                    </select>
+                                <div class=" col-lg-3">
+                                    <div class="form-group">
+                                        <label for="selMachine">设备名称</label>
+                                        <select class="CyScadaSelect2 form-control" id="selMachine">
+                                            <option value="" selected="selected">全部</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class=" col-lg-3">
-                                <div class="form-group">
-                                    <label for="selMachineTags">点名称</label>
-                                    <select class="CyScadaSelect2 form-control" id="selMachineTags">
-                                        <option value="" selected="selected">全部</option>
-                                    </select>
+                                <div class=" col-lg-3">
+                                    <div class="form-group">
+                                        <label for="selMachineTags">点名称</label>
+                                        <select class="CyScadaSelect2 form-control" id="selMachineTags">
+                                            <option value="" selected="selected">全部</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class=" col-lg-2">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Query()" id="btnQuery">查询</button>
+                                <div class=" col-lg-2">
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <button class="btn  btn-primary CyScadaBtn  pull-right" ng-click="Query()" id="btnQuery">查询</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -79,35 +81,42 @@
                 </div>
             </div>
             <div class="col-lg-12">
-                <div class="panel panel-info">
-                    <div class="panel-heading">
-                        查询结果
-                    </div>
-                    <div class="panel-body">
-                        <table id="ListTable" data-toggle="table" data-striped="true"
-                               data-show-pagination-switch="false"
-                               data-pagination="true"
-                               data-page-list="[10, 25, 50, 100, ALL]"
-                               data-id-field="Id"
-                               data-locale="zh-CN">
-                            <thead class="tableHeader">
-                                <tr>
-                                    <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
-                                    <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
-                                    <th data-field="Company" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">公司名称</th>
-                                    <th data-field="WorkSite" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">工地</th>
-                                    <th data-field="MachineName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">设备名称</th>
-                                    <th data-field="TagName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">点名称</th>
-                                    <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">值</th>
-                                    <th data-field="TimeStamp" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
-                                </tr>
-                            </thead>
-                        </table>
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class=" smaller"><i class="icon-list"></i>查询结果</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <table id="ListTable" data-toggle="table" data-striped="true"
+                                   data-show-pagination-switch="false"
+                                   data-pagination="true"
+                                   data-page-list="[10, 25, 50, 100, ALL]"
+                                   data-id-field="Id"
+                                   data-locale="zh-CN">
+                                <thead class="tableHeader">
+                                    <tr>
+                                        <th data-align="center" data-halign="center" data-valign="middle" data-formatter="rowNumberFormatter" data-width="100">序号</th>
+                                        <th data-field="Id" data-visible="false" data-align="center" data-halign="center" data-valign="middle">ID</th>
+                                        <th data-field="Company" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">公司名称</th>
+                                        <th data-field="WorkSite" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">工地</th>
+                                        <th data-field="MachineName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">设备名称</th>
+                                        <th data-field="TagName" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">点名称</th>
+                                        <th data-field="Value" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">值</th>
+                                        <th data-field="TimeStamp" data-visible="true" data-sortable="true" data-align="center" data-halign="center" data-valign="middle">时间</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-12">
-                <div id="Chart"></div>
+                <div class="widget-header"><h4 class=" smaller"><i class="icon-bar-chart"></i>图形展示</h4></div>
+                <div class="widget-body">
+                    <div class="widget-main">
+                        <div id="Chart"></div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </div>
@@ -115,7 +124,7 @@
 
 
 <script>
-    var sideMenuId = @ViewBag.SideMenuId;
+    var sideMenuId = @ViewBag.SideMenuId
 </script>
 
 
