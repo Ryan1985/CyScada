@@ -5,3 +5,11 @@
 .widget-main{
     text-align:center;
 }
+
+.listLabel{
+    text-align:right;
+}
+
+.listValue{
+    text-align:left;
+}

@@ -73,7 +73,7 @@ namespace CyScada.BLL
             }
             if (!string.IsNullOrEmpty(model.EndDate))
             {
-                htFilters.Add("EndDate", model.EndDate);
+                htFilters.Add("EndDate", DateTime.Parse(model.EndDate).ToString("yyyy-MM-dd"));
             }
             if (!string.IsNullOrEmpty(model.MachineId))
             {
@@ -81,7 +81,7 @@ namespace CyScada.BLL
             }
             if (!string.IsNullOrEmpty(model.StartDate))
             {
-                htFilters.Add("StartDate", model.StartDate);
+                htFilters.Add("StartDate", DateTime.Parse(model.StartDate).ToString("yyyy-MM-dd"));
             }
 
             var dtHistory = _dalAliyun.GetHistory(htFilters);

@@ -6,6 +6,20 @@ angular.module("History", ['mgcrea.ngStrap', 'viewService'])
         $scope.initial = function() {
             $scope.condition = {};
 
+
+            $('#dtStartDate').datetimepicker({
+                minView: 2,
+                language: "zh-CN",
+                autoclose:true
+            });
+            $('#dtEndDate').datetimepicker({
+                minView: 2,
+                language: "zh-CN",
+                autoclose: true
+            });
+
+
+
         };
 
         bindListService.getMachineList([sideMenuId, $('#userId').attr('data-userid')]).success(function (data) {
@@ -82,7 +96,7 @@ function bindChart(chartData) {
              layout: 'vertical', align: 'right', verticalAlign: 'middle', borderWidth: 0
         },
         series: [{
-            name: 'Value', data: yAxises,
+            name: '压力(kg)', data: yAxises,
             pointStart: Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate(), startDate.getHours(), startDate.getMinutes(), startDate.getSeconds()),
             pointInterval: 1000
         }]
