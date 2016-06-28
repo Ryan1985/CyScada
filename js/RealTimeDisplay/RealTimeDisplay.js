@@ -1,6 +1,8 @@
 ﻿var chart1Data = [];
 var chart2Data = [];
 var chart3Data = [];
+var chart4Data = [];
+var chart5Data = [];
 var setValueTagKey = '';
 
 $(function () {
@@ -8,16 +10,32 @@ $(function () {
     $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function(machineInfo) {
         if (machineInfo.Tags[0]) {
             setInterval(function() {
-                $.get('../api/RealTimeDisplay', function(data) {
-                    chart1Data.push(Number(data[machineInfo.Tags[0].Key].Value));
-                    chart2Data.push(Number(data[machineInfo.Tags[1].Key].Value));
-                    chart3Data.push(Number(data[machineInfo.Tags[2].Key].Value));
+                $.get('../api/RealTimeDisplay', function (data) {
                     $('#temp').text(data[machineInfo.Tags[0].Key].Value);
-                    $('#pressure').text(data[machineInfo.Tags[1].Key].Value);
-                    $('#stress').text(data[machineInfo.Tags[2].Key].Value);
-                    $('#lblValue').text(data[machineInfo.Tags[3].Key].Value);
-                    setValueTagKey = machineInfo.Tags[3].Key;
+                    $('#preUp').text(data[machineInfo.Tags[1].Key].Value);
+                    $('#preLeft').text(data[machineInfo.Tags[2].Key].Value);
+                    $('#preRight').text(data[machineInfo.Tags[3].Key].Value);
+                    $('#preDown').text(data[machineInfo.Tags[4].Key].Value);
+                    $('#torF').text(data[machineInfo.Tags[5].Key].Value);
+                    $('#torB').text(data[machineInfo.Tags[6].Key].Value);
+                    $('#temp1').text(data[machineInfo.Tags[7].Key].Value);
+                    $('#preUp1').text(data[machineInfo.Tags[8].Key].Value);
+                    $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value);
+                    $('#preRight1').text(data[machineInfo.Tags[10].Key].Value);
+                    $('#preDown1').text(data[machineInfo.Tags[11].Key].Value);
+                    $('#torF1').text(data[machineInfo.Tags[12].Key].Value);
+                    $('#torB1').text(data[machineInfo.Tags[13].Key].Value);
 
+                    chart1Data.push(Number(data[machineInfo.Tags[14].Key].Value));
+                    chart2Data.push(Number(data[machineInfo.Tags[15].Key].Value));
+                    chart3Data.push(Number(data[machineInfo.Tags[16].Key].Value));
+                    chart4Data.push(Number(data[machineInfo.Tags[17].Key].Value));
+                    chart5Data.push(Number(data[machineInfo.Tags[18].Key].Value));
+
+                    $('#ValueB').attr('data-TagKey', machineInfo.Tags[19].Key);
+                    $('#ValueB1').attr('data-TagKey', machineInfo.Tags[20].Key);
+                    $('#lblValueB').text(Number(data[machineInfo.Tags[19].Key].Value));
+                    $('#lblValueB1').text(Number(data[machineInfo.Tags[20].Key].Value));
                 });
             }, 1000);
 
@@ -45,7 +63,7 @@ $(function () {
                     enabled: false
                 },
                 title: {
-                    text: '起重机' + machineInfo.Tags[0].Name,
+                    text: '起重机' + machineInfo.Tags[14].Name,
                 },
                 xAxis: {
                     type: 'datetime',
@@ -53,7 +71,7 @@ $(function () {
                 },
                 yAxis: {
                     title: {
-                        text: machineInfo.Tags[0].Scale
+                        text: machineInfo.Tags[14].Scale
                     },
                     plotLines: [{
                         value: 0,
@@ -75,7 +93,7 @@ $(function () {
                     enabled: false
                 },
                 series: [{
-                    name: machineInfo.Tags[0].Name,
+                    name: machineInfo.Tags[14].Name,
                     data: (function() {
                         // generate an array of random data
                         var data = [],
@@ -94,7 +112,7 @@ $(function () {
             });
         }
 
-        if (machineInfo.Tags[1]) {
+        if (machineInfo.Tags[15]) {
             $('#Chart2').highcharts({
                     chart: {
                         type: 'gauge',
@@ -106,7 +124,7 @@ $(function () {
                     },
 
                     title: {
-                        text:''// '起重机' + machineInfo.Tags[1].Name
+                        text:''// '起重机' + machineInfo.Tags[15].Name
                     },
                     credits: {
                         enabled: false
@@ -151,8 +169,8 @@ $(function () {
 
                     // the value axis
                     yAxis: {
-                        min: machineInfo.Tags[1].MinScale,
-                        max: machineInfo.Tags[1].MaxScale,
+                        min: machineInfo.Tags[15].MinScale,
+                        max: machineInfo.Tags[15].MaxScale,
 
                         minorTickInterval: 'auto',
                         minorTickWidth: 1,
@@ -170,19 +188,19 @@ $(function () {
                             rotation: 'auto'
                         },
                         title: {
-                            text: machineInfo.Tags[1].Name//machineInfo.Tags[1].Scale
+                            text: machineInfo.Tags[15].Name//machineInfo.Tags[15].Scale
                         },
                         plotBands: [{
-                                from: Number(machineInfo.Tags[1].MinScale),
-                                to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
+                                from: Number(machineInfo.Tags[15].MinScale),
+                                to: Number(machineInfo.Tags[15].MaxScale) - (Number(machineInfo.Tags[15].MaxScale) - Number(machineInfo.Tags[15].MinScale)) * 0.5,
                                 color: '#55BF3B' // green
                             }, {
-                                from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
-                                to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.2,
+                                from: Number(machineInfo.Tags[15].MaxScale) - (Number(machineInfo.Tags[15].MaxScale) - Number(machineInfo.Tags[15].MinScale)) * 0.5,
+                                to: Number(machineInfo.Tags[15].MaxScale) - (Number(machineInfo.Tags[15].MaxScale) - Number(machineInfo.Tags[15].MinScale)) * 0.2,
                                 color: '#DDDF0D' // yellow
                             }, {
-                                from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.1,
-                                to: Number(machineInfo.Tags[1].MaxScale),
+                                from: Number(machineInfo.Tags[15].MaxScale) - (Number(machineInfo.Tags[15].MaxScale) - Number(machineInfo.Tags[15].MinScale)) * 0.1,
+                                to: Number(machineInfo.Tags[15].MaxScale),
                                 color: '#DF5353' // red
                             }]
                     },
@@ -210,7 +228,7 @@ $(function () {
             );
         }
 
-        if (machineInfo.Tags[1]) {
+        if (machineInfo.Tags[18]) {
             $('#Chart5').highcharts({
                 chart: {
                     type: 'gauge',
@@ -222,7 +240,7 @@ $(function () {
                 },
 
                 title: {
-                    text:'' //'起重机' + machineInfo.Tags[1].Name
+                    text:'' //'起重机' + machineInfo.Tags[18].Name
                 },
                 credits: {
                     enabled: false
@@ -267,8 +285,8 @@ $(function () {
 
                 // the value axis
                 yAxis: {
-                    min: machineInfo.Tags[1].MinScale,
-                    max: machineInfo.Tags[1].MaxScale,
+                    min: machineInfo.Tags[18].MinScale,
+                    max: machineInfo.Tags[18].MaxScale,
 
                     minorTickInterval: 'auto',
                     minorTickWidth: 1,
@@ -286,19 +304,19 @@ $(function () {
                         rotation: 'auto'
                     },
                     title: {
-                        text: machineInfo.Tags[1].Name// machineInfo.Tags[1].Scale
+                        text: machineInfo.Tags[18].Name// machineInfo.Tags[18].Scale
                     },
                     plotBands: [{
-                        from: Number(machineInfo.Tags[1].MinScale),
-                        to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
+                        from: Number(machineInfo.Tags[18].MinScale),
+                        to: Number(machineInfo.Tags[18].MaxScale) - (Number(machineInfo.Tags[18].MaxScale) - Number(machineInfo.Tags[18].MinScale)) * 0.5,
                         color: '#55BF3B' // green
                     }, {
-                        from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.5,
-                        to: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.2,
+                        from: Number(machineInfo.Tags[18].MaxScale) - (Number(machineInfo.Tags[18].MaxScale) - Number(machineInfo.Tags[18].MinScale)) * 0.5,
+                        to: Number(machineInfo.Tags[18].MaxScale) - (Number(machineInfo.Tags[18].MaxScale) - Number(machineInfo.Tags[18].MinScale)) * 0.2,
                         color: '#DDDF0D' // yellow
                     }, {
-                        from: Number(machineInfo.Tags[1].MaxScale) - (Number(machineInfo.Tags[1].MaxScale) - Number(machineInfo.Tags[1].MinScale)) * 0.1,
-                        to: Number(machineInfo.Tags[1].MaxScale),
+                        from: Number(machineInfo.Tags[18].MaxScale) - (Number(machineInfo.Tags[18].MaxScale) - Number(machineInfo.Tags[18].MinScale)) * 0.1,
+                        to: Number(machineInfo.Tags[18].MaxScale),
                         color: '#DF5353' // red
                     }]
                 },
@@ -325,7 +343,7 @@ $(function () {
                 }
             );
         }
-        if (machineInfo.Tags[2]) {
+        if (machineInfo.Tags[16]) {
             $('#Chart3').highcharts({
                     chart: {
                         type: 'gauge',
@@ -349,7 +367,7 @@ $(function () {
                         enabled: false
                     },
                     //title: {
-                    //    text: '起重机' + machineInfo.Tags[2].Name
+                //    text: '起重机' + machineInfo.Tags[16].Name
                     //},
 
                     pane: [{
@@ -361,8 +379,8 @@ $(function () {
                     }],
 
                     yAxis: [{
-                        min: machineInfo.Tags[2].MinScale,
-                        max: machineInfo.Tags[2].MaxScale,
+                        min: machineInfo.Tags[16].MinScale,
+                        max: machineInfo.Tags[16].MaxScale,
                         minorTickPosition: 'outside',
                         tickPosition: 'outside',
                         labels: {
@@ -370,15 +388,15 @@ $(function () {
                             distance: 20
                         },
                         plotBands: [{
-                            from: Number(machineInfo.Tags[2].MaxScale) - (Number(machineInfo.Tags[2].MaxScale) - Number(machineInfo.Tags[2].MinScale)) * 0.4,
-                            to: Number(machineInfo.Tags[2].MaxScale),
+                            from: Number(machineInfo.Tags[16].MaxScale) - (Number(machineInfo.Tags[16].MaxScale) - Number(machineInfo.Tags[16].MinScale)) * 0.4,
+                            to: Number(machineInfo.Tags[16].MaxScale),
                             color: '#C02316',
                             innerRadius: '100%',
                             outerRadius: '105%'
                         }],
                         pane: 0,
                         title: {
-                            text: machineInfo.Tags[2].Name,
+                            text: machineInfo.Tags[16].Name,
                             y: 0
                         }
                     }],
@@ -415,7 +433,7 @@ $(function () {
 
         }
        
-        if (machineInfo.Tags[2]) {
+        if (machineInfo.Tags[17]) {
             $('#Chart4').highcharts({
                 chart: {
                     type: 'gauge',
@@ -439,7 +457,7 @@ $(function () {
                     enabled: false
                 },
                 title: {
-                    text: '起重机' + machineInfo.Tags[2].Name
+                    text: '起重机' + machineInfo.Tags[17].Name
                 },
 
                 pane: [{
@@ -451,8 +469,8 @@ $(function () {
                 }],
 
                 yAxis: [{
-                    min: machineInfo.Tags[2].MinScale,
-                    max: machineInfo.Tags[2].MaxScale,
+                    min: machineInfo.Tags[17].MinScale,
+                    max: machineInfo.Tags[17].MaxScale,
                     minorTickPosition: 'outside',
                     tickPosition: 'outside',
                     labels: {
@@ -460,15 +478,15 @@ $(function () {
                         distance: 20
                     },
                     plotBands: [{
-                        from: Number(machineInfo.Tags[2].MaxScale) - (Number(machineInfo.Tags[2].MaxScale) - Number(machineInfo.Tags[2].MinScale)) * 0.4,
-                        to: Number(machineInfo.Tags[2].MaxScale),
+                        from: Number(machineInfo.Tags[17].MaxScale) - (Number(machineInfo.Tags[17].MaxScale) - Number(machineInfo.Tags[17].MinScale)) * 0.4,
+                        to: Number(machineInfo.Tags[17].MaxScale),
                         color: '#C02316',
                         innerRadius: '100%',
                         outerRadius: '105%'
                     }],
                     pane: 0,
                     title: {
-                        text: machineInfo.Tags[2].Name,
+                        text: machineInfo.Tags[17].Name,
                         y: 0
                     }
                 }],
@@ -513,8 +531,8 @@ $(function () {
 
 
 
-function setValue() {
-    $.post('../api/RealTimeDisplay', { '': [setValueTagKey, $('#txtValue').val()] }, function() {
+function setValue(obj) {
+    $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), $('#txt' + $(obj).id).val()] }, function () {
     }, function(error) { alert(error); });
 }
 

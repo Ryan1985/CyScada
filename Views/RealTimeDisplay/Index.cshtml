@@ -125,7 +125,7 @@
                                             <div class="svgIcon svg-Temperature"></div>
                                         </div>
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="temp">0</span>
+                                            <span class="infobox-data-number" id="temp1">0</span>
                                             <div class="infobox-content">当前温度</div>
                                         </div>
                                     </div>
@@ -135,7 +135,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="preUp">0</span>
+                                            <span class="infobox-data-number" id="preUp1">0</span>
                                             <div class="infobox-content">上侧压力</div>
                                         </div>
                                     </div>
@@ -145,7 +145,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="preLeft">0</span>
+                                            <span class="infobox-data-number" id="preLeft1">0</span>
                                             <div class="infobox-content">左侧压力</div>
                                         </div>
                                     </div>
@@ -155,7 +155,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="preRight">0</span>
+                                            <span class="infobox-data-number" id="preRight1">0</span>
                                             <div class="infobox-content">右侧压力</div>
                                         </div>
                                     </div>
@@ -165,7 +165,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="preDown">0</span>
+                                            <span class="infobox-data-number" id="preDown1">0</span>
                                             <div class="infobox-content">下侧压力</div>
                                         </div>
                                     </div>
@@ -175,7 +175,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="torF">0</span>
+                                            <span class="infobox-data-number" id="torF1">0</span>
                                             <div class="infobox-content">前部扭力</div>
                                         </div>
                                     </div>
@@ -185,7 +185,7 @@
                                         </div>
 
                                         <div class="infobox-data">
-                                            <span class="infobox-data-number" id="torB">0</span>
+                                            <span class="infobox-data-number" id="torB1">0</span>
                                             <div class="infobox-content">后部扭力</div>
                                         </div>
                                     </div>
@@ -257,22 +257,22 @@
                         <div class="widget-main">
                             <div class="row">
                                 <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
-                                <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2"><div id="lblValueFor" style="font-size:20px;"></div></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     设置承重:
                                 </div>
-                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValue" /></div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueFor" /></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     <button class="btn  btn-primary CyScadaBtn" onclick="setValue()"><i class="icon-wrench"></i>设置</button>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
-                                <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2"><div id="lblValueFor1" style="font-size:20px;"></div></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     设置承重:
                                 </div>
-                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValue" /></div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueFor1" /></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     <button class="btn  btn-primary CyScadaBtn" onclick="setValue()"><i class="icon-wrench"></i>设置</button>
                                 </div>
@@ -288,25 +288,25 @@
                         <div class="widget-main">
                             <div class="row">
                                 <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
-                                <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2"><div id="lblValueB" style="font-size:20px;"></div></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     设置承重:
                                 </div>
-                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValue" /></div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueB" /></div>
                                 <div class="col-lg-2" style="font-size:20px;">
-                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue()"><i class="icon-wrench"></i>设置</button>
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueB"><i class="icon-wrench"></i>设置</button>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
-                                <div class="col-lg-2"><div id="lblValue" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2"><div id="lblValueB1" style="font-size:20px;"></div></div>
                                 <div class="col-lg-2" style="font-size:20px;">
                                     设置承重:
                                 </div>
-                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValue" /></div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueB1" /></div>
                                 <div class="col-lg-2" style="font-size:20px;">
-                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue()"><i class="icon-wrench"></i>设置</button>
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueB1"><i class="icon-wrench"></i>设置</button>
                                 </div>
                             </div>
                         </div>
