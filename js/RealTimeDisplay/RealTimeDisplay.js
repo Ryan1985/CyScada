@@ -532,7 +532,7 @@ $(function () {
 
 
 function setValue(obj) {
-    $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), $('#txt' + $(obj).id).val()] }, function () {
+    $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), $('#txt' + obj.id).val()] }, function () {
     }, function(error) { alert(error); });
 }
 
