@@ -231,6 +231,7 @@
     <Content Include="css\bootstrapAddition\modules\timepicker.min.css" />
     <Content Include="css\bootstrapAddition\modules\tooltip.css" />
     <Content Include="css\bootstrapAddition\modules\tooltip.min.css" />
+    <Content Include="css\daterangepicker\daterangepicker.css" />
     <Content Include="css\Employee.css" />
     <Content Include="css\Equipment.css" />
     <Content Include="css\EquipmentSelection.css" />
@@ -1549,6 +1550,9 @@
     <Content Include="js\classyLed\raphael.js" />
     <Content Include="js\ControlDesk\ControlDesk.js" />
     <Content Include="js\CurrentGPS\CurrentGPS.js" />
+    <Content Include="js\daterangePicker\daterangepicker.js" />
+    <Content Include="js\daterangePicker\moment.js" />
+    <Content Include="js\daterangePicker\moment.min.js" />
     <Content Include="js\eChart\echarts.min.js" />
     <Content Include="js\Employee\Employee.js" />
     <Content Include="js\Employee\EmployeeList.js" />

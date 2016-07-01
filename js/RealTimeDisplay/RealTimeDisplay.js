@@ -11,20 +11,20 @@ $(function () {
         if (machineInfo.Tags[0]) {
             setInterval(function() {
                 $.get('../api/RealTimeDisplay', function (data) {
-                    $('#temp').text(data[machineInfo.Tags[0].Key].Value);
-                    $('#preUp').text(data[machineInfo.Tags[1].Key].Value);
-                    $('#preLeft').text(data[machineInfo.Tags[2].Key].Value);
-                    $('#preRight').text(data[machineInfo.Tags[3].Key].Value);
-                    $('#preDown').text(data[machineInfo.Tags[4].Key].Value);
-                    $('#torF').text(data[machineInfo.Tags[5].Key].Value);
-                    $('#torB').text(data[machineInfo.Tags[6].Key].Value);
-                    $('#temp1').text(data[machineInfo.Tags[7].Key].Value);
-                    $('#preUp1').text(data[machineInfo.Tags[8].Key].Value);
-                    $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value);
-                    $('#preRight1').text(data[machineInfo.Tags[10].Key].Value);
-                    $('#preDown1').text(data[machineInfo.Tags[11].Key].Value);
-                    $('#torF1').text(data[machineInfo.Tags[12].Key].Value);
-                    $('#torB1').text(data[machineInfo.Tags[13].Key].Value);
+                    $('#temp').text(data[machineInfo.Tags[0].Key].Value+' ℃');
+                    $('#preUp').text(data[machineInfo.Tags[1].Key].Value+' kg');
+                    $('#preLeft').text(data[machineInfo.Tags[2].Key].Value + ' kg');
+                    $('#preRight').text(data[machineInfo.Tags[3].Key].Value + ' kg');
+                    $('#preDown').text(data[machineInfo.Tags[4].Key].Value + ' kg');
+                    $('#torF').text(data[machineInfo.Tags[5].Key].Value + ' kg');
+                    $('#torB').text(data[machineInfo.Tags[6].Key].Value + ' kg');
+                    $('#temp1').text(data[machineInfo.Tags[7].Key].Value + ' ℃');
+                    $('#preUp1').text(data[machineInfo.Tags[8].Key].Value + ' kg');
+                    $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value + ' kg');
+                    $('#preRight1').text(data[machineInfo.Tags[10].Key].Value + ' kg');
+                    $('#preDown1').text(data[machineInfo.Tags[11].Key].Value + ' kg');
+                    $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
+                    $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
 
                     chart1Data.push(Number(data[machineInfo.Tags[14].Key].Value));
                     chart2Data.push(Number(data[machineInfo.Tags[15].Key].Value));
@@ -70,13 +70,17 @@ $(function () {
                     tickPixelInterval: 150
                 },
                 yAxis: {
+                    min: machineInfo.Tags[14].MinScale,
+                    max: machineInfo.Tags[14].MaxScale,
+                    tickPositions: [0, 10,20,30,40,50,60,70,80,90,100],
                     title: {
                         text: machineInfo.Tags[14].Scale
                     },
                     plotLines: [{
                         value: 0,
                         width: 1,
-                        color: '#808080'
+                        color: '#808080',
+
                     }]
                 },
                 tooltip: {
@@ -100,7 +104,7 @@ $(function () {
                             time = (new Date()).getTime(),
                             i;
 
-                        for (i = -19; i <= 0; i += 1) {
+                        for (i = -99; i <= 0; i += 1) {
                             data.push({
                                 x: time + i * 1000,
                                 y: null
@@ -366,9 +370,9 @@ $(function () {
                     exporting: {
                         enabled: false
                     },
-                    //title: {
-                //    text: '起重机' + machineInfo.Tags[16].Name
-                    //},
+                    title: {
+                        text: '起重机' + machineInfo.Tags[16].Name
+                    },
 
                     pane: [{
                         startAngle: -45,
