@@ -1,63 +1,39 @@
-﻿var chart1Data = [];
-var chart2Data = [];
-var chart3Data = [];
-var chart4Data = [];
-var chart5Data = [];
+﻿var chart1Data = 0;
+var chart2Data = 0;
+var chart3Data = 0;
+var chart4Data = 0;
+var chart5Data = 0;
 var setValueTagKey = '';
+var dataQueue = [];
+var chart1;
+var chart2;
+var chart3;
+var chart4;
+var chart5;
 
 $(function () {
 
     $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function(machineInfo) {
         if (machineInfo.Tags[0]) {
-            setInterval(function() {
-                $.get('../api/RealTimeDisplay', function (data) {
-                    $('#temp').text(data[machineInfo.Tags[0].Key].Value+' ℃');
-                    $('#preUp').text(data[machineInfo.Tags[1].Key].Value+' kg');
-                    $('#preLeft').text(data[machineInfo.Tags[2].Key].Value + ' kg');
-                    $('#preRight').text(data[machineInfo.Tags[3].Key].Value + ' kg');
-                    $('#preDown').text(data[machineInfo.Tags[4].Key].Value + ' kg');
-                    $('#torF').text(data[machineInfo.Tags[5].Key].Value + ' kg');
-                    $('#torB').text(data[machineInfo.Tags[6].Key].Value + ' kg');
-                    $('#temp1').text(data[machineInfo.Tags[7].Key].Value + ' ℃');
-                    $('#preUp1').text(data[machineInfo.Tags[8].Key].Value + ' kg');
-                    $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value + ' kg');
-                    $('#preRight1').text(data[machineInfo.Tags[10].Key].Value + ' kg');
-                    $('#preDown1').text(data[machineInfo.Tags[11].Key].Value + ' kg');
-                    $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
-                    $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
-
-                    chart1Data.push(Number(data[machineInfo.Tags[14].Key].Value));
-                    chart2Data.push(Number(data[machineInfo.Tags[15].Key].Value));
-                    chart3Data.push(Number(data[machineInfo.Tags[16].Key].Value));
-                    chart4Data.push(Number(data[machineInfo.Tags[17].Key].Value));
-                    chart5Data.push(Number(data[machineInfo.Tags[18].Key].Value));
-
-                    $('#ValueB').attr('data-TagKey', machineInfo.Tags[19].Key);
-                    $('#ValueB1').attr('data-TagKey', machineInfo.Tags[20].Key);
-                    $('#lblValueB').text(Number(data[machineInfo.Tags[19].Key].Value));
-                    $('#lblValueB1').text(Number(data[machineInfo.Tags[20].Key].Value));
-                });
-            }, 1000);
-
-            $('#Chart1').highcharts({
+            chart1 =new Highcharts.Chart({
                 chart: {
                     type: 'spline',
-                    
+                    renderTo: 'Chart1',
                     animation: Highcharts.svg, // don't animate in old IE
                     backgroundColor:'',
                     marginRight: 10,
-                    events: {
-                        load: function() {
-                            var series = this.series[0];
-                            setInterval(function() {
-                                var x = (new Date()).getTime(); // current time
-                                if (chart1Data.length > 0) {
-                                    series.addPoint([x, chart1Data[0]], true, true);
-                                    chart1Data.splice(0, 1);
-                                }
-                            }, 1000);
-                        }
-                    }
+                    //events: {
+                    //    load: function() {
+                    //        var series = this.series[0];
+                    //        setInterval(function() {
+                    //            var x = (new Date()).getTime(); // current time
+                    //            //if (chart1Data.length > 0) {
+                    //                series.addPoint([x, chart1Data], true, true);
+                    //                //chart1Data.splice(0, 1);
+                    //            //}
+                    //        }, 1000);
+                    //    }
+                    //}
                 },
                 credits: {
                     enabled: false
@@ -117,9 +93,10 @@ $(function () {
         }
 
         if (machineInfo.Tags[15]) {
-            $('#Chart2').highcharts({
+            chart2 =new Highcharts.Chart({
                     chart: {
                         type: 'gauge',
+                        renderTo:'Chart2',
                         plotBackgroundColor: null,
                         plotBackgroundImage: null,
                         plotBorderWidth: 0,
@@ -216,26 +193,27 @@ $(function () {
                             valueSuffix: '(kg)'
                         }
                     }]
-                }, // Add some life
-                function(chart) {
-                    if (!chart.renderer.forExport) {
-                        setInterval(function () {
-                            if (chart2Data.length > 0) {
-                                var point = chart.series[0].points[0];
-                                var newVal = Number(chart2Data[0]);
-                                chart2Data.splice(0, 1);
-                                point.update(newVal);
-                            }
-                        }, 1000);
-                    }
-                }
+                } // Add some life
+                //function(chart) {
+                //    if (!chart.renderer.forExport) {
+                //        setInterval(function () {
+                //            //if (chart2Data.length > 0) {
+                //                var point = chart.series[0].points[0];
+                //                var newVal = Number(chart2Data);
+                //                //chart2Data.splice(0, 1);
+                //                point.update(newVal);
+                //            //}
+                //        }, 1000);
+                //    }
+                //}
             );
         }
 
         if (machineInfo.Tags[18]) {
-            $('#Chart5').highcharts({
+            chart5 = new Highcharts.Chart({
                 chart: {
                     type: 'gauge',
+                    renderTo: 'Chart5',
                     plotBackgroundColor: null,
                     plotBackgroundImage: null,
                     plotBorderWidth: 0,
@@ -332,25 +310,26 @@ $(function () {
                         valueSuffix: '(kg)'
                     }
                 }]
-            }, // Add some life
-                function (chart) {
-                    if (!chart.renderer.forExport) {
-                        setInterval(function () {
-                            if (chart2Data.length > 0) {
-                                var point = chart.series[0].points[0];
-                                var newVal = Number(chart2Data[0]);
-                                chart2Data.splice(0, 1);
-                                point.update(newVal);
-                            }
-                        }, 1000);
-                    }
-                }
+            } // Add some life
+                //function (chart) {
+                //    if (!chart.renderer.forExport) {
+                //        setInterval(function () {
+                //            //if (chart5Data.length > 0) {
+                //                var point = chart.series[0].points[0];
+                //                var newVal = Number(chart5Data);
+                //                //chart5Data.splice(0, 1);
+                //                point.update(newVal);
+                //            //}
+                //        }, 1000);
+                //    }
+                //}
             );
         }
         if (machineInfo.Tags[16]) {
-            $('#Chart3').highcharts({
+            chart3 = new Highcharts.Chart({
                     chart: {
                         type: 'gauge',
+                        renderTo: 'Chart3',
                         plotBorderWidth: 1,
                         plotBackgroundColor: {
                             linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -419,28 +398,30 @@ $(function () {
                         data: [-20],
                         yAxis: 0
                     }]
-                },
+                }
                 // Let the music play
-                function(chart) {
-                    setInterval(function() {
-                        if (chart3Data.length > 0) {
-                            var point = chart.series[0].points[0];
-                            var newVal = Number(chart3Data[0]);
-                            chart3Data.splice(0, 1);
-                            point.update(newVal);
-                        }
-                    }, 1000);
+                //function(chart) {
+                //    setInterval(function() {
+                //        //if (chart3Data.length > 0) {
+                //            var point = chart.series[0].points[0];
+                //            var newVal = Number(chart3Data);
+                //            //chart3Data.splice(0, 1);
+                //            point.update(newVal);
+                //        //}
+                //    }, 1000);
 
 
-                });
+                //}
+                );
 
 
         }
        
         if (machineInfo.Tags[17]) {
-            $('#Chart4').highcharts({
+            chart4 = new Highcharts.Chart({
                 chart: {
                     type: 'gauge',
+                    renderTo: 'Chart4',
                     plotBorderWidth: 1,
                     plotBackgroundColor: {
                         linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1 },
@@ -509,23 +490,93 @@ $(function () {
                     data: [-20],
                     yAxis: 0
                 }]
-            },
+            }
                 // Let the music play
-                function (chart) {
-                    setInterval(function () {
-                        if (chart3Data.length > 0) {
-                            var point = chart.series[0].points[0];
-                            var newVal = Number(chart3Data[0]);
-                            chart3Data.splice(0, 1);
-                            point.update(newVal);
-                        }
-                    }, 1000);
+                //function (chart) {
+                //    setInterval(function () {
+                //        //if (chart4Data.length > 0) {
+                //            var point = chart.series[0].points[0];
+                //            var newVal = Number(chart4Data);
+                //            //chart4Data.splice(0, 1);
+                //            point.update(newVal);
+                //       // }
+                //    }, 1000);
 
 
-                });
+                //}
+                );
 
 
         }
+
+        setInterval(function () {
+            $.get('../api/RealTimeDisplay', function (data) {
+                dataQueue.push(data);
+            });
+
+
+            if (dataQueue.length > 0) {
+
+                var data = dataQueue.splice(0, 1)[0];
+
+                //Chart1
+                var series = chart1.series[0];
+                var x = (new Date()).getTime();
+                series.addPoint([x, Number(data[machineInfo.Tags[14].Key].Value)], true, true);
+                //Chart2
+                var point = chart2.series[0].points[0];
+                var newVal = Number(data[machineInfo.Tags[15].Key].Value);
+                point.update(newVal);
+                //Chart3
+                point = chart3.series[0].points[0];
+                newVal = Number(data[machineInfo.Tags[16].Key].Value);
+                point.update(newVal);
+                //Chart4
+                point = chart4.series[0].points[0];
+                newVal = Number(data[machineInfo.Tags[17].Key].Value);
+                point.update(newVal);
+
+                //Chart5
+                point = chart5.series[0].points[0];
+                newVal = Number(data[machineInfo.Tags[18].Key].Value);
+                point.update(newVal);
+
+                $('#temp').text(data[machineInfo.Tags[0].Key].Value + ' ℃');
+                $('#preUp').text(data[machineInfo.Tags[1].Key].Value + ' kg');
+                $('#preLeft').text(data[machineInfo.Tags[2].Key].Value + ' kg');
+                $('#preRight').text(data[machineInfo.Tags[3].Key].Value + ' kg');
+                $('#preDown').text(data[machineInfo.Tags[4].Key].Value + ' kg');
+                $('#torF').text(data[machineInfo.Tags[5].Key].Value + ' kg');
+                $('#torB').text(data[machineInfo.Tags[6].Key].Value + ' kg');
+                $('#temp1').text(data[machineInfo.Tags[7].Key].Value + ' ℃');
+                $('#preUp1').text(data[machineInfo.Tags[8].Key].Value + ' kg');
+                $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value + ' kg');
+                $('#preRight1').text(data[machineInfo.Tags[10].Key].Value + ' kg');
+                $('#preDown1').text(data[machineInfo.Tags[11].Key].Value + ' kg');
+                $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
+                $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
+
+                //chart1Data = Number(data[machineInfo.Tags[14].Key].Value);
+                //chart2Data = Number(data[machineInfo.Tags[15].Key].Value);
+                //chart3Data = Number(data[machineInfo.Tags[16].Key].Value);
+                //chart4Data = Number(data[machineInfo.Tags[17].Key].Value);
+                //chart5Data = Number(data[machineInfo.Tags[18].Key].Value);
+
+
+
+                $('#ValueFor').attr('data-TagKey', machineInfo.Tags[19].Key);
+                $('#ValueFor1').attr('data-TagKey', machineInfo.Tags[20].Key);
+                $('#lblValueFor').text(Number(data[machineInfo.Tags[19].Key].Value));
+                $('#lblValueFor1').text(Number(data[machineInfo.Tags[20].Key].Value));
+
+                $('#ValueB').attr('data-TagKey', machineInfo.Tags[21].Key);
+                $('#ValueB1').attr('data-TagKey', machineInfo.Tags[22].Key);
+                $('#lblValueB').text(Number(data[machineInfo.Tags[21].Key].Value));
+                $('#lblValueB1').text(Number(data[machineInfo.Tags[22].Key].Value));
+            }
+
+
+        }, 1000);
 
 
     });

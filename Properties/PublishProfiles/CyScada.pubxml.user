@@ -21,7 +21,7 @@
       <publishTime>06/24/2016 00:45:17</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>06/28/2016 23:55:32</publishTime>
+      <publishTime>07/03/2016 23:03:00</publishTime>
     </File>
     <File Include="bin/IOClient.dll">
       <publishTime>06/22/2016 22:47:58</publishTime>
@@ -313,6 +313,9 @@
     </File>
     <File Include="css/ControlDesk.css">
       <publishTime>06/22/2016 22:47:58</publishTime>
+    </File>
+    <File Include="css/daterangepicker/daterangepicker.css">
+      <publishTime>07/01/2016 23:41:29</publishTime>
     </File>
     <File Include="css/Employee.css">
       <publishTime>06/23/2016 00:11:36</publishTime>
@@ -4430,6 +4433,15 @@
     <File Include="js/CurrentGPS/CurrentGPS.js">
       <publishTime>06/22/2016 22:47:58</publishTime>
     </File>
+    <File Include="js/daterangePicker/daterangepicker.js">
+      <publishTime>07/01/2016 23:41:03</publishTime>
+    </File>
+    <File Include="js/daterangePicker/moment.js">
+      <publishTime>07/01/2016 23:41:03</publishTime>
+    </File>
+    <File Include="js/daterangePicker/moment.min.js">
+      <publishTime>07/01/2016 23:41:03</publishTime>
+    </File>
     <File Include="js/eChart/echarts.min.js">
       <publishTime>06/24/2016 22:27:18</publishTime>
     </File>
@@ -4569,7 +4581,7 @@
       <publishTime>06/24/2016 22:27:18</publishTime>
     </File>
     <File Include="js/History/History.js">
-      <publishTime>06/28/2016 23:34:55</publishTime>
+      <publishTime>07/01/2016 23:53:35</publishTime>
     </File>
     <File Include="js/jquery-1.12.2.min.js">
       <publishTime>06/22/2016 22:47:59</publishTime>
@@ -4635,7 +4647,7 @@
       <publishTime>06/22/2016 22:47:59</publishTime>
     </File>
     <File Include="js/RealTimeDisplay/RealTimeDisplay.js">
-      <publishTime>07/01/2016 23:27:57</publishTime>
+      <publishTime>07/04/2016 00:42:08</publishTime>
     </File>
     <File Include="js/responsiveNav/responsive-nav.js">
       <publishTime>06/24/2016 22:27:18</publishTime>
@@ -5049,7 +5061,7 @@
       <publishTime>06/22/2016 22:47:58</publishTime>
     </File>
     <File Include="Views/History/Index.cshtml">
-      <publishTime>06/28/2016 23:26:00</publishTime>
+      <publishTime>07/01/2016 23:53:35</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>06/22/2016 22:47:58</publishTime>
