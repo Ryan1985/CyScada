@@ -12,7 +12,7 @@ namespace CyScada.DAL
 
         public DataTable GetHistory(Hashtable htFilters)
         {
-            var sb = new StringBuilder(@"SELECT TOP 1000 aliyun.[_VALUE] as Value,aliyun.[_TIMESTAMP] as TimeStamp,
+            var sb = new StringBuilder(@"SELECT TOP 100 aliyun.[_VALUE] as Value,aliyun.[_TIMESTAMP] as TimeStamp,
 ZQ_Machine.Id,ZQ_Machine.Company,
 ZQ_Machine.WorkSite,ZQ_Machine.Name,
 ZQ_MachineTags.TagName,
@@ -38,6 +38,8 @@ WHERE 1=1 ");
             {
                 sb.Append("AND aliyun.[_TIMESTAMP]>='" + htFilters["StartDate"] + "'");
             }
+
+            sb.Append(" ORDER BY aliyun.[_TIMESTAMP] desc");
 
 
             var result = SqlHelper.ExecuteDataset(SqlHelper.GetConnection(), CommandType.Text, sb.ToString());

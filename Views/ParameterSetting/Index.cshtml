@@ -1,0 +1,147 @@
+﻿@{
+    ViewBag.Title = "参数设定";
+    Layout = "~/Views/Shared/_LayoutNew3.cshtml";
+}
+
+@section HeadSection{
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="/css/Phantom/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="/css/Phantom/ie8.css" /><![endif]-->
+    <link rel="stylesheet" href="/css/bootstrap-switch/bootstrap-switch.css" />
+
+
+
+}
+
+
+@section FootScript{
+
+    <script src="/js/Phantom/skel.min.js"></script>
+    <script src="/js/Phantom/util.js"></script>
+    <!--[if lte IE 8]><script src="/js/Phantom/ie/respond.min.js"></script><![endif]-->
+    <script src="/js/Phantom/main.js"></script>
+    <script src="/js/Services/ViewServices.js"></script>
+    <script src="/js/ParameterSetting/ParameterSetting.js?r=0001"></script>
+
+}
+
+
+
+
+<div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
+<div class="container-fluid">
+    <div class="col-lg-12">
+        <div class="row-fluid">
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">主要参数设定</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前起升高度:</div>
+                                <div class="col-lg-2"><div id="lblHeight" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置高度:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtHeight" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Height"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前行走距离:</div>
+                                <div class="col-lg-2"><div id="lblDistance" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置距离:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtDistance" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Distance"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前额定起重量:</div>
+                                <div class="col-lg-2"><div id="lblWeight" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置重量:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtWeight" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Weight"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前风速:</div>
+                                <div class="col-lg-2"><div id="lblSpeed" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置风速:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtSpeed" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Speed"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">辅助参数设定</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前主变幅:</div>
+                                <div class="col-lg-2"><div id="lblRange" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置变幅:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtRange" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Range"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前副变频:</div>
+                                <div class="col-lg-2"><div id="lblFrequency" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置变频:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtFrequency" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Frequency"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前踏板:</div>
+                                <div class="col-lg-2"><div id="lblPedal" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置踏板:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtPedal" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Pedal"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3" style="font-size:20px;">当前回转:</div>
+                                <div class="col-lg-2"><div id="lblTurn" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置回转:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtTurn" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="Turn"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

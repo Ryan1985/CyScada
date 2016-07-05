@@ -135,6 +135,7 @@
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MapBoardController.cs" />
+    <Compile Include="Controllers\ParameterSettingController.cs" />
     <Compile Include="Controllers\RealTimeDisplayController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SideMenuController.cs" />
@@ -162,6 +163,7 @@
     <Compile Include="WebApi\Controllers\MapBoardController.cs" />
     <Compile Include="WebApi\Controllers\MappingController.cs" />
     <Compile Include="WebApi\Controllers\OPCTestController.cs" />
+    <Compile Include="WebApi\Controllers\ParameterSettingController.cs" />
     <Compile Include="WebApi\Controllers\RealTimeDisplayController.cs" />
     <Compile Include="WebApi\Controllers\RoleController.cs" />
     <Compile Include="WebApi\Controllers\RoleListController.cs" />
@@ -1614,6 +1616,7 @@
     <Content Include="js\pagetransitions\jquery.dlmenu.js" />
     <Content Include="js\pagetransitions\modernizr.custom.js" />
     <Content Include="js\pagetransitions\pagetransitions.js" />
+    <Content Include="js\ParameterSetting\ParameterSetting.js" />
     <Content Include="js\Phantom\ie\html5shiv.js" />
     <Content Include="js\Phantom\ie\respond.min.js" />
     <Content Include="js\Phantom\main.js" />
@@ -1887,6 +1890,7 @@
     <Content Include="Views\CurrentGPS\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNew3.cshtml" />
     <Content Include="Views\Shared\_SideMenu3.cshtml" />
+    <Content Include="Views\ParameterSetting\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

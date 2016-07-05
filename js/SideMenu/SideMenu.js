@@ -1,20 +1,25 @@
 ﻿"use strict";
 
+var selAuthorityName;
+var selMenuType;
+var selClass;
+var selParentName;
+
 angular.module("SideMenuList", ['viewService'])
     .controller("SideMenuListController", function ($scope, $http, sideMenuService, bindListService) {
-        $scope.initial = function() {
+        $scope.initial = function () {
 
             sideMenuService.getList()
-                .success(function(data) {
+                .success(function (data) {
                     $scope.sideMenuList = data;
                     $('#ListTable').bootstrapTable('load', data);
-                }).error(function(error) {
+                }).error(function (error) {
                     alert(error);
                 });
 
             bindListService.getAuthorityList()
                 .success(function (data) {
-                    $('#infoAuthorityName').select2({
+                    selAuthorityName = $('#infoAuthorityName').select2({
                         data: data,
                         placeholder: "请选择一个权限",
                         theme: "bootstrap"
@@ -31,38 +36,38 @@ angular.module("SideMenuList", ['viewService'])
                         allowClear: true,
                         theme: "bootstrap"
                     });
-                    $('#infoMenuType').select2({
+                    selMenuType = $('#infoMenuType').select2({
                         //data: data,
                         placeholder: "请选择一个类型",
                         allowClear: true,
                         theme: "bootstrap"
                     });
-                }).error(function(error) {
+                }).error(function (error) {
                     alert(error);
                 });
 
             bindListService.getParentMenuList()
-                .success(function(data) {
-                    $('#infoParentName').select2({
+                .success(function (data) {
+                    selParentName = $('#infoParentName').select2({
                         data: data,
                         placeholder: "无父类",
                         allowClear: true,
                         theme: "bootstrap"
                     });
-                }).error(function(error) {
+                }).error(function (error) {
                     alert(error);
                 });
 
             bindListService.getClassList()
-                .success(function(data) {
-                    $('#infoClass').select2({
+                .success(function (data) {
+                    selClass = $('#infoClass').select2({
                         data: data,
                         placeholder: "请选择一个图标",
                         theme: "bootstrap",
                         templateResult: formatState,
                         templateSelection: formatState
                     });
-                }).error(function(error) {
+                }).error(function (error) {
                     alert(error);
                 });
         };
@@ -175,10 +180,14 @@ var operateEvents = {
         ctrlScope.info = row;
         ctrlScope.info.title = "修改目录";
         ctrlScope.$apply();
-        $('#infoAuthorityName').val(row.AuthorityCode).trigger("change");
-        $('#infoMenuType').val(row.MenuType).trigger("change");
-        $('#infoParentName').val(row.ParentId).trigger("change");
-        $('#infoClass').val(row.Class).trigger("change");
+        selAuthorityName.val(row.AuthorityCode).trigger("change");
+        selMenuType.val(row.MenuType).trigger("change");
+        selParentName.val(row.ParentId).trigger("change");
+        selClass.val(row.Class).trigger("change");
+        //$('#infoAuthorityName').val(row.AuthorityCode).trigger("change");
+        //$('#infoMenuType').val(row.MenuType).trigger("change");
+        //$('#infoParentName').val(row.ParentId).trigger("change");
+        //$('#infoClass').val(row.Class).trigger("change");
         //$('#infoAuthorityName').selectpicker('val', row.AuthorityId);
 
     },
