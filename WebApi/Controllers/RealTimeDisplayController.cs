@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using CyScada.BLL;
 using CyScada.Model;
+using Newtonsoft.Json;
 
 namespace CyScada.Web.WebApi.Controllers
 {
@@ -33,7 +34,16 @@ namespace CyScada.Web.WebApi.Controllers
         {
             return OpcClient.OpcClient.ItemTable;
         }
-
+        public Hashtable Get(string tagList)
+        {
+            var result = new Hashtable();
+            var tagArray = JsonConvert.DeserializeObject<string[]>(tagList);
+            foreach (var tagKey in tagArray)
+            {
+                result.Add(tagKey, OpcClient.OpcClient.ItemTable[tagKey]);
+            }
+            return result;
+        }
 
         public void Post([FromBody] string[] values)
         {

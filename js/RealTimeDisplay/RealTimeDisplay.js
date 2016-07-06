@@ -10,10 +10,15 @@ var chart2;
 var chart3;
 var chart4;
 var chart5;
+var tagList = [];
 
 $(function () {
 
-    $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function(machineInfo) {
+    $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function (machineInfo) {
+        for (var i = 0; i < machineInfo.Tags.length; i++) {
+            tagList.push(machineInfo.Tags[i].Key);
+        }
+
         if (machineInfo.Tags[0]) {
             chart1 =new Highcharts.Chart({
                 chart: {
@@ -510,8 +515,8 @@ $(function () {
         }
 
         setInterval(function () {
-            $.get('../api/RealTimeDisplay', function (data) {
-                console.log('pushData|' + (new Date()).toLocaleString());
+            $.get('../api/RealTimeDisplay?tagList ='+JSON.stringify(tagList), function (data) {
+                //console.log('pushData|' + (new Date()).toLocaleString());
                 dataQueue.push(data);
             });
 
@@ -521,36 +526,36 @@ $(function () {
 
             if (dataQueue.length > 0) {
 
-                console.log('DeQueue|' +(new Date()).toLocaleString());
+                //console.log('DeQueue|' +(new Date()).toLocaleString());
                 var data = dataQueue.splice(0, 1)[0];
 
-                console.log('splice|' +(new Date()).toLocaleString());
+                //console.log('splice|' +(new Date()).toLocaleString());
                 //Chart1
                 var series = chart1.series[0];
                 var x = (new Date()).getTime();
                 series.addPoint([x, Number(data[machineInfo.Tags[14].Key].Value)], true, true);
-                console.log('Chart1|' + (new Date()).toLocaleString());
+                //console.log('Chart1|' + (new Date()).toLocaleString());
                 //Chart2
                 var point = chart2.series[0].points[0];
                 var newVal = Number(data[machineInfo.Tags[15].Key].Value);
                 point.update(newVal);
-                console.log('Chart2|' +(new Date()).toLocaleString());
+                //console.log('Chart2|' +(new Date()).toLocaleString());
                 //Chart3
                 point = chart3.series[0].points[0];
                 newVal = Number(data[machineInfo.Tags[16].Key].Value);
                 point.update(newVal);
-                console.log('Chart3|' +(new Date()).toLocaleString());
+                //console.log('Chart3|' +(new Date()).toLocaleString());
                 //Chart4
                 point = chart4.series[0].points[0];
                 newVal = Number(data[machineInfo.Tags[17].Key].Value);
                 point.update(newVal);
-                console.log('Chart4|' + (new Date()).toLocaleString());
+                //console.log('Chart4|' + (new Date()).toLocaleString());
 
                 //Chart5
                 point = chart5.series[0].points[0];
                 newVal = Number(data[machineInfo.Tags[18].Key].Value);
                 point.update(newVal);
-                console.log('Chart5|' +(new Date()).toLocaleString());
+                //console.log('Chart5|' +(new Date()).toLocaleString());
 
                 $('#temp').text(data[machineInfo.Tags[0].Key].Value + ' ℃');
                 $('#preUp').text(data[machineInfo.Tags[1].Key].Value + ' kg');
@@ -567,7 +572,7 @@ $(function () {
                 $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
                 $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
 
-                console.log('upShow|' + (new Date()).toLocaleString());
+                //console.log('upShow|' + (new Date()).toLocaleString());
                 //chart1Data = Number(data[machineInfo.Tags[14].Key].Value);
                 //chart2Data = Number(data[machineInfo.Tags[15].Key].Value);
                 //chart3Data = Number(data[machineInfo.Tags[16].Key].Value);
@@ -585,9 +590,9 @@ $(function () {
                 $('#ValueB1').attr('data-TagKey', machineInfo.Tags[22].Key);
                 $('#lblValueB').text(Number(data[machineInfo.Tags[21].Key].Value));
                 $('#lblValueB1').text(Number(data[machineInfo.Tags[22].Key].Value));
-                console.log('downShow|' +(new Date()).toLocaleString());
+                //console.log('downShow|' +(new Date()).toLocaleString());
 
-                console.log('DataTreatEnd|' +(new Date()).toLocaleString());
+                //console.log('DataTreatEnd|' +(new Date()).toLocaleString());
             }
         }, 100);
 
