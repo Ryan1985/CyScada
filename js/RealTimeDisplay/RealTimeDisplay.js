@@ -514,13 +514,14 @@ $(function () {
 
         }
 
-        setInterval(function () {
-            $.get('../api/RealTimeDisplay?tagList ='+JSON.stringify(tagList), function (data) {
-                //console.log('pushData|' + (new Date()).toLocaleString());
-                dataQueue.push(data);
-            });
+        refreshItemValues(tagList);
+        //setInterval(function () {
+        //    $.get('../api/RealTimeDisplay?tagList ='+JSON.stringify(tagList), function (data) {
+        //        //console.log('pushData|' + (new Date()).toLocaleString());
+        //        dataQueue.push(data);
+        //    });
 
-        }, 1000);
+        //}, 1000);
 
      setInterval(function () {
 
@@ -532,7 +533,7 @@ $(function () {
                 //console.log('splice|' +(new Date()).toLocaleString());
                 //Chart1
                 var series = chart1.series[0];
-                var x = (new Date()).getTime();
+                var x = (new Date(data[machineInfo.Tags[14].Key].TimeStamp)).getTime();
                 series.addPoint([x, Number(data[machineInfo.Tags[14].Key].Value)], true, true);
                 //console.log('Chart1|' + (new Date()).toLocaleString());
                 //Chart2
@@ -601,6 +602,16 @@ $(function () {
 
   
 });
+
+
+
+function refreshItemValues(tagList) {
+    $.get('../api/RealTimeDisplay?tagList =' + JSON.stringify(tagList), function (data) {
+        dataQueue.push(data);
+        setTimeout(refreshItemValues(tagList), 1000);
+    });
+}
+
 
 
 

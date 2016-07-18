@@ -66,6 +66,8 @@ namespace CyScada.Web.OpcClient
                             var key = _Client.Groups[0].Items[i].SmartItemKey;
                             var tag = ItemTable[key] as TagItemModel;
                             tag.Value = _Client.Groups[0].Items[i].Value;
+                            tag.TimeStamp = _Client.Groups[0].Items[i].TimeStamp;
+                            tag.Quality = _Client.Groups[0].Items[i].Quality;
                         }
                     }
                     catch (Exception ex)
