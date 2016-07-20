@@ -35,7 +35,7 @@ namespace CyScada.Web.OpcClient
 
         public static void StartClient()
         {
-            _Client.Connect("127.0.0.1", "8081", "IODriver");
+            _Client.Connect("123.57.57.171", "8081", "IODriver");
             _Client.Groups.Add("test", 1000);
             var items = _Client.BrownseAllTags();
             foreach (var smartItem in items)
