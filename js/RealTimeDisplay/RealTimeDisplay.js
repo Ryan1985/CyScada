@@ -11,20 +11,21 @@ var chart3;
 var chart4;
 var chart5;
 var tagList = [];
+var machineInfo = {};
 
 $(function () {
 
-    $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function (machineInfo) {
-        for (var i = 0; i < machineInfo.Tags.length; i++) {
-            tagList.push(machineInfo.Tags[i].Key);
-        }
-
+    $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function (data) {
+        //for (var i = 0; i < machineInfo.Tags.length; i++) {
+        //    tagList.push(machineInfo.Tags[i].Key);
+        //}
+        machineInfo = data;
         if (machineInfo.Tags[0]) {
             chart1 =new Highcharts.Chart({
                 chart: {
                     type: 'spline',
                     renderTo: 'Chart1',
-                    animation: Highcharts.svg, // don't animate in old IE
+                    animation: false,//Highcharts.svg, // don't animate in old IE
                     backgroundColor:'',
                     marginRight: 10,
                     //events: {
@@ -514,89 +515,7 @@ $(function () {
 
         }
 
-        refreshItemValues(tagList);
-        //setInterval(function () {
-        //    $.get('../api/RealTimeDisplay?tagList ='+JSON.stringify(tagList), function (data) {
-        //        //console.log('pushData|' + (new Date()).toLocaleString());
-        //        dataQueue.push(data);
-        //    });
-
-        //}, 1000);
-
-     setInterval(function () {
-
-            if (dataQueue.length > 0) {
-
-                //console.log('DeQueue|' +(new Date()).toLocaleString());
-                var data = dataQueue.splice(0, 1)[0];
-
-                //console.log('splice|' +(new Date()).toLocaleString());
-                //Chart1
-                var series = chart1.series[0];
-                var x = (new Date(data[machineInfo.Tags[14].Key].TimeStamp)).getTime();
-                series.addPoint([x, Number(data[machineInfo.Tags[14].Key].Value)], true, true);
-                //console.log('Chart1|' + (new Date()).toLocaleString());
-                //Chart2
-                var point = chart2.series[0].points[0];
-                var newVal = Number(data[machineInfo.Tags[15].Key].Value);
-                point.update(newVal);
-                //console.log('Chart2|' +(new Date()).toLocaleString());
-                //Chart3
-                point = chart3.series[0].points[0];
-                newVal = Number(data[machineInfo.Tags[16].Key].Value);
-                point.update(newVal);
-                //console.log('Chart3|' +(new Date()).toLocaleString());
-                //Chart4
-                point = chart4.series[0].points[0];
-                newVal = Number(data[machineInfo.Tags[17].Key].Value);
-                point.update(newVal);
-                //console.log('Chart4|' + (new Date()).toLocaleString());
-
-                //Chart5
-                point = chart5.series[0].points[0];
-                newVal = Number(data[machineInfo.Tags[18].Key].Value);
-                point.update(newVal);
-                //console.log('Chart5|' +(new Date()).toLocaleString());
-
-                $('#temp').text(data[machineInfo.Tags[0].Key].Value + ' ℃');
-                $('#preUp').text(data[machineInfo.Tags[1].Key].Value + ' kg');
-                $('#preLeft').text(data[machineInfo.Tags[2].Key].Value + ' kg');
-                $('#preRight').text(data[machineInfo.Tags[3].Key].Value + ' kg');
-                $('#preDown').text(data[machineInfo.Tags[4].Key].Value + ' kg');
-                $('#torF').text(data[machineInfo.Tags[5].Key].Value + ' kg');
-                $('#torB').text(data[machineInfo.Tags[6].Key].Value + ' kg');
-                $('#temp1').text(data[machineInfo.Tags[7].Key].Value + ' ℃');
-                $('#preUp1').text(data[machineInfo.Tags[8].Key].Value + ' kg');
-                $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value + ' kg');
-                $('#preRight1').text(data[machineInfo.Tags[10].Key].Value + ' kg');
-                $('#preDown1').text(data[machineInfo.Tags[11].Key].Value + ' kg');
-                $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
-                $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
-
-                //console.log('upShow|' + (new Date()).toLocaleString());
-                //chart1Data = Number(data[machineInfo.Tags[14].Key].Value);
-                //chart2Data = Number(data[machineInfo.Tags[15].Key].Value);
-                //chart3Data = Number(data[machineInfo.Tags[16].Key].Value);
-                //chart4Data = Number(data[machineInfo.Tags[17].Key].Value);
-                //chart5Data = Number(data[machineInfo.Tags[18].Key].Value);
-
-
-
-                $('#ValueFor').attr('data-TagKey', machineInfo.Tags[19].Key);
-                $('#ValueFor1').attr('data-TagKey', machineInfo.Tags[20].Key);
-                $('#lblValueFor').text(Number(data[machineInfo.Tags[19].Key].Value));
-                $('#lblValueFor1').text(Number(data[machineInfo.Tags[20].Key].Value));
-
-                $('#ValueB').attr('data-TagKey', machineInfo.Tags[21].Key);
-                $('#ValueB1').attr('data-TagKey', machineInfo.Tags[22].Key);
-                $('#lblValueB').text(Number(data[machineInfo.Tags[21].Key].Value));
-                $('#lblValueB1').text(Number(data[machineInfo.Tags[22].Key].Value));
-                //console.log('downShow|' +(new Date()).toLocaleString());
-
-                //console.log('DataTreatEnd|' +(new Date()).toLocaleString());
-            }
-        }, 100);
-
+        refreshItemValues();
 
     });
 
@@ -605,10 +524,86 @@ $(function () {
 
 
 
-function refreshItemValues(tagList) {
+function refreshDisplay(data) {
+    if (data) {
+
+        //console.log('DeQueue|' +(new Date()).toLocaleString());
+        //var data = dataQueue.splice(0, 1)[0];
+
+        //console.log('splice|' +(new Date()).toLocaleString());
+        //Chart1
+        var series = chart1.series[0];
+        var x = (new Date(data[machineInfo.Tags[14].Key].TimeStamp)).getTime();
+        series.addPoint([x, Number(data[machineInfo.Tags[14].Key].Value)], true, true);
+        //console.log('Chart1|' + (new Date()).toLocaleString());
+        //Chart2
+        var point = chart2.series[0].points[0];
+        var newVal = Number(data[machineInfo.Tags[15].Key].Value);
+        point.update(newVal);
+        //console.log('Chart2|' +(new Date()).toLocaleString());
+        //Chart3
+        point = chart3.series[0].points[0];
+        newVal = Number(data[machineInfo.Tags[16].Key].Value);
+        point.update(newVal);
+        //console.log('Chart3|' +(new Date()).toLocaleString());
+        //Chart4
+        point = chart4.series[0].points[0];
+        newVal = Number(data[machineInfo.Tags[17].Key].Value);
+        point.update(newVal);
+        //console.log('Chart4|' + (new Date()).toLocaleString());
+
+        //Chart5
+        point = chart5.series[0].points[0];
+        newVal = Number(data[machineInfo.Tags[18].Key].Value);
+        point.update(newVal);
+        //console.log('Chart5|' +(new Date()).toLocaleString());
+
+        $('#temp').text(data[machineInfo.Tags[0].Key].Value + ' ℃');
+        $('#preUp').text(data[machineInfo.Tags[1].Key].Value + ' kg');
+        $('#preLeft').text(data[machineInfo.Tags[2].Key].Value + ' kg');
+        $('#preRight').text(data[machineInfo.Tags[3].Key].Value + ' kg');
+        $('#preDown').text(data[machineInfo.Tags[4].Key].Value + ' kg');
+        $('#torF').text(data[machineInfo.Tags[5].Key].Value + ' kg');
+        $('#torB').text(data[machineInfo.Tags[6].Key].Value + ' kg');
+        $('#temp1').text(data[machineInfo.Tags[7].Key].Value + ' ℃');
+        $('#preUp1').text(data[machineInfo.Tags[8].Key].Value + ' kg');
+        $('#preLeft1').text(data[machineInfo.Tags[9].Key].Value + ' kg');
+        $('#preRight1').text(data[machineInfo.Tags[10].Key].Value + ' kg');
+        $('#preDown1').text(data[machineInfo.Tags[11].Key].Value + ' kg');
+        $('#torF1').text(data[machineInfo.Tags[12].Key].Value + ' kg');
+        $('#torB1').text(data[machineInfo.Tags[13].Key].Value + ' kg');
+
+        //console.log('upShow|' + (new Date()).toLocaleString());
+        //chart1Data = Number(data[machineInfo.Tags[14].Key].Value);
+        //chart2Data = Number(data[machineInfo.Tags[15].Key].Value);
+        //chart3Data = Number(data[machineInfo.Tags[16].Key].Value);
+        //chart4Data = Number(data[machineInfo.Tags[17].Key].Value);
+        //chart5Data = Number(data[machineInfo.Tags[18].Key].Value);
+
+
+
+        $('#ValueFor').attr('data-TagKey', machineInfo.Tags[19].Key);
+        $('#ValueFor1').attr('data-TagKey', machineInfo.Tags[20].Key);
+        $('#lblValueFor').text(Number(data[machineInfo.Tags[19].Key].Value));
+        $('#lblValueFor1').text(Number(data[machineInfo.Tags[20].Key].Value));
+
+        $('#ValueB').attr('data-TagKey', machineInfo.Tags[21].Key);
+        $('#ValueB1').attr('data-TagKey', machineInfo.Tags[22].Key);
+        $('#lblValueB').text(Number(data[machineInfo.Tags[21].Key].Value));
+        $('#lblValueB1').text(Number(data[machineInfo.Tags[22].Key].Value));
+        //console.log('downShow|' +(new Date()).toLocaleString());
+
+        //console.log('DataTreatEnd|' +(new Date()).toLocaleString());
+    }
+}
+
+
+
+function refreshItemValues() {
     $.get('../api/RealTimeDisplay?tagList =' + JSON.stringify(tagList), function (data) {
-        dataQueue.push(data);
-        setTimeout(refreshItemValues(tagList), 1000);
+        //dataQueue.push(data);
+        refreshDisplay(data);
+        setTimeout(refreshItemValues, 1000);
     });
 }
 
