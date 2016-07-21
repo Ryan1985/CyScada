@@ -53,6 +53,7 @@
     <Compile Include="BllHistory.cs" />
     <Compile Include="BllLogin.cs" />
     <Compile Include="BllAuthority.cs" />
+    <Compile Include="BllMachineTagList.cs" />
     <Compile Include="BllMapBoard.cs" />
     <Compile Include="BllMapping.cs" />
     <Compile Include="BllRealTimeDisplay.cs" />

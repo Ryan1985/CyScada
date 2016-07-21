@@ -22,6 +22,5 @@ namespace CyScada.Web
             OpcClient.OpcClient.StartClient();
         }
 
-
     }
 }
