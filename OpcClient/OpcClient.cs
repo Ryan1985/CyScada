@@ -23,6 +23,9 @@ namespace CyScada.Web.OpcClient
         private static Thread opcThread;
         private static bool _isRun = true;
         private static readonly Queue<object[,]> RecQueue = new Queue<object[,]>(10);
+
+        private static readonly string CurrentPath =
+            Assembly.GetCallingAssembly().Location.Remove(Assembly.GetCallingAssembly().Location.LastIndexOf('\\'));
         //private static SmartGroup sg;
         //public static ISmartClient Client
         //{
@@ -55,7 +58,7 @@ namespace CyScada.Web.OpcClient
             ClientList.ConnectServer();
             ClientList.AddItems(dtTags.AsEnumerable().Select(dr => dr["DeviceName"].ToString()).Distinct().ToArray());
             ClientList.StartRead();
-
+            client_EnqueueLog("ServerStarted");
 
             ThreadPool.QueueUserWorkItem(w =>
             {
@@ -161,7 +164,8 @@ namespace CyScada.Web.OpcClient
 
         static void client_EnqueueLog(string LogString)
         {
-            Console.WriteLine(LogString);
+            File.AppendAllText(CurrentPath + "\\Log.txt",
+                "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + LogString);
         }
 
         static void client_EnqueueRec(object[,] rec)
