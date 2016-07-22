@@ -22,5 +22,14 @@ namespace CyScada.Web
             OpcClient.OpcClient.StartClient();
         }
 
+
+
+        public override void Dispose()
+        {
+            OpcClient.OpcClient.StopClient();
+            base.Dispose();
+        }
+
+
     }
 }

@@ -25,7 +25,7 @@ $(function () {
                 chart: {
                     type: 'spline',
                     renderTo: 'Chart1',
-                    animation: false,//Highcharts.svg, // don't animate in old IE
+                    animation: Highcharts.svg, // don't animate in old IE
                     backgroundColor:'',
                     marginRight: 10,
                     //events: {
