@@ -25,6 +25,8 @@ namespace CyScada.Web.OpcClient
         private static bool _isRun = true;
         private static readonly Queue<object[,]> RecQueue = new Queue<object[,]>(10);
         private static readonly Queue<string> LogQueue = new Queue<string>(10);
+        private static DataTable dtTags = null;
+
 
         private static readonly string CurrentPath =
             Assembly.GetCallingAssembly().Location.Remove(Assembly.GetCallingAssembly().Location.LastIndexOf('\\'));
@@ -48,8 +50,11 @@ namespace CyScada.Web.OpcClient
 
         public static void StartClient()
         {
-            var bllTags = new BllMachineTagList();
-            var dtTags = bllTags.GetAllTags();
+            if (dtTags == null)
+            {
+                var bllTags = new BllMachineTagList();
+                dtTags = bllTags.GetAllTags();
+            }
             var serverAddress = ConfigurationManager.AppSettings["ServerAddress"];
             var serverNameList = dtTags.AsEnumerable().Select(dr => dr["ServerAddress"].ToString()).Distinct().ToList();
 

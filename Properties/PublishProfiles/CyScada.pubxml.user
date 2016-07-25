@@ -9,19 +9,19 @@
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/CyScada.BLL.dll">
-      <publishTime>07/22/2016 09:13:31</publishTime>
+      <publishTime>07/25/2016 09:59:03</publishTime>
     </File>
     <File Include="bin/CyScada.Common.dll">
       <publishTime>07/22/2016 09:13:31</publishTime>
     </File>
     <File Include="bin/CyScada.DAL.dll">
-      <publishTime>07/22/2016 09:13:31</publishTime>
+      <publishTime>07/25/2016 09:59:02</publishTime>
     </File>
     <File Include="bin/CyScada.Model.dll">
       <publishTime>06/24/2016 10:04:39</publishTime>
     </File>
     <File Include="bin/CyScada.Web.dll">
-      <publishTime>07/22/2016 09:54:47</publishTime>
+      <publishTime>07/25/2016 11:10:07</publishTime>
     </File>
     <File Include="bin/IOClient.dll">
       <publishTime>07/15/2016 12:58:28</publishTime>
@@ -36,25 +36,25 @@
       <publishTime>07/16/2014 16:16:32</publishTime>
     </File>
     <File Include="bin/OpcNetApi.Com.dll">
-      <publishTime>07/30/2013 11:00:08</publishTime>
+      <publishTime>07/22/2016 11:37:41</publishTime>
     </File>
     <File Include="bin/OpcNetApi.dll">
-      <publishTime>07/30/2013 11:00:02</publishTime>
+      <publishTime>07/22/2016 11:37:41</publishTime>
     </File>
     <File Include="bin/OpcRcw.Ae.dll">
-      <publishTime>02/09/2007 00:07:34</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="bin/OpcRcw.Comn.dll">
-      <publishTime>02/09/2007 15:46:10</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="bin/OpcRcw.Da.dll">
-      <publishTime>02/09/2007 15:46:10</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="bin/OpcRcw.Dx.dll">
-      <publishTime>02/09/2007 00:07:34</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="bin/OpcRcw.Hda.dll">
-      <publishTime>02/09/2007 00:07:34</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="bin/System.Net.Http.dll">
       <publishTime>07/09/2013 11:04:48</publishTime>
@@ -465,13 +465,13 @@
       <publishTime>07/15/2016 12:58:28</publishTime>
     </File>
     <File Include="DLL/OpcNetApi.Com.dll">
-      <publishTime>07/30/2013 11:00:08</publishTime>
+      <publishTime>07/22/2016 11:37:41</publishTime>
     </File>
     <File Include="DLL/OpcNetApi.dll">
-      <publishTime>07/30/2013 11:00:02</publishTime>
+      <publishTime>07/22/2016 11:37:41</publishTime>
     </File>
     <File Include="DLL/OpcRcw.Da.dll">
-      <publishTime>02/09/2007 15:46:10</publishTime>
+      <publishTime>07/22/2016 11:40:55</publishTime>
     </File>
     <File Include="fonts/codropsicons/codropsicons.eot">
       <publishTime>06/22/2016 22:47:58</publishTime>
@@ -1360,6 +1360,9 @@
     </File>
     <File Include="js/ace/ace-extra.min.js">
       <publishTime>06/22/2016 22:47:58</publishTime>
+    </File>
+    <File Include="js/ace/ace.js">
+      <publishTime>07/25/2016 11:02:28</publishTime>
     </File>
     <File Include="js/ace/ace.min.js">
       <publishTime>06/22/2016 22:47:58</publishTime>
@@ -4680,7 +4683,7 @@
       <publishTime>06/22/2016 22:47:59</publishTime>
     </File>
     <File Include="js/RealTimeDisplay/RealTimeDisplay.js">
-      <publishTime>07/22/2016 09:08:45</publishTime>
+      <publishTime>07/22/2016 11:58:23</publishTime>
     </File>
     <File Include="js/responsiveNav/responsive-nav.js">
       <publishTime>06/22/2016 22:47:59</publishTime>
@@ -5109,7 +5112,7 @@
       <publishTime>07/06/2016 11:10:28</publishTime>
     </File>
     <File Include="Views/RealTimeDisplay/Index.cshtml">
-      <publishTime>07/04/2016 11:24:10</publishTime>
+      <publishTime>07/25/2016 10:30:56</publishTime>
     </File>
     <File Include="Views/Role/List.cshtml">
       <publishTime>06/23/2016 00:11:36</publishTime>
@@ -5124,7 +5127,7 @@
       <publishTime>06/22/2016 22:47:58</publishTime>
     </File>
     <File Include="Views/Shared/_LayoutNew3.cshtml">
-      <publishTime>07/04/2016 09:07:52</publishTime>
+      <publishTime>07/25/2016 11:09:56</publishTime>
     </File>
     <File Include="Views/Shared/_SideMenu.cshtml">
       <publishTime>06/22/2016 22:47:58</publishTime>
@@ -5148,7 +5151,7 @@
       <publishTime>06/22/2016 22:47:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/22/2016 09:13:33</publishTime>
+      <publishTime>07/25/2016 09:59:06</publishTime>
     </File>
   </ItemGroup>
 </Project>

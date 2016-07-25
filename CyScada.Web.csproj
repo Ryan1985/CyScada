@@ -571,6 +571,7 @@
     <Content Include="img\User.png" />
     <Content Include="js\ace\ace-elements.min.js" />
     <Content Include="js\ace\ace-extra.min.js" />
+    <Content Include="js\ace\ace.js" />
     <Content Include="js\ace\ace.min.js" />
     <Content Include="js\ace\additional-methods.min.js" />
     <Content Include="js\ace\bootbox.min.js" />
