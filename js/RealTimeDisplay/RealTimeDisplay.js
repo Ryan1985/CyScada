@@ -26,8 +26,9 @@ $(function () {
                     type: 'spline',
                     renderTo: 'Chart1',
                     animation: false,//Highcharts.svg, // don't animate in old IE
-                    backgroundColor:'',
-                    marginRight: 10,
+                    backgroundColor: '',
+                    margin:[0,0,0,0],
+                   // marginRight: 10,
                     //events: {
                     //    load: function() {
                     //        var series = this.series[0];
