@@ -208,7 +208,8 @@ namespace CyScada.Web.OpcClient
 
         public static void SetValue(string key, object value)
         {
-            ClientList.WriteValue(key, string.Empty, value);
+            var itemName = key.Substring(key.LastIndexOf('/')+1, key.Length - key.LastIndexOf('/')-1);
+            ClientList.WriteValue(itemName, string.Empty, value);
             //for (int i = 0; i < _Client.Groups[0].Items.Count; i++)
             //{
             //    if (_Client.Groups[0].Items[i].SmartItemKey == key)
