@@ -28,7 +28,7 @@ namespace CyScada.Web.OpcClient
         private static DataTable dtTags = null;
 
 
-        private static readonly string CurrentPath =
+        private static string LogPath =
             Assembly.GetCallingAssembly().Location.Remove(Assembly.GetCallingAssembly().Location.LastIndexOf('\\'));
         //private static SmartGroup sg;
         //public static ISmartClient Client
@@ -40,6 +40,7 @@ namespace CyScada.Web.OpcClient
 
         public static void StopClient()
         {
+            LogQueue.Enqueue("StopClient");
             ClientList.StopRead();
             ClientList.DisConnectServer();
             _isRun = false;
@@ -50,6 +51,12 @@ namespace CyScada.Web.OpcClient
 
         public static void StartClient()
         {
+            LogPath = ConfigurationManager.AppSettings["LogAddress"];
+            if (!Directory.Exists(LogPath))
+            {
+                Directory.CreateDirectory(LogPath);
+            }
+            LogQueue.Enqueue("StartClient");
             if (dtTags == null)
             {
                 var bllTags = new BllMachineTagList();
@@ -57,15 +64,12 @@ namespace CyScada.Web.OpcClient
             }
             var serverAddress = ConfigurationManager.AppSettings["ServerAddress"];
             var serverNameList = dtTags.AsEnumerable().Select(dr => dr["ServerAddress"].ToString()).Distinct().ToList();
-
-
             ClientList.EnqueueRec += client_EnqueueRec;
             ClientList.EnqueueLog += client_EnqueueLog;
             ClientList.ServerAddress = serverAddress + "/" + serverNameList.First();
             ClientList.ConnectServer();
             ClientList.AddItems(dtTags.AsEnumerable().Select(dr => dr["DeviceName"].ToString()).Distinct().ToArray());
             ClientList.StartRead();
-
 
             ThreadPool.QueueUserWorkItem(w =>
             {
@@ -74,8 +78,8 @@ namespace CyScada.Web.OpcClient
                     if (LogQueue.Count > 0)
                     {
                         var log = LogQueue.Dequeue();
-                        File.AppendAllText(CurrentPath + "\\Log.txt",
-                            "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + log);
+                        File.AppendAllText(LogPath + "\\Log"+DateTime.Now.ToString("yyyyMMdd")+".txt",
+                            "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + log+"\r\n");
                     }
                     Thread.Sleep(100);
                 }
