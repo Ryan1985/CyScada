@@ -20,9 +20,11 @@ namespace CyScada.Web.OpcClient
         public static Hashtable ItemTable = new Hashtable();
         private static readonly object MLock = new object();
         private static readonly object QLock = new object();
+        private static readonly object LLock = new object();
         private static Thread opcThread;
         private static bool _isRun = true;
         private static readonly Queue<object[,]> RecQueue = new Queue<object[,]>(10);
+        private static readonly Queue<string> LogQueue = new Queue<string>(10);
 
         private static readonly string CurrentPath =
             Assembly.GetCallingAssembly().Location.Remove(Assembly.GetCallingAssembly().Location.LastIndexOf('\\'));
@@ -58,7 +60,23 @@ namespace CyScada.Web.OpcClient
             ClientList.ConnectServer();
             ClientList.AddItems(dtTags.AsEnumerable().Select(dr => dr["DeviceName"].ToString()).Distinct().ToArray());
             ClientList.StartRead();
-            client_EnqueueLog("ServerStarted");
+
+
+            ThreadPool.QueueUserWorkItem(w =>
+            {
+                while (_isRun)
+                {
+                    if (LogQueue.Count > 0)
+                    {
+                        var log = LogQueue.Dequeue();
+                        File.AppendAllText(CurrentPath + "\\Log.txt",
+                            "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + log);
+                    }
+                    Thread.Sleep(100);
+                }
+            });
+
+
 
             ThreadPool.QueueUserWorkItem(w =>
             {
@@ -164,8 +182,10 @@ namespace CyScada.Web.OpcClient
 
         static void client_EnqueueLog(string LogString)
         {
-            File.AppendAllText(CurrentPath + "\\Log.txt",
-                "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + LogString);
+            lock (LLock)
+            {
+                LogQueue.Enqueue(LogString);
+            }
         }
 
         static void client_EnqueueRec(object[,] rec)
