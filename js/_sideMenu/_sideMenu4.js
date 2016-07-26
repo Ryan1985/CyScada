@@ -35,8 +35,8 @@ angular.module("SideMenu", [])
 //var branchTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@url" onclick="Toggle(this)"><i class="@class"></i>@name<span class="fa arrow"></span></a>';//'</li>';
 //var leafTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@url"  onclick="Click(this)"><i class="@class"></i><span class="menu-text">@name</span></a>';
 var leafTemplate = '<li><a data-id="@id" class="CyScadaSideItem"  data-href="@url" href="@url?@id"   onclick="Click(this)"><i class="@class"></i>@name</a>';
-var branchTemplate = '<li><a data-id="@id" class="CyScadaSideItem dropdown-toggle" data-href="@url"  onclick="Click(this)"><i class="@class"></i>@name<b class="arrow icon-angle-down"></b></a>';//'</li>';
-var rootBranchTemplate = '<li><a data-id="@id" class="CyScadaSideItem dropdown-toggle" data-href="@url"  onclick="Click(this)"><i class="@class"></i><span class="menu-text">@name</span><b class="arrow icon-angle-down"></b></a>';
+var branchTemplate = '<li><a data-id="@id" class="CyScadaSideItem dropdown-toggle" data-href="@url"  onclick="Click(this)"><i class="@class"></i>@name<b class="arrow fa fa-angle-down"></b></a>';//'</li>';
+var rootBranchTemplate = '<li><a data-id="@id" class="CyScadaSideItem dropdown-toggle" data-href="@url"  onclick="Click(this)"><i class="@class"></i><span class="menu-text">@name</span><b class="arrow fa fa-angle-down"></b></a>';
 var rootLeafTemplate = '<li><a data-id="@id" class="CyScadaSideItem" data-href="@url" href="@url?@id"  onclick="Click(this)"><i class="@class"></i><span class="menu-text">@name</span></a>';
 
 
