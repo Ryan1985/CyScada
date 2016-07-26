@@ -527,7 +527,7 @@ $(function () {
 
 function refreshDisplay(data) {
     if (data) {
-
+        console.log(data[machineInfo.Tags[30].Key].Value);
         //console.log('DeQueue|' +(new Date()).toLocaleString());
         //var data = dataQueue.splice(0, 1)[0];
 
