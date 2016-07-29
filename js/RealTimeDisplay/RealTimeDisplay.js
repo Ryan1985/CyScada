@@ -12,14 +12,9 @@ var chart4;
 var chart5;
 var tagList = [];
 var machineInfo = {};
-var switchLock = 1;
+
 $(function () {
-    var cw = $(document).width();
-    console.log(cw);
-    if (cw < 600) {
-        //' <div id="'+'chart-1"'+' style="'+'height:200px;"'+'></div>'
-        $("#chart-1-box").html(' <div id="'+'chart-1"'+' style="'+'height:200px;"'+'></div>');
-    }
+
     $.get('../api/RealTimeDisplay?sideMenuId=' + $('#sideMenuId').text() + '&userId=' + $('#userId').attr('data-userid'), function (data) {
         //for (var i = 0; i < machineInfo.Tags.length; i++) {
         //    tagList.push(machineInfo.Tags[i].Key);
@@ -29,9 +24,11 @@ $(function () {
             chart1 =new Highcharts.Chart({
                 chart: {
                     type: 'spline',
-                    renderTo: 'chart-1',
-                    animation: Highcharts.svg,//Highcharts.svg, // don't animate in old IE
-                    marginRight: 10,
+                    renderTo: 'Chart1',
+                    animation: false,//Highcharts.svg, // don't animate in old IE
+                    backgroundColor: '',
+                    margin:[0,0,0,0],
+                   // marginRight: 10,
                     //events: {
                     //    load: function() {
                     //        var series = this.series[0];
@@ -53,14 +50,14 @@ $(function () {
                 },
                 xAxis: {
                     type: 'datetime',
-                    tickPixelInterval: 100
+                    tickPixelInterval: 150
                 },
                 yAxis: {
                     min: machineInfo.Tags[14].MinScale,
                     max: machineInfo.Tags[14].MaxScale,
                     tickPositions: [0, 10,20,30,40,50,60,70,80,90,100],
                     title: {
-                        text: null
+                        text: machineInfo.Tags[14].Scale
                     },
                     plotLines: [{
                         value: 0,
@@ -97,7 +94,7 @@ $(function () {
                             });
                         }
                         return data;
-                    })()
+                    }())
                 }]
             });
         }
@@ -530,7 +527,7 @@ $(function () {
 
 function refreshDisplay(data) {
     if (data) {
-       // console.log(data[machineInfo.Tags[23].Key].Name);
+        console.log(data[machineInfo.Tags[30].Key].Value);
         //console.log('DeQueue|' +(new Date()).toLocaleString());
         //var data = dataQueue.splice(0, 1)[0];
 
@@ -598,22 +595,6 @@ function refreshDisplay(data) {
         //console.log('downShow|' +(new Date()).toLocaleString());
 
         //console.log('DataTreatEnd|' +(new Date()).toLocaleString());
-        //设备开关 start
-        var machineSwitchValue;
-            for (var i=23;i<200;i++){
-                if (machineInfo.Tags[i]) {
-                    $('#switch-' + (i - 22)).attr('data-TagKey', machineInfo.Tags[i].Key);
-                    if (data[machineInfo.Tags[i].Key]) {
-                        machineSwitchValue=data[machineInfo.Tags[i].Key].Value;
-                    }else{
-                        machineSwitchValue=2;
-                    }
-                    $('#switchLight-' + (i - 22)).attr('data-bj-switch', machineSwitchValue);
-                    $('#switchName-' + (i - 22)).text(machineInfo.Tags[i].Name);
-                }
-            }
-            $(".bj-switchClick").removeClass("bj-switchClick");
-            switchLock = 1;
     }
 }
 
@@ -631,46 +612,7 @@ function refreshItemValues() {
 
 
 function setValue(obj) {
-    if (switchLock == 1) {
-        switchLock = 0;
-        var statusValue = obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value;
-        var currentLightId = obj.parentElement.children[0].children[0]["id"];
-        var currentId = obj["id"];
-        console.log(currentLightId);
-        console.log(obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value);
-        $('#' + currentId).addClass("bj-switchClick");
-        if (statusValue == 2) {
-            return false;//数据data里面不包含这个 点的值
-        }
-        if (statusValue == 1) {
-            $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), 0] }, function (d) {
-                console.log(d, "==1发送成功返回信息");
-                // obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value = 0;
-                // $('#' + currentLightId).attr('data-bj-switch', 0);//可能需要
-                switchLock = 1;
-            }, function (error) {
-                alert(error);
-            });
-        }
-        if (statusValue == 0) {
-            $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), 1] }, function (d) {
-                console.log(d,"==0发送成功返回信息");
-                //  obj.parentElement.children[0].children[0].attributes["data-bj-switch"].value = 1;
-                 // $('#' + currentLightId).attr('data-bj-switch', 1);//可能需要
-                switchLock = 1;
-            }, function (error) {
-                alert(error);
-            });
-        }
-        $(".bj-switchClick").removeClass("bj-switchClick");
-    }
-   
+    $.post('../api/RealTimeDisplay', { '': [$(obj).attr('data-TagKey'), $('#txt' + obj.id).val()] }, function () {
+    }, function(error) { alert(error); });
 }
-$(function () {
-    Highcharts.setOptions({
-        global: {
-            useUTC:false
 
-        }
-    })
-})

@@ -4,7 +4,6 @@
 }
 
 @section HeadSection{
-    <link rel="stylesheet" href="~/css/bj-aui/aui.2.0.css" />
     <!--[if lte IE 8]><script src="/js/Phantom/ie/html5shiv.js"></script><![endif]-->
     <link rel="stylesheet" href="/css/Phantom/main.css" />
     <!--[if lte IE 9]><link rel="stylesheet" href="/css/Phantom/ie9.css" /><![endif]-->
@@ -34,59 +33,7 @@
 
 }
 
-<style type="text/css">
-    @@media screen and (max-width: 768px) {
-        .col-lg-12 {
-            padding: 0;
-            width: 100%;
-        }
 
-        .row {
-            padding: 0;
-        }
-
-        .container-fluid {
-            padding: 0;
-        }
-
-        .CyScadaSideItem {
-            font-size: 13px;
-        }
-
-        .col-lg-8, .col-lg-4 {
-            padding: 0;
-        }
-        #chart-1{
-           
-            height:200px;
-        }
-    }
-</style>
-<style type="text/css">
-   
-    .bj-statusLight {
-        width: 30px;
-        height: 30px;
-        border: 1px red solid;
-        border-radius: 50%;
-    }
-    .bj-statusLight[data-bj-switch="2"] {
-        border: 1px red solid;
-    }
-    .bj-statusLight[data-bj-switch="1"]{
-        border: none;
-        background: green;
-    }
-
-    .bj-statusLight[data-bj-switch="0"] {
-        border: none;
-        background: red;
-    }
-    .bj-switchClick{
-        background:#aaa;
-    }
-   
-</style>
 
 
 <div class="hide" id="sideMenuId">@ViewBag.SideMenuId</div>
@@ -250,18 +197,18 @@
             </div>
         </div>
         <div class="row">
-           
+            <div class="col-lg-12">
                 <div class="widget-box">
                     <div class="widget-header">
                         <h4 class="smaller">实时温度</h4>
                     </div>
                     <div class="widget-body">
-                        <div class="widget-main" id="chart-1-box">
-                            <div id="chart-1"></div>
+                        <div class="widget-main">
+                            <div id="Chart1" style="margin-bottom:20px;"></div>
                         </div>
                     </div>
                 </div>
-           
+            </div>
         </div>
         <div class="row">
             <div class="col-lg-8">
@@ -296,202 +243,67 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="smaller">设备开关</h4>
-                    </div>
-
-                    <div class="panel-body">
-
-                        <div class="col-lg-4" style="margin-top:20px;">
-                            <div class="aui-content aui-margin-b-15">
-                                <ul class="aui-list aui-form-list">
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-1"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-1">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-1" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-2"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-2">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-2" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-3"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-3">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-3" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-4"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-4">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-4" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-5"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-5">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-5" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                </ul>
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">前部承重设定</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                                <div class="col-lg-2"><div id="lblValueFor" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置承重:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueFor" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueFor"><i class="icon-wrench"></i>设置</button>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="col-lg-4" style="margin-top:20px;">
-                            <div class="aui-content aui-margin-b-15">
-                                <ul class="aui-list aui-form-list">
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-6"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-6">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-6" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-7"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-7">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-7" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-8"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-8">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-8" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-9"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-9">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-9" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-10"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-10">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-10" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                                <div class="col-lg-2"><div id="lblValueFor1" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置承重:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueFor1" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueFor1"><i class="icon-wrench"></i>设置</button>
+                                </div>
                             </div>
-
-                        </div>
-                        <div class="col-lg-4" style="margin-top:20px;">
-                            <div class="aui-content aui-margin-b-15">
-                                <ul class="aui-list aui-form-list">
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-11"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-11">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-11" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-12"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-12">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-12" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-13"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-13">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-13" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-14"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-14">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-14" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                    <li class="aui-list-item">
-                                        <div class="aui-list-item-inner">
-                                            <div class="aui-list-item-label">
-                                                <div class="bj-statusLight" id="switchLight-15"></div>
-                                            </div>
-                                            <div class=" aui-list-item-input" id="switchName-15">
-                                                Switch
-                                            </div>
-                                            <div class="aui-btn aui-btn-sm" id="switch-15" onclick="setValue(this)">开/关</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="col-lg-6" style="margin-top:20px;">
+                <div class="widget-box">
+                    <div class="widget-header"><h4 class="smaller">后部承重设定</h4></div>
+                    <div class="widget-body">
+                        <div class="widget-main">
+                            <div class="row">
+                                <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                                <div class="col-lg-2"><div id="lblValueB" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置承重:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueB" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueB"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
 
+                            <div class="row">
+                                <div class="col-lg-2" style="font-size:20px;">当前承重:</div>
+                                <div class="col-lg-2"><div id="lblValueB1" style="font-size:20px;"></div></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    设置承重:
+                                </div>
+                                <div class="col-lg-2"><input type="text" class="form-control" id="txtValueB1" /></div>
+                                <div class="col-lg-2" style="font-size:20px;">
+                                    <button class="btn  btn-primary CyScadaBtn" onclick="setValue(this)" id="ValueB1"><i class="icon-wrench"></i>设置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

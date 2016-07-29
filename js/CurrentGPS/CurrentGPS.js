@@ -58,7 +58,6 @@
             .replace('@Company', data.Company)
             .replace('@Description', data.Description);
         contents.push(content);
-        markerMove(marker);
         markers.push(marker);
         marker.addEventListener("mouseover", function (e) {
             var searchWindow = new BMapLib.SearchInfoWindow(map, getCurrentContent(contents, markers, e.currentTarget), opts);
@@ -74,12 +73,7 @@
 
 });
 
-function markerMove(m) {
-    m.setAnimation(BMAP_ANIMATION_BOUNCE);
-    var timer = setTimeout(function () {
-        m.setAnimation(null);
-    }, 1500);
-} //markerMove
+
 
 function getCurrentContent(contentArray, markerArray, currentMarker) {
     for (var i = 0; i < markerArray.length; i++) {
