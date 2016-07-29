@@ -157,6 +157,7 @@
     <Compile Include="Controllers\EquipmentListController.cs" />
     <Compile Include="Controllers\EquipmentSelectionController.cs" />
     <Compile Include="Controllers\GPSPathController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Controllers\HistoryController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MapBoardController.cs" />
@@ -602,6 +603,7 @@
     <Content Include="css\ace\ui.jqgrid.css" />
     <Content Include="css\AuthorityAssign.css" />
     <Content Include="css\BaseInfo.css" />
+    <Content Include="css\bj-aui\aui.2.0.css" />
     <Content Include="css\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="css\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="css\bootstrap-select\bootstrap-select.css" />
@@ -808,6 +810,7 @@
     <Content Include="Images\Pic\TemperatureIn.svg" />
     <Content Include="Images\Pic\TorqueBackward.svg" />
     <Content Include="Images\Pic\TorqueForward.svg" />
+    <Content Include="img\icon_focus_marka.png" />
     <Content Include="img\RealTimeMachine.jpg" />
     <Content Include="img\Machine1.jpg" />
     <Content Include="img\markers.png" />
@@ -2105,6 +2108,7 @@
     <Content Include="js\MapBoard\MapBoard.js" />
     <Content Include="js\metisMenu\metisMenu.js" />
     <Content Include="js\metisMenu\metisMenu.min.js" />
+    <Content Include="js\moment-with-locales.js" />
     <Content Include="js\morris-data.js" />
     <Content Include="js\morrisjs\morris.js" />
     <Content Include="js\morrisjs\morris.min.js" />
@@ -2486,6 +2490,7 @@
     <Content Include="Views\Shared\_SideMenu3.cshtml" />
     <Content Include="Views\ParameterSetting\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutNew4.cshtml" />
+    <Content Include="Views\Report\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
