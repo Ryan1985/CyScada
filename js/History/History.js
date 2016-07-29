@@ -40,10 +40,20 @@ angular.module("History", ['mgcrea.ngStrap', 'viewService'])
             });
         });
 
+        
 
         $scope.Query = function () {
             $scope.condition.MachineId = $('#selMachine').val();
             $scope.condition.DeviceName = $('#selMachineTags').val();
+            console.log($scope.condition);
+            if ($scope.condition.MachineId == "全部") {
+                $scope.condition.MachineId = ""; 
+            }
+            if ($scope.condition.DeviceName == "全部") {
+                $scope.condition.DeviceName = "";
+            }
+            $scope.condition.StartDate = $("#dtStartDate").val();
+            $scope.condition.EndDate = $("#dtEndDate").val();
             historyService.getList($scope.condition).success(function (data) {
                 $('#ListTable').bootstrapTable('load', data);
                 bindChart(data);
@@ -54,12 +64,20 @@ angular.module("History", ['mgcrea.ngStrap', 'viewService'])
 
         $scope.initial();
 
-
     });
 
 angular.bootstrap(angular.element("#History"), ["History"]);
 
-
+firstQuery();
+function firstQuery() {
+    var curTimeF = new Date().getTime();
+    var endTimeF = moment(curTimeF).format("YYYY-MM-DD");
+    var startTimeF = moment(curTimeF).subtract("2", "month").format("YYYY-MM-DD");
+    console.log(endTimeF, startTimeF);
+    $("#dtStartDate").val(startTimeF);
+    $("#dtEndDate").val(endTimeF);
+    $("#btnQuery").trigger("click");
+}
 
 function rowNumberFormatter(value, row, index) {
     return '<span>' + (Number(index) + 1) + '</span>';
