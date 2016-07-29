@@ -10,9 +10,9 @@ angular.module("SideMenu", [])
                     var treeHtml = [];
                     for (var i = 0; i < data.length; i++) {
                         if (data[i].SubMenus == undefined || data[i].SubMenus.length == 0) {
-                            treeHtml.push(rootLeafTemplate.replace('@url', data[i].Url).replace('@name', data[i].Name).replace('@class', data[i].Class).replace('@id', 'menuId=' + data[i].Id));
+                            treeHtml.push(rootLeafTemplate.replace('@url', data[i].Url).replace('@url', data[i].Url).replace('@name', data[i].Name).replace('@class', data[i].Class).replace('@id', 'menuId=' + data[i].Id).replace('@id', 'menuId=' + data[i].Id));
                         } else {
-                            treeHtml.push(rootBranchTemplate.replace('@url', data[i].Url).replace('@name', data[i].Name).replace('@class', data[i].Class).replace('@id', 'menuId=' + data[i].Id));
+                            treeHtml.push(rootBranchTemplate.replace('@url', data[i].Url).replace('@url', data[i].Url).replace('@name', data[i].Name).replace('@class', data[i].Class).replace('@id', 'menuId=' + data[i].Id).replace('@id', 'menuId=' + data[i].Id));
                             treeHtml.push('<ul class="submenu">');
                             for (var j = 0; j < data[i].SubMenus.length; j++) {
                                 AppendBranch(treeHtml, data[i].SubMenus[j]);
