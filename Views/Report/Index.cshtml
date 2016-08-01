@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "历史查询";
+    ViewBag.Title = "报表";
     Layout = "~/Views/Shared/_LayoutNew4.cshtml";
 }
 
@@ -11,6 +11,8 @@
     <link href="~/css/bootstrap-table/bootstrap-table.min.css" rel="stylesheet" />
     <link href="~/css/Select2/select2.min.css" rel="stylesheet" />
     <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
+
+    <link href="~/js/bj-table-datatables/css/jquery.dataTables.css" rel="stylesheet"/>
 
 
 }
@@ -32,19 +34,21 @@
     <script type="text/javascript" src="~/js/Select2/select2.full.min.js"></script>
     <script type="text/javascript" src="~/js/Select2/i18n/zh-CN.js"></script>
     <script type="text/javascript" src="~/js/Services/ViewServices.js?r=201604250001"></script>
-<script type="text/javascript" src="~/js/moment-with-locales.js"></script>
-    <script type="text/javascript" src="~/js/History/History.js?r=20160531009"></script>
+    <script type="text/javascript" src="~/js/moment-with-locales.js"></script>
+
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/jquery.dataTables.js"></script>
+    <script type="text/javascript" src="~/js/Report/Report.js"></script>
   
     
 }
 
 
 <div>
-    dddd
+    <table id="example" class="display" width="100%"></table>
+    
 </div>
 
-
-<script>
+ <script>
     var sideMenuId = @ViewBag.SideMenuId
 </script>
 

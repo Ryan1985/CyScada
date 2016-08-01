@@ -604,6 +604,20 @@
     <Content Include="css\AuthorityAssign.css" />
     <Content Include="css\BaseInfo.css" />
     <Content Include="css\bj-aui\aui.2.0.css" />
+    <Content Include="js\bj-table-datatables\css\jquery.dataTables.css" />
+    <Content Include="js\bj-table-datatables\css\jquery.dataTables.min.css" />
+    <Content Include="js\bj-table-datatables\images\favicon.ico" />
+    <Content Include="js\bj-table-datatables\images\sort_asc.png" />
+    <Content Include="js\bj-table-datatables\images\sort_asc_disabled.png" />
+    <Content Include="js\bj-table-datatables\images\sort_both.png" />
+    <Content Include="js\bj-table-datatables\images\sort_desc.png" />
+    <Content Include="js\bj-table-datatables\images\sort_desc_disabled.png" />
+    <Content Include="js\bj-table-datatables\js\jquery.dataTables.js" />
+    <Content Include="js\bj-table-datatables\js\jquery.dataTables.min.js" />
+    <Content Include="js\bj-table-datatables\prettifyWillDel\bootstrap.min.css" />
+    <Content Include="js\bj-table-datatables\prettifyWillDel\jquery-1.12.3.min.js" />
+    <Content Include="js\bj-table-datatables\prettifyWillDel\jquery.dataTables.css" />
+    <Content Include="js\bj-table-datatables\prettifyWillDel\jquery.dataTables.js" />
     <Content Include="css\bootstrap-datetimepicker\bootstrap-datetimepicker.css" />
     <Content Include="css\bootstrap-datetimepicker\bootstrap-datetimepicker.min.css" />
     <Content Include="css\bootstrap-select\bootstrap-select.css" />
@@ -2099,6 +2113,7 @@
     <Content Include="js\highCharts\themes\grid.js" />
     <Content Include="js\highCharts\themes\sand-signika.js" />
     <Content Include="js\highCharts\themes\skies.js" />
+    <Content Include="js\Report\Report.js" />
     <Content Include="js\History\History.js" />
     <Content Include="js\jquery-1.12.2.min.js" />
     <Content Include="js\jquery.cookie.js" />
@@ -2440,6 +2455,7 @@
     <Content Include="assets\font\DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff" />
     <Content Include="assets\js\ace\readme" />
     <Content Include="assets\js\ace\scripts.json" />
+    <Content Include="js\bj-table-datatables\images\Sorting icons.psd" />
     <None Include="Properties\PublishProfiles\CyScada.pubxml" />
     <Content Include="Views\Shared\_LayoutNew.cshtml" />
     <Content Include="Views\Dashboard\Index.cshtml" />
