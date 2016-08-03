@@ -13,6 +13,8 @@
     <link href="~/css/Select2/select2-bootstrap.css" rel="stylesheet" />
 
     <link href="~/js/bj-table-datatables/css/jquery.dataTables.css" rel="stylesheet"/>
+    
+    <link rel="stylesheet" href="~/js/bj-table-datatables/css/buttons.dataTables.css" />
 
 
 }
@@ -38,14 +40,35 @@
 
     <script type="text/javascript" src="~/js/bj-table-datatables/js/jquery.dataTables.js"></script>
     <script type="text/javascript" src="~/js/Report/Report.js"></script>
-  
+
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/dataTables.buttons.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/jszip.min.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.html5.js"></script>
+    <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.print.js"></script>
+  <script type="text/javascript" src="~/js/bj-table-datatables/js/buttons.flash.js"></script>
     
 }
 
-
+<style>
+    .panel-body{
+    padding:30px;
+    }
+  @@media only screen  and (max-width:768px){
+        .panel,.panel-default,.panel-body{
+            margin:0;
+            padding:0;
+            border:none;
+        }
+    }
+</style>
 <div>
-    <table id="example" class="display" width="100%"></table>
-    
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table id="example" class="display cell-border hover" width="100%"></table>
+        </div>
+       
+    </div>
+   
 </div>
 
  <script>

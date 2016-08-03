@@ -37,7 +37,18 @@
   
     
 }
-
+<style>
+    @@media only screen and (max-width:768px){
+         .col-lg-12,.container-fluid,.col-xs-12{
+           padding:0;width: 100%;
+        }
+        #Chart{
+       height:200px;
+       
+        }
+    }
+   
+</style>
 
 <div ng-app="History" id="History">
     <div ng-controller="HistoryController">
@@ -68,7 +79,7 @@
                 <div class="widget-box">
                     <div class="widget-header"><h4 class=" smaller"><i class="icon-list"></i>查询结果</h4></div>
                     <div class="widget-body">
-                        <div class="widget-main">
+                        <div class="widget-main" style="margin:0;padding:0">
                             <table id="ListTable" data-toggle="table" data-striped="true"
                                    data-show-pagination-switch="false"
                                    data-pagination="true"
@@ -92,15 +103,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-12">
-                <div class="widget-header"><h4 class=" smaller"><i class="icon-bar-chart"></i>图形展示</h4></div>
-                <div class="widget-body">
-                    <div class="widget-main">
-                        <div id="Chart"></div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="widget-box">
+                        <div class="widget-header"><h4 class=" smaller"><i class="icon-bar-chart"></i>图形展示</h4></div>
+                        <div class="widget-body">
+                            <div class="widget-main" style="margin:0;padding0;">
+                                <div id="Chart"></div>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-
-
             </div>
         </div>
     </div>
