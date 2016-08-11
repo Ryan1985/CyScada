@@ -104,7 +104,7 @@ function bindChart(chartData) {
             }
         },
         yAxis: {
-            title: { text: '历史记录' },
+            title: { text:null },
             plotLines: [{ value: 0, width: 1, color: '#808080' }]
         },
         tooltip: {
