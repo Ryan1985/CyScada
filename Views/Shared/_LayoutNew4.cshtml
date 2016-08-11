@@ -2,6 +2,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    @{
+        if(ViewBag.total==null){
+            ViewBag.total = 100000000;
+        }
+    }
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
     <title>物联网远程设备集中监控管理演示平台</title>
@@ -111,9 +116,12 @@
             <!-- #section:basics/navbar.dropdown -->
             <div class="navbar-buttons navbar-header pull-right" role="navigation">
                 <ul class="nav ace-nav">
-
+                    <li style="color:white;" id="onlinepane">
+                        当前在线人数:&nbsp;&nbsp;<span style="" id="online">@ViewBag.total</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    </li>
                     <!-- #section:basics/navbar.user_menu -->
                     <li class="light-blue">
+                       
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle" id="userId" data-userid="@ViewBag.Id">
                             <img class="nav-user-photo" src="/img/user.png" alt="@ViewBag.Name" />
                             <span class="user-info">
@@ -271,6 +279,12 @@
     <script src="/docs/assets/js/language/html.js"></script>
     <script src="/docs/assets/js/language/css.js"></script>
     <script src="/docs/assets/js/language/javascript.js"></script>   
-     @RenderSection("FootScript", false)
+     @RenderSection("FootScript", false);
+    <script>
+        if ($("#online").text() == 100000000) {
+            $("#onlinepane").addClass("hidden");
+        }
+      
+    </script>
 </body>
 </html>

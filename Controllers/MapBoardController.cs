@@ -21,7 +21,12 @@ namespace CyScada.Web.Controllers
             }
             ViewBag.Id = user.Id;
             ViewBag.Name = user.Name;
+            ViewBag.total = GetOnlineUserCount();
             return View();
+        }
+        protected string GetOnlineUserCount()
+        {
+            return HttpContext.Application["total"].ToString();
         }
 
         ////
