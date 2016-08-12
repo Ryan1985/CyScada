@@ -46,7 +46,7 @@
     $.get('../api/MapBoard?userId=' + $('#userId').attr('data-userid')).success(function (data) {
         for (var i = 0; i < data.length; i++) {
             var marker = new BMap.Marker(new BMap.Point(data[i].Longitude, data[i].Latitude), {icon:myIcon});
-            map.addOverlay(marker);// 将标注添加到地图中
+           // map.addOverlay(marker);// 将标注添加到地图中
             var content = getBaseInfoTemplates()
                 .replace('@Pic', data[i].Pic)
                 .replace('@Name', data[i].Name)
