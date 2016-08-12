@@ -1934,7 +1934,6 @@
     <Content Include="js\bj-table-datatables\js\jszip.min.js" />
     <Content Include="js\bj-table-datatables\js\pdfmake.min.js" />
     <Content Include="js\bj-table-datatables\js\vfs_fonts.js" />
-    <Content Include="js\bj-table-datatables\zh_CN.txt" />
     <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
     <Content Include="js\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
     <Content Include="js\bootstrap-datetimepicker\locales\bootstrap-datetimepicker.ar.js" />
