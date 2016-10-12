@@ -115,6 +115,7 @@ namespace CyScada.Web.OpcClient
                 catch (Exception ex)
                 {
                     _ErrorMessage = ex.Message;
+                    Thread.Sleep(10000);
                     Reconnect();
                 }
 
@@ -255,6 +256,13 @@ namespace CyScada.Web.OpcClient
                 items[i] = new Opc.Da.Item();
                 items[i].ItemName = ItemNames[i];
             }
+
+            if (opcSub == null)
+            {
+                EnqueueLog("添加点组出现错误");
+                return;
+            }
+
             Opc.Da.ItemResult[] results = opcSub.AddItems(items);
             for (int i = 0; i < results.Length; i++)
             {
