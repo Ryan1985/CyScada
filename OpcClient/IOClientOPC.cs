@@ -262,15 +262,23 @@ namespace CyScada.Web.OpcClient
                 EnqueueLog("添加点组出现错误");
                 return;
             }
-
-            Opc.Da.ItemResult[] results = opcSub.AddItems(items);
-            for (int i = 0; i < results.Length; i++)
+            try
             {
-                if (!results[i].ResultID.Succeeded())
+                Opc.Da.ItemResult[] results = opcSub.AddItems(items);
+                for (int i = 0; i < results.Length; i++)
                 {
-                    EnqueueLog("添加点出现错误:点[" + results[i].ItemName + "]添加失败,原因为:" + results[i].ResultID.ToString());
-                    //LogClass.Logs.Enqueue("批量添加点出现错误:点[" + results[i].ItemName + "]添加失败,原因为:" + results[i].ResultID.ToString());
+                    if (!results[i].ResultID.Succeeded())
+                    {
+                        EnqueueLog("添加点出现错误:点[" + results[i].ItemName + "]添加失败,原因为:" + results[i].ResultID.ToString());
+                        //LogClass.Logs.Enqueue("批量添加点出现错误:点[" + results[i].ItemName + "]添加失败,原因为:" + results[i].ResultID.ToString());
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                EnqueueLog("添加点点出现错误:"+ex.Message);
+                return;
             }
 
 

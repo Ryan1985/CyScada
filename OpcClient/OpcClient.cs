@@ -57,19 +57,7 @@ namespace CyScada.Web.OpcClient
                 Directory.CreateDirectory(LogPath);
             }
             LogQueue.Enqueue("StartClient");
-            if (dtTags == null)
-            {
-                var bllTags = new BllMachineTagList();
-                dtTags = bllTags.GetAllTags();
-            }
-            var serverAddress = ConfigurationManager.AppSettings["ServerAddress"];
-            var serverNameList = dtTags.AsEnumerable().Select(dr => dr["ServerAddress"].ToString()).Distinct().ToList();
-            ClientList.EnqueueRec += client_EnqueueRec;
-            ClientList.EnqueueLog += client_EnqueueLog;
-            ClientList.ServerAddress = serverAddress + "/" + serverNameList.First();
-            ClientList.ConnectServer();
-            ClientList.AddItems(dtTags.AsEnumerable().Select(dr => dr["DeviceName"].ToString()).Distinct().ToArray());
-            ClientList.StartRead();
+
 
             ThreadPool.QueueUserWorkItem(w =>
             {
@@ -78,13 +66,46 @@ namespace CyScada.Web.OpcClient
                     if (LogQueue.Count > 0)
                     {
                         var log = LogQueue.Dequeue();
-                        File.AppendAllText(LogPath + "\\Log"+DateTime.Now.ToString("yyyyMMdd")+".txt",
-                            "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + log+"\r\n");
+                        File.AppendAllText(LogPath + "\\Log" + DateTime.Now.ToString("yyyyMMdd") + ".txt",
+                            "[" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss:fff") + "]" + log + "\r\n");
                     }
                     Thread.Sleep(100);
                 }
             });
 
+
+            ThreadPool.QueueUserWorkItem(w =>
+            {
+                while (_isRun)
+                {
+                    try
+                    {
+                        if (dtTags == null)
+                        {
+                            var bllTags = new BllMachineTagList();
+                            dtTags = bllTags.GetAllTags();
+                        }
+                        var serverAddress = ConfigurationManager.AppSettings["ServerAddress"];
+                        var serverNameList =
+                            dtTags.AsEnumerable().Select(dr => dr["ServerAddress"].ToString()).Distinct().ToList();
+                        ClientList.EnqueueRec += client_EnqueueRec;
+                        ClientList.EnqueueLog += client_EnqueueLog;
+                        ClientList.ServerAddress = serverAddress + "/" + serverNameList.First();
+                        ClientList.ConnectServer();
+                        ClientList.AddItems(
+                            dtTags.AsEnumerable().Select(dr => dr["DeviceName"].ToString()).Distinct().ToArray());
+                        ClientList.StartRead();
+                        break;
+                    }
+                    catch (Exception ex)
+                    {
+                        LogQueue.Enqueue("启动OPC模块发生错误:" + ex.Message);
+                    }
+                    Thread.Sleep(60000);
+                }
+
+
+            });
 
 
             ThreadPool.QueueUserWorkItem(w =>
